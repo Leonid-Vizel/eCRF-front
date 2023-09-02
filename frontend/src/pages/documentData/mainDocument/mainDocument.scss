@@ -1,0 +1,350 @@
+.layout {
+  box-sizing: border-box;
+  display: grid;
+  column-gap: 30px;
+  grid-template-columns: 1fr 2fr;
+}
+
+.error-message-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  text-align: center;
+  background-color: #d8d8d8;
+  border-radius: 10px;
+  color: black;
+
+  .font-span {
+    font-weight: 600;
+  }
+
+  span {
+    padding: 10px;
+  }
+}
+
+.document-data {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+
+  .document-data-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    button {
+      border: none;
+      color: white;
+      border-radius: 10px;
+      margin: 20px;
+      height: 50px;
+      width: 300px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+      background-color: #32A1E3;
+      transition: 0.3s all ease;
+
+      &:hover {
+        background-color: #337ca9;
+        cursor: pointer;
+      }
+    }
+
+    .document-data-block-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      width: 100%;
+
+      .fileInput {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-self: center;
+        align-items: center;
+        width: 50%;
+        border-radius: 10px;
+        padding: 30px;
+        margin: 20px 20px 20px 20px;
+        background-color: #ffffff;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+
+        span {
+          font-weight: 500;
+          font-size: 24px;
+          margin-bottom: 10px;
+        }
+      }
+
+      .document-data-block-info-block {
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: #ffffff;
+        padding: 15px;
+        border-radius: 10px;
+        margin: 20px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+
+
+        .document-data-block-info-block-top {
+          font-weight: 600;
+          font-size: 24px;
+          margin: 10px;
+        }
+
+        .document-data-block-info-block-bottom {
+          display: flex;
+          flex-direction: row;
+
+          .document-data-block-info-block-bottom-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            .localStorage-input {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              text-align: center;
+              width: 400px;
+
+              input {
+                width: 200px;
+                border-radius: 10px 10px 0 0;
+              }
+            }
+
+            .benefit {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              margin: 15px;
+            }
+
+            select {
+              width: 200px;
+            }
+
+            .document-data-block-info-block-bottom-info-inputs {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              text-align: center;
+              width: 100%;
+
+              .document-input-block {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: end;
+                text-align: center;
+                width: 100%;
+                margin-bottom: 50px;
+                background-color: #dde4ea;
+                padding: 10px;
+                border-radius: 10px;
+
+                &.phones {
+                  width: 800px;
+                }
+
+                .document-input-block-label-date {
+                  width: 120px;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+                  align-items: center;
+
+                  .document-input-block-label-date-span {
+                    font-size: 12px;
+                  }
+
+                  .document-input {
+                    height: 30px;
+                    width: 100px;
+                    margin: 5px;
+                    text-align: center;
+                    font-size: 14px;
+                  }
+                }
+
+                .document-input-block-label-sm {
+                  display: flex;
+                  width: 170px;
+                  justify-content: center;
+                  flex-direction: column;
+                  align-items: center;
+
+                  &.phones-label {
+                    width: 600px;
+                  }
+
+                  .document-input-block-label-date-span {
+                    font-size: 12px;
+                  }
+
+                  .document-input-doc {
+                    //height: 30px;
+                    width: 390px;
+                    line-height: 15px;
+                    margin: 5px;
+                    border-radius: 10px;
+                    padding: 10px;
+                    text-align: start;
+                    font-size: 18px;
+                  }
+                }
+
+                .document-input-block-label {
+                  width: 400px;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+                  align-items: center;
+
+                  .document-input-block-label-date-span {
+                    font-size: 12px;
+                  }
+
+                  .document-input-doc {
+                    //height: 30px;
+                    width: 350px;
+                    line-height: 15px;
+                    margin: 0 15px 5px 25px;
+                    border-radius: 10px;
+                    padding: 10px;
+                    text-align: start;
+                    font-size: 18px;
+                  }
+                }
+
+                label {
+                  position: relative;
+                  width: 180px;
+
+                  .document-input-block-label-date-span {
+                    font-size: 12px;
+                  }
+
+                  &.phones-label {
+                    width: 400px;
+                  }
+
+                  .document-input-doc-sm {
+                    width: 150px;
+                    line-height: 15px;
+                    margin: 0 5px 5px 5px;
+                    border-radius: 10px;
+                    padding: 10px;
+                    text-align: start;
+                    font-size: 14px;
+
+                    &.phones {
+                      width: 400px;
+                    }
+                  }
+
+                  .document-input-doc-phone-sm {
+                    width: 150px;
+                    line-height: 15px;
+                    margin: 0 5px 5px 5px;
+                    border-radius: 10px;
+                    padding: 10px;
+                    text-align: center;
+                    font-size: 14px;
+                  }
+
+                  select {
+                    width: 130px;
+                  }
+
+                  .document-input {
+                    height: 30px;
+                    width: 150px;
+                    margin: 5px;
+                    text-align: start;
+                    font-size: 14px;
+
+                    &.local-storage {
+                      width: 150px;
+                    }
+
+                    &.phones {
+                      width: 70%;
+                    }
+                  }
+                }
+
+                .document-button-block {
+                  display: flex;
+                  justify-content: start;
+                  align-items: center;
+
+                  .document-button {
+                    margin: 10px;
+                    width: 130px;
+                    height: 40px;
+                    padding: 2px;
+                  }
+                }
+              }
+            }
+
+
+            span {
+              font-size: 18px;
+              font-weight: 550;
+              margin: 5px;
+            }
+          }
+
+          input {
+            font-size: 18px;
+            padding: 5px;
+            width: 200px;
+            //height: auto;
+            white-space: pre-wrap;
+            border-radius: 10px;
+            outline: none;
+            //border: none;
+
+            .benefit {
+              width: 800px;
+            }
+          }
+
+          input[type="date"],
+          input[type='number'],
+          select {
+            font-size: 18px;
+            padding: 5px;
+            width: 250px;
+            height: auto;
+            white-space: pre-wrap;
+            border-radius: 10px;
+            outline: none;
+            cursor: pointer;
+            margin: 10px;
+            border: 2px solid black;
+
+            &:hover {
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+}

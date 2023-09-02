@@ -1,0 +1,59 @@
+.document-sidebar {
+    display: flex;
+    flex-direction: column;
+    margin: 25px;
+    padding: 20px;
+    color: black;
+
+    button {
+        background-color: #32A1E3;
+        color: white;
+        border: none;
+        font-size: 18px;
+        width: 240px;
+        height: 30px;
+        border-radius: 10px;
+        cursor: pointer;
+        margin: 5px;
+        transition: 0.2s all ease;
+
+        &:hover {
+            scale: 1.05;
+        }
+    }
+
+    &-block {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        min-width: 300px;
+        padding: 10px;
+        border-radius: 10px;
+        font-size: 24px;
+        font-weight: 550;
+        box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+
+        &-options {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            margin: 10px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 400;
+            color: #000000;
+            border-radius: 10px;
+            padding: 10px;
+            width: 80%;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+            transition: 0.3s all ease;
+
+            &--bottom {
+                display: flex;
+                justify-content: space-around;
+            }
+        }
+    }
+}

@@ -1,0 +1,26 @@
+.anthropometry-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #2a85b0;
+  width: 100%;
+
+  .anthropometry-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+
+    label {
+      width: 100%;
+      //padding: 10px;
+      //margin: 20px;
+
+      select {
+        width: 100%;
+      }
+    }
+  }
+}

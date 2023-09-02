@@ -1,0 +1,120 @@
+.journal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+
+  .back-button {
+    text-align: center;
+    height: 30px;
+    width: 200px;
+    border-radius: 10px;
+    background-color: #32A1E3;
+    color: white;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s all ease-in-out;
+    position: absolute;
+    left: 10px;
+    top: 200px;
+
+    &:hover {
+      background-color: #3890c1;
+    }
+  }
+
+  .journal-table {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 30px;
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      //color: white;
+
+      button {
+        width: 36px;
+        height: 30px;
+        cursor: pointer;
+        border: 1px solid blue;
+        border-radius: 5px;
+        background: transparent;
+        margin-right: 5px;
+        transition: 0.3s all ease-in-out;
+
+        &:hover {
+          background: #32A1E3;
+        }
+      }
+    }
+
+    .data-table th,
+    .data-table td {
+      border: 1px solid #316b8e;
+      padding: 10px;
+    }
+
+    .data-table .td-as-button {
+      cursor: pointer;
+      color: white;
+      background-color: #32A1E3;
+        transition: 0.3s all ease-in-out;
+
+      &:hover {
+        background-color: #2a82b3;
+      }
+    }
+
+    .data-table {
+      background-color: #CFE2FF;
+    }
+
+    //.data-table td:nth-child(1) {
+    //  width: 62px;
+    //}
+    //.data-table td:nth-child(2) {
+    //  width: 120px;
+    //}
+    //.data-table td:nth-child(3) {
+    //  width: 195px;
+    //}
+    //.data-table td:nth-child(4) {
+    //  width: 170px;
+    //}
+    //.data-table td:nth-child(5) {
+    //  width: 61px;
+    //}
+    //.data-table td:nth-child(6) {
+    //  width: 280px;
+    //}
+  }
+
+  .journal-logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #ffffff;
+    margin: 60px 0 0 0;
+    border-radius: 10px;
+
+    img {
+      width: 320px;
+      height: 100px;
+      padding: 20px;
+    }
+
+    span {
+      font-size: 16px;
+      font-weight: 400;
+    }
+  }
+}

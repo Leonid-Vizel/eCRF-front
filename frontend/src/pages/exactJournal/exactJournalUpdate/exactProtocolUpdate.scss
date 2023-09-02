@@ -1,0 +1,131 @@
+.exact-journal-update {
+  display: flex;
+  flex-direction: column;
+  //justify-content: space-around;
+  align-items: center;
+  height: 100%;
+
+  .exact-journal-update-block {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+    img {
+      padding: 5px;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      background-color: #ed4747;
+    }
+
+    .exact-journal-update-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      align-items: center;
+      text-align: center;
+      border-radius: 10px;
+      width: 40%;
+      padding: 15px;
+      background-color: #e8dcdc;
+
+      span {
+        font-size: 18px;
+      }
+
+      .disabled {
+        border: 1px solid #32A1E3;
+        text-align: center;
+        border-radius: 10px;
+        height: 40px;
+        width: 80%;
+        gap: 10px;
+        margin: 10px;
+        color: black;
+        outline: none;
+        background-color: #eeeeee;
+      }
+    }
+  }
+
+  @media (min-width: 1700px) {
+    .exact-journal-update-block {
+      width: 100%;
+
+      .exact-journal-update-left {
+        justify-content: center;
+        //height: 500px;
+
+        span {
+          font-size: 23px;
+        }
+
+        .disabled {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 2000px) {
+    .exact-journal-update-block {
+      width: 100%;
+
+      .exact-journal-update-left {
+        justify-content: center;
+        height: 500px;
+
+        span {
+          font-size: 23px;
+        }
+
+        .disabled {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 2560px) {
+    .exact-journal-update-block {
+      width: 100%;
+
+      .exact-journal-update-left {
+        justify-content: center;
+        height: 1000px;
+
+        span {
+          font-size: 28px;
+        }
+
+        .disabled {
+          height: 80px;
+          font-size: 24px;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 3840px) {
+    .exact-journal-update-block {
+      width: 100%;
+
+      .exact-journal-update-left {
+        justify-content: center;
+        //height: 2500px;
+
+        span {
+          font-size: 58px;
+        }
+
+        .disabled {
+          height: 180px;
+          font-size: 48px;
+        }
+      }
+    }
+  }
+}

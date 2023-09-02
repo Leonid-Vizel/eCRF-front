@@ -1,0 +1,16 @@
+.version {
+  width: 100%;
+  color: #32A1E3;
+  text-decoration: underline;
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+  z-index: 1;
+
+  .version-span {
+    font-size: 14px;
+  }
+}

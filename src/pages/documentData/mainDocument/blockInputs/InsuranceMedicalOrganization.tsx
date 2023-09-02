@@ -3,13 +3,13 @@ import { InputBlockItem } from '../../../../utils/types/shared';
 import InsuranceSelect from './InsuranceSelect';
 
 export const insuranceMedicalOrganization = (
-    setFormData,
-    formData: FormDataItem
+  setFormData,
+  formData: FormDataItem,
 ): InputBlockItem[] => [
-    {
-        inputTitle: 'Наименование',
-        input: (
-            <InsuranceSelect formData={formData} setFormData={setFormData} />
-        ),
-    },
+  {
+    inputTitle: 'Наименование',
+    input: (
+      <InsuranceSelect formData={formData} setFormData={setFormData} />
+    ),
+  },
 ];

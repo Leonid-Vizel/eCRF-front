@@ -5,18 +5,18 @@ import { FormDataFields } from '../../../../utils/types/enums/documentEnums';
 import { InputBlockItem } from '../../../../utils/types/shared';
 
 export const doctor = (
-    setFormData,
-    formData: FormDataItem
+  setFormData,
+  formData: FormDataItem,
 ): InputBlockItem[] => [
-    {
-        inputTitle: 'Введите (ФИО полностью)',
-        input: (
-            <DefaultInput
-                exclusionPattern={NumberPattern}
-                setFormData={setFormData}
-                fieldName={FormDataFields.Doctor}
-                inputValue={formData.Doctor}
-            />
-        ),
-    },
+  {
+    inputTitle: 'Введите (ФИО полностью)',
+    input: (
+      <DefaultInput
+        exclusionPattern={NumberPattern}
+        setFormData={setFormData}
+        fieldName={FormDataFields.Doctor}
+        inputValue={formData.Doctor}
+      />
+    ),
+  },
 ];

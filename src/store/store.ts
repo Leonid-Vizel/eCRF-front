@@ -7,16 +7,16 @@ import { journalReducer } from './journalSlice/journalSlice';
 import { documentReducer } from './documentSlice/documentSlice';
 
 const rootReducer = combineReducers({
-    auth: authReducer,
-    center: centerReducer,
-    protocols: protocolReducer,
-    journal: journalReducer,
-    document: documentReducer,
+  auth: authReducer,
+  center: centerReducer,
+  protocols: protocolReducer,
+  journal: journalReducer,
+  document: documentReducer,
 });
 
 const store = configureStore({
-    reducer: rootReducer,
-    middleware: [thunkMiddleware],
+  reducer: rootReducer,
+  middleware: [thunkMiddleware],
 });
 
 export type RootState = ReturnType<typeof store.getState>;

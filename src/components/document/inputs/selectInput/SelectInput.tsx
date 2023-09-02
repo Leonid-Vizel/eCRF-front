@@ -1,6 +1,6 @@
-import React from "react";
-import "./selectInput.scss";
-import { SelectOption } from "../../../../utils/types/shared";
+import React from 'react';
+import './selectInput.scss';
+import { SelectOption } from '../../../../utils/types/shared';
 
 type SelectInputTypes = {
   fieldName?: string;
@@ -59,14 +59,12 @@ const SelectInput = ({
       name={fieldName}
       placeholder={placeholder}
       onChange={handleInputChange}
-      defaultValue={""}
+      defaultValue=""
     >
       <option value="" disabled>
-        {optionPlaceholder ? optionPlaceholder : "Выберите"}
+        {optionPlaceholder || 'Выберите'}
       </option>
-      {options.map(({ name, value }) => {
-        return <option value={value}>{name}</option>;
-      })}
+      {options.map(({ name, value }) => <option value={value}>{name}</option>)}
     </select>
   );
 };

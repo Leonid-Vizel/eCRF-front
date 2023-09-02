@@ -1,7 +1,7 @@
-import { PhysicalExam } from "../../../../utils/types/documentType";
-import SelectInput from "../../../../components/document/inputs/selectInput/SelectInput";
-import { PhysicalExamData } from "../../../../utils/types/enums/documentEnums";
-import DateInput from "../../../../components/document/inputs/dateInput/DateInput";
+import { PhysicalExam } from '../../../../utils/types/documentType';
+import SelectInput from '../../../../components/document/inputs/selectInput/SelectInput';
+import { PhysicalExamData } from '../../../../utils/types/enums/documentEnums';
+import DateInput from '../../../../components/document/inputs/dateInput/DateInput';
 
 export const covidOldPhysical = (setFormData, formData: PhysicalExam) => [
   {
@@ -19,11 +19,11 @@ export const covidOldPhysical = (setFormData, formData: PhysicalExam) => [
         fieldName={PhysicalExamData.CovidOldTest}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}

@@ -4,18 +4,18 @@ import { FormDataFields } from '../../../../utils/types/enums/documentEnums';
 import { InputBlockItem } from '../../../../utils/types/shared';
 
 export const diagnosisInfo = (
-    setFormData,
-    formData: FormDataItem
+  setFormData,
+  formData: FormDataItem,
 ): InputBlockItem[] => [
-    {
-        inputTitle: 'Диагноз',
-        input: (
-            <Textarea
-                width='600px'
-                fieldName={FormDataFields.PatientDiagnosis}
-                setFormData={setFormData}
-                inputValue={formData.PatientDiagnosis}
-            />
-        ),
-    },
+  {
+    inputTitle: 'Диагноз',
+    input: (
+      <Textarea
+        width="600px"
+        fieldName={FormDataFields.PatientDiagnosis}
+        setFormData={setFormData}
+        inputValue={formData.PatientDiagnosis}
+      />
+    ),
+  },
 ];

@@ -1,13 +1,13 @@
-import { PhysicalExam } from "../../../../utils/types/documentType";
-import MaskedInput from "../../../../components/document/inputs/maskedInput/MaskedInput";
-import { PhysicalExamData } from "../../../../utils/types/enums/documentEnums";
-import DefaultInput from "../../../../components/document/inputs/defaultInput/DefaultInput";
-import { NotDiastolicNumberPattern } from "../../../../utils/consts";
-import RangeInput from "../../../../components/document/fileInput/RangeInput";
+import { PhysicalExam } from '../../../../utils/types/documentType';
+import MaskedInput from '../../../../components/document/inputs/maskedInput/MaskedInput';
+import { PhysicalExamData } from '../../../../utils/types/enums/documentEnums';
+import DefaultInput from '../../../../components/document/inputs/defaultInput/DefaultInput';
+import { NotDiastolicNumberPattern } from '../../../../utils/consts';
+import RangeInput from '../../../../components/document/fileInput/RangeInput';
 
 export const temperaturePhysical = (setFormData, formData: PhysicalExam) => [
   {
-    inputTitle: "Систолическое давление",
+    inputTitle: 'Систолическое давление',
     input: (
       <RangeInput
         fieldName={PhysicalExamData.SystolicPressure}
@@ -19,7 +19,7 @@ export const temperaturePhysical = (setFormData, formData: PhysicalExam) => [
     ),
   },
   {
-    inputTitle: "Диастолическое давление",
+    inputTitle: 'Диастолическое давление',
     input: (
       <RangeInput
         fieldName={PhysicalExamData.DiastolicPressure}
@@ -31,7 +31,7 @@ export const temperaturePhysical = (setFormData, formData: PhysicalExam) => [
     ),
   },
   {
-    inputTitle: "ЧСС",
+    inputTitle: 'ЧСС',
     input: (
       <RangeInput
         fieldName={PhysicalExamData.HeartRate}
@@ -43,7 +43,7 @@ export const temperaturePhysical = (setFormData, formData: PhysicalExam) => [
     ),
   },
   {
-    inputTitle: "ЧДД",
+    inputTitle: 'ЧДД',
     input: (
       <RangeInput
         fieldName={PhysicalExamData.RespiratoryRate}
@@ -55,7 +55,7 @@ export const temperaturePhysical = (setFormData, formData: PhysicalExam) => [
     ),
   },
   {
-    inputTitle: "Температура тела",
+    inputTitle: 'Температура тела',
     input: (
       <RangeInput
         fieldName={PhysicalExamData.Temperature}

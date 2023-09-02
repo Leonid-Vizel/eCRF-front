@@ -1,10 +1,10 @@
-import { Status } from "../authSlice/authSlice";
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { getCenters } from "../centerSlice/centerSlice";
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { Status } from '../authSlice/authSlice';
+import { getCenters } from '../centerSlice/centerSlice';
 import {
   axiosCardRequest,
   axiosRequest,
-} from "../../utils/request/NewAxiosRequest";
+} from '../../utils/request/NewAxiosRequest';
 
 interface IProtocolSlice {
   protocol: any | null;
@@ -32,7 +32,7 @@ interface ICenterId {
 }
 
 export const getProtocols = createAsyncThunk(
-  "protocol/getProtocol",
+  'protocol/getProtocol',
   async ({ filter, user_centerId }: GetProtocolsParams) => {
     const { data } = await axiosCardRequest.get(
       `/protocol/list?filter=${filter}&center=${user_centerId}`,
@@ -42,7 +42,7 @@ export const getProtocols = createAsyncThunk(
 );
 
 export const deleteProtocols = createAsyncThunk(
-  "protocol/deleteProtocol",
+  'protocol/deleteProtocol',
   async ({ id }: any) => {
     const { data } = await axiosCardRequest.delete(`/protocol/delete/${id}`);
     return data;
@@ -50,9 +50,11 @@ export const deleteProtocols = createAsyncThunk(
 );
 
 export const addProtocols = createAsyncThunk(
-  "protocol/addProtocol",
-  async ({ centerID, status, name, number }: ICenterId) => {
-    const { data } = await axiosCardRequest.post(`/protocol/create`, {
+  'protocol/addProtocol',
+  async ({
+    centerID, status, name, number,
+  }: ICenterId) => {
+    const { data } = await axiosCardRequest.post('/protocol/create', {
       centerId: centerID,
       status,
       name,
@@ -64,9 +66,11 @@ export const addProtocols = createAsyncThunk(
 );
 
 export const editProtocols = createAsyncThunk(
-  "protocol/editProtocol",
-  async ({ centerID, status, name, id, number }: ICenterId) => {
-    const { data } = await axiosCardRequest.patch(`/protocol/edit`, {
+  'protocol/editProtocol',
+  async ({
+    centerID, status, name, id, number,
+  }: ICenterId) => {
+    const { data } = await axiosCardRequest.patch('/protocol/edit', {
       centerID,
       status,
       name,
@@ -79,7 +83,7 @@ export const editProtocols = createAsyncThunk(
 );
 
 const protocolSlice = createSlice({
-  name: "protocolSlice",
+  name: 'protocolSlice',
   initialState,
   reducers: {
     isValidatedColor: (state, action) => {
@@ -141,5 +145,4 @@ const protocolSlice = createSlice({
 });
 
 export const protocolReducer = protocolSlice.reducer;
-export const { deleteProtocolSuccess, addProtocolSuccess, isValidatedColor } =
-  protocolSlice.actions;
+export const { deleteProtocolSuccess, addProtocolSuccess, isValidatedColor } = protocolSlice.actions;

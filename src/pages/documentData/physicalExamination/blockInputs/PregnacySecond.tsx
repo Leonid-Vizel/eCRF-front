@@ -1,6 +1,6 @@
-import { PhysicalExam } from "../../../../utils/types/documentType";
-import SelectInput from "../../../../components/document/inputs/selectInput/SelectInput";
-import { PhysicalExamData } from "../../../../utils/types/enums/documentEnums";
+import { PhysicalExam } from '../../../../utils/types/documentType';
+import SelectInput from '../../../../components/document/inputs/selectInput/SelectInput';
+import { PhysicalExamData } from '../../../../utils/types/enums/documentEnums';
 
 export const pregnacySecond = (setFormData, formData: PhysicalExam) => [
   {
@@ -9,15 +9,15 @@ export const pregnacySecond = (setFormData, formData: PhysicalExam) => [
         fieldName={PhysicalExamData.PregnancyTestResult}
         options={[
           {
-            name: "Положительный",
+            name: 'Положительный',
             value: 0,
           },
           {
-            name: "Отрицательный",
+            name: 'Отрицательный',
             value: 1,
           },
           {
-            name: "Неприменимо",
+            name: 'Неприменимо',
             value: 2,
           },
         ]}

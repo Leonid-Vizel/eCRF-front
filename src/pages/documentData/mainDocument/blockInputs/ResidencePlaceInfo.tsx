@@ -7,51 +7,51 @@ import { InputBlockItem } from '../../../../utils/types/shared';
 import { localityOptions } from './data';
 
 export const residencePlaceInfo = (
-    setFormData,
-    formData: FormDataItem
+  setFormData,
+  formData: FormDataItem,
 ): InputBlockItem[] => [
-    {
-        inputTitle: 'Улица',
-        input: (
-            <DefaultInput
-                fieldName={FormDataFields.Street}
-                inputValue={formData.Street}
-                exclusionPattern={NumberPattern}
-                setFormData={setFormData}
-            />
-        ),
-    },
-    {
-        inputTitle: 'Дом',
-        input: (
-            <DefaultInput
-                fieldName={FormDataFields.House}
-                inputValue={formData.House}
-                exclusionPattern={NotNumberPattern}
-                setFormData={setFormData}
-            />
-        ),
-    },
-    {
-        inputTitle: 'Квартира',
-        input: (
-            <DefaultInput
-                fieldName={FormDataFields.Flat}
-                inputValue={formData.Flat}
-                exclusionPattern={NotNumberPattern}
-                setFormData={setFormData}
-            />
-        ),
-    },
-    {
-        inputTitle: 'Местность',
-        input: (
-            <SelectInput
-                fieldName={FormDataFields.Locality}
-                options={localityOptions}
-                selectValue={formData.Locality}
-                setFormData={setFormData}
-            />
-        ),
-    },
+  {
+    inputTitle: 'Улица',
+    input: (
+      <DefaultInput
+        fieldName={FormDataFields.Street}
+        inputValue={formData.Street}
+        exclusionPattern={NumberPattern}
+        setFormData={setFormData}
+      />
+    ),
+  },
+  {
+    inputTitle: 'Дом',
+    input: (
+      <DefaultInput
+        fieldName={FormDataFields.House}
+        inputValue={formData.House}
+        exclusionPattern={NotNumberPattern}
+        setFormData={setFormData}
+      />
+    ),
+  },
+  {
+    inputTitle: 'Квартира',
+    input: (
+      <DefaultInput
+        fieldName={FormDataFields.Flat}
+        inputValue={formData.Flat}
+        exclusionPattern={NotNumberPattern}
+        setFormData={setFormData}
+      />
+    ),
+  },
+  {
+    inputTitle: 'Местность',
+    input: (
+      <SelectInput
+        fieldName={FormDataFields.Locality}
+        options={localityOptions}
+        selectValue={formData.Locality}
+        setFormData={setFormData}
+      />
+    ),
+  },
 ];

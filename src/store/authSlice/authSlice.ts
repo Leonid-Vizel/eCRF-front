@@ -1,18 +1,18 @@
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import Cookies from 'js-cookie';
+import jwt_decode from 'jwt-decode';
 import {
   axiosCardRequest,
   axiosRequest,
-} from "../../utils/request/NewAxiosRequest";
-import { IUserRegister } from "../../utils/types/userType";
-import Cookies from "js-cookie";
-import jwt_decode from "jwt-decode";
+} from '../../utils/request/NewAxiosRequest';
+import { IUserRegister } from '../../utils/types/userType';
 
 export enum Status {
-  FirstLoading = "firstLoading",
-  UpdateLoading = "updateLoading",
-  Loading = "loading",
-  Success = "success",
-  Error = "error",
+  FirstLoading = 'firstLoading',
+  UpdateLoading = 'updateLoading',
+  Loading = 'loading',
+  Success = 'success',
+  Error = 'error',
 }
 
 interface TokenPayload {
@@ -36,34 +36,36 @@ const initialState: IAuthSlice = {
 };
 
 export const authLogin = createAsyncThunk(
-  "auth/userLogin",
+  'auth/userLogin',
   async ({ email, password }: { email: string; password: string }) => {
-    const { data } = await axiosCardRequest.post("/user/login", {
+    const { data } = await axiosCardRequest.post('/user/login', {
       login: email,
       password,
     });
     const decodedToken = await jwt_decode<TokenPayload>(data);
-    const { name, id, centerId, role } = await decodedToken;
-    Cookies.set("token", data);
-    Cookies.set("token_name", name);
-    Cookies.set("token_id", id.toString());
-    Cookies.set("token_centerId", centerId.toString());
-    Cookies.set("token_role", role.toString());
+    const {
+      name, id, centerId, role,
+    } = await decodedToken;
+    Cookies.set('token', data);
+    Cookies.set('token_name', name);
+    Cookies.set('token_id', id.toString());
+    Cookies.set('token_centerId', centerId.toString());
+    Cookies.set('token_role', role.toString());
 
     return data;
   },
 );
 
-export const getAllUser = createAsyncThunk("auth/getAll", async () => {
-  const { data } = await axiosRequest.get("/user/all");
+export const getAllUser = createAsyncThunk('auth/getAll', async () => {
+  const { data } = await axiosRequest.get('/user/all');
 
   return data;
 });
 
 export const deleteUser = createAsyncThunk(
-  "auth/deleteUser",
-  async ({ id }: Pick<TokenPayload, "id">) => {
-    const { data } = await axiosRequest.delete("/user/delete", {
+  'auth/deleteUser',
+  async ({ id }: Pick<TokenPayload, 'id'>) => {
+    const { data } = await axiosRequest.delete('/user/delete', {
       data: {
         id,
       },
@@ -74,20 +76,20 @@ export const deleteUser = createAsyncThunk(
 );
 
 export const registerUser = createAsyncThunk(
-  "auth/registerUser",
+  'auth/registerUser',
   async ({
     centerId,
     email,
     name,
     password,
     role,
-  }: Omit<TokenPayload, "id" | "exp">) => {
-    const { data } = await axiosRequest.post("/user/register", {
+  }: Omit<TokenPayload, 'id' | 'exp'>) => {
+    const { data } = await axiosRequest.post('/user/register', {
       center_id: centerId,
-      email: email,
-      name: name,
-      password: password,
-      role: role,
+      email,
+      name,
+      password,
+      role,
     });
 
     return data;
@@ -95,7 +97,7 @@ export const registerUser = createAsyncThunk(
 );
 
 export const updateUser = createAsyncThunk(
-  "auth/updateUser",
+  'auth/updateUser',
   async ({
     centerId,
     email,
@@ -103,14 +105,14 @@ export const updateUser = createAsyncThunk(
     password,
     role,
     id,
-  }: Omit<TokenPayload, "exp">) => {
-    const { data } = await axiosRequest.patch("/user/update", {
+  }: Omit<TokenPayload, 'exp'>) => {
+    const { data } = await axiosRequest.patch('/user/update', {
       center_id: centerId,
-      email: email,
-      name: name,
-      password: password,
-      role: role,
-      id: id,
+      email,
+      name,
+      password,
+      role,
+      id,
     });
 
     return data;
@@ -118,12 +120,12 @@ export const updateUser = createAsyncThunk(
 );
 
 const authSlice = createSlice({
-  name: "authSlice",
+  name: 'authSlice',
   initialState,
   reducers: {
     logout: (state: any) => {
       state.data = null;
-      localStorage.removeItem("token");
+      localStorage.removeItem('token');
     },
   },
   extraReducers: (builder) => {

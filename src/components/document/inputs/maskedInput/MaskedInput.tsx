@@ -1,6 +1,6 @@
-import React from "react";
-import InputMask from "react-input-mask";
-import "./maskedInput.scss";
+import React from 'react';
+import InputMask from 'react-input-mask';
+import './maskedInput.scss';
 
 type MaskedInputProps = {
   fieldName: string;
@@ -24,9 +24,9 @@ const MaskedInput = ({
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
 
-    const correctValue = value.replaceAll(exclusionPattern, "");
+    const correctValue = value.replaceAll(exclusionPattern, '');
 
-    setFormData((prevFormData) => {
+    setFormData((prevFormData) => { 
       let newFormData = { ...prevFormData };
 
       newFormData = {
@@ -41,8 +41,8 @@ const MaskedInput = ({
   return (
     <InputMask
       name={fieldName}
-      style={{ width: inputWidth ? inputWidth : "200px" }}
-      placeholder={placeholder ? placeholder : ""}
+      style={{ width: inputWidth || '200px' }}
+      placeholder={placeholder || ''}
       className="masked-input"
       value={inputValue}
       onChange={handleInputChange}

@@ -1,5 +1,5 @@
-import React from "react";
-import { axiosCardRequest, axiosRequest } from "../../request/NewAxiosRequest";
+import React from 'react';
+import { axiosCardRequest, axiosRequest } from '../../request/NewAxiosRequest';
 
 const EditOrganization = ({
   modalType,
@@ -12,7 +12,7 @@ const EditOrganization = ({
 }) => {
   const handleEdit = async () => {
     await axiosCardRequest
-      .patch("/Organization/Edit", {
+      .patch('/Organization/Edit', {
         name: inputValue,
         id: organizationId,
       })
@@ -23,7 +23,7 @@ const EditOrganization = ({
 
   const handleEditIns = async () => {
     await axiosCardRequest
-      .post("/Insurance/Edit/{id}", {
+      .post('/Insurance/Edit/{id}', {
         name: inputValue,
         id: organizationId,
       })
@@ -35,7 +35,7 @@ const EditOrganization = ({
   return (
     <div className="modal-overlay" onClick={handleModalClose}>
       <div
-        onSubmit={modalType === "insurance" ? handleEditIns : handleEdit}
+        onSubmit={modalType === 'insurance' ? handleEditIns : handleEdit}
         className="modal"
         onClick={(e) => e.stopPropagation()}
       >
@@ -56,7 +56,7 @@ const EditOrganization = ({
         <div className="modal-actions">
           <button
             className="modal-button"
-            onClick={modalType === "insurance" ? handleEditIns : handleEdit}
+            onClick={modalType === 'insurance' ? handleEditIns : handleEdit}
           >
             Сохранить
           </button>

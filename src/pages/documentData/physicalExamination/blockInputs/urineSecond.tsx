@@ -1,7 +1,7 @@
-import { PhysicalExam } from "../../../../utils/types/documentType";
-import DefaultInput from "../../../../components/document/inputs/defaultInput/DefaultInput";
-import { PhysicalExamData } from "../../../../utils/types/enums/documentEnums";
-import SelectInput from "../../../../components/document/inputs/selectInput/SelectInput";
+import { PhysicalExam } from '../../../../utils/types/documentType';
+import DefaultInput from '../../../../components/document/inputs/defaultInput/DefaultInput';
+import { PhysicalExamData } from '../../../../utils/types/enums/documentEnums';
+import SelectInput from '../../../../components/document/inputs/selectInput/SelectInput';
 
 export const urineSecond = (setFormData, formData: PhysicalExam) => [
   {
@@ -10,11 +10,11 @@ export const urineSecond = (setFormData, formData: PhysicalExam) => [
         fieldName={PhysicalExamData.UrineAnalysisResult}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}

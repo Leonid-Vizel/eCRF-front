@@ -1,21 +1,21 @@
-import { PhysicalExam } from "../../../../utils/types/documentType";
-import SelectInput from "../../../../components/document/inputs/selectInput/SelectInput";
-import { PhysicalExamData } from "../../../../utils/types/enums/documentEnums";
-import Textarea from "../../../../components/document/inputs/textarea/Textarea";
+import { PhysicalExam } from '../../../../utils/types/documentType';
+import SelectInput from '../../../../components/document/inputs/selectInput/SelectInput';
+import { PhysicalExamData } from '../../../../utils/types/enums/documentEnums';
+import Textarea from '../../../../components/document/inputs/textarea/Textarea';
 
 export const upperVeinsPhysical = (setFormData, formData: PhysicalExam) => [
   {
-    inputTitle: "Выполнено",
+    inputTitle: 'Выполнено',
     input: (
       <SelectInput
         fieldName={PhysicalExamData.UpperVeinsComplete}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -25,17 +25,17 @@ export const upperVeinsPhysical = (setFormData, formData: PhysicalExam) => [
     ),
   },
   {
-    inputTitle: "Показатели",
+    inputTitle: 'Показатели',
     input: (
       <SelectInput
         fieldName={PhysicalExamData.UpperVeinsIndicator}
         options={[
           {
-            name: "Норма",
+            name: 'Норма',
             value: 1,
           },
           {
-            name: "Отклонение",
+            name: 'Отклонение',
             value: 0,
           },
         ]}
@@ -45,17 +45,17 @@ export const upperVeinsPhysical = (setFormData, formData: PhysicalExam) => [
     ),
   },
   {
-    inputTitle: "Отклонения",
+    inputTitle: 'Отклонения',
     input: (
       <SelectInput
         fieldName={PhysicalExamData.UpperVeinsDeviation}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 1,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 0,
           },
         ]}
@@ -65,13 +65,13 @@ export const upperVeinsPhysical = (setFormData, formData: PhysicalExam) => [
     ),
   },
   {
-    inputTitle: "Комментарий",
+    inputTitle: 'Комментарий',
     input: (
       <Textarea
         fieldName={PhysicalExamData.UpperVeinsComment}
         inputValue={formData[PhysicalExamData.UpperVeinsComment]}
         setFormData={setFormData}
-        width={"300px"}
+        width="300px"
       />
     ),
   },

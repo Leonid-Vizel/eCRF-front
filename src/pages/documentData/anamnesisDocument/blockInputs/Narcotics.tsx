@@ -5,18 +5,18 @@ import { InputBlockItem } from '../../../../utils/types/shared';
 import { yesNoOptions } from './data';
 
 export const narcotics = (
-    setFormData,
-    formData: Anamnesis
+  setFormData,
+  formData: Anamnesis,
 ): InputBlockItem[] => [
-    {
-        inputTitle: 'Употребление наркотиков:',
-        input: (
-            <SelectInput
-                fieldName={AnamnesisFields.Narcotics}
-                options={yesNoOptions}
-                selectValue={formData.Narcotics}
-                setFormData={setFormData}
-            />
-        ),
-    },
+  {
+    inputTitle: 'Употребление наркотиков:',
+    input: (
+      <SelectInput
+        fieldName={AnamnesisFields.Narcotics}
+        options={yesNoOptions}
+        selectValue={formData.Narcotics}
+        setFormData={setFormData}
+      />
+    ),
+  },
 ];

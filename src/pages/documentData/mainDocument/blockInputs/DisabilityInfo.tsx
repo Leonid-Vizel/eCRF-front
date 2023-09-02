@@ -6,39 +6,39 @@ import { InputBlockItem } from '../../../../utils/types/shared';
 import { disabilityTypeOptions, disabilityGroupOptions } from './data';
 
 export const disabilityInfo = (
-    setFormData,
-    formData: FormDataItem
+  setFormData,
+  formData: FormDataItem,
 ): InputBlockItem[] => [
-    {
-        inputTitle: 'Первичная/вторичная',
-        input: (
-            <SelectInput
-                fieldName={FormDataFields.DisabilityType}
-                options={disabilityTypeOptions}
-                selectValue={formData.DisabilityType}
-                setFormData={setFormData}
-            />
-        ),
-    },
-    {
-        inputTitle: 'Группа',
-        input: (
-            <SelectInput
-                fieldName={FormDataFields.DisabilityGroup}
-                options={disabilityGroupOptions}
-                selectValue={formData.DisabilityGroup}
-                setFormData={setFormData}
-            />
-        ),
-    },
-    {
-        inputTitle: 'Дата',
-        input: (
-            <DateInput
-                fieldName={FormDataFields.DisabilityDate}
-                inputValue={formData.DisabilityDate}
-                setFormData={setFormData}
-            />
-        ),
-    },
+  {
+    inputTitle: 'Первичная/вторичная',
+    input: (
+      <SelectInput
+        fieldName={FormDataFields.DisabilityType}
+        options={disabilityTypeOptions}
+        selectValue={formData.DisabilityType}
+        setFormData={setFormData}
+      />
+    ),
+  },
+  {
+    inputTitle: 'Группа',
+    input: (
+      <SelectInput
+        fieldName={FormDataFields.DisabilityGroup}
+        options={disabilityGroupOptions}
+        selectValue={formData.DisabilityGroup}
+        setFormData={setFormData}
+      />
+    ),
+  },
+  {
+    inputTitle: 'Дата',
+    input: (
+      <DateInput
+        fieldName={FormDataFields.DisabilityDate}
+        inputValue={formData.DisabilityDate}
+        setFormData={setFormData}
+      />
+    ),
+  },
 ];

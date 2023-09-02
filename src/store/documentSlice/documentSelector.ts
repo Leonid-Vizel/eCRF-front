@@ -1,5 +1,3 @@
 import { RootState } from '../store';
 
-export const documentSelector = (state: RootState) => {
-    return state.document;
-};
+export const documentSelector = (state: RootState) => state.document;

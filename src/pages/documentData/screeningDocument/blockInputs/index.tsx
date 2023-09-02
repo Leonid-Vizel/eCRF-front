@@ -1,11 +1,11 @@
-import { CardScreening } from "../../../../utils/types/documentType";
-import DateInput from "../../../../components/document/inputs/dateInput/DateInput";
-import { CardScreeningData } from "../../../../utils/types/enums/documentEnums";
-import SelectInput from "../../../../components/document/inputs/selectInput/SelectInput";
-import DefaultInput from "../../../../components/document/inputs/defaultInput/DefaultInput";
-import MaskedInput from "../../../../components/document/inputs/maskedInput/MaskedInput";
-import InsuranceSelect from "../../mainDocument/blockInputs/InsuranceSelect";
-import InsuranceSelectScreening from "./InsuranceSelectScreening";
+import { CardScreening } from '../../../../utils/types/documentType';
+import DateInput from '../../../../components/document/inputs/dateInput/DateInput';
+import { CardScreeningData } from '../../../../utils/types/enums/documentEnums';
+import SelectInput from '../../../../components/document/inputs/selectInput/SelectInput';
+import DefaultInput from '../../../../components/document/inputs/defaultInput/DefaultInput';
+import MaskedInput from '../../../../components/document/inputs/maskedInput/MaskedInput';
+import InsuranceSelect from '../../mainDocument/blockInputs/InsuranceSelect';
+import InsuranceSelectScreening from './InsuranceSelectScreening';
 
 export const screeningData = (
   setFormData,
@@ -14,7 +14,7 @@ export const screeningData = (
   setTimeInput,
 ) => [
   {
-    inputTitle: "Дата",
+    inputTitle: 'Дата',
     input: (
       <DateInput
         fieldName={CardScreeningData.DateTime}
@@ -24,13 +24,13 @@ export const screeningData = (
     ),
   },
   {
-    inputTitle: "Время",
+    inputTitle: 'Время',
     input: (
       <DefaultInput
         fieldName={CardScreeningData.FirstTime}
         setFormData={setFormData}
         inputValue={formData[CardScreeningData.FirstTime]}
-        type={"time"}
+        type="time"
       />
     ),
   },
@@ -43,11 +43,11 @@ export const agreedScreeningSelect = (setFormData, formData: CardScreening) => [
         fieldName={CardScreeningData.Agreed}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -65,13 +65,13 @@ export const formScreeningSelect = (
   setTimeForm,
 ) => [
   {
-    inputTitle: "Время",
+    inputTitle: 'Время',
     input: (
       <DefaultInput
         fieldName={CardScreeningData.FormTime}
         setFormData={setFormData}
         inputValue={formData[CardScreeningData.FormTime]}
-        type={"time"}
+        type="time"
       />
     ),
   },
@@ -81,11 +81,11 @@ export const formScreeningSelect = (
         fieldName={CardScreeningData.Form}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -106,11 +106,11 @@ export const formEnoughTimeScreeningSelect = (
         fieldName={CardScreeningData.FormEnoughTime}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -131,11 +131,11 @@ export const acquaintanceScreeningSelect = (
         fieldName={CardScreeningData.Acquaintance}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -156,11 +156,11 @@ export const understandingScreeningSelect = (
         fieldName={CardScreeningData.Understanding}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -181,11 +181,11 @@ export const requirementsScreeningSelect = (
         fieldName={CardScreeningData.Requirements}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -206,11 +206,11 @@ export const questionsScreeningSelect = (
         fieldName={CardScreeningData.Questions}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -231,11 +231,11 @@ export const fullInfoScreeningSelect = (
         fieldName={CardScreeningData.FullInfo}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -256,11 +256,11 @@ export const fullAgreedScreeningSelect = (
         fieldName={CardScreeningData.FullAgreed}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -281,11 +281,11 @@ export const complyWithTheRequirementsScreeningSelect = (
         fieldName={CardScreeningData.ComplyWithTheRequirements}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -306,11 +306,11 @@ export const contraceptionScreeningSelect = (
         fieldName={CardScreeningData.Contraception}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -337,13 +337,13 @@ export const signed2ExamplesScreeningSelect = (
     ),
   },
   {
-    inputTitle: "Время",
+    inputTitle: 'Время',
     input: (
       <DefaultInput
         fieldName={CardScreeningData.ThirdTime}
         setFormData={setFormData}
         inputValue={formData[CardScreeningData.ThirdTime]}
-        type={"time"}
+        type="time"
       />
     ),
   },
@@ -353,11 +353,11 @@ export const signed2ExamplesScreeningSelect = (
         fieldName={CardScreeningData.Signed2Examples}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -378,11 +378,11 @@ export const exampleInDocumentationScreeningSelect = (
         fieldName={CardScreeningData.ExampleInDocumentation}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -403,11 +403,11 @@ export const stacionarScreeningSelect = (
         fieldName={CardScreeningData.Stacionar}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -428,11 +428,11 @@ export const signedFormScreeningSelect = (
         fieldName={CardScreeningData.SignedForm}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -466,7 +466,7 @@ export const IndividualScreening = (setFormData, formData: CardScreening) => [
         fieldName={CardScreeningData.IndividualString}
         setFormData={setFormData}
         inputValue={formData[CardScreeningData.IndividualString]}
-        mask={"*********************************"}
+        mask="*********************************"
         inputWidth="500px"
       />
       // <DefaultInput
@@ -487,7 +487,7 @@ export const HandedPolisScreeningSelect = (
   formData: CardScreening,
 ) => [
   {
-    inputTitle: "Наименование",
+    inputTitle: 'Наименование',
     input: (
       <InsuranceSelectScreening formData={formData} setFormData={setFormData} />
     ),
@@ -498,11 +498,11 @@ export const HandedPolisScreeningSelect = (
         fieldName={CardScreeningData.HandedPolis}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -523,11 +523,11 @@ export const PolisCopyScreeningSelect = (
         fieldName={CardScreeningData.PolisCopy}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}

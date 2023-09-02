@@ -1,14 +1,14 @@
-import DefaultInput from "../../../../components/document/inputs/defaultInput/DefaultInput";
-import SelectInput from "../../../../components/document/inputs/selectInput/SelectInput";
-import Textarea from "../../../../components/document/inputs/textarea/Textarea";
-import { Criteria } from "../../../../utils/types/documentType";
-import { CriteriaFields } from "../../../../utils/types/enums/documentEnums";
-import { InputBlockItem } from "../../../../utils/types/shared";
-import { acceptedOptions, evaluatedOptions, yesNoOptions } from "./data";
+import DefaultInput from '../../../../components/document/inputs/defaultInput/DefaultInput';
+import SelectInput from '../../../../components/document/inputs/selectInput/SelectInput';
+import Textarea from '../../../../components/document/inputs/textarea/Textarea';
+import { Criteria } from '../../../../utils/types/documentType';
+import { CriteriaFields } from '../../../../utils/types/enums/documentEnums';
+import { InputBlockItem } from '../../../../utils/types/shared';
+import { acceptedOptions, evaluatedOptions, yesNoOptions } from './data';
 
 export const IMT = (formData: Criteria, setFormData): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <SelectInput
         fieldName={CriteriaFields.IncludeCriteria3}
@@ -25,7 +25,7 @@ export const informList = (
   setFormData,
 ): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <SelectInput
         fieldName={CriteriaFields.IncludeCriteria2}
@@ -42,7 +42,7 @@ export const mensAndWomens = (
   setFormData,
 ): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <SelectInput
         fieldName={CriteriaFields.IncludeCriteria1}
@@ -59,7 +59,7 @@ export const verificationDiagnosis = (
   setFormData,
 ): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <SelectInput
         fieldName={CriteriaFields.IncludeCriteria4}
@@ -76,7 +76,7 @@ export const IncludeCriteria5 = (
   setFormData,
 ): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <SelectInput
         fieldName={CriteriaFields.IncludeCriteria5}
@@ -93,7 +93,7 @@ export const IncludeCriteria6 = (
   setFormData,
 ): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <SelectInput
         fieldName={CriteriaFields.IncludeCriteria6}
@@ -110,7 +110,7 @@ export const IncludeCriteria7 = (
   setFormData,
 ): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <SelectInput
         fieldName={CriteriaFields.IncludeCriteria7}
@@ -127,7 +127,7 @@ export const IncludeCriteria8 = (
   setFormData,
 ): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <SelectInput
         fieldName={CriteriaFields.IncludeCriteria8}
@@ -144,7 +144,7 @@ export const IncludeCriteria9 = (
   setFormData,
 ): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <SelectInput
         fieldName={CriteriaFields.IncludeCriteria9}
@@ -161,7 +161,7 @@ export const IncludeCriteria10 = (
   setFormData,
 ): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <SelectInput
         fieldName={CriteriaFields.IncludeCriteria10}
@@ -178,7 +178,7 @@ export const IncludeCriteria11 = (
   setFormData,
 ): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <SelectInput
         fieldName={CriteriaFields.IncludeCriteria11}
@@ -195,7 +195,7 @@ export const IncludeCriteria12 = (
   setFormData,
 ): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <SelectInput
         fieldName={CriteriaFields.IncludeCriteria12}
@@ -212,7 +212,7 @@ export const IncludeCriteria13 = (
   setFormData,
 ): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <SelectInput
         fieldName={CriteriaFields.IncludeCriteria13}
@@ -229,7 +229,7 @@ export const IncludeCriteria14 = (
   setFormData,
 ): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <SelectInput
         fieldName={CriteriaFields.IncludeCriteria14}
@@ -246,7 +246,7 @@ export const IncludeCriteria15 = (
   setFormData,
 ): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <SelectInput
         fieldName={CriteriaFields.IncludeCriteria15}
@@ -263,7 +263,7 @@ export const ExcludeCriteria1 = (
   setFormData,
 ): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <SelectInput
         fieldName={CriteriaFields.ExcludeCriteria1}
@@ -280,7 +280,7 @@ export const ExcludeCriteria2 = (
   setFormData,
 ): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <SelectInput
         fieldName={CriteriaFields.ExcludeCriteria2}
@@ -297,7 +297,7 @@ export const ExcludeCriteria3 = (
   setFormData,
 ): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <SelectInput
         fieldName={CriteriaFields.ExcludeCriteria3}
@@ -314,7 +314,7 @@ export const ExcludeCriteria4 = (
   setFormData,
 ): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <SelectInput
         fieldName={CriteriaFields.ExcludeCriteria4}
@@ -331,7 +331,7 @@ export const ExcludeCriteria5 = (
   setFormData,
 ): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <SelectInput
         fieldName={CriteriaFields.ExcludeCriteria5}
@@ -348,7 +348,7 @@ export const ExcludeCriteria6 = (
   setFormData,
 ): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <SelectInput
         fieldName={CriteriaFields.ExcludeCriteria6}
@@ -365,7 +365,7 @@ export const ExcludeCriteria7 = (
   setFormData,
 ): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <SelectInput
         fieldName={CriteriaFields.ExcludeCriteria7}
@@ -382,7 +382,7 @@ export const ExcludeCriteria8 = (
   setFormData,
 ): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <SelectInput
         fieldName={CriteriaFields.ExcludeCriteria8}
@@ -399,7 +399,7 @@ export const ExcludeCriteria9 = (
   setFormData,
 ): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <SelectInput
         fieldName={CriteriaFields.ExcludeCriteria9}
@@ -416,7 +416,7 @@ export const ExcludeCriteria10 = (
   setFormData,
 ): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <SelectInput
         fieldName={CriteriaFields.ExcludeCriteria10}
@@ -433,7 +433,7 @@ export const ExcludeCriteria11 = (
   setFormData,
 ): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <SelectInput
         fieldName={CriteriaFields.ExcludeCriteria11}
@@ -450,7 +450,7 @@ export const ExcludeCriteria12 = (
   setFormData,
 ): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <SelectInput
         fieldName={CriteriaFields.ExcludeCriteria12}
@@ -467,7 +467,7 @@ export const ExcludeCriteria13 = (
   setFormData,
 ): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <SelectInput
         fieldName={CriteriaFields.ExcludeCriteria13}
@@ -484,7 +484,7 @@ export const ExcludeCriteria14 = (
   setFormData,
 ): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <SelectInput
         fieldName={CriteriaFields.ExcludeCriteria14}
@@ -501,7 +501,7 @@ export const ExcludeCriteria15 = (
   setFormData,
 ): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <SelectInput
         fieldName={CriteriaFields.ExcludeCriteria15}
@@ -518,7 +518,7 @@ export const ExcludeCriteria16 = (
   setFormData,
 ): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <SelectInput
         fieldName={CriteriaFields.ExcludeCriteria16}
@@ -535,7 +535,7 @@ export const ExcludeCriteria17 = (
   setFormData,
 ): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <SelectInput
         fieldName={CriteriaFields.ExcludeCriteria17}
@@ -552,7 +552,7 @@ export const ExcludeCriteria18 = (
   setFormData,
 ): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <SelectInput
         fieldName={CriteriaFields.ExcludeCriteria18}
@@ -569,7 +569,7 @@ export const ExcludeCriteria19 = (
   setFormData,
 ): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <SelectInput
         fieldName={CriteriaFields.ExcludeCriteria19}
@@ -586,7 +586,7 @@ export const ExcludeCriteria20 = (
   setFormData,
 ): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <SelectInput
         fieldName={CriteriaFields.ExcludeCriteria20}
@@ -603,7 +603,7 @@ export const ExcludeCriteria21 = (
   setFormData,
 ): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <SelectInput
         fieldName={CriteriaFields.ExcludeCriteria21}
@@ -620,7 +620,7 @@ export const ExcludeCriteria22 = (
   setFormData,
 ): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <SelectInput
         fieldName={CriteriaFields.ExcludeCriteria22}
@@ -637,7 +637,7 @@ export const ExcludeCriteria23 = (
   setFormData,
 ): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <SelectInput
         fieldName={CriteriaFields.ExcludeCriteria23}
@@ -654,7 +654,7 @@ export const ExcludeCriteria24 = (
   setFormData,
 ): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <SelectInput
         fieldName={CriteriaFields.ExcludeCriteria24}
@@ -668,7 +668,7 @@ export const ExcludeCriteria24 = (
 
 export const Comments = (formData: Criteria, setFormData): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <Textarea
         fieldName={CriteriaFields.Comment}
@@ -685,7 +685,7 @@ export const CriteriaEvaluated = (
   setFormData,
 ): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <SelectInput
         fieldName={CriteriaFields.CriteriaEvaluated}
@@ -702,7 +702,7 @@ export const CriteriaAccepted = (
   setFormData,
 ): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <SelectInput
         fieldName={CriteriaFields.CriteriaAccepted}
@@ -719,7 +719,7 @@ export const CriteriaAllowed = (
   setFormData,
 ): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <SelectInput
         fieldName={CriteriaFields.CriteriaAllowed}
@@ -736,7 +736,7 @@ export const CriteriaYesNo = (
   setFormData,
 ): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <SelectInput
         fieldName={CriteriaFields.CriteriaYesNo}
@@ -750,7 +750,7 @@ export const CriteriaYesNo = (
 
 export const Informed = (formData: Criteria, setFormData): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <SelectInput
         fieldName={CriteriaFields.Informed}
@@ -767,7 +767,7 @@ export const Hospitalized = (
   setFormData,
 ): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <SelectInput
         fieldName={CriteriaFields.Hospitalized}
@@ -784,7 +784,7 @@ export const VisitComment = (
   setFormData,
 ): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <Textarea
         fieldName={CriteriaFields.VisitComment}
@@ -798,13 +798,13 @@ export const VisitComment = (
 
 export const Doctor = (formData: Criteria, setFormData): InputBlockItem[] => [
   {
-    inputTitle: "",
+    inputTitle: '',
     input: (
       <DefaultInput
         fieldName={CriteriaFields.Doctor}
         inputValue={formData.Doctor}
         setFormData={setFormData}
-        inputWidth={"900px"}
+        inputWidth="900px"
       />
     ),
   },

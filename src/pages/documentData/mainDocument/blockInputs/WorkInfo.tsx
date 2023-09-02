@@ -5,29 +5,29 @@ import { FormDataFields } from '../../../../utils/types/enums/documentEnums';
 import { InputBlockItem } from '../../../../utils/types/shared';
 
 export const workInfo = (
-    setFormData,
-    formData: FormDataItem
+  setFormData,
+  formData: FormDataItem,
 ): InputBlockItem[] => [
-    {
-        inputTitle: 'Место работы',
-        input: (
-            <DefaultInput
-                fieldName={FormDataFields.WorkPlace}
-                inputValue={formData.WorkPlace}
-                exclusionPattern={NumberPattern}
-                setFormData={setFormData}
-            />
-        ),
-    },
-    {
-        inputTitle: 'Должность',
-        input: (
-            <DefaultInput
-                fieldName={FormDataFields.WorkPosition}
-                inputValue={formData.WorkPosition}
-                exclusionPattern={NumberPattern}
-                setFormData={setFormData}
-            />
-        ),
-    },
+  {
+    inputTitle: 'Место работы',
+    input: (
+      <DefaultInput
+        fieldName={FormDataFields.WorkPlace}
+        inputValue={formData.WorkPlace}
+        exclusionPattern={NumberPattern}
+        setFormData={setFormData}
+      />
+    ),
+  },
+  {
+    inputTitle: 'Должность',
+    input: (
+      <DefaultInput
+        fieldName={FormDataFields.WorkPosition}
+        inputValue={formData.WorkPosition}
+        exclusionPattern={NumberPattern}
+        setFormData={setFormData}
+      />
+    ),
+  },
 ];

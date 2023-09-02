@@ -1,20 +1,20 @@
-import SelectInput from "../../../../components/document/inputs/selectInput/SelectInput";
-import { CardSyphilisData } from "../../../../utils/types/enums/documentEnums";
-import { CardSyphilis } from "../../../../utils/types/documentType";
+import SelectInput from '../../../../components/document/inputs/selectInput/SelectInput';
+import { CardSyphilisData } from '../../../../utils/types/enums/documentEnums';
+import { CardSyphilis } from '../../../../utils/types/documentType';
 
 export const patientComplaints = (setFormData, formData: CardSyphilis) => [
   {
-    inputTitle: "Снижение зрения",
+    inputTitle: 'Снижение зрения',
     input: (
       <SelectInput
         fieldName={CardSyphilisData.DecreasedVision}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -24,17 +24,17 @@ export const patientComplaints = (setFormData, formData: CardSyphilis) => [
     ),
   },
   {
-    inputTitle: "Снижение слуха",
+    inputTitle: 'Снижение слуха',
     input: (
       <SelectInput
         fieldName={CardSyphilisData.DecreasedHearing}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -44,17 +44,17 @@ export const patientComplaints = (setFormData, formData: CardSyphilis) => [
     ),
   },
   {
-    inputTitle: "Снижение памяти",
+    inputTitle: 'Снижение памяти',
     input: (
       <SelectInput
         fieldName={CardSyphilisData.DecreasedMemory}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -64,17 +64,17 @@ export const patientComplaints = (setFormData, formData: CardSyphilis) => [
     ),
   },
   {
-    inputTitle: "Нарушение координации",
+    inputTitle: 'Нарушение координации',
     input: (
       <SelectInput
         fieldName={CardSyphilisData.Incoordination}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -87,17 +87,17 @@ export const patientComplaints = (setFormData, formData: CardSyphilis) => [
 
 export const externalInspection = (setFormData, formData: CardSyphilis) => [
   {
-    inputTitle: "В/ч головы: наличие аллопеций",
+    inputTitle: 'В/ч головы: наличие аллопеций',
     input: (
       <SelectInput
         fieldName={CardSyphilisData.HairAllopecia}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -107,17 +107,17 @@ export const externalInspection = (setFormData, formData: CardSyphilis) => [
     ),
   },
   {
-    inputTitle: "В/ч головы: наличие папулы",
+    inputTitle: 'В/ч головы: наличие папулы',
     input: (
       <SelectInput
         fieldName={CardSyphilisData.HairPapula}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -127,17 +127,17 @@ export const externalInspection = (setFormData, formData: CardSyphilis) => [
     ),
   },
   {
-    inputTitle: "В/ч головы: наличие пустулы",
+    inputTitle: 'В/ч головы: наличие пустулы',
     input: (
       <SelectInput
         fieldName={CardSyphilisData.HairPustula}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -147,17 +147,17 @@ export const externalInspection = (setFormData, formData: CardSyphilis) => [
     ),
   },
   {
-    inputTitle: "В/ч головы: наличие корочки",
+    inputTitle: 'В/ч головы: наличие корочки',
     input: (
       <SelectInput
         fieldName={CardSyphilisData.HairCrust}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -170,17 +170,17 @@ export const externalInspection = (setFormData, formData: CardSyphilis) => [
 
 export const oralMucosaTongue = (setFormData, formData: CardSyphilis) => [
   {
-    inputTitle: "Пятна",
+    inputTitle: 'Пятна',
     input: (
       <SelectInput
         fieldName={CardSyphilisData.TongueSpots}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -190,17 +190,17 @@ export const oralMucosaTongue = (setFormData, formData: CardSyphilis) => [
     ),
   },
   {
-    inputTitle: "Папулы",
+    inputTitle: 'Папулы',
     input: (
       <SelectInput
         fieldName={CardSyphilisData.TonguePapula}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -210,17 +210,17 @@ export const oralMucosaTongue = (setFormData, formData: CardSyphilis) => [
     ),
   },
   {
-    inputTitle: "Эрозии",
+    inputTitle: 'Эрозии',
     input: (
       <SelectInput
         fieldName={CardSyphilisData.TongueErosion}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -230,17 +230,17 @@ export const oralMucosaTongue = (setFormData, formData: CardSyphilis) => [
     ),
   },
   {
-    inputTitle: "Язвы",
+    inputTitle: 'Язвы',
     input: (
       <SelectInput
         fieldName={CardSyphilisData.TongueUlcers}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -250,17 +250,17 @@ export const oralMucosaTongue = (setFormData, formData: CardSyphilis) => [
     ),
   },
   {
-    inputTitle: "Ангина",
+    inputTitle: 'Ангина',
     input: (
       <SelectInput
         fieldName={CardSyphilisData.TongueAngina}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -270,17 +270,17 @@ export const oralMucosaTongue = (setFormData, formData: CardSyphilis) => [
     ),
   },
   {
-    inputTitle: "Увеличение одной из миндалин",
+    inputTitle: 'Увеличение одной из миндалин',
     input: (
       <SelectInput
         fieldName={CardSyphilisData.TongueTonsils}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -293,17 +293,17 @@ export const oralMucosaTongue = (setFormData, formData: CardSyphilis) => [
 
 export const lipCondition = (setFormData, formData: CardSyphilis) => [
   {
-    inputTitle: "Папулы",
+    inputTitle: 'Папулы',
     input: (
       <SelectInput
         fieldName={CardSyphilisData.LipsPapula}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -313,17 +313,17 @@ export const lipCondition = (setFormData, formData: CardSyphilis) => [
     ),
   },
   {
-    inputTitle: "Заеды",
+    inputTitle: 'Заеды',
     input: (
       <SelectInput
         fieldName={CardSyphilisData.LipsJammed}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -333,17 +333,17 @@ export const lipCondition = (setFormData, formData: CardSyphilis) => [
     ),
   },
   {
-    inputTitle: "Эрозии",
+    inputTitle: 'Эрозии',
     input: (
       <SelectInput
         fieldName={CardSyphilisData.LipsErosion}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -353,17 +353,17 @@ export const lipCondition = (setFormData, formData: CardSyphilis) => [
     ),
   },
   {
-    inputTitle: "Осиплость голоса",
+    inputTitle: 'Осиплость голоса',
     input: (
       <SelectInput
         fieldName={CardSyphilisData.VoiceHoarseness}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -376,17 +376,17 @@ export const lipCondition = (setFormData, formData: CardSyphilis) => [
 
 export const palpationOfLymphNodes = (setFormData, formData: CardSyphilis) => [
   {
-    inputTitle: "Шейные",
+    inputTitle: 'Шейные',
     input: (
       <SelectInput
         fieldName={CardSyphilisData.CervicalLymph}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -396,17 +396,17 @@ export const palpationOfLymphNodes = (setFormData, formData: CardSyphilis) => [
     ),
   },
   {
-    inputTitle: "Подчелюстные",
+    inputTitle: 'Подчелюстные',
     input: (
       <SelectInput
         fieldName={CardSyphilisData.SubmandibularLymph}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -416,17 +416,17 @@ export const palpationOfLymphNodes = (setFormData, formData: CardSyphilis) => [
     ),
   },
   {
-    inputTitle: "Подмышечные",
+    inputTitle: 'Подмышечные',
     input: (
       <SelectInput
         fieldName={CardSyphilisData.AxillaryLymph}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -436,17 +436,17 @@ export const palpationOfLymphNodes = (setFormData, formData: CardSyphilis) => [
     ),
   },
   {
-    inputTitle: "Локтевые",
+    inputTitle: 'Локтевые',
     input: (
       <SelectInput
         fieldName={CardSyphilisData.ElbowLymph}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -456,17 +456,17 @@ export const palpationOfLymphNodes = (setFormData, formData: CardSyphilis) => [
     ),
   },
   {
-    inputTitle: "Паховые",
+    inputTitle: 'Паховые',
     input: (
       <SelectInput
         fieldName={CardSyphilisData.InguinalLymph}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -482,17 +482,17 @@ export const presenceOfBoneDestruction = (
   formData: CardSyphilis,
 ) => [
   {
-    inputTitle: "Седловидный нос",
+    inputTitle: 'Седловидный нос',
     input: (
       <SelectInput
         fieldName={CardSyphilisData.BoneSaddleNose}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -502,17 +502,17 @@ export const presenceOfBoneDestruction = (
     ),
   },
   {
-    inputTitle: "Высокое готическое нёбо",
+    inputTitle: 'Высокое готическое нёбо',
     input: (
       <SelectInput
         fieldName={CardSyphilisData.BoneHighGothicPalate}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -522,17 +522,17 @@ export const presenceOfBoneDestruction = (
     ),
   },
   {
-    inputTitle: "Зубы Гетчинсона",
+    inputTitle: 'Зубы Гетчинсона',
     input: (
       <SelectInput
         fieldName={CardSyphilisData.BoneHutchinsonTeeth}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -542,17 +542,17 @@ export const presenceOfBoneDestruction = (
     ),
   },
   {
-    inputTitle: "Отсутствие мечевидного отростка",
+    inputTitle: 'Отсутствие мечевидного отростка',
     input: (
       <SelectInput
         fieldName={CardSyphilisData.BoneXiphoidProcess}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -562,17 +562,17 @@ export const presenceOfBoneDestruction = (
     ),
   },
   {
-    inputTitle: "Саблевидные голени",
+    inputTitle: 'Саблевидные голени',
     input: (
       <SelectInput
         fieldName={CardSyphilisData.BoneSaberTibia}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -588,17 +588,17 @@ export const examinationOfGenitalsPerianalArea = (
   formData: CardSyphilis,
 ) => [
   {
-    inputTitle: "Пятна",
+    inputTitle: 'Пятна',
     input: (
       <SelectInput
         fieldName={CardSyphilisData.GenitaliaSpots}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -608,17 +608,17 @@ export const examinationOfGenitalsPerianalArea = (
     ),
   },
   {
-    inputTitle: "Папулы",
+    inputTitle: 'Папулы',
     input: (
       <SelectInput
         fieldName={CardSyphilisData.GenitaliaPapula}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -628,17 +628,17 @@ export const examinationOfGenitalsPerianalArea = (
     ),
   },
   {
-    inputTitle: "Эрозии",
+    inputTitle: 'Эрозии',
     input: (
       <SelectInput
         fieldName={CardSyphilisData.GenitaliaErosion}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -648,17 +648,17 @@ export const examinationOfGenitalsPerianalArea = (
     ),
   },
   {
-    inputTitle: "Язвы",
+    inputTitle: 'Язвы',
     input: (
       <SelectInput
         fieldName={CardSyphilisData.GenitaliaUlcers}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}

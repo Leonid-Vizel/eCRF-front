@@ -3,7 +3,7 @@
     "outDir": "./build/",
     "noImplicitAny": false,
     "module": "ES2020",
-    "target": "es5",
+    "target": "ES2021",
     "jsx": "react-jsx",
     "allowJs": true,
     "moduleResolution": "node",

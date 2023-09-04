@@ -302,11 +302,14 @@ export interface Criteria {
   [CriteriaFields.CriteriaAllowed]: CriteriaValues;
   [CriteriaFields.CriteriaYesNo]: CriteriaValues;
   [CriteriaFields.PhoneDateTime]: string | null;
+  [CriteriaFields.PhoneDate]: string | null;
+  [CriteriaFields.PhoneTime]: string | null;
   [CriteriaFields.PhoneYesNo]: CriteriaValues;
   [CriteriaFields.Informed]: CriteriaValues;
   [CriteriaFields.Hospitalized]: CriteriaValues;
   [CriteriaFields.VisitComment]: string | null;
   [CriteriaFields.Doctor]: string | null;
+  [CriteriaFields.CardId]: number | null;
 }
 
 export interface PhysicalExam {

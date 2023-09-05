@@ -2,6 +2,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import webpack from 'webpack';
 import { BuildOptions } from './types/buildOptions';
 import { buildCssLoader } from './loaders/buildCssLoader';
+import path from 'path';
 
 export default function buildLoader(
   options: BuildOptions,
@@ -18,6 +19,20 @@ export default function buildLoader(
     use: ['@svgr/webpack'],
   };
 
+  const sourceMapLoader = {
+    test: /\.(js)$/,
+    use: ["source-map-loader"],
+    exclude: [path.join(process.cwd(), 'node_modules')],
+    enforce: "pre" as webpack.RuleSetRule["enforce"]
+}
+
+  const assetsModule = {
+    test: /\.(png|jpg|jpeg|gif)$/i,
+    type: "asset/resource",
+  }
+
+  const cssLoader = buildCssLoader(options.isDev)
+
   // const fileLoader = {
   //   test: /\.(png|jpe?g|gif)$/i,
   //   use: [
@@ -26,13 +41,6 @@ export default function buildLoader(
   //     },
   //   ],
   // };
-
-  const assetsModule = {
-    test: /\.(png|jpg|jpeg|gif)$/i,
-    type: "asset/resource",
-  }
-
-  const cssLoader = buildCssLoader(options.isDev)
 
   const babelLoader = {
     rules: [
@@ -49,7 +57,13 @@ export default function buildLoader(
     ],
   };
 
-  return [typescriptLoader, cssLoader, svgLoader, babelLoader, 
+  return [
+    typescriptLoader, 
+    cssLoader, 
+    svgLoader, 
+    babelLoader, 
     // fileLoader,
-     assetsModule];
+    assetsModule,
+    sourceMapLoader,
+  ];
 }

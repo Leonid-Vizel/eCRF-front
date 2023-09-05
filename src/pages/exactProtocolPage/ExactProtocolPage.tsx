@@ -274,11 +274,11 @@ const ExactProtocolPage = () => {
                 <span>Name</span>
                 <span>
                   Номер субъекта :
-{currentSubject}
+                  {currentSubject}
                 </span>
                 <span>
                   Инициалы субъекта :
-{subjectsOfProtocol && subjectsOfProtocol[currentIndex]?.Initials}
+                  {subjectsOfProtocol && subjectsOfProtocol[currentIndex]?.Initials}
                 </span>
               </div>
               <div className="exact-protocol-name-block">
@@ -327,20 +327,20 @@ const ExactProtocolPage = () => {
                 }
                 return (
                   <div
-                      key={section}
-                      className={`exact-section ${section === selectedSection ? 'exact-selected' : ''}`}
-                      id={anchorClassname}
-                    >
-                      <ScreeningOverall
-                          section={section}
-                          props={sectionProps}
-                          index={currentSubject}
-                          anchorClassname={anchorClassname}
-                          setIsColorRed={setIsColorRed}
-                          isOptionsColorRed={isOptionsColorRed}
-                          setIsOptionsColorRed={setIsOptionsColorRed}
-                        />
-                    </div>
+                    key={section}
+                    className={`exact-section ${section === selectedSection ? 'exact-selected' : ''}`}
+                    id={anchorClassname}
+                  >
+                    <ScreeningOverall
+                      section={section}
+                      props={sectionProps}
+                      index={currentSubject}
+                      anchorClassname={anchorClassname}
+                      setIsColorRed={setIsColorRed}
+                      isOptionsColorRed={isOptionsColorRed}
+                      setIsOptionsColorRed={setIsOptionsColorRed}
+                    />
+                  </div>
                 );
               })}
             </div>

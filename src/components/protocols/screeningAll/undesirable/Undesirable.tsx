@@ -54,14 +54,14 @@ const Undesirable = ({ data, index }) => {
                 color={data && data?.DateStartOfScreeningCondition.Color}
                 refProps={ref1}
                 element={(
-                            <input
-                              type="date"
-                              ref={ref1}
-                              name="dateofstart"
-                              value={undesirable.dateofstart}
-                              onChange={handleUndesirableChange}
-                              className="exact-protocol-select"
-                            />
+                  <input
+                    type="date"
+                    ref={ref1}
+                    name="dateofstart"
+                    value={undesirable.dateofstart}
+                    onChange={handleUndesirableChange}
+                    className="exact-protocol-select"
+                  />
                               )}
                 index={index}
                 fieldName="dateofstart"
@@ -87,14 +87,14 @@ const Undesirable = ({ data, index }) => {
                 color={data && data?.TimeStartOfScreeningCondition.Color}
                 refProps={ref2}
                 element={(
-                            <input
-                              type="text"
-                              ref={ref2}
-                              name="timeofstart"
-                              value={undesirable.timeofstart}
-                              onChange={handleUndesirableChange}
-                              className="exact-protocol-select"
-                            />
+                  <input
+                    type="text"
+                    ref={ref2}
+                    name="timeofstart"
+                    value={undesirable.timeofstart}
+                    onChange={handleUndesirableChange}
+                    className="exact-protocol-select"
+                  />
                               )}
                 index={index}
                 fieldName="timeofstart"

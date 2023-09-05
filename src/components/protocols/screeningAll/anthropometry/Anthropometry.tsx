@@ -83,16 +83,16 @@ const Anthropometry = ({
                 refProps={ref1}
                 element={(
                   <select
-                              ref={ref1}
-                              name="data_been_measured"
-                              value={anthropometry.data_been_measured}
-                              onChange={handleAnthropometryChange}
-                              className="exact-protocol-select"
-                            >
-                              <option value="">Выберите</option>
-                              <option value={1}>Да</option>
-                              <option value={0}>Нет</option>
-                            </select>
+                    ref={ref1}
+                    name="data_been_measured"
+                    value={anthropometry.data_been_measured}
+                    onChange={handleAnthropometryChange}
+                    className="exact-protocol-select"
+                  >
+                    <option value="">Выберите</option>
+                    <option value={1}>Да</option>
+                    <option value={0}>Нет</option>
+                  </select>
                               )}
                 index={index}
                 fieldName="data_been_measured"
@@ -120,13 +120,13 @@ const Anthropometry = ({
                 refProps={ref2}
                 element={(
                   <input
-                              type="text"
-                              ref={ref2}
-                              name="if_not"
-                              value={anthropometry.if_not}
-                              onChange={handleAnthropometryChange}
-                              className="exact-protocol-select"
-                            />
+                    type="text"
+                    ref={ref2}
+                    name="if_not"
+                    value={anthropometry.if_not}
+                    onChange={handleAnthropometryChange}
+                    className="exact-protocol-select"
+                  />
                               )}
                 index={index}
                 fieldName="if_not"
@@ -154,13 +154,13 @@ const Anthropometry = ({
                 refProps={ref3}
                 element={(
                   <input
-                              type="date"
-                              ref={ref3}
-                              name="date_of_start"
-                              value={anthropometry.date_of_start}
-                              onChange={handleAnthropometryChange}
-                              className="exact-protocol-select"
-                            />
+                    type="date"
+                    ref={ref3}
+                    name="date_of_start"
+                    value={anthropometry.date_of_start}
+                    onChange={handleAnthropometryChange}
+                    className="exact-protocol-select"
+                  />
                               )}
                 index={index}
                 fieldName="date_of_start"
@@ -188,13 +188,13 @@ const Anthropometry = ({
                 refProps={ref4}
                 element={(
                   <input
-                              type="text"
-                              ref={ref4}
-                              name="weight"
-                              value={anthropometry.weight}
-                              onChange={handleAnthropometryChange}
-                              className="exact-protocol-select"
-                            />
+                    type="text"
+                    ref={ref4}
+                    name="weight"
+                    value={anthropometry.weight}
+                    onChange={handleAnthropometryChange}
+                    className="exact-protocol-select"
+                  />
                               )}
                 index={index}
                 fieldName="weight"
@@ -222,13 +222,13 @@ const Anthropometry = ({
                 refProps={5}
                 element={(
                   <input
-                              type="text"
-                              ref={ref5}
-                              name="height"
-                              value={anthropometry.height}
-                              onChange={handleAnthropometryChange}
-                              className="exact-protocol-select"
-                            />
+                    type="text"
+                    ref={ref5}
+                    name="height"
+                    value={anthropometry.height}
+                    onChange={handleAnthropometryChange}
+                    className="exact-protocol-select"
+                  />
                               )}
                 index={index}
                 fieldName="height"
@@ -255,13 +255,13 @@ const Anthropometry = ({
                 refProps={ref6}
                 element={(
                   <input
-                              ref={ref6}
-                              type="text"
-                              name="index"
-                              value={anthropometry.index}
-                              onChange={handleAnthropometryChange}
-                              className="exact-protocol-select"
-                            />
+                    ref={ref6}
+                    type="text"
+                    name="index"
+                    value={anthropometry.index}
+                    onChange={handleAnthropometryChange}
+                    className="exact-protocol-select"
+                  />
                               )}
                 index={index}
                 fieldName="index"

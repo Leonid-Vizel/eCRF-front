@@ -133,16 +133,16 @@ const CriteriaForNonInclusion = ({
                 refProps={refNon1}
                 element={(
                   <select
-                              ref={refNon1}
-                              name="lackofsignedinformedconsent"
-                              value={criteriaForNonInclusion.lackofsignedinformedconsent}
-                              onChange={handleCriteriaForNonInclusion}
-                              className="exact-protocol-select"
-                            >
-                              <option value="">Выберите</option>
-                              <option value={1}>Да</option>
-                              <option value={0}>Нет</option>
-                            </select>
+                    ref={refNon1}
+                    name="lackofsignedinformedconsent"
+                    value={criteriaForNonInclusion.lackofsignedinformedconsent}
+                    onChange={handleCriteriaForNonInclusion}
+                    className="exact-protocol-select"
+                  >
+                    <option value="">Выберите</option>
+                    <option value={1}>Да</option>
+                    <option value={0}>Нет</option>
+                  </select>
                               )}
                 index={index}
                 fieldName="lackofsignedinformedconsent"
@@ -173,16 +173,16 @@ const CriteriaForNonInclusion = ({
                 refProps={refNon2}
                 element={(
                   <select
-                              ref={refNon2}
-                              name="steroidtherapy"
-                              onChange={handleCriteriaForNonInclusion}
-                              value={criteriaForNonInclusion.steroidtherapy}
-                              className="exact-protocol-select"
-                            >
-                              <option value="">Выберите</option>
-                              <option value={1}>Да</option>
-                              <option value={0}>Нет</option>
-                            </select>
+                    ref={refNon2}
+                    name="steroidtherapy"
+                    onChange={handleCriteriaForNonInclusion}
+                    value={criteriaForNonInclusion.steroidtherapy}
+                    className="exact-protocol-select"
+                  >
+                    <option value="">Выберите</option>
+                    <option value={1}>Да</option>
+                    <option value={0}>Нет</option>
+                  </select>
                               )}
                 index={index}
                 fieldName="steroidtherapy"
@@ -213,16 +213,16 @@ const CriteriaForNonInclusion = ({
                 refProps={refNon3}
                 element={(
                   <select
-                              ref={refNon3}
-                              name="therapywithimmunosuppressivedrugs"
-                              value={criteriaForNonInclusion.therapywithimmunosuppressivedrugs}
-                              onChange={handleCriteriaForNonInclusion}
-                              className="exact-protocol-select"
-                            >
-                              <option value="">Выберите</option>
-                              <option value={1}>Да</option>
-                              <option value={0}>Нет</option>
-                            </select>
+                    ref={refNon3}
+                    name="therapywithimmunosuppressivedrugs"
+                    value={criteriaForNonInclusion.therapywithimmunosuppressivedrugs}
+                    onChange={handleCriteriaForNonInclusion}
+                    className="exact-protocol-select"
+                  >
+                    <option value="">Выберите</option>
+                    <option value={1}>Да</option>
+                    <option value={0}>Нет</option>
+                  </select>
                               )}
                 index={index}
                 fieldName="therapywithimmunosuppressivedrugs"
@@ -253,16 +253,16 @@ const CriteriaForNonInclusion = ({
                 refProps={refNon4}
                 element={(
                   <select
-                              ref={refNon4}
-                              name="femalesubjectsduringpregnancy"
-                              value={criteriaForNonInclusion.femalesubjectsduringpregnancy}
-                              onChange={handleCriteriaForNonInclusion}
-                              className="exact-protocol-select"
-                            >
-                              <option value="">Выберите</option>
-                              <option value={1}>Да</option>
-                              <option value={0}>Нет</option>
-                            </select>
+                    ref={refNon4}
+                    name="femalesubjectsduringpregnancy"
+                    value={criteriaForNonInclusion.femalesubjectsduringpregnancy}
+                    onChange={handleCriteriaForNonInclusion}
+                    className="exact-protocol-select"
+                  >
+                    <option value="">Выберите</option>
+                    <option value={1}>Да</option>
+                    <option value={0}>Нет</option>
+                  </select>
                               )}
                 index={index}
                 fieldName="femalesubjectsduringpregnancy"
@@ -293,16 +293,16 @@ const CriteriaForNonInclusion = ({
                 refProps={refNon5}
                 element={(
                   <select
-                              ref={refNon5}
-                              name="strokeinlessthanoneyear"
-                              value={criteriaForNonInclusion.strokeinlessthanoneyear}
-                              onChange={handleCriteriaForNonInclusion}
-                              className="exact-protocol-select"
-                            >
-                              <option value="">Выберите</option>
-                              <option value={1}>Да</option>
-                              <option value={0}>Нет</option>
-                            </select>
+                    ref={refNon5}
+                    name="strokeinlessthanoneyear"
+                    value={criteriaForNonInclusion.strokeinlessthanoneyear}
+                    onChange={handleCriteriaForNonInclusion}
+                    className="exact-protocol-select"
+                  >
+                    <option value="">Выберите</option>
+                    <option value={1}>Да</option>
+                    <option value={0}>Нет</option>
+                  </select>
                               )}
                 index={index}
                 fieldName="strokeinlessthanoneyear"
@@ -333,16 +333,16 @@ const CriteriaForNonInclusion = ({
                 refProps={refNon6}
                 element={(
                   <select
-                              ref={refNon6}
-                              name="chronicsystemicinfections"
-                              value={criteriaForNonInclusion.chronicsystemicinfections}
-                              onChange={handleCriteriaForNonInclusion}
-                              className="exact-protocol-select"
-                            >
-                              <option value="">Выберите</option>
-                              <option value={1}>Да</option>
-                              <option value={0}>Нет</option>
-                            </select>
+                    ref={refNon6}
+                    name="chronicsystemicinfections"
+                    value={criteriaForNonInclusion.chronicsystemicinfections}
+                    onChange={handleCriteriaForNonInclusion}
+                    className="exact-protocol-select"
+                  >
+                    <option value="">Выберите</option>
+                    <option value={1}>Да</option>
+                    <option value={0}>Нет</option>
+                  </select>
                               )}
                 index={index}
                 fieldName="chronicsystemicinfections"
@@ -373,16 +373,16 @@ const CriteriaForNonInclusion = ({
                 refProps={refNon7}
                 element={(
                   <select
-                              ref={refNon7}
-                              name="aggravatedallergichistory"
-                              value={criteriaForNonInclusion.aggravatedallergichistory}
-                              onChange={handleCriteriaForNonInclusion}
-                              className="exact-protocol-select"
-                            >
-                              <option value="">Выберите</option>
-                              <option value={1}>Да</option>
-                              <option value={0}>Нет</option>
-                            </select>
+                    ref={refNon7}
+                    name="aggravatedallergichistory"
+                    value={criteriaForNonInclusion.aggravatedallergichistory}
+                    onChange={handleCriteriaForNonInclusion}
+                    className="exact-protocol-select"
+                  >
+                    <option value="">Выберите</option>
+                    <option value={1}>Да</option>
+                    <option value={0}>Нет</option>
+                  </select>
                               )}
                 index={index}
                 fieldName="aggravatedallergichistory"
@@ -413,16 +413,16 @@ const CriteriaForNonInclusion = ({
                 refProps={refNon8}
                 element={(
                   <select
-                              ref={refNon8}
-                              name="presenceofahistoryofneoplasms"
-                              value={criteriaForNonInclusion.presenceofahistoryofneoplasms}
-                              onChange={handleCriteriaForNonInclusion}
-                              className="exact-protocol-select"
-                            >
-                              <option value="">Выберите</option>
-                              <option value={1}>Да</option>
-                              <option value={0}>Нет</option>
-                            </select>
+                    ref={refNon8}
+                    name="presenceofahistoryofneoplasms"
+                    value={criteriaForNonInclusion.presenceofahistoryofneoplasms}
+                    onChange={handleCriteriaForNonInclusion}
+                    className="exact-protocol-select"
+                  >
+                    <option value="">Выберите</option>
+                    <option value={1}>Да</option>
+                    <option value={0}>Нет</option>
+                  </select>
                               )}
                 index={index}
                 fieldName="presenceofahistoryofneoplasms"
@@ -453,16 +453,16 @@ const CriteriaForNonInclusion = ({
                 refProps={refNon9}
                 element={(
                   <select
-                              ref={refNon9}
-                              name="historyofsplenectomy"
-                              value={criteriaForNonInclusion.historyofsplenectomy}
-                              onChange={handleCriteriaForNonInclusion}
-                              className="exact-protocol-select"
-                            >
-                              <option value="">Выберите</option>
-                              <option value={1}>Да</option>
-                              <option value={0}>Нет</option>
-                            </select>
+                    ref={refNon9}
+                    name="historyofsplenectomy"
+                    value={criteriaForNonInclusion.historyofsplenectomy}
+                    onChange={handleCriteriaForNonInclusion}
+                    className="exact-protocol-select"
+                  >
+                    <option value="">Выберите</option>
+                    <option value={1}>Да</option>
+                    <option value={0}>Нет</option>
+                  </select>
                               )}
                 index={index}
                 fieldName="historyofsplenectomy"
@@ -493,16 +493,16 @@ const CriteriaForNonInclusion = ({
                 refProps={refNon10}
                 element={(
                   <select
-                              ref={refNon10}
-                              name="neutropenia"
-                              value={criteriaForNonInclusion.neutropenia}
-                              onChange={handleCriteriaForNonInclusion}
-                              className="exact-protocol-select"
-                            >
-                              <option value="">Выберите</option>
-                              <option value={1}>Да</option>
-                              <option value={0}>Нет</option>
-                            </select>
+                    ref={refNon10}
+                    name="neutropenia"
+                    value={criteriaForNonInclusion.neutropenia}
+                    onChange={handleCriteriaForNonInclusion}
+                    className="exact-protocol-select"
+                  >
+                    <option value="">Выберите</option>
+                    <option value={1}>Да</option>
+                    <option value={0}>Нет</option>
+                  </select>
                               )}
                 index={index}
                 fieldName="neutropenia"
@@ -533,16 +533,16 @@ const CriteriaForNonInclusion = ({
                 refProps={refNon11}
                 element={(
                   <select
-                              ref={refNon11}
-                              name="subjectswithactivesyphilis"
-                              value={criteriaForNonInclusion.subjectswithactivesyphilis}
-                              onChange={handleCriteriaForNonInclusion}
-                              className="exact-protocol-select"
-                            >
-                              <option value="">Выберите</option>
-                              <option value={1}>Да</option>
-                              <option value={0}>Нет</option>
-                            </select>
+                    ref={refNon11}
+                    name="subjectswithactivesyphilis"
+                    value={criteriaForNonInclusion.subjectswithactivesyphilis}
+                    onChange={handleCriteriaForNonInclusion}
+                    className="exact-protocol-select"
+                  >
+                    <option value="">Выберите</option>
+                    <option value={1}>Да</option>
+                    <option value={0}>Нет</option>
+                  </select>
                               )}
                 index={index}
                 fieldName="subjectswithactivesyphilis"
@@ -573,16 +573,16 @@ const CriteriaForNonInclusion = ({
                 refProps={refNon12}
                 element={(
                   <select
-                              ref={refNon12}
-                              name="anorexia"
-                              value={criteriaForNonInclusion.anorexia}
-                              onChange={handleCriteriaForNonInclusion}
-                              className="exact-protocol-select"
-                            >
-                              <option value="">Выберите</option>
-                              <option value={1}>Да</option>
-                              <option value={0}>Нет</option>
-                            </select>
+                    ref={refNon12}
+                    name="anorexia"
+                    value={criteriaForNonInclusion.anorexia}
+                    onChange={handleCriteriaForNonInclusion}
+                    className="exact-protocol-select"
+                  >
+                    <option value="">Выберите</option>
+                    <option value={1}>Да</option>
+                    <option value={0}>Нет</option>
+                  </select>
                               )}
                 index={index}
                 fieldName="anorexia"
@@ -613,16 +613,16 @@ const CriteriaForNonInclusion = ({
                 refProps={refNon13}
                 element={(
                   <select
-                              ref={refNon13}
-                              name="extensivetattoos"
-                              value={criteriaForNonInclusion.extensivetattoos}
-                              onChange={handleCriteriaForNonInclusion}
-                              className="exact-protocol-select"
-                            >
-                              <option value="">Выберите</option>
-                              <option value={1}>Да</option>
-                              <option value={0}>Нет</option>
-                            </select>
+                    ref={refNon13}
+                    name="extensivetattoos"
+                    value={criteriaForNonInclusion.extensivetattoos}
+                    onChange={handleCriteriaForNonInclusion}
+                    className="exact-protocol-select"
+                  >
+                    <option value="">Выберите</option>
+                    <option value={1}>Да</option>
+                    <option value={0}>Нет</option>
+                  </select>
                               )}
                 index={index}
                 fieldName="extensivetattoos"
@@ -653,16 +653,16 @@ const CriteriaForNonInclusion = ({
                 refProps={refNon14}
                 element={(
                   <select
-                              ref={refNon14}
-                              name="takingnarcoticandpsychostimulantdrugs"
-                              value={criteriaForNonInclusion.takingnarcoticandpsychostimulantdrugs}
-                              onChange={handleCriteriaForNonInclusion}
-                              className="exact-protocol-select"
-                            >
-                              <option value="">Выберите</option>
-                              <option value={1}>Да</option>
-                              <option value={0}>Нет</option>
-                            </select>
+                    ref={refNon14}
+                    name="takingnarcoticandpsychostimulantdrugs"
+                    value={criteriaForNonInclusion.takingnarcoticandpsychostimulantdrugs}
+                    onChange={handleCriteriaForNonInclusion}
+                    className="exact-protocol-select"
+                  >
+                    <option value="">Выберите</option>
+                    <option value={1}>Да</option>
+                    <option value={0}>Нет</option>
+                  </select>
                               )}
                 index={index}
                 fieldName="takingnarcoticandpsychostimulantdrugs"
@@ -693,16 +693,16 @@ const CriteriaForNonInclusion = ({
                 refProps={refNon15}
                 element={(
                   <select
-                              ref={refNon15}
-                              name="smokingmorethantencigarettesaday"
-                              value={criteriaForNonInclusion.smokingmorethantencigarettesaday}
-                              onChange={handleCriteriaForNonInclusion}
-                              className="exact-protocol-select"
-                            >
-                              <option value="">Выберите</option>
-                              <option value={1}>Да</option>
-                              <option value={0}>Нет</option>
-                            </select>
+                    ref={refNon15}
+                    name="smokingmorethantencigarettesaday"
+                    value={criteriaForNonInclusion.smokingmorethantencigarettesaday}
+                    onChange={handleCriteriaForNonInclusion}
+                    className="exact-protocol-select"
+                  >
+                    <option value="">Выберите</option>
+                    <option value={1}>Да</option>
+                    <option value={0}>Нет</option>
+                  </select>
                               )}
                 index={index}
                 fieldName="smokingmorethantencigarettesaday"
@@ -733,16 +733,16 @@ const CriteriaForNonInclusion = ({
                 refProps={refNon16}
                 element={(
                   <select
-                              ref={refNon16}
-                              name="alcoholintake"
-                              value={criteriaForNonInclusion.alcoholintake}
-                              onChange={handleCriteriaForNonInclusion}
-                              className="exact-protocol-select"
-                            >
-                              <option value="">Выберите</option>
-                              <option value={1}>Да</option>
-                              <option value={0}>Нет</option>
-                            </select>
+                    ref={refNon16}
+                    name="alcoholintake"
+                    value={criteriaForNonInclusion.alcoholintake}
+                    onChange={handleCriteriaForNonInclusion}
+                    className="exact-protocol-select"
+                  >
+                    <option value="">Выберите</option>
+                    <option value={1}>Да</option>
+                    <option value={0}>Нет</option>
+                  </select>
                               )}
                 index={index}
                 fieldName="alcoholintake"
@@ -773,16 +773,16 @@ const CriteriaForNonInclusion = ({
                 refProps={refNon17}
                 element={(
                   <select
-                              ref={refNon17}
-                              name="plannedhospitalization"
-                              value={criteriaForNonInclusion.plannedhospitalization}
-                              onChange={handleCriteriaForNonInclusion}
-                              className="exact-protocol-select"
-                            >
-                              <option value="">Выберите</option>
-                              <option value={1}>Да</option>
-                              <option value={0}>Нет</option>
-                            </select>
+                    ref={refNon17}
+                    name="plannedhospitalization"
+                    value={criteriaForNonInclusion.plannedhospitalization}
+                    onChange={handleCriteriaForNonInclusion}
+                    className="exact-protocol-select"
+                  >
+                    <option value="">Выберите</option>
+                    <option value={1}>Да</option>
+                    <option value={0}>Нет</option>
+                  </select>
                               )}
                 index={index}
                 fieldName="plannedhospitalization"
@@ -813,16 +813,16 @@ const CriteriaForNonInclusion = ({
                 refProps={refNon18}
                 element={(
                   <select
-                              ref={refNon18}
-                              name="donorblooddonation"
-                              value={criteriaForNonInclusion.donorblooddonation}
-                              onChange={handleCriteriaForNonInclusion}
-                              className="exact-protocol-select"
-                            >
-                              <option value="">Выберите</option>
-                              <option value={1}>Да</option>
-                              <option value={0}>Нет</option>
-                            </select>
+                    ref={refNon18}
+                    name="donorblooddonation"
+                    value={criteriaForNonInclusion.donorblooddonation}
+                    onChange={handleCriteriaForNonInclusion}
+                    className="exact-protocol-select"
+                  >
+                    <option value="">Выберите</option>
+                    <option value={1}>Да</option>
+                    <option value={0}>Нет</option>
+                  </select>
                               )}
                 index={index}
                 fieldName="donorblooddonation"
@@ -853,16 +853,16 @@ const CriteriaForNonInclusion = ({
                 refProps={refNon19}
                 element={(
                   <select
-                              ref={refNon19}
-                              name="subjectparticipationinanyotherstudy"
-                              value={criteriaForNonInclusion.subjectparticipationinanyotherstudy}
-                              onChange={handleCriteriaForNonInclusion}
-                              className="exact-protocol-select"
-                            >
-                              <option value="">Выберите</option>
-                              <option value={1}>Да</option>
-                              <option value={0}>Нет</option>
-                            </select>
+                    ref={refNon19}
+                    name="subjectparticipationinanyotherstudy"
+                    value={criteriaForNonInclusion.subjectparticipationinanyotherstudy}
+                    onChange={handleCriteriaForNonInclusion}
+                    className="exact-protocol-select"
+                  >
+                    <option value="">Выберите</option>
+                    <option value={1}>Да</option>
+                    <option value={0}>Нет</option>
+                  </select>
                               )}
                 index={index}
                 fieldName="subjectparticipationinanyotherstudy"
@@ -893,16 +893,16 @@ const CriteriaForNonInclusion = ({
                 refProps={refNon20}
                 element={(
                   <select
-                              ref={refNon20}
-                              name="anyvaccinationinthelastmonth"
-                              value={criteriaForNonInclusion.anyvaccinationinthelastmonth}
-                              onChange={handleCriteriaForNonInclusion}
-                              className="exact-protocol-select"
-                            >
-                              <option value="">Выберите</option>
-                              <option value={1}>Да</option>
-                              <option value={0}>Нет</option>
-                            </select>
+                    ref={refNon20}
+                    name="anyvaccinationinthelastmonth"
+                    value={criteriaForNonInclusion.anyvaccinationinthelastmonth}
+                    onChange={handleCriteriaForNonInclusion}
+                    className="exact-protocol-select"
+                  >
+                    <option value="">Выберите</option>
+                    <option value={1}>Да</option>
+                    <option value={0}>Нет</option>
+                  </select>
                               )}
                 index={index}
                 fieldName="anyvaccinationinthelastmonth"
@@ -933,16 +933,16 @@ const CriteriaForNonInclusion = ({
                 refProps={refNon21}
                 element={(
                   <select
-                              ref={refNon21}
-                              name="inabilitytoreadinrussian"
-                              value={criteriaForNonInclusion.inabilitytoreadinrussian}
-                              onChange={handleCriteriaForNonInclusion}
-                              className="exact-protocol-select"
-                            >
-                              <option value="">Выберите</option>
-                              <option value={1}>Да</option>
-                              <option value={0}>Нет</option>
-                            </select>
+                    ref={refNon21}
+                    name="inabilitytoreadinrussian"
+                    value={criteriaForNonInclusion.inabilitytoreadinrussian}
+                    onChange={handleCriteriaForNonInclusion}
+                    className="exact-protocol-select"
+                  >
+                    <option value="">Выберите</option>
+                    <option value={1}>Да</option>
+                    <option value={0}>Нет</option>
+                  </select>
                               )}
                 index={index}
                 fieldName="inabilitytoreadinrussian"
@@ -973,16 +973,16 @@ const CriteriaForNonInclusion = ({
                 refProps={refNon22}
                 element={(
                   <select
-                              ref={refNon22}
-                              name="researchcenterstaff"
-                              value={criteriaForNonInclusion.researchcenterstaff}
-                              onChange={handleCriteriaForNonInclusion}
-                              className="exact-protocol-select"
-                            >
-                              <option value="">Выберите</option>
-                              <option value={1}>Да</option>
-                              <option value={0}>Нет</option>
-                            </select>
+                    ref={refNon22}
+                    name="researchcenterstaff"
+                    value={criteriaForNonInclusion.researchcenterstaff}
+                    onChange={handleCriteriaForNonInclusion}
+                    className="exact-protocol-select"
+                  >
+                    <option value="">Выберите</option>
+                    <option value={1}>Да</option>
+                    <option value={0}>Нет</option>
+                  </select>
                               )}
                 index={index}
                 fieldName="researchcenterstaff"
@@ -1013,16 +1013,16 @@ const CriteriaForNonInclusion = ({
                 refProps={refNon23}
                 element={(
                   <select
-                              ref={refNon23}
-                              name="anyotherstateofthesubjectofthestudy"
-                              value={criteriaForNonInclusion.anyotherstateofthesubjectofthestudy}
-                              onChange={handleCriteriaForNonInclusion}
-                              className="exact-protocol-select"
-                            >
-                              <option value="">Выберите</option>
-                              <option value={1}>Да</option>
-                              <option value={0}>Нет</option>
-                            </select>
+                    ref={refNon23}
+                    name="anyotherstateofthesubjectofthestudy"
+                    value={criteriaForNonInclusion.anyotherstateofthesubjectofthestudy}
+                    onChange={handleCriteriaForNonInclusion}
+                    className="exact-protocol-select"
+                  >
+                    <option value="">Выберите</option>
+                    <option value={1}>Да</option>
+                    <option value={0}>Нет</option>
+                  </select>
                               )}
                 index={index}
                 fieldName="anyotherstateofthesubjectofthestudy"

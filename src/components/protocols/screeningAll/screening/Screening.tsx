@@ -77,16 +77,16 @@ const Screening = ({
                 color={data && data?.SignedCondition.Color}
                 element={(
                   <select
-                              ref={ref1}
-                              name="signed"
-                              value={informedConsent.signed}
-                              onChange={handleInformedConsentChange}
-                              className="exact-protocol-select"
-                            >
-                              <option value="">Выберите</option>
-                              <option value={1}>Да</option>
-                              <option value={0}>Нет</option>
-                            </select>
+                    ref={ref1}
+                    name="signed"
+                    value={informedConsent.signed}
+                    onChange={handleInformedConsentChange}
+                    className="exact-protocol-select"
+                  >
+                    <option value="">Выберите</option>
+                    <option value={1}>Да</option>
+                    <option value={0}>Нет</option>
+                  </select>
                               )}
                 refProps={ref1}
                 index={index}
@@ -115,13 +115,13 @@ const Screening = ({
                 refProps={ref2}
                 element={(
                   <input
-                              type="date"
-                              ref={ref2}
-                              name="date_of_sign"
-                              value={informedConsent.date_of_sign}
-                              onChange={handleInformedConsentChange}
-                              className="exact-protocol-select"
-                            />
+                    type="date"
+                    ref={ref2}
+                    name="date_of_sign"
+                    value={informedConsent.date_of_sign}
+                    onChange={handleInformedConsentChange}
+                    className="exact-protocol-select"
+                  />
                               )}
                 index={index}
                 fieldName="date_of_sign"
@@ -149,13 +149,13 @@ const Screening = ({
                 refProps={ref3}
                 element={(
                   <input
-                              type="text"
-                              ref={ref3}
-                              name="time_of_sign"
-                              value={informedConsent.time_of_sign}
-                              onChange={handleInformedConsentChange}
-                              className="exact-protocol-select"
-                            />
+                    type="text"
+                    ref={ref3}
+                    name="time_of_sign"
+                    value={informedConsent.time_of_sign}
+                    onChange={handleInformedConsentChange}
+                    className="exact-protocol-select"
+                  />
                               )}
                 index={index}
                 fieldName="time_of_sign"
@@ -186,16 +186,16 @@ const Screening = ({
                 refProps={ref4}
                 element={(
                   <select
-                              name="original"
-                              ref={ref4}
-                              value={informedConsent.original}
-                              onChange={handleInformedConsentChange}
-                              className="exact-protocol-select"
-                            >
-                              <option value="">Выберите</option>
-                              <option value={1}>Да</option>
-                              <option value={0}>Нет</option>
-                            </select>
+                    name="original"
+                    ref={ref4}
+                    value={informedConsent.original}
+                    onChange={handleInformedConsentChange}
+                    className="exact-protocol-select"
+                  >
+                    <option value="">Выберите</option>
+                    <option value={1}>Да</option>
+                    <option value={0}>Нет</option>
+                  </select>
                               )}
                 index={index}
                 fieldName="original"
@@ -225,16 +225,16 @@ const Screening = ({
                 refProps={ref5}
                 element={(
                   <select
-                              name="consent"
-                              ref={ref5}
-                              value={informedConsent.consent}
-                              onChange={handleInformedConsentChange}
-                              className="exact-protocol-select"
-                            >
-                              <option value="">Выберите</option>
-                              <option value={1}>Да</option>
-                              <option value={0}>Нет</option>
-                            </select>
+                    name="consent"
+                    ref={ref5}
+                    value={informedConsent.consent}
+                    onChange={handleInformedConsentChange}
+                    className="exact-protocol-select"
+                  >
+                    <option value="">Выберите</option>
+                    <option value={1}>Да</option>
+                    <option value={0}>Нет</option>
+                  </select>
                               )}
                 index={index}
                 fieldName="consent"

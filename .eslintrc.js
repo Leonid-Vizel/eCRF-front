@@ -25,6 +25,7 @@ module.exports = {
         '.js', '.jsx', '.tsx',
       ],
     }],
+    'linebreak-style':'crlf',
     'no-unused-vars': 'error',
     'no-shadow': 'off',
     'no-underscore-dangle': ['error', {

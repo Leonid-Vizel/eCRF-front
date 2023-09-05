@@ -106,16 +106,16 @@ const CriteriaForInclusion = ({
                 refProps={ref1}
                 element={(
                   <select
-                              ref={ref1}
-                              name="presenceofaninformationpanel"
-                              value={criteriaForInclusion.presenceofaninformationpanel}
-                              onChange={handleCriteriaForInclusion}
-                              className="exact-protocol-select"
-                            >
-                              <option value="">Выберите</option>
-                              <option value={1}>Да</option>
-                              <option value={0}>Нет</option>
-                            </select>
+                    ref={ref1}
+                    name="presenceofaninformationpanel"
+                    value={criteriaForInclusion.presenceofaninformationpanel}
+                    onChange={handleCriteriaForInclusion}
+                    className="exact-protocol-select"
+                  >
+                    <option value="">Выберите</option>
+                    <option value={1}>Да</option>
+                    <option value={0}>Нет</option>
+                  </select>
                               )}
                 index={index}
                 fieldName="presenceofaninformationpanel"
@@ -146,16 +146,16 @@ const CriteriaForInclusion = ({
                 refProps={ref2}
                 element={(
                   <select
-                              ref={ref2}
-                              name="aged18to55years"
-                              value={criteriaForInclusion.aged18to55years}
-                              onChange={handleCriteriaForInclusion}
-                              className="exact-protocol-select"
-                            >
-                              <option value="">Выберите</option>
-                              <option value={1}>Да</option>
-                              <option value={0}>Нет</option>
-                            </select>
+                    ref={ref2}
+                    name="aged18to55years"
+                    value={criteriaForInclusion.aged18to55years}
+                    onChange={handleCriteriaForInclusion}
+                    className="exact-protocol-select"
+                  >
+                    <option value="">Выберите</option>
+                    <option value={1}>Да</option>
+                    <option value={0}>Нет</option>
+                  </select>
                               )}
                 index={index}
                 fieldName="aged18to55years"
@@ -186,16 +186,16 @@ const CriteriaForInclusion = ({
                 refProps={ref3}
                 element={(
                   <select
-                              ref={ref3}
-                              name="negativehivtestresult"
-                              value={criteriaForInclusion.negativehivtestresult}
-                              onChange={handleCriteriaForInclusion}
-                              className="exact-protocol-select"
-                            >
-                              <option value="">Выберите</option>
-                              <option value={1}>Да</option>
-                              <option value={0}>Нет</option>
-                            </select>
+                    ref={ref3}
+                    name="negativehivtestresult"
+                    value={criteriaForInclusion.negativehivtestresult}
+                    onChange={handleCriteriaForInclusion}
+                    className="exact-protocol-select"
+                  >
+                    <option value="">Выберите</option>
+                    <option value={1}>Да</option>
+                    <option value={0}>Нет</option>
+                  </select>
                               )}
                 index={index}
                 fieldName="negativehivtestresult"
@@ -226,16 +226,16 @@ const CriteriaForInclusion = ({
                 refProps={ref4}
                 element={(
                   <select
-                              ref={ref4}
-                              name="bodymassindex"
-                              value={criteriaForInclusion.bodymassindex}
-                              onChange={handleCriteriaForInclusion}
-                              className="exact-protocol-select"
-                            >
-                              <option value="">Выберите</option>
-                              <option value={1}>Да</option>
-                              <option value={0}>Нет</option>
-                            </select>
+                    ref={ref4}
+                    name="bodymassindex"
+                    value={criteriaForInclusion.bodymassindex}
+                    onChange={handleCriteriaForInclusion}
+                    className="exact-protocol-select"
+                  >
+                    <option value="">Выберите</option>
+                    <option value={1}>Да</option>
+                    <option value={0}>Нет</option>
+                  </select>
                               )}
                 index={index}
                 fieldName="bodymassindex"
@@ -266,16 +266,16 @@ const CriteriaForInclusion = ({
                 refProps={ref5}
                 element={(
                   <select
-                          ref={ref5}
-                          name="absenceofacuteinfectiousdiseases"
-                          value={criteriaForInclusion.absenceofacuteinfectiousdiseases}
-                          onChange={handleCriteriaForInclusion}
-                          className="exact-protocol-select"
-                        >
-                          <option value="">Выберите</option>
-                          <option value={1}>Да</option>
-                          <option value={0}>Нет</option>
-                        </select>
+                    ref={ref5}
+                    name="absenceofacuteinfectiousdiseases"
+                    value={criteriaForInclusion.absenceofacuteinfectiousdiseases}
+                    onChange={handleCriteriaForInclusion}
+                    className="exact-protocol-select"
+                  >
+                    <option value="">Выберите</option>
+                    <option value={1}>Да</option>
+                    <option value={0}>Нет</option>
+                  </select>
                               )}
                 index={index}
                 fieldName="absenceofacuteinfectiousdiseases"
@@ -306,16 +306,16 @@ const CriteriaForInclusion = ({
                 refProps={ref6}
                 element={(
                   <select
-                              ref={ref6}
-                              name="consenttouseeffectivemethodsofcontraception"
-                              value={criteriaForInclusion.consenttouseeffectivemethodsofcontraception}
-                              onChange={handleCriteriaForInclusion}
-                              className="exact-protocol-select"
-                            >
-                              <option value="">Выберите</option>
-                              <option value={1}>Да</option>
-                              <option value={0}>Нет</option>
-                            </select>
+                    ref={ref6}
+                    name="consenttouseeffectivemethodsofcontraception"
+                    value={criteriaForInclusion.consenttouseeffectivemethodsofcontraception}
+                    onChange={handleCriteriaForInclusion}
+                    className="exact-protocol-select"
+                  >
+                    <option value="">Выберите</option>
+                    <option value={1}>Да</option>
+                    <option value={0}>Нет</option>
+                  </select>
                               )}
                 index={index}
                 fieldName="consenttouseeffectivemethodsofcontraception"
@@ -346,16 +346,16 @@ const CriteriaForInclusion = ({
                 refProps={ref7}
                 element={(
                   <select
-                              ref={ref7}
-                              name="negativepregnancytest"
-                              value={criteriaForInclusion.negativepregnancytest}
-                              onChange={handleCriteriaForInclusion}
-                              className="exact-protocol-select"
-                            >
-                              <option value="">Выберите</option>
-                              <option value={1}>Да</option>
-                              <option value={0}>Нет</option>
-                            </select>
+                    ref={ref7}
+                    name="negativepregnancytest"
+                    value={criteriaForInclusion.negativepregnancytest}
+                    onChange={handleCriteriaForInclusion}
+                    className="exact-protocol-select"
+                  >
+                    <option value="">Выберите</option>
+                    <option value={1}>Да</option>
+                    <option value={0}>Нет</option>
+                  </select>
                               )}
                 index={index}
                 fieldName="negativepregnancytest"
@@ -386,16 +386,16 @@ const CriteriaForInclusion = ({
                 refProps={ref8}
                 element={(
                   <select
-                              ref={ref8}
-                              name="negativedrugtest"
-                              value={criteriaForInclusion.negativedrugtest}
-                              onChange={handleCriteriaForInclusion}
-                              className="exact-protocol-select"
-                            >
-                              <option value="">Выберите</option>
-                              <option value={1}>Да</option>
-                              <option value={0}>Нет</option>
-                            </select>
+                    ref={ref8}
+                    name="negativedrugtest"
+                    value={criteriaForInclusion.negativedrugtest}
+                    onChange={handleCriteriaForInclusion}
+                    className="exact-protocol-select"
+                  >
+                    <option value="">Выберите</option>
+                    <option value={1}>Да</option>
+                    <option value={0}>Нет</option>
+                  </select>
                               )}
                 index={index}
                 fieldName="negativedrugtest"
@@ -426,16 +426,16 @@ const CriteriaForInclusion = ({
                 refProps={ref9}
                 element={(
                   <select
-                              ref={ref9}
-                              name="negativealcoholtest"
-                              value={criteriaForInclusion.negativealcoholtest}
-                              onChange={handleCriteriaForInclusion}
-                              className="exact-protocol-select"
-                            >
-                              <option value="">Выберите</option>
-                              <option value={1}>Да</option>
-                              <option value={0}>Нет</option>
-                            </select>
+                    ref={ref9}
+                    name="negativealcoholtest"
+                    value={criteriaForInclusion.negativealcoholtest}
+                    onChange={handleCriteriaForInclusion}
+                    className="exact-protocol-select"
+                  >
+                    <option value="">Выберите</option>
+                    <option value={1}>Да</option>
+                    <option value={0}>Нет</option>
+                  </select>
                               )}
                 index={index}
                 fieldName="negativealcoholtest"
@@ -466,16 +466,16 @@ const CriteriaForInclusion = ({
                 refProps={ref10}
                 element={(
                   <select
-                              ref={ref10}
-                              name="nohistoryofseverepostvaccinationreactions"
-                              value={criteriaForInclusion.nohistoryofseverepostvaccinationreactions}
-                              onChange={handleCriteriaForInclusion}
-                              className="exact-protocol-select"
-                            >
-                              <option value="">Выберите</option>
-                              <option value={1}>Да</option>
-                              <option value={0}>Нет</option>
-                            </select>
+                    ref={ref10}
+                    name="nohistoryofseverepostvaccinationreactions"
+                    value={criteriaForInclusion.nohistoryofseverepostvaccinationreactions}
+                    onChange={handleCriteriaForInclusion}
+                    className="exact-protocol-select"
+                  >
+                    <option value="">Выберите</option>
+                    <option value={1}>Да</option>
+                    <option value={0}>Нет</option>
+                  </select>
                               )}
                 index={index}
                 fieldName="nohistoryofseverepostvaccinationreactions"
@@ -506,16 +506,16 @@ const CriteriaForInclusion = ({
                 refProps={11}
                 element={(
                   <select
-                              ref={ref11}
-                              name="indicatorsbloodtestsatscreeningwithin"
-                              value={criteriaForInclusion.indicatorsbloodtestsatscreeningwithin}
-                              onChange={handleCriteriaForInclusion}
-                              className="exact-protocol-select"
-                            >
-                              <option value="">Выберите</option>
-                              <option value={1}>Да</option>
-                              <option value={0}>Нет</option>
-                            </select>
+                    ref={ref11}
+                    name="indicatorsbloodtestsatscreeningwithin"
+                    value={criteriaForInclusion.indicatorsbloodtestsatscreeningwithin}
+                    onChange={handleCriteriaForInclusion}
+                    className="exact-protocol-select"
+                  >
+                    <option value="">Выберите</option>
+                    <option value={1}>Да</option>
+                    <option value={0}>Нет</option>
+                  </select>
                               )}
                 index={index}
                 fieldName="indicatorsbloodtestsatscreeningwithin"
@@ -546,16 +546,16 @@ const CriteriaForInclusion = ({
                 refProps={ref12}
                 element={(
                   <select
-                              ref={ref12}
-                              name="nomyocardialchanges"
-                              value={criteriaForInclusion.nomyocardialchanges}
-                              onChange={handleCriteriaForInclusion}
-                              className="exact-protocol-select"
-                            >
-                              <option value="">Выберите</option>
-                              <option value={1}>Да</option>
-                              <option value={0}>Нет</option>
-                            </select>
+                    ref={ref12}
+                    name="nomyocardialchanges"
+                    value={criteriaForInclusion.nomyocardialchanges}
+                    onChange={handleCriteriaForInclusion}
+                    className="exact-protocol-select"
+                  >
+                    <option value="">Выберите</option>
+                    <option value={1}>Да</option>
+                    <option value={0}>Нет</option>
+                  </select>
                               )}
                 index={index}
                 fieldName="nomyocardialchanges"
@@ -586,16 +586,16 @@ const CriteriaForInclusion = ({
                 refProps={ref13}
                 element={(
                   <select
-                              ref={ref13}
-                              name="negativetestresultforCOVID"
-                              value={criteriaForInclusion.negativetestresultforCOVID}
-                              onChange={handleCriteriaForInclusion}
-                              className="exact-protocol-select"
-                            >
-                              <option value="">Выберите</option>
-                              <option value={1}>Да</option>
-                              <option value={0}>Нет</option>
-                            </select>
+                    ref={ref13}
+                    name="negativetestresultforCOVID"
+                    value={criteriaForInclusion.negativetestresultforCOVID}
+                    onChange={handleCriteriaForInclusion}
+                    className="exact-protocol-select"
+                  >
+                    <option value="">Выберите</option>
+                    <option value={1}>Да</option>
+                    <option value={0}>Нет</option>
+                  </select>
                               )}
                 index={index}
                 fieldName="negativetestresultforCOVID"
@@ -626,16 +626,16 @@ const CriteriaForInclusion = ({
                 refProps={ref14}
                 element={(
                   <select
-                              ref={ref14}
-                              name="nocontraindicationstovaccination"
-                              value={criteriaForInclusion.nocontraindicationstovaccination}
-                              onChange={handleCriteriaForInclusion}
-                              className="exact-protocol-select"
-                            >
-                              <option value="">Выберите</option>
-                              <option value={1}>Да</option>
-                              <option value={0}>Нет</option>
-                            </select>
+                    ref={ref14}
+                    name="nocontraindicationstovaccination"
+                    value={criteriaForInclusion.nocontraindicationstovaccination}
+                    onChange={handleCriteriaForInclusion}
+                    className="exact-protocol-select"
+                  >
+                    <option value="">Выберите</option>
+                    <option value={1}>Да</option>
+                    <option value={0}>Нет</option>
+                  </select>
                               )}
                 index={index}
                 fieldName="nocontraindicationstovaccination"

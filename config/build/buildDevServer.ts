@@ -8,6 +8,9 @@ export default function buildDevServer(options: BuildOptions): DevServerConfigur
     open: true,
     historyApiFallback: true,
     hot: true,
+    static: {
+      directory: (__dirname)
+    },
     proxy: {
       '/api/net': {
         target: 'https://ecrf.bioequivalencetrials.ru',

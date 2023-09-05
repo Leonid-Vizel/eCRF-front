@@ -26,7 +26,7 @@ const MaskedInput = ({
 
     const correctValue = value.replaceAll(exclusionPattern, '');
 
-    setFormData((prevFormData) => { 
+    setFormData((prevFormData) => {
       let newFormData = { ...prevFormData };
 
       newFormData = {

@@ -84,9 +84,9 @@ const Documents = () => {
                 {person.birthDate ? (
                   <span>
                     {person.birthDate
-                          .split('-')
-                          .reverse()
-                          .join('-')}
+                      .split('-')
+                      .reverse()
+                      .join('-')}
                   </span>
                 ) : (
                   <span>Данных нет</span>
@@ -97,9 +97,9 @@ const Documents = () => {
                 {person.createDate ? (
                   <span>
                     {person.createDate
-                          .split('-')
-                          .reverse()
-                          .join('-')}
+                      .split('-')
+                      .reverse()
+                      .join('-')}
                   </span>
                 ) : (
                   <span>Данных нет</span>

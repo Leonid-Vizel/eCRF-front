@@ -6,7 +6,7 @@ const Layout = () => {
 
   return (
     <div className="app">
-      {pathname !== '/' && pathname !== '/journal' && <Navbar />}
+      {pathname !== '/login' && pathname !== '/journal' && <Navbar />}
       <Outlet />
     </div>
   );

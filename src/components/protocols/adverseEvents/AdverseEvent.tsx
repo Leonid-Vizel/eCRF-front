@@ -118,20 +118,20 @@ const AdverseEvent = ({
                 color={data && data?.AdverseEventsRegisteredCondition.Color}
                 refProps={ref1}
                 element={(
-                            <select
-                              ref={ref1}
-                              name="adverseEventsRegisteredCondition"
-                              value={adverse.adverseEventsRegisteredCondition}
-                              onChange={handleAdverse}
-                              className="exact-protocol-select"
-                            >
-                              <option value="" selected disabled>Выберите</option>
-                              {
+                  <select
+                    ref={ref1}
+                    name="adverseEventsRegisteredCondition"
+                    value={adverse.adverseEventsRegisteredCondition}
+                    onChange={handleAdverse}
+                    className="exact-protocol-select"
+                  >
+                    <option value="" selected disabled>Выберите</option>
+                    {
                                         ['Нет', 'Да'].map((item, index) => (
                                           <option value={index} selected={index === data && data?.AdverseEventsRegisteredCondition.AdverseEventsRegistered}>{item}</option>
                                         ))
                                     }
-                            </select>
+                  </select>
                               )}
                 index={index}
                 fieldName="adverseEventsRegisteredCondition"

@@ -14,9 +14,11 @@ export function buildWebpackConfig(
     entry: paths.entry,
     output: {
       filename: '[name].[contenthash].js',
+      chunkFilename:'js/[name].js',
       path: paths.build,
       clean: true,
       publicPath: '/',
+      devtoolModuleFilenameTemplate: 'eCRF:///[resource-path]'
     },
     resolve: buildResolvers(options),
     module: {
@@ -24,6 +26,5 @@ export function buildWebpackConfig(
     },
     plugins: buildPugins(options),
     devServer: isDev ? buildDevServer(options) : undefined,
-    devtool: isDev && 'inline-source-map',
-  };
-}
+    devtool: isDev ? 'inline-cheap-module-source-map' : 'source-map',
+}}

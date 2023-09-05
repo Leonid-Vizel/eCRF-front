@@ -85,19 +85,19 @@ const Ending = ({
                 refProps={refEnding1}
                 element={(
                   <select
-                              ref={refEnding1}
-                              name="volunteereligible"
-                              value={ending.volunteereligible}
-                              onChange={handleEnding}
-                              className="exact-protocol-select"
-                            >
-                              <option value="">Выберите</option>
-                              {
+                    ref={refEnding1}
+                    name="volunteereligible"
+                    value={ending.volunteereligible}
+                    onChange={handleEnding}
+                    className="exact-protocol-select"
+                  >
+                    <option value="">Выберите</option>
+                    {
                                         ['Нет', 'Да'].map((item, index) => (
                                           <option value={index} selected={index === data && data?.VolunteerEligibleCondition.VolunteerEligible}>{item}</option>
                                         ))
                                     }
-                            </select>
+                  </select>
                               )}
                 index={index}
                 fieldName="volunteereligible"
@@ -131,19 +131,19 @@ const Ending = ({
                 refProps={refEnding2}
                 element={(
                   <select
-                              ref={refEnding2}
-                              name="noexclusioncriteria"
-                              value={ending.noexclusioncriteria}
-                              onChange={handleEnding}
-                              className="exact-protocol-select"
-                            >
-                              <option value="">Выберите</option>
-                              {
+                    ref={refEnding2}
+                    name="noexclusioncriteria"
+                    value={ending.noexclusioncriteria}
+                    onChange={handleEnding}
+                    className="exact-protocol-select"
+                  >
+                    <option value="">Выберите</option>
+                    {
                                         ['Нет', 'Да'].map((item, index) => (
                                           <option value={index} selected={index === data && data?.NoExclusionCriteriaCondition.NoExclusionCriteria}>{item}</option>
                                         ))
                                     }
-                            </select>
+                  </select>
                               )}
                 index={index}
                 fieldName="noexclusioncriteria"
@@ -177,19 +177,19 @@ const Ending = ({
                 refProps={refEnding3}
                 element={(
                   <select
-                              ref={refEnding3}
-                              name="informedoftherestrictions"
-                              value={ending.informedoftherestrictions}
-                              onChange={handleEnding}
-                              className="exact-protocol-select"
-                            >
-                              <option value="">Выберите</option>
-                              {
+                    ref={refEnding3}
+                    name="informedoftherestrictions"
+                    value={ending.informedoftherestrictions}
+                    onChange={handleEnding}
+                    className="exact-protocol-select"
+                  >
+                    <option value="">Выберите</option>
+                    {
                                         ['Нет', 'Да'].map((item, index) => (
                                           <option value={index} selected={index === data && data?.InformedOfTheRestrictionsCondition.InformedOfTheRestrictions}>{item}</option>
                                         ))
                                     }
-                            </select>
+                  </select>
                               )}
                 index={index}
                 fieldName="informedoftherestrictions"
@@ -226,22 +226,22 @@ const Ending = ({
                 refProps={refEnding4}
                 element={(
                   <select
-                              name="volunteerincluded"
-                              value={ending.volunteerincluded}
-                              onChange={handleEnding}
-                              className="exact-protocol-select"
-                            >
-                              <option value="">Выберите</option>
-                              {['Нет', 'Да'].map((item, index) => (
-                                <option
-                                  value={index.toString()}
-                                  key={index}
-                                  selected={data?.VolunteerIncludedCondition.VolunteerIncluded === index.toString()}
-                                >
-                                  {item}
-                                </option>
-                              ))}
-                            </select>
+                    name="volunteerincluded"
+                    value={ending.volunteerincluded}
+                    onChange={handleEnding}
+                    className="exact-protocol-select"
+                  >
+                    <option value="">Выберите</option>
+                    {['Нет', 'Да'].map((item, index) => (
+                      <option
+                        value={index.toString()}
+                        key={index}
+                        selected={data?.VolunteerIncludedCondition.VolunteerIncluded === index.toString()}
+                      >
+                        {item}
+                      </option>
+                    ))}
+                  </select>
                               )}
                 index={index}
                 fieldName="volunteerincluded"
@@ -269,13 +269,13 @@ const Ending = ({
                 refProps={refEnding5}
                 element={(
                   <input
-                              type="text"
-                              name="reasonifnot"
-                              value={ending.reasonifnot}
-                              onChange={handleEnding}
-                              className="exact-protocol-select"
-                              placeholder={data && data.ReasonIfNotCondition.ReasonIfNot}
-                            />
+                    type="text"
+                    name="reasonifnot"
+                    value={ending.reasonifnot}
+                    onChange={handleEnding}
+                    className="exact-protocol-select"
+                    placeholder={data && data.ReasonIfNotCondition.ReasonIfNot}
+                  />
                               )}
                 index={index}
                 fieldName="reasonifnot"
@@ -304,14 +304,14 @@ const Ending = ({
                 refProps={refEnding6}
                 element={(
                   <input
-                              type="text"
-                              ref={refEnding6}
-                              name="commentvalue"
-                              value={ending.commentvalue}
-                              onChange={handleEnding}
-                              className="exact-protocol-select"
-                              placeholder={data && data.CommentCondition.CommentValue}
-                            />
+                    type="text"
+                    ref={refEnding6}
+                    name="commentvalue"
+                    value={ending.commentvalue}
+                    onChange={handleEnding}
+                    className="exact-protocol-select"
+                    placeholder={data && data.CommentCondition.CommentValue}
+                  />
                               )}
                 index={index}
                 fieldName="commentvalue"

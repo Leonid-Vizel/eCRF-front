@@ -1054,22 +1054,22 @@ const MainDocument = () => {
                     placeholder="Выберите"
                     optionFilterProp="BenefitCategoryCode"
                     onChange={(value) => handleInputChange(
-                          {
-                            target: {
-                              value,
-                              name: 'BenefitCategoryCode',
-                            },
-                          },
-                          null,
-                        )}
+                      {
+                        target: {
+                          value,
+                          name: 'BenefitCategoryCode',
+                        },
+                      },
+                      null,
+                    )}
                     onSearch={onSearch}
                     value={
                                             formData
                                             && formData.BenefitCategoryCode
                                         }
                     filterOption={(input, option) => (option?.label ?? '')
-                          .toLowerCase()
-                          .includes(input.toLowerCase())}
+                      .toLowerCase()
+                      .includes(input.toLowerCase())}
                     options={options}
                   />
                 </div>

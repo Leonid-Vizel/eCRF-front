@@ -66,13 +66,13 @@ const ScreeningStarting = ({
                 refProps={ref1}
                 element={(
                   <input
-                              type="date"
-                              ref={ref1}
-                              name="dateofstart"
-                              value={screeningStarted.dateofstart}
-                              onChange={handleScreeningStartChange}
-                              className="exact-protocol-select"
-                            />
+                    type="date"
+                    ref={ref1}
+                    name="dateofstart"
+                    value={screeningStarted.dateofstart}
+                    onChange={handleScreeningStartChange}
+                    className="exact-protocol-select"
+                  />
                               )}
                 index={index}
                 fieldName="dateofstart"
@@ -99,13 +99,13 @@ const ScreeningStarting = ({
                 refProps={ref2}
                 element={(
                   <input
-                              type="text"
-                              ref={ref2}
-                              name="timeofstart"
-                              value={screeningStarted.timeofstart}
-                              onChange={handleScreeningStartChange}
-                              className="exact-protocol-select"
-                            />
+                    type="text"
+                    ref={ref2}
+                    name="timeofstart"
+                    value={screeningStarted.timeofstart}
+                    onChange={handleScreeningStartChange}
+                    className="exact-protocol-select"
+                  />
                               )}
                 index={index}
                 fieldName="timeofstart"

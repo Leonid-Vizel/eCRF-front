@@ -85,15 +85,15 @@ const Demography = ({
                 color={data && data?.SexCondition.Color}
                 element={(
                   <select
-                              name="sex"
-                              value={demographics.sex}
-                              onChange={handleDemographicsChange}
-                              className="exact-protocol-select"
-                            >
-                              <option value="">Выберите</option>
-                              <option value={0}>Муж</option>
-                              <option value={1}>Жен</option>
-                            </select>
+                    name="sex"
+                    value={demographics.sex}
+                    onChange={handleDemographicsChange}
+                    className="exact-protocol-select"
+                  >
+                    <option value="">Выберите</option>
+                    <option value={0}>Муж</option>
+                    <option value={1}>Жен</option>
+                  </select>
                               )}
                 refProps={ref1}
                 fieldName="sex"
@@ -127,19 +127,19 @@ const Demography = ({
                 color={data && data?.RaceCondition.Color}
                 element={(
                   <select
-                              name="race"
-                              value={demographics.race}
-                              onChange={handleDemographicsChange}
-                              ref={ref2}
-                              className="exact-protocol-select"
-                            >
-                              <option value="">Выберите</option>
-                              <option value={0}>Европеоидная</option>
-                              <option value={1}>Негроидная</option>
-                              <option value={2}>Монголоидная</option>
-                              <option value={3}>Американоидная</option>
-                              <option value={4}>Австралоидная</option>
-                            </select>
+                    name="race"
+                    value={demographics.race}
+                    onChange={handleDemographicsChange}
+                    ref={ref2}
+                    className="exact-protocol-select"
+                  >
+                    <option value="">Выберите</option>
+                    <option value={0}>Европеоидная</option>
+                    <option value={1}>Негроидная</option>
+                    <option value={2}>Монголоидная</option>
+                    <option value={3}>Американоидная</option>
+                    <option value={4}>Австралоидная</option>
+                  </select>
                               )}
                 refProps={ref2}
                 fieldName="race"
@@ -167,13 +167,13 @@ const Demography = ({
                 color={data && data?.BirthDateCondition.Color}
                 element={(
                   <input
-                              type="date"
-                              name="birth_date"
-                              value={demographics.birth_date}
-                              onChange={handleDemographicsChange}
-                              ref={ref3}
-                              className="exact-protocol-select"
-                            />
+                    type="date"
+                    name="birth_date"
+                    value={demographics.birth_date}
+                    onChange={handleDemographicsChange}
+                    ref={ref3}
+                    className="exact-protocol-select"
+                  />
                               )}
                 refProps={ref3}
                 fieldName="birth_date"

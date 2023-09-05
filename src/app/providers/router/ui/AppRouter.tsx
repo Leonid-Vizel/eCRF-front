@@ -1,15 +1,17 @@
 import Layout from 'components/layout_overall/Layout';
 import { Route, Routes } from 'react-router-dom';
-import { routeConfig } from 'shared/config/routerConfig/routerConfig';
+import { baseRoute } from 'shared/config/routerConfig/routerConfig';
 
 export const AppRouter = () => (
   <Routes>
-    <Route element={<Layout />} path="/">
-      {Object.values(routeConfig).map(({ element, path }) => (
+    <Route path="/" element={<Layout />}>
+      {Object.values(baseRoute).map(({ element, path, children }) => (
         <Route
           key={path}
           element={element}
           path={path}
+        // eslint-disable-next-line react/no-children-prop
+          children={children}
         />
       ))}
     </Route>

@@ -1,5 +1,5 @@
-import React from "react";
-import { axiosCardRequest, axiosRequest } from "../../request/NewAxiosRequest";
+import React from 'react';
+import { axiosCardRequest, axiosRequest } from '../../request/NewAxiosRequest';
 
 const DeleteOrganization = ({
   modalType,
@@ -26,7 +26,7 @@ const DeleteOrganization = ({
   return (
     <div className="modal-overlay" onClick={handleModalClose}>
       <div
-        onSubmit={modalType === "insurance" ? handleDeleteIns : handleDeleteOrg}
+        onSubmit={modalType === 'insurance' ? handleDeleteIns : handleDeleteOrg}
         className="modal"
         onClick={(e) => e.stopPropagation()}
       >
@@ -47,7 +47,7 @@ const DeleteOrganization = ({
           <button
             className="modal-button"
             onClick={
-              modalType === "insurance" ? handleDeleteIns : handleDeleteOrg
+              modalType === 'insurance' ? handleDeleteIns : handleDeleteOrg
             }
           >
             Сохранить

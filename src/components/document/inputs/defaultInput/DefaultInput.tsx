@@ -1,5 +1,5 @@
-import React from "react";
-import "./defaultInput.scss";
+import React from 'react';
+import './defaultInput.scss';
 
 type DefaultInputProps = {
   fieldName: string;
@@ -27,27 +27,27 @@ const DefaultInput = ({
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
 
-    const correctValue = value.replaceAll(exclusionPattern, "");
+    const correctValue = value.replaceAll(exclusionPattern, '');
 
     setFormData((prevFormData) => {
       let newFormData = { ...prevFormData };
 
       if (
-        name === "Pediculosis" ||
-        name === "Scabies" ||
-        name === "TBS" ||
-        name === "Hepatitis" ||
-        name === "VenerealDisease" ||
-        name === "Sex" ||
-        name === "Locality" ||
-        name === "Family" ||
-        name === "Education" ||
-        name === "Work" ||
-        name === "DisabilityType" ||
-        name === "DisabilityGroup" ||
-        name === "CheckupLocation" ||
-        name === "RhFactor" ||
-        name === "BloodGroup"
+        name === 'Pediculosis'
+        || name === 'Scabies'
+        || name === 'TBS'
+        || name === 'Hepatitis'
+        || name === 'VenerealDisease'
+        || name === 'Sex'
+        || name === 'Locality'
+        || name === 'Family'
+        || name === 'Education'
+        || name === 'Work'
+        || name === 'DisabilityType'
+        || name === 'DisabilityGroup'
+        || name === 'CheckupLocation'
+        || name === 'RhFactor'
+        || name === 'BloodGroup'
       ) {
         newFormData = {
           ...newFormData,
@@ -66,14 +66,14 @@ const DefaultInput = ({
   return (
     <input
       name={fieldName}
-      style={{ width: inputWidth ? inputWidth : "200px" }}
+      style={{ width: inputWidth || '200px' }}
       className="default-input"
       value={inputValue}
-      placeholder={placeholder ? placeholder : ""}
-      type={type ? type : "text"}
+      placeholder={placeholder || ''}
+      type={type || 'text'}
       onChange={handleInputChange}
-      min={typeof min === "number" ? min : undefined}
-      max={typeof max === "number" ? max : undefined}
+      min={typeof min === 'number' ? min : undefined}
+      max={typeof max === 'number' ? max : undefined}
       minLength={min}
       maxLength={max}
     />

@@ -1,5 +1,5 @@
-import React from "react";
-import { axiosCardRequest, axiosRequest } from "../../request/NewAxiosRequest";
+import React from 'react';
+import { axiosCardRequest, axiosRequest } from '../../request/NewAxiosRequest';
 
 const DeleteUserModal = ({
   handleModalClose,
@@ -8,13 +8,13 @@ const DeleteUserModal = ({
 }) => {
   const handleDeleteUser = async () => {
     await axiosCardRequest
-      .delete("/user/delete", {
+      .delete('/user/delete', {
         data: {
           id: parseInt(inputIdUserDelete),
         },
       })
       .then(() => {
-        console.log("success");
+        console.log('success');
         window.location.reload();
       });
   };

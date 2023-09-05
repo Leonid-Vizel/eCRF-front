@@ -1,6 +1,6 @@
-import { PhysicalExam } from "../../../../utils/types/documentType";
-import SelectInput from "../../../../components/document/inputs/selectInput/SelectInput";
-import { PhysicalExamData } from "../../../../utils/types/enums/documentEnums";
+import { PhysicalExam } from '../../../../utils/types/documentType';
+import SelectInput from '../../../../components/document/inputs/selectInput/SelectInput';
+import { PhysicalExamData } from '../../../../utils/types/enums/documentEnums';
 
 export const test10HoursAwarePhysical = (
   setFormData,
@@ -12,11 +12,11 @@ export const test10HoursAwarePhysical = (
         fieldName={PhysicalExamData.Test10HoursAware}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}

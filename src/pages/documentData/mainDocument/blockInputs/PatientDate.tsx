@@ -4,17 +4,17 @@ import { FormDataFields } from '../../../../utils/types/enums/documentEnums';
 import { InputBlockItem } from '../../../../utils/types/shared';
 
 export const patientDate = (
-    setFormData,
-    formData: FormDataItem
+  setFormData,
+  formData: FormDataItem,
 ): InputBlockItem[] => [
-    {
-        inputTitle: 'Выберите Дату',
-        input: (
-            <DateInput
-                fieldName={FormDataFields.PatientDate}
-                setFormData={setFormData}
-                inputValue={formData.PatientDate}
-            />
-        ),
-    },
+  {
+    inputTitle: 'Выберите Дату',
+    input: (
+      <DateInput
+        fieldName={FormDataFields.PatientDate}
+        setFormData={setFormData}
+        inputValue={formData.PatientDate}
+      />
+    ),
+  },
 ];

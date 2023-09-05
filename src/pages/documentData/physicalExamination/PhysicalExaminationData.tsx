@@ -1,67 +1,67 @@
-import React, { useEffect, useRef, useState } from "react";
-import { PhysicalExam } from "../../../utils/types/documentType";
+import React, { useEffect, useRef, useState } from 'react';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { message } from 'antd';
+import axios from 'axios';
+import Cookies from 'js-cookie';
+import { PhysicalExam } from '../../../utils/types/documentType';
 import {
   CardScreeningData,
   PhysicalExamData,
-} from "../../../utils/types/enums/documentEnums";
-import Sidebar from "../../../components/document/sidebar/Sidebar";
-import InputBlock from "../../../components/document/inputBlock/InputBlock";
-import { weightHeightPhysical } from "./blockInputs/weightHeightPhysical";
-import { temperaturePhysical } from "./blockInputs/temperaturePhysical";
-import { complainsPhysical } from "./blockInputs/complainsPhysical";
-import { overallPhysical } from "./blockInputs/overallPhysical";
-import { skinPhysical } from "./blockInputs/skinPhysical";
-import { mucousPhysical } from "./blockInputs/mucousPhysical";
-import { lymphPhysical } from "./blockInputs/lymphPhysical";
-import { eyesEarsNose } from "./blockInputs/eyesEarsNose";
-import { headNeckPhysical } from "./blockInputs/headNeckPhysical";
-import { upperVeinsPhysical } from "./blockInputs/upperVeinsPhysical";
-import { cardiovascular } from "./blockInputs/cardiovascular";
-import { respiratoryPhysical } from "./blockInputs/respiratoryPhysical";
-import { musculoskeletalPhysical } from "./blockInputs/musculoskeletalPhysical";
-import { digestivePhysical } from "./blockInputs/digestivePhysical";
-import { urinaryPhysical } from "./blockInputs/urinaryPhysical";
-import { nervousPhysical } from "./blockInputs/nervousPhysical";
-import { mentalPhysical } from "./blockInputs/mentalPhysical";
-import SelectBlock from "../../../components/document/selectBlock/SelectBlock";
-import { ECGPhysical } from "./blockInputs/ECGPhysical";
-import { urineFirst } from "./blockInputs/urineFirst";
-import { urineSecond } from "./blockInputs/urineSecond";
-import { urineThird } from "./blockInputs/urineThird";
-import { urineFourth } from "./blockInputs/urineFourth";
-import { alcoholPhysical } from "./blockInputs/AlcoholPhysical";
-import { pregnacyFirst } from "./blockInputs/PregnacyFirst";
-import { pregnacySecond } from "./blockInputs/PregnacySecond";
-import { covidFirst } from "./blockInputs/covidFirst";
-import { covidSecond } from "./blockInputs/covidSecond";
-import { covidOldPhysical } from "./blockInputs/covidOldPhysical";
-import { test10HoursAwarePhysical } from "./blockInputs/test10HoursAwarePhysical";
-import { labDatePhysical } from "./blockInputs/labDatePhysical";
-import { emptyStomachPhysical } from "./blockInputs/emptyStomachPhysical";
-import { bloodSamplesPhysical } from "./blockInputs/bloodSamplesPhysical";
-import { bloodCentralLabPhysical } from "./blockInputs/bloodCentralLabPhysical";
-import { urineCentralLabPhysical } from "./blockInputs/urineCentralLabPhysical";
-import { labRoutePhysical } from "./blockInputs/labRoutePhysical";
-import { rgSurveyRoutePhysical } from "./blockInputs/rgSurveyRoutePhysical";
-import { XRayPhysical } from "./blockInputs/XRayPhysical";
-import { XRayCopyPhysical } from "./blockInputs/XRayCopyPhysical";
-import { analysisPhysical } from "./blockInputs/analysisPhysical";
-import { GeneralBlood } from "./blockInputs/GeneralBlood";
-import { BioBloodComplete } from "./blockInputs/BioBloodComplete";
-import { urinalysisSedimentComplete } from "./blockInputs/urinalysisSedimentComplete";
-import { HIVComplete } from "./blockInputs/HIVComplete";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+} from '../../../utils/types/enums/documentEnums';
+import Sidebar from '../../../components/document/sidebar/Sidebar';
+import InputBlock from '../../../components/document/inputBlock/InputBlock';
+import { weightHeightPhysical } from './blockInputs/weightHeightPhysical';
+import { temperaturePhysical } from './blockInputs/temperaturePhysical';
+import { complainsPhysical } from './blockInputs/complainsPhysical';
+import { overallPhysical } from './blockInputs/overallPhysical';
+import { skinPhysical } from './blockInputs/skinPhysical';
+import { mucousPhysical } from './blockInputs/mucousPhysical';
+import { lymphPhysical } from './blockInputs/lymphPhysical';
+import { eyesEarsNose } from './blockInputs/eyesEarsNose';
+import { headNeckPhysical } from './blockInputs/headNeckPhysical';
+import { upperVeinsPhysical } from './blockInputs/upperVeinsPhysical';
+import { cardiovascular } from './blockInputs/cardiovascular';
+import { respiratoryPhysical } from './blockInputs/respiratoryPhysical';
+import { musculoskeletalPhysical } from './blockInputs/musculoskeletalPhysical';
+import { digestivePhysical } from './blockInputs/digestivePhysical';
+import { urinaryPhysical } from './blockInputs/urinaryPhysical';
+import { nervousPhysical } from './blockInputs/nervousPhysical';
+import { mentalPhysical } from './blockInputs/mentalPhysical';
+import SelectBlock from '../../../components/document/selectBlock/SelectBlock';
+import { ECGPhysical } from './blockInputs/ECGPhysical';
+import { urineFirst } from './blockInputs/urineFirst';
+import { urineSecond } from './blockInputs/urineSecond';
+import { urineThird } from './blockInputs/urineThird';
+import { urineFourth } from './blockInputs/urineFourth';
+import { alcoholPhysical } from './blockInputs/AlcoholPhysical';
+import { pregnacyFirst } from './blockInputs/PregnacyFirst';
+import { pregnacySecond } from './blockInputs/PregnacySecond';
+import { covidFirst } from './blockInputs/covidFirst';
+import { covidSecond } from './blockInputs/covidSecond';
+import { covidOldPhysical } from './blockInputs/covidOldPhysical';
+import { test10HoursAwarePhysical } from './blockInputs/test10HoursAwarePhysical';
+import { labDatePhysical } from './blockInputs/labDatePhysical';
+import { emptyStomachPhysical } from './blockInputs/emptyStomachPhysical';
+import { bloodSamplesPhysical } from './blockInputs/bloodSamplesPhysical';
+import { bloodCentralLabPhysical } from './blockInputs/bloodCentralLabPhysical';
+import { urineCentralLabPhysical } from './blockInputs/urineCentralLabPhysical';
+import { labRoutePhysical } from './blockInputs/labRoutePhysical';
+import { rgSurveyRoutePhysical } from './blockInputs/rgSurveyRoutePhysical';
+import { XRayPhysical } from './blockInputs/XRayPhysical';
+import { XRayCopyPhysical } from './blockInputs/XRayCopyPhysical';
+import { analysisPhysical } from './blockInputs/analysisPhysical';
+import { GeneralBlood } from './blockInputs/GeneralBlood';
+import { BioBloodComplete } from './blockInputs/BioBloodComplete';
+import { urinalysisSedimentComplete } from './blockInputs/urinalysisSedimentComplete';
+import { HIVComplete } from './blockInputs/HIVComplete';
 import {
   axiosCardRequest,
   BASE_CARD_URL,
-} from "../../../utils/request/NewAxiosRequest";
-import { message } from "antd";
-import axios from "axios";
-import Cookies from "js-cookie";
+} from '../../../utils/request/NewAxiosRequest';
 
 const PhysicalExaminationData = () => {
   const { pathname } = useLocation();
-  const pathParts = pathname.split("/")[3];
+  const pathParts = pathname.split('/')[3];
   const { id, protocolId } = useParams();
   const navigate = useNavigate();
 
@@ -201,7 +201,7 @@ const PhysicalExaminationData = () => {
   });
 
   useEffect(() => {
-    if (pathParts === "edit") {
+    if (pathParts === 'edit') {
       const getCreatedData = async () => {
         const { data } = await axiosCardRequest.get(
           `/PhysicalExam/Index/${id}`,
@@ -213,368 +213,368 @@ const PhysicalExaminationData = () => {
             data.InspectionComplete === null
               ? null
               : data.InspectionComplete
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.InspectionIndicator]:
             data.InspectionIndicator === null
               ? null
               : data.InspectionIndicator
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.InspectionDeviation]:
             data.InspectionDeviation === null
               ? null
               : data.InspectionDeviation
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.SkinComplete]:
-            data.SkinComplete === null ? null : data.SkinComplete ? "1" : "0",
+            data.SkinComplete === null ? null : data.SkinComplete ? '1' : '0',
           [PhysicalExamData.SkinIndicator]:
-            data.SkinIndicator === null ? null : data.SkinIndicator ? "1" : "0",
+            data.SkinIndicator === null ? null : data.SkinIndicator ? '1' : '0',
           [PhysicalExamData.SkinDeviation]:
-            data.SkinDeviation === null ? null : data.SkinDeviation ? "1" : "0",
+            data.SkinDeviation === null ? null : data.SkinDeviation ? '1' : '0',
           [PhysicalExamData.MucousComplete]:
             data.MucousComplete === null
               ? null
               : data.MucousComplete
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.MucousIndicator]:
             data.MucousIndicator === null
               ? null
               : data.MucousIndicator
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.MucousDeviation]:
             data.MucousDeviation === null
               ? null
               : data.MucousDeviation
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.LymphComplete]:
-            data.LymphComplete === null ? null : data.LymphComplete ? "1" : "0",
+            data.LymphComplete === null ? null : data.LymphComplete ? '1' : '0',
           [PhysicalExamData.LymphIndicator]:
             data.LymphIndicator === null
               ? null
               : data.LymphIndicator
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.LymphDeviation]:
             data.LymphDeviation === null
               ? null
               : data.LymphDeviation
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.EyesEarsNoseComplete]:
             data.EyesEarsNoseComplete === null
               ? null
               : data.EyesEarsNoseComplete
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.EyesEarsNoseIndicator]:
             data.EyesEarsNoseIndicator === null
               ? null
               : data.EyesEarsNoseIndicator
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.EyesEarsNoseDeviation]:
             data.EyesEarsNoseDeviation === null
               ? null
               : data.EyesEarsNoseDeviation
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.HeadNeckComplete]:
             data.HeadNeckComplete === null
               ? null
               : data.HeadNeckComplete
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.HeadNeckIndicator]:
             data.HeadNeckIndicator === null
               ? null
               : data.HeadNeckIndicator
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.HeadNeckDeviation]:
             data.HeadNeckDeviation === null
               ? null
               : data.HeadNeckDeviation
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.UpperVeinsComplete]:
             data.UpperVeinsComplete === null
               ? null
               : data.UpperVeinsComplete
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.UpperVeinsIndicator]:
             data.UpperVeinsIndicator === null
               ? null
               : data.UpperVeinsIndicator
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.UpperVeinsDeviation]:
             data.UpperVeinsDeviation === null
               ? null
               : data.UpperVeinsDeviation
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.CardiovascularComplete]:
             data.CardiovascularComplete === null
               ? null
               : data.CardiovascularComplete
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.CardiovascularIndicator]:
             data.CardiovascularIndicator === null
               ? null
               : data.CardiovascularIndicator
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.CardiovascularDeviation]:
             data.CardiovascularDeviation === null
               ? null
               : data.CardiovascularDeviation
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.RespiratoryComplete]:
             data.RespiratoryComplete === null
               ? null
               : data.RespiratoryComplete
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.RespiratoryIndicator]:
             data.RespiratoryIndicator === null
               ? null
               : data.RespiratoryIndicator
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.RespiratoryDeviation]:
             data.RespiratoryDeviation === null
               ? null
               : data.RespiratoryDeviation
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.MusculoskeletalComplete]:
             data.MusculoskeletalComplete === null
               ? null
               : data.MusculoskeletalComplete
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.MusculoskeletalIndicator]:
             data.MusculoskeletalIndicator === null
               ? null
               : data.MusculoskeletalIndicator
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.MusculoskeletalDeviation]:
             data.MusculoskeletalDeviation === null
               ? null
               : data.MusculoskeletalDeviation
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.DigestiveComplete]:
             data.DigestiveComplete === null
               ? null
               : data.DigestiveComplete
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.DigestiveIndicator]:
             data.DigestiveIndicator === null
               ? null
               : data.DigestiveIndicator
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.DigestiveDeviation]:
             data.DigestiveDeviation === null
               ? null
               : data.DigestiveDeviation
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.UrinaryComplete]:
             data.UrinaryComplete === null
               ? null
               : data.UrinaryComplete
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.UrinaryIndicator]:
             data.UrinaryIndicator === null
               ? null
               : data.UrinaryIndicator
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.UrinaryDeviation]:
             data.UrinaryDeviation === null
               ? null
               : data.UrinaryDeviation
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.NervousComplete]:
             data.NervousComplete === null
               ? null
               : data.NervousComplete
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.NervousIndicator]:
             data.NervousIndicator === null
               ? null
               : data.NervousIndicator
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.NervousDeviation]:
             data.NervousDeviation === null
               ? null
               : data.NervousDeviation
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.MentalComplete]:
             data.MentalComplete === null
               ? null
               : data.MentalComplete
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.MentalIndicator]:
             data.MentalIndicator === null
               ? null
               : data.MentalIndicator
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.MentalDeviation]:
             data.MentalDeviation === null
               ? null
               : data.MentalDeviation
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.ECGTaken]:
-            data.ECGTaken === null ? null : data.ECGTaken ? "1" : "0",
+            data.ECGTaken === null ? null : data.ECGTaken ? '1' : '0',
           [PhysicalExamData.ECGTapeAttached]:
             data.ECGTapeAttached === null
               ? null
               : data.ECGTapeAttached
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.UrineAnalysis]:
-            data.UrineAnalysis === null ? null : data.UrineAnalysis ? "1" : "0",
+            data.UrineAnalysis === null ? null : data.UrineAnalysis ? '1' : '0',
           [PhysicalExamData.UrineAnalysisResult]:
             data.UrineAnalysisResult === null
               ? null
               : data.UrineAnalysisResult
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.UrineKotininAnalysis]:
             data.UrineKotininAnalysis === null
               ? null
               : data.UrineKotininAnalysis
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.UrineKotininAnalysisResult]:
             data.UrineKotininAnalysisResult === null
               ? null
               : data.UrineKotininAnalysisResult
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.CovidTest]:
-            data.CovidTest === null ? null : data.CovidTest ? "1" : "0",
+            data.CovidTest === null ? null : data.CovidTest ? '1' : '0',
           [PhysicalExamData.CovidTestResult]:
             data.CovidTestResult === null
               ? null
               : data.CovidTestResult
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.CovidOldTest]:
-            data.CovidOldTest === null ? null : data.CovidOldTest ? "1" : "0",
+            data.CovidOldTest === null ? null : data.CovidOldTest ? '1' : '0',
           [PhysicalExamData.Test10HoursAware]:
             data.Test10HoursAware === null
               ? null
               : data.Test10HoursAware
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.EmptyStomach]:
-            data.EmptyStomach === null ? null : data.EmptyStomach ? "1" : "0",
+            data.EmptyStomach === null ? null : data.EmptyStomach ? '1' : '0',
           [PhysicalExamData.BloodSamples]:
-            data.BloodSamples === null ? null : data.BloodSamples ? "1" : "0",
+            data.BloodSamples === null ? null : data.BloodSamples ? '1' : '0',
           [PhysicalExamData.BloodCentralLab]:
             data.BloodCentralLab === null
               ? null
               : data.BloodCentralLab
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.UrineCentralLab]:
             data.UrineCentralLab === null
               ? null
               : data.UrineCentralLab
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.LabRoute]:
-            data.LabRoute === null ? null : data.LabRoute ? "1" : "0",
+            data.LabRoute === null ? null : data.LabRoute ? '1' : '0',
           [PhysicalExamData.RgSurveyRoute]:
-            data.RgSurveyRoute === null ? null : data.RgSurveyRoute ? "1" : "0",
+            data.RgSurveyRoute === null ? null : data.RgSurveyRoute ? '1' : '0',
           [PhysicalExamData.XRay]:
-            data.XRay === null ? null : data.XRay ? "1" : "0",
+            data.XRay === null ? null : data.XRay ? '1' : '0',
           [PhysicalExamData.XRayCopy]:
-            data.XRayCopy === null ? null : data.XRayCopy ? "1" : "0",
+            data.XRayCopy === null ? null : data.XRayCopy ? '1' : '0',
           [PhysicalExamData.Analysis]:
-            data.Analysis === null ? null : data.Analysis ? "1" : "0",
+            data.Analysis === null ? null : data.Analysis ? '1' : '0',
           [PhysicalExamData.GeneralBloodComplete]:
             data.GeneralBloodComplete === null
               ? null
               : data.GeneralBloodComplete
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.GeneralBloodIndicator]:
             data.GeneralBloodIndicator === null
               ? null
               : data.GeneralBloodIndicator
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.GeneralBloodDeviation]:
             data.GeneralBloodDeviation === null
               ? null
               : data.GeneralBloodDeviation
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.BioBloodComplete]:
             data.BioBloodComplete === null
               ? null
               : data.BioBloodComplete
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.BioBloodIndicator]:
             data.BioBloodIndicator === null
               ? null
               : data.BioBloodIndicator
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.BioBloodDeviation]:
             data.BioBloodDeviation === null
               ? null
               : data.BioBloodDeviation
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.UrinalysisSedimentComplete]:
             data.UrinalysisSedimentComplete === null
               ? null
               : data.UrinalysisSedimentComplete
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.UrinalysisSedimentIndicator]:
             data.UrinalysisSedimentIndicator === null
               ? null
               : data.UrinalysisSedimentIndicator
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.UrinalysisSedimentDeviation]:
             data.UrinalysisSedimentDeviation === null
               ? null
               : data.UrinalysisSedimentDeviation
-              ? "1"
-              : "0",
+                ? '1'
+                : '0',
           [PhysicalExamData.HIVComplete]:
-            data.HIVComplete === null ? null : data.HIVComplete ? "1" : "0",
+            data.HIVComplete === null ? null : data.HIVComplete ? '1' : '0',
           [PhysicalExamData.HIVIndicator]:
-            data.HIVIndicator === null ? null : data.HIVIndicator ? "1" : "0",
+            data.HIVIndicator === null ? null : data.HIVIndicator ? '1' : '0',
           [PhysicalExamData.HIVDeviation]:
-            data.HIVDeviation === null ? null : data.HIVDeviation ? "1" : "0",
+            data.HIVDeviation === null ? null : data.HIVDeviation ? '1' : '0',
         });
       };
 
@@ -586,14 +586,14 @@ const PhysicalExaminationData = () => {
     const formData = new FormData();
 
     if (ref.current && ref.current.files[0]) {
-      formData.set("file", ref.current.files[0]);
+      formData.set('file', ref.current.files[0]);
       await axios.post(
         `${BASE_CARD_URL}/PhysicalExam/UpdateFile/${id}`,
         formData,
         {
           headers: {
-            authorization: `Bearer ${Cookies.get("token")}`,
-            "Content-Type": "multipart/form-data",
+            authorization: `Bearer ${Cookies.get('token')}`,
+            'Content-Type': 'multipart/form-data',
           },
         },
       );
@@ -602,7 +602,7 @@ const PhysicalExaminationData = () => {
 
   const handleCreateDoc = async () => {
     try {
-      await axiosCardRequest.post("/PhysicalExam/Create", {
+      await axiosCardRequest.post('/PhysicalExam/Create', {
         ...formData,
         [PhysicalExamData.PregnancyTestResult]:
           formData[PhysicalExamData.PregnancyTestResult] === null
@@ -958,7 +958,7 @@ const PhysicalExaminationData = () => {
 
   const handleEditDoc = async () => {
     try {
-      await axiosCardRequest.post("/PhysicalExam/Edit", {
+      await axiosCardRequest.post('/PhysicalExam/Edit', {
         ...formData,
         [PhysicalExamData.PregnancyTestResult]:
           formData[PhysicalExamData.PregnancyTestResult] === null
@@ -1319,209 +1319,187 @@ const PhysicalExaminationData = () => {
         <div className="document-data-block">
           <div className="document-data-block-info">
             <InputBlock
-              title={"Масса тела и рост"}
+              title="Масса тела и рост"
               items={weightHeightPhysical(setFormData, formData)}
             />
             <InputBlock
-              title={"Давление и температура"}
+              title="Давление и температура"
               items={temperaturePhysical(setFormData, formData)}
             />
             <InputBlock
-              title={"Жалобы добровольца"}
+              title="Жалобы добровольца"
               items={complainsPhysical(setFormData, formData)}
             />
             <InputBlock
-              title={"Общий осмотр"}
+              title="Общий осмотр"
               items={overallPhysical(setFormData, formData)}
             />
             <InputBlock
-              title={"Кожные покровы"}
+              title="Кожные покровы"
               items={skinPhysical(setFormData, formData)}
             />
             <InputBlock
-              title={"Видимые слизистые"}
+              title="Видимые слизистые"
               items={mucousPhysical(setFormData, formData)}
             />
             <InputBlock
-              title={"Лимфоузлы"}
+              title="Лимфоузлы"
               items={lymphPhysical(setFormData, formData)}
             />
             <InputBlock
-              title={"Глаза, уши, нос"}
+              title="Глаза, уши, нос"
               items={eyesEarsNose(setFormData, formData)}
             />
             <InputBlock
-              title={"Голова и шея"}
+              title="Голова и шея"
               items={headNeckPhysical(setFormData, formData)}
             />
             <InputBlock
-              title={"Вены верхних конечностей"}
+              title="Вены верхних конечностей"
               items={upperVeinsPhysical(setFormData, formData)}
             />
             <InputBlock
-              title={"Сердечно-сосудистая система"}
+              title="Сердечно-сосудистая система"
               items={cardiovascular(setFormData, formData)}
             />
             <InputBlock
-              title={"Дыхательная система"}
+              title="Дыхательная система"
               items={respiratoryPhysical(setFormData, formData)}
             />
             <InputBlock
-              title={"Костно-мышечная система"}
+              title="Костно-мышечная система"
               items={musculoskeletalPhysical(setFormData, formData)}
             />
             <InputBlock
-              title={"Пищеварительная система"}
+              title="Пищеварительная система"
               items={digestivePhysical(setFormData, formData)}
             />
             <InputBlock
-              title={"Мочевыделительная  система"}
+              title="Мочевыделительная  система"
               items={urinaryPhysical(setFormData, formData)}
             />
             <InputBlock
-              title={"Нервная система"}
+              title="Нервная система"
               items={nervousPhysical(setFormData, formData)}
             />
             <InputBlock
-              title={"Психическое состояние"}
+              title="Психическое состояние"
               items={mentalPhysical(setFormData, formData)}
             />
             <InputBlock
-              title={"Лабораторные и инструментальные исследования"}
+              title="Лабораторные и инструментальные исследования"
               items={ECGPhysical(setFormData, formData)}
             />
             <div className="fileInput">
               <span>Файл ЭКГ</span>
-              <input ref={ref} className="default-input" type={"file"} />
+              <input ref={ref} className="default-input" type="file" />
             </div>
             <InputBlock
-              title={
-                "Проведен анализ мочи с использованием тест полосок ________________________ на содержание наркотических веществ и сильнодействующих препаратов"
-              }
+              title="Проведен анализ мочи с использованием тест полосок ________________________ на содержание наркотических веществ и сильнодействующих препаратов"
               items={urineFirst(setFormData, formData)}
             />
             <SelectBlock
-              title={
-                "Результат: наркотические вещества и/или сильнодействующие препараты обнаружены"
-              }
+              title="Результат: наркотические вещества и/или сильнодействующие препараты обнаружены"
               items={urineSecond(setFormData, formData)}
             />
             <SelectBlock
-              title={"Проведен тест мочи на котинин"}
+              title="Проведен тест мочи на котинин"
               items={urineThird(setFormData, formData)}
             />
             <SelectBlock
-              title={"Результат: котинин обнаружен"}
+              title="Результат: котинин обнаружен"
               items={urineFourth(setFormData, formData)}
             />
             <SelectBlock
-              title={
-                "Проведен тест на содержание паров алкоголя в выдыхаемом воздухе при помощи алкометра. Результат ________ промилей"
-              }
+              title="Проведен тест на содержание паров алкоголя в выдыхаемом воздухе при помощи алкометра. Результат ________ промилей"
               items={alcoholPhysical(setFormData, formData)}
             />
             <SelectBlock
-              title={"Проведен тест на беременность?"}
+              title="Проведен тест на беременность?"
               items={pregnacyFirst(setFormData, formData)}
             />
             <SelectBlock
-              title={"Результат теста:"}
+              title="Результат теста:"
               items={pregnacySecond(setFormData, formData)}
             />
             <SelectBlock
-              title={"Проведен экспресс – тест на COVID-19"}
+              title="Проведен экспресс – тест на COVID-19"
               items={covidFirst(setFormData, formData)}
             />
             <SelectBlock
-              title={"Результат:"}
+              title="Результат:"
               items={covidSecond(setFormData, formData)}
             />
             <SelectBlock
-              title={
-                "Доброволец предъявил отрицательные результаты на COVID-19, сделанные ______________ (ДД:ММ:ГГГГ). Копия анализа приложена к истории болезни"
-              }
+              title="Доброволец предъявил отрицательные результаты на COVID-19, сделанные ______________ (ДД:ММ:ГГГГ). Копия анализа приложена к истории болезни"
               items={covidOldPhysical(setFormData, formData)}
             />
             <SelectBlock
-              title={
-                "Доброволец был предупрежден о необходимости не принимать пищу в течение 10 часов перед сдачей анализов крови и мочи"
-              }
+              title="Доброволец был предупрежден о необходимости не принимать пищу в течение 10 часов перед сдачей анализов крови и мочи"
               items={test10HoursAwarePhysical(setFormData, formData)}
             />
             <SelectBlock
-              title={"Дата  ______________ (ДД:ММ:ГГГГ)"}
+              title="Дата  ______________ (ДД:ММ:ГГГГ)"
               items={labDatePhysical(setFormData, formData)}
             />
             <SelectBlock
-              title={"Доброволец пришел в центр натощак"}
+              title="Доброволец пришел в центр натощак"
               items={emptyStomachPhysical(setFormData, formData)}
             />
             <SelectBlock
-              title={
-                "В асептических условиях процедурного кабинета в соответствии с условиями протокола выполнен забор образцов крови"
-              }
+              title="В асептических условиях процедурного кабинета в соответствии с условиями протокола выполнен забор образцов крови"
               items={bloodSamplesPhysical(setFormData, formData)}
             />
             <SelectBlock
-              title={"Биообразцы крови отправлены в центральную лабораторию"}
+              title="Биообразцы крови отправлены в центральную лабораторию"
               items={bloodCentralLabPhysical(setFormData, formData)}
             />
             <SelectBlock
-              title={
-                "Биообразец анализа мочи отправлен в центральную лабораторию"
-              }
+              title="Биообразец анализа мочи отправлен в центральную лабораторию"
               items={urineCentralLabPhysical(setFormData, formData)}
             />
             <SelectBlock
-              title={
-                "Доброволец получил направления в лабораторию ______ (название лаборатории)"
-              }
+              title="Доброволец получил направления в лабораторию ______ (название лаборатории)"
               items={labRoutePhysical(setFormData, formData)}
             />
             <SelectBlock
-              title={"Доброволец получил направление на Rg обследования"}
+              title="Доброволец получил направление на Rg обследования"
               items={rgSurveyRoutePhysical(setFormData, formData)}
             />
             <SelectBlock
-              title={
-                "Доброволец имеет на руках выполненную рентгенографию или флюорографическое обследование грудной клетки в течении 12 месяцев до визита скринига"
-              }
+              title="Доброволец имеет на руках выполненную рентгенографию или флюорографическое обследование грудной клетки в течении 12 месяцев до визита скринига"
               items={XRayPhysical(setFormData, formData)}
             />
             <SelectBlock
-              title={"Копия вложена в амбулаторную карту"}
+              title="Копия вложена в амбулаторную карту"
               items={XRayCopyPhysical(setFormData, formData)}
             />
             <SelectBlock
-              title={
-                "Результаты анализов получены ______________________ (ДД:ММ:ГГГГ) (укажите дату получения на бланке, распишитесь на бланке анализа)"
-              }
+              title="Результаты анализов получены ______________________ (ДД:ММ:ГГГГ) (укажите дату получения на бланке, распишитесь на бланке анализа)"
               items={analysisPhysical(setFormData, formData)}
             />
             <InputBlock
-              title={"Общий анализ крови"}
+              title="Общий анализ крови"
               items={GeneralBlood(setFormData, formData)}
             />
             <InputBlock
-              title={"Биохимический анализ крови"}
+              title="Биохимический анализ крови"
               items={BioBloodComplete(setFormData, formData)}
             />
             <InputBlock
-              title={"Общий анализ мочи с микроскопией осадка"}
+              title="Общий анализ мочи с микроскопией осадка"
               items={urinalysisSedimentComplete(setFormData, formData)}
             />
             <InputBlock
-              title={
-                "Серологический анализ на ВИЧ, поверхностный антиген вируса гепатита B (HBsAg), антитела к вирусу гепатита C (anti-HCV), тест на сифилис"
-              }
+              title="Серологический анализ на ВИЧ, поверхностный антиген вируса гепатита B (HBsAg), антитела к вирусу гепатита C (anti-HCV), тест на сифилис"
               items={HIVComplete(setFormData, formData)}
             />
-            {pathParts === "edit" ? (
+            {pathParts === 'edit' ? (
               <button
                 onClick={handleEditDoc}
                 style={{
-                  alignSelf: "center",
-                  justifySelf: "center",
+                  alignSelf: 'center',
+                  justifySelf: 'center',
                 }}
               >
                 Изменить
@@ -1530,8 +1508,8 @@ const PhysicalExaminationData = () => {
               <button
                 onClick={handleCreateDoc}
                 style={{
-                  alignSelf: "center",
-                  justifySelf: "center",
+                  alignSelf: 'center',
+                  justifySelf: 'center',
                 }}
               >
                 Сохранить

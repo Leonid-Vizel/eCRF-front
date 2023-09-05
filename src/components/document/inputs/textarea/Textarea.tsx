@@ -1,4 +1,4 @@
-import TextArea from "antd/es/input/TextArea";
+import TextArea from 'antd/es/input/TextArea';
 
 type TextareaProps = {
   fieldName?: string;
@@ -47,7 +47,7 @@ const Textarea = ({
 
   return (
     <TextArea
-      style={{ width, resize: "none" }}
+      style={{ width, resize: 'none' }}
       maxLength={10000}
       name={fieldName}
       onChange={handleInputChange}

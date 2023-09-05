@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { FormDataFields } from "../../../../utils/types/enums/documentEnums";
-import SelectInput from "../../../../components/document/inputs/selectInput/SelectInput";
-import { axiosCardRequest } from "../../../../utils/request/NewAxiosRequest";
-import { InsuranceOrganisation } from "../../../../utils/types/documentType";
+import React, { useEffect, useState } from 'react';
+import { FormDataFields } from '../../../../utils/types/enums/documentEnums';
+import SelectInput from '../../../../components/document/inputs/selectInput/SelectInput';
+import { axiosCardRequest } from '../../../../utils/request/NewAxiosRequest';
+import { InsuranceOrganisation } from '../../../../utils/types/documentType';
 
 type InsuranceSelectProps = {
   formData;
@@ -14,7 +14,7 @@ const InsuranceSelect = ({ formData, setFormData }: InsuranceSelectProps) => {
 
   useEffect(() => {
     const getInsuranceCompanies = async (): Promise<void> => {
-      await axiosCardRequest.get("/Insurance/List").then((res) => {
+      await axiosCardRequest.get('/Insurance/List').then((res) => {
         setInsurances(res.data);
       });
     };
@@ -22,11 +22,10 @@ const InsuranceSelect = ({ formData, setFormData }: InsuranceSelectProps) => {
     getInsuranceCompanies();
   }, []);
 
-  const formatInsurance = (insurances: InsuranceOrganisation[]) =>
-    insurances.map((item) => ({
-      value: item.id,
-      name: item.name,
-    }));
+  const formatInsurance = (insurances: InsuranceOrganisation[]) => insurances.map((item) => ({
+    value: item.id,
+    name: item.name,
+  }));
 
   return (
     <SelectInput

@@ -1,82 +1,82 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import Autosuggest from 'react-autosuggest';
 
 const LocalStorageSearch = () => {
-    const [value, setValue] = useState('');
-    const [suggestions, setSuggestions] = useState([]);
-    const [storedData, setStoredData] = useState(
-        JSON.parse(localStorage.getItem('autosuggestData')) || []
+  const [value, setValue] = useState('');
+  const [suggestions, setSuggestions] = useState([]);
+  const [storedData, setStoredData] = useState(
+    JSON.parse(localStorage.getItem('autosuggestData')) || [],
+  );
+
+  useEffect(() => {
+    localStorage.setItem('autosuggestData', JSON.stringify(storedData));
+  }, [storedData]);
+
+  const onSuggestionsFetchRequested = ({ value }) => {
+    const inputValue = value.trim().toLowerCase();
+    const filteredSuggestions = storedData.filter(
+      (item) => item.toLowerCase().includes(inputValue),
     );
 
-    useEffect(() => {
-        localStorage.setItem('autosuggestData', JSON.stringify(storedData));
-    }, [storedData]);
+    setSuggestions(filteredSuggestions);
+  };
 
-    const onSuggestionsFetchRequested = ({ value }) => {
-        const inputValue = value.trim().toLowerCase();
-        const filteredSuggestions = storedData.filter(
-            item => item.toLowerCase().includes(inputValue)
-        );
+  const onSuggestionsClearRequested = () => {
+    setSuggestions([]);
+  };
 
-        setSuggestions(filteredSuggestions);
-    };
+  const onSuggestionSelected = (event, { suggestion }) => {
+    console.log('success');
+  };
 
-    const onSuggestionsClearRequested = () => {
-        setSuggestions([]);
-    };
+  const getSuggestionValue = (suggestion) => suggestion;
 
-    const onSuggestionSelected = (event, { suggestion }) => {
-        console.log('success')
-    };
+  const renderSuggestion = (suggestion) => (
+    <div className="localStorage">
+      {suggestion}
+    </div>
+  );
 
-    const getSuggestionValue = suggestion => suggestion;
+  const onChange = (event, { newValue }) => {
+    setValue(newValue);
+  };
 
-    const renderSuggestion = suggestion => (
-        <div className='localStorage'>
-            {suggestion}
-        </div>
-    );
+  const onInputKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      const newValue = value.trim();
+      if (newValue) {
+        setStoredData([...storedData, newValue]);
+      }
+      setValue('');
+    }
+  };
 
-    const onChange = (event, { newValue }) => {
-        setValue(newValue);
-    };
+  const onBlur = () => {
+    const newValue = value.trim();
+    if (newValue) {
+      setStoredData([...storedData, newValue]);
+    }
+  };
 
-    const onInputKeyDown = event => {
-        if (event.key === 'Enter') {
-            const newValue = value.trim();
-            if (newValue) {
-                setStoredData([...storedData, newValue]);
-            }
-            setValue('');
-        }
-    };
+  const inputProps = {
+    placeholder: 'Введите данные',
+    value,
+    onChange,
+    onKeyDown: onInputKeyDown,
+    onBlur,
+  };
 
-    const onBlur = () => {
-        const newValue = value.trim();
-        if (newValue) {
-            setStoredData([...storedData, newValue]);
-        }
-    };
-
-    const inputProps = {
-        placeholder: 'Введите данные',
-        value,
-        onChange,
-        onKeyDown: onInputKeyDown,
-        onBlur,
-    };
-
-    return (
-        <Autosuggest
-            suggestions={suggestions}
-            onSuggestionsFetchRequested={onSuggestionsFetchRequested}
-            onSuggestionsClearRequested={onSuggestionsClearRequested}
-            onSuggestionSelected={onSuggestionSelected}
-            getSuggestionValue={getSuggestionValue}
-            renderSuggestion={renderSuggestion}
-            inputProps={inputProps}
-        />
-    );
+  return (
+    <Autosuggest
+      suggestions={suggestions}
+      onSuggestionsFetchRequested={onSuggestionsFetchRequested}
+      onSuggestionsClearRequested={onSuggestionsClearRequested}
+      onSuggestionSelected={onSuggestionSelected}
+      getSuggestionValue={getSuggestionValue}
+      renderSuggestion={renderSuggestion}
+      inputProps={inputProps}
+    />
+  );
 };
 
 export default LocalStorageSearch;

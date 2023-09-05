@@ -1,11 +1,11 @@
-import React, { useEffect, useRef, useState } from "react";
-import axios from "axios";
-import BlockInfo from "../../components/blockInfo/BlockInfo";
-import "./main.scss";
-import { cookiesData } from "../../utils/cookies/getCookies";
-import { useAppDispatch, useAppSelector } from "../../store/redux-hook";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { protocolSelector } from "../../store/protocolSlice/protocolSelector";
+import React, { useEffect, useRef, useState } from 'react';
+import axios from 'axios';
+import BlockInfo from '../../components/blockInfo/BlockInfo';
+import './main.scss';
+import { cookiesData } from '../../utils/cookies/getCookies';
+import { useAppDispatch, useAppSelector } from '../../store/redux-hook';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { protocolSelector } from '../../store/protocolSlice/protocolSelector';
 import {
   addProtocols,
   addProtocolSuccess,
@@ -13,20 +13,20 @@ import {
   deleteProtocolSuccess,
   editProtocols,
   getProtocols,
-} from "../../store/protocolSlice/protocolSlice";
-import { getCenters } from "../../store/centerSlice/centerSlice";
-import { centerSelector } from "../../store/centerSlice/centerSelector";
+} from '../../store/protocolSlice/protocolSlice';
+import { getCenters } from '../../store/centerSlice/centerSlice';
+import { centerSelector } from '../../store/centerSlice/centerSelector';
 import {
   axiosCardRequest,
   axiosRequest,
-} from "../../utils/request/NewAxiosRequest";
-import CheckAuth from "../../utils/CheckAuth";
+} from '../../utils/request/NewAxiosRequest';
+import CheckAuth from '../../utils/CheckAuth';
 
 const Main = () => {
   const [showAddModal, setShowAddModal] = useState<boolean>(false);
   const [showEditModal, setEditModal] = useState<boolean>(false);
   const [showDeleteModal, setDeleteModal] = useState<boolean>(false);
-  const [inputValue, setInputValue] = useState<string>("");
+  const [inputValue, setInputValue] = useState<string>('');
   const [selectValue, setSelectValue] = useState<number | any>(null);
   const [centerValue, setCenterValue] = useState<number | any>(null);
   const [organizationValue, setOrganizationValue] = useState<number | any>(
@@ -35,19 +35,19 @@ const Main = () => {
   const [selectedProtocolId, setSelectedProtocolId] = useState<number | null>(
     null,
   );
-  const [deleteId, setDeleteId] = useState("");
+  const [deleteId, setDeleteId] = useState('');
 
   const [protocolNum, setProtocolNum] = useState<any>(0);
 
   const location: any = useLocation();
-  const filter = parseInt(location.pathname.split("/").pop().split("=")[1]);
+  const filter = parseInt(location.pathname.split('/').pop().split('=')[1]);
 
   const dispatch = useAppDispatch();
   const { protocol } = useAppSelector(protocolSelector);
   const { data } = useAppSelector(centerSelector);
 
   const [orgs, setOrgs] = useState<any>();
-  const [centers, setCenters] = useState<any>("");
+  const [centers, setCenters] = useState<any>('');
   const [filtered, setFiltered] = useState<any>();
 
   const navigate = useNavigate();
@@ -61,7 +61,7 @@ const Main = () => {
 
   useEffect(() => {
     const getAllOrganizations: any = async () => {
-      await axiosCardRequest.get("/Organisation/List").then((res) => {
+      await axiosCardRequest.get('/Organisation/List').then((res) => {
         setOrgs(res);
       });
     };
@@ -77,7 +77,7 @@ const Main = () => {
       try {
         await dispatch<any>(
           getProtocols({
-            filter: filter,
+            filter,
             user_centerId: parseInt(cookiesData.cookieCenterId),
           }),
         );
@@ -93,7 +93,7 @@ const Main = () => {
     };
 
     const getAllCenters: any = async () => {
-      await axiosCardRequest.get("/center/list").then((res) => {
+      await axiosCardRequest.get('/center/list').then((res) => {
         setCenters(res);
       });
     };
@@ -137,7 +137,7 @@ const Main = () => {
     setDeleteId(id);
   };
 
-  const [protocolOldName, setProtocolOldName] = useState("");
+  const [protocolOldName, setProtocolOldName] = useState('');
   const [protocolOldStatus, setProtocolOldStatus] = useState(0);
   const handleEditProtocol = (
     protocolId: number,
@@ -155,13 +155,13 @@ const Main = () => {
     setShowAddModal(false);
     setEditModal(false);
     setDeleteModal(false);
-    setInputValue("");
+    setInputValue('');
     setSelectValue(1);
     setCenterValue(1);
     setSelectedProtocolId(null);
   };
 
-  //отправление запроса на добавление
+  // отправление запроса на добавление
   const handleSaveProtocol = async () => {
     try {
       await dispatch<any>(
@@ -193,7 +193,7 @@ const Main = () => {
     await window.location.reload();
   };
 
-  //для того чтобы в селекте значение не было строкой
+  // для того чтобы в селекте значение не было строкой
   const handleChange = (event) => {
     event.preventDefault();
     const value = parseInt(event.target.value, 10);
@@ -209,14 +209,14 @@ const Main = () => {
 
   const handleFilterProtocols = async (event) => {
     const filterValue = event.target.value;
-    if (filterValue === "number") return;
+    if (filterValue === 'number') return;
     navigate(`/main/filter=${filterValue}`);
     window.location.reload();
   };
 
   return (
     <div className="main">
-      <BlockInfo text={"Список протоколов"} />
+      <BlockInfo text="Список протоколов" />
       <div className="main-form">
         <div className="main-form-top">
           <select onChange={handleFilterProtocols}>
@@ -235,7 +235,7 @@ const Main = () => {
                 <th>Действие</th>
                 <th>№ п/п</th>
                 <th>Название</th>
-                {/*<th>Организация</th>*/}
+                {/* <th>Организация</th> */}
                 <th>Клинический центр</th>
                 <th>Статус</th>
                 <th>Перейти к ИРК</th>
@@ -243,20 +243,18 @@ const Main = () => {
               </tr>
             </thead>
             <tbody>
-              {location.pathname === "/main/filter=0" ? (
+              {location.pathname === '/main/filter=0' ? (
                 <>
-                  {protocol &&
-                    protocol.map((item) => (
+                  {protocol
+                    && protocol.map((item) => (
                       <tr key={item.Id}>
                         <td>
                           <button
-                            onClick={() =>
-                              handleEditProtocol(
-                                item.Id,
-                                item.Name,
-                                item.Status,
-                              )
-                            }
+                            onClick={() => handleEditProtocol(
+                              item.Id,
+                              item.Name,
+                              item.Status,
+                            )}
                           >
                             🖊️
                           </button>
@@ -268,9 +266,9 @@ const Main = () => {
                         </td>
                         <td>{item.Number}</td>
                         <td>{item.Name}</td>
-                        {/*<td>{item.orgranization_id}</td>*/}
+                        {/* <td>{item.orgranization_id}</td> */}
                         <td>{data && data.message}</td>
-                        <td>{item.status === 1 ? "Активен" : "Неактивен"}</td>
+                        <td>{item.status === 1 ? 'Активен' : 'Неактивен'}</td>
                         <td>
                           <Link
                             to={`/protocol/${item.Id}/${cookiesData.cookieId}`}
@@ -278,7 +276,7 @@ const Main = () => {
                             <button>📑</button>
                           </Link>
                         </td>
-                        {/*todo изменить когда бэк будет готов*/}
+                        {/* todo изменить когда бэк будет готов */}
                         <td>
                           <Link to={`/documents/${item.Id}`}>
                             <button>📑</button>
@@ -289,19 +287,17 @@ const Main = () => {
                 </>
               ) : (
                 <>
-                  {filtered &&
-                    filtered.data &&
-                    filtered.data.map((item) => (
+                  {filtered
+                    && filtered.data
+                    && filtered.data.map((item) => (
                       <tr key={item.Id}>
                         <td>
                           <button
-                            onClick={() =>
-                              handleEditProtocol(
-                                item.Id,
-                                item.Name,
-                                item.Status,
-                              )
-                            }
+                            onClick={() => handleEditProtocol(
+                              item.Id,
+                              item.Name,
+                              item.Status,
+                            )}
                           >
                             🖊️
                           </button>
@@ -314,7 +310,7 @@ const Main = () => {
                         <td>{item.number}</td>
                         <td>{item.name}</td>
                         <td>{data && data.message}</td>
-                        <td>{item.status === 1 ? "Активен" : "Неактивен"}</td>
+                        <td>{item.status === 1 ? 'Активен' : 'Неактивен'}</td>
                         <td>
                           <Link
                             to={`/protocol/${item.Id}/${cookiesData.cookieId}`}
@@ -331,7 +327,7 @@ const Main = () => {
         </div>
       </div>
 
-      {/*модалка добавления*/}
+      {/* модалка добавления */}
       {showAddModal && (
         <div className="modal-overlay" onClick={handleModalClose}>
           <div className="modal" onClick={(e) => e.stopPropagation()}>
@@ -371,8 +367,8 @@ const Main = () => {
                 <option value={null} disabled selected>
                   Выберите
                 </option>
-                {orgs &&
-                  orgs.data.map((center) => (
+                {orgs
+                  && orgs.data.map((center) => (
                     <option
                       key={center.organization_id}
                       value={center.organization_id}
@@ -391,8 +387,8 @@ const Main = () => {
                     <option value={null} disabled selected>
                       Выберите
                     </option>
-                    {centers &&
-                      centers.data.map((center) => (
+                    {centers
+                      && centers.data.map((center) => (
                         <option key={center.id} value={center.id}>
                           {center.name}
                         </option>
@@ -413,7 +409,7 @@ const Main = () => {
         </div>
       )}
 
-      {/*модалка редактирования*/}
+      {/* модалка редактирования */}
       {showEditModal && (
         <div className="modal-overlay" onClick={handleModalClose}>
           <div className="modal" onClick={(e) => e.stopPropagation()}>
@@ -422,11 +418,11 @@ const Main = () => {
             </button>
             <span>Изменить протокол</span>
             <div className="modal-content">
-              {/*<input*/}
-              {/*    type="text"*/}
-              {/*    placeholder={selectedProtocolId && selectedProtocolId.toString()}*/}
-              {/*    disabled={true}*/}
-              {/*/>*/}
+              {/* <input */}
+              {/*    type="text" */}
+              {/*    placeholder={selectedProtocolId && selectedProtocolId.toString()} */}
+              {/*    disabled={true} */}
+              {/* /> */}
               Название
               <input
                 type="text"
@@ -447,9 +443,9 @@ const Main = () => {
                 value={selectValue}
                 onChange={(e) => setSelectValue(e.target.value)}
               >
-                {/*<option disabled selected>*/}
-                {/*  {protocolOldStatus === 1 ? "Активен" : "Неактивен"}*/}
-                {/*</option>*/}
+                {/* <option disabled selected> */}
+                {/*  {protocolOldStatus === 1 ? "Активен" : "Неактивен"} */}
+                {/* </option> */}
                 <option value="" disabled selected>
                   Выберите
                 </option>
@@ -464,8 +460,8 @@ const Main = () => {
                 <option value={null} disabled selected>
                   Выберите
                 </option>
-                {orgs &&
-                  orgs.data.map((center) => (
+                {orgs
+                  && orgs.data.map((center) => (
                     <option
                       key={center.organization_id}
                       value={center.organization_id}
@@ -482,8 +478,8 @@ const Main = () => {
                 <option value={null} disabled selected>
                   Выберите
                 </option>
-                {centers &&
-                  centers.data.map((center) => (
+                {centers
+                  && centers.data.map((center) => (
                     <option key={center.id} value={center.id}>
                       {center.name}
                     </option>

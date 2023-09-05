@@ -1,9 +1,5 @@
-import {RootState} from "../store";
+import { RootState } from '../store';
 
-export const authSelector = (state: RootState) => {
-    return state.auth;
-};
+export const authSelector = (state: RootState) => state.auth;
 
-export const isAuthSelector = (state: RootState) => {
-    return !!state.auth.data;
-};
+export const isAuthSelector = (state: RootState) => !!state.auth.data;

@@ -1,6 +1,6 @@
-import React from "react";
-import { axiosCardRequest, axiosRequest } from "../../request/NewAxiosRequest";
-import Cookies from "js-cookie";
+import React from 'react';
+import Cookies from 'js-cookie';
+import { axiosCardRequest, axiosRequest } from '../../request/NewAxiosRequest';
 
 const AddOrganization = ({
   modalType,
@@ -12,11 +12,11 @@ const AddOrganization = ({
 }) => {
   const handleAddOrg = async () => {
     await axiosCardRequest
-      .post("/Organisation/Create", {
+      .post('/Organisation/Create', {
         name: inputOrgValue,
       })
       .then(() => {
-        console.log("success");
+        console.log('success');
         setTimeout(() => {
           handleModalClose();
         }, 1000);
@@ -26,11 +26,11 @@ const AddOrganization = ({
 
   const handleAddIns = async () => {
     await axiosCardRequest
-      .post("/Insurance/Create", {
+      .post('/Insurance/Create', {
         name: inputOrgValue,
       })
       .then(() => {
-        console.log("success");
+        console.log('success');
         setTimeout(() => {
           handleModalClose();
         }, 1000);
@@ -61,7 +61,7 @@ const AddOrganization = ({
         </div>
         <div className="modal-actions">
           <button
-            onClick={modalType === "insurance" ? handleAddIns : handleAddOrg}
+            onClick={modalType === 'insurance' ? handleAddIns : handleAddOrg}
             className="modal-button"
           >
             Сохранить

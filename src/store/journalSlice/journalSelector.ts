@@ -1,5 +1,3 @@
-import {RootState} from "../store";
+import { RootState } from '../store';
 
-export const journalSelector = (state: RootState) => {
-    return state.journal;
-};
+export const journalSelector = (state: RootState) => state.journal;

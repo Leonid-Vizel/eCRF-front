@@ -1,6 +1,6 @@
-import { PhysicalExam } from "../../../../utils/types/documentType";
-import SelectInput from "../../../../components/document/inputs/selectInput/SelectInput";
-import { PhysicalExamData } from "../../../../utils/types/enums/documentEnums";
+import { PhysicalExam } from '../../../../utils/types/documentType';
+import SelectInput from '../../../../components/document/inputs/selectInput/SelectInput';
+import { PhysicalExamData } from '../../../../utils/types/enums/documentEnums';
 
 export const urineCentralLabPhysical = (
   setFormData,
@@ -12,11 +12,11 @@ export const urineCentralLabPhysical = (
         fieldName={PhysicalExamData.UrineCentralLab}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}

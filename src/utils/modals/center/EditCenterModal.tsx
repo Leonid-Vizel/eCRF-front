@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { axiosCardRequest, axiosRequest } from "../../request/NewAxiosRequest";
+import React, { useState } from 'react';
+import { axiosCardRequest, axiosRequest } from '../../request/NewAxiosRequest';
 
 const EditCenterModal = ({
   handleModalClose,
@@ -12,17 +12,17 @@ const EditCenterModal = ({
 
   const handleEditCenter = async () => {
     await axiosCardRequest
-      .patch("/center/edit", {
+      .patch('/center/edit', {
         name: inputCenterValue,
         id: parseInt(centerId),
         organisationId: parseInt(orgId),
       })
       .then(() => {
-        console.log("success");
+        console.log('success');
         window.location.reload();
       })
       .finally(() => {
-        console.log("second success");
+        console.log('second success');
       });
   };
 
@@ -48,14 +48,14 @@ const EditCenterModal = ({
           />
           Выберите организацию
           <select
-            placeholder={"Выберите"}
+            placeholder="Выберите"
             onChange={(e) => {
               setOrgId(e.target.value);
             }}
           >
             <option value="">Выберите</option>
-            {organizationValue &&
-              organizationValue.data.map((organization) => (
+            {organizationValue
+              && organizationValue.data.map((organization) => (
                 <option
                   key={organization.organisationId}
                   value={organization.organisationId}

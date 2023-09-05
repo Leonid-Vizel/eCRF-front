@@ -1,5 +1,5 @@
-import React from "react";
-import { axiosRequest } from "../../request/NewAxiosRequest";
+import React from 'react';
+import { axiosRequest } from '../../request/NewAxiosRequest';
 
 const DeleteCenter = ({ handleModalClose, inputValue, setInputValue }) => {
   const handleDeleteCenter = async () => {

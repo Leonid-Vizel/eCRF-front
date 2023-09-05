@@ -1,5 +1,3 @@
-import {RootState} from "../store";
+import { RootState } from '../store';
 
-export const centerSelector = (state: RootState) => {
-    return state.center;
-};
+export const centerSelector = (state: RootState) => state.center;

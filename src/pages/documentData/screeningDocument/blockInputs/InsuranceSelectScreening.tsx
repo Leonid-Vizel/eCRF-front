@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { CardScreeningData } from "../../../../utils/types/enums/documentEnums";
-import SelectInput from "../../../../components/document/inputs/selectInput/SelectInput";
-import { axiosCardRequest } from "../../../../utils/request/NewAxiosRequest";
-import { InsuranceOrganisation } from "../../../../utils/types/documentType";
+import React, { useEffect, useState } from 'react';
+import { CardScreeningData } from '../../../../utils/types/enums/documentEnums';
+import SelectInput from '../../../../components/document/inputs/selectInput/SelectInput';
+import { axiosCardRequest } from '../../../../utils/request/NewAxiosRequest';
+import { InsuranceOrganisation } from '../../../../utils/types/documentType';
 
 type InsuranceSelectProps = {
   formData;
@@ -17,7 +17,7 @@ const InsuranceSelectScreening = ({
 
   useEffect(() => {
     const getInsuranceCompanies = async (): Promise<void> => {
-      await axiosCardRequest.get("/Insurance/List").then((res) => {
+      await axiosCardRequest.get('/Insurance/List').then((res) => {
         setInsurances(res.data);
       });
     };
@@ -25,11 +25,10 @@ const InsuranceSelectScreening = ({
     getInsuranceCompanies();
   }, []);
 
-  const formatInsurance = (insurances: InsuranceOrganisation[]) =>
-    insurances.map((item) => ({
-      value: item.name,
-      name: item.name,
-    }));
+  const formatInsurance = (insurances: InsuranceOrganisation[]) => insurances.map((item) => ({
+    value: item.name,
+    name: item.name,
+  }));
 
   return (
     <SelectInput
@@ -37,7 +36,7 @@ const InsuranceSelectScreening = ({
       options={formatInsurance(insurances)}
       selectValue={formData.Insurance}
       setFormData={setFormData}
-      optionPlaceholder={"Выберите мед организацию"}
+      optionPlaceholder="Выберите мед организацию"
     />
   );
 };

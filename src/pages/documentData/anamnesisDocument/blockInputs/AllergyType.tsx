@@ -5,18 +5,18 @@ import { InputBlockItem } from '../../../../utils/types/shared';
 import { allergyTypeOptions } from './data';
 
 export const allergyType = (
-    setFormData,
-    formData: Anamnesis
+  setFormData,
+  formData: Anamnesis,
 ): InputBlockItem[] => [
-    {
-        inputTitle: 'Какие аллергические проявления отмечались',
-        input: (
-            <SelectInput
-                fieldName={AnamnesisFields.AllergyType}
-                options={allergyTypeOptions}
-                selectValue={formData.AllergyType}
-                setFormData={setFormData}
-            />
-        ),
-    },
+  {
+    inputTitle: 'Какие аллергические проявления отмечались',
+    input: (
+      <SelectInput
+        fieldName={AnamnesisFields.AllergyType}
+        options={allergyTypeOptions}
+        selectValue={formData.AllergyType}
+        setFormData={setFormData}
+      />
+    ),
+  },
 ];

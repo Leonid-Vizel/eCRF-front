@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { axiosRequest } from "../../request/NewAxiosRequest";
+import React, { useEffect, useState } from 'react';
+import { axiosRequest } from '../../request/NewAxiosRequest';
 
 const CenterList = ({ handleModalClose }) => {
-  const [data, setData] = useState<any>("");
+  const [data, setData] = useState<any>('');
 
   useEffect(() => {
     const getAllCenters: any = async () => {
-      await axiosRequest("/center/all").then(({ data }) => {
+      await axiosRequest('/center/all').then(({ data }) => {
         setData(data);
       });
     };
@@ -24,8 +24,8 @@ const CenterList = ({ handleModalClose }) => {
         </button>
         <span>Список центров</span>
         <div className="modal-list-content">
-          {data &&
-            data.map((item) => (
+          {data
+            && data.map((item) => (
               <span key={item.center_id}>{item.center_name}</span>
             ))}
         </div>

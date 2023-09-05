@@ -5,18 +5,18 @@ import { InputBlockItem } from '../../../../utils/types/shared';
 import { yesNoOptions } from './data';
 
 export const pastDays = (
-    setFormData,
-    formData: Anamnesis
+  setFormData,
+  formData: Anamnesis,
 ): InputBlockItem[] => [
-    {
-        inputTitle: '',
-        input: (
-            <SelectInput
-                fieldName={AnamnesisFields.Past90Days}
-                options={yesNoOptions}
-                selectValue={formData.Past90Days}
-                setFormData={setFormData}
-            />
-        ),
-    },
+  {
+    inputTitle: '',
+    input: (
+      <SelectInput
+        fieldName={AnamnesisFields.Past90Days}
+        options={yesNoOptions}
+        selectValue={formData.Past90Days}
+        setFormData={setFormData}
+      />
+    ),
+  },
 ];

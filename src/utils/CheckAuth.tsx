@@ -1,16 +1,16 @@
-import React, {useEffect} from 'react';
-import {useNavigate} from "react-router-dom";
-import {cookiesData} from "./cookies/getCookies";
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { cookiesData } from './cookies/getCookies';
 
 const CheckAuth = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    useEffect(() => {
-        const isAuth = cookiesData.cookieId || cookiesData.cookieName
-        if(!isAuth) {
-            navigate('/')
-        }
-    }, [])
+  useEffect(() => {
+    const isAuth = cookiesData.cookieId || cookiesData.cookieName;
+    if (!isAuth) {
+      navigate('/');
+    }
+  }, []);
 };
 
 export default CheckAuth;

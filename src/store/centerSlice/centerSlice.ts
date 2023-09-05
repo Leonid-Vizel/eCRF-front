@@ -1,9 +1,9 @@
-import { Status } from "../authSlice/authSlice";
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { Status } from '../authSlice/authSlice';
 import {
   axiosCardRequest,
   axiosRequest,
-} from "../../utils/request/NewAxiosRequest";
+} from '../../utils/request/NewAxiosRequest';
 
 interface ICenterSlice {
   data: any | null;
@@ -21,7 +21,7 @@ interface ICenter {
 }
 
 export const getCenters = createAsyncThunk(
-  "center/getCenter",
+  'center/getCenter',
   async ({ id }: { id: number }) => {
     const { data } = await axiosCardRequest.get(`/center/name/${id}`);
 
@@ -30,19 +30,19 @@ export const getCenters = createAsyncThunk(
 );
 
 export const getAllCenters = createAsyncThunk(
-  "center/getAllCenters",
+  'center/getAllCenters',
   async () => {
-    const { data } = await axiosRequest.get(`/center/all`);
+    const { data } = await axiosRequest.get('/center/all');
 
     return data;
   },
 );
 
 export const addCenter = createAsyncThunk(
-  "center/addCenter",
-  async ({ name }: Pick<ICenter, "name">) => {
-    const { data } = await axiosRequest.post(`/center/add`, {
-      name: name,
+  'center/addCenter',
+  async ({ name }: Pick<ICenter, 'name'>) => {
+    const { data } = await axiosRequest.post('/center/add', {
+      name,
     });
 
     return data;
@@ -50,9 +50,9 @@ export const addCenter = createAsyncThunk(
 );
 
 export const deleteCenter = createAsyncThunk(
-  "center/deleteCenter",
-  async ({ centerId }: Pick<ICenter, "centerId">) => {
-    const { data } = await axiosRequest.delete(`/center/delete`, {
+  'center/deleteCenter',
+  async ({ centerId }: Pick<ICenter, 'centerId'>) => {
+    const { data } = await axiosRequest.delete('/center/delete', {
       data: {
         center_id: centerId,
       },
@@ -63,11 +63,11 @@ export const deleteCenter = createAsyncThunk(
 );
 
 export const updateCenter = createAsyncThunk(
-  "center/updateCenter",
+  'center/updateCenter',
   async ({ centerId, name }: ICenter) => {
-    const { data } = await axiosRequest.patch(`/center/update`, {
+    const { data } = await axiosRequest.patch('/center/update', {
       center_id: centerId,
-      name: name,
+      name,
     });
 
     return data;
@@ -75,7 +75,7 @@ export const updateCenter = createAsyncThunk(
 );
 
 const centerSlice = createSlice({
-  name: "centerSlice",
+  name: 'centerSlice',
   initialState,
   reducers: {},
   extraReducers: (builder) => {

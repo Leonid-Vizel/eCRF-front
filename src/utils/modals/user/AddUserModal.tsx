@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { axiosCardRequest, axiosRequest } from "../../request/NewAxiosRequest";
+import React, { useEffect, useState } from 'react';
+import { axiosCardRequest, axiosRequest } from '../../request/NewAxiosRequest';
 
 const AddUserModal = ({
   handleModalClose,
@@ -24,7 +24,7 @@ const AddUserModal = ({
 
   const handleRegisterUser = async () => {
     await axiosCardRequest
-      .post("/user/register", {
+      .post('/user/register', {
         centerId: parseInt(centerValue),
         login: inputLoginValue,
         firstName: inputNameValue,
@@ -34,7 +34,7 @@ const AddUserModal = ({
         role: parseInt(selectValue),
       })
       .then(() => {
-        console.log("success");
+        console.log('success');
         setTimeout(() => {
           handleModalClose();
         }, 1000);
@@ -122,8 +122,8 @@ const AddUserModal = ({
           Выберите организацию
           <select onChange={handleOrganizationChange}>
             <option value="">Выберите организацию</option>
-            {organizationValue &&
-              organizationValue.data.map((organization) => (
+            {organizationValue
+              && organizationValue.data.map((organization) => (
                 <option key={organization.id} value={organization.id}>
                   {organization.name}
                 </option>

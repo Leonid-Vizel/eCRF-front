@@ -6,28 +6,28 @@ import { InputBlockItem } from '../../../../utils/types/shared';
 import { checkupLocationOptions } from './data';
 
 export const checkupInfo = (
-    setFormData,
-    formData: FormDataItem
+  setFormData,
+  formData: FormDataItem,
 ): InputBlockItem[] => [
-    {
-        inputTitle: 'Дата осмотра',
-        input: (
-            <DateInput
-                fieldName={FormDataFields.CheckupDate}
-                inputValue={formData.CheckupDate}
-                setFormData={setFormData}
-            />
-        ),
-    },
-    {
-        inputTitle: 'Место осмотра',
-        input: (
-            <SelectInput
-                fieldName={FormDataFields.CheckupLocation}
-                selectValue={formData.CheckupLocation}
-                options={checkupLocationOptions}
-                setFormData={setFormData}
-            />
-        ),
-    },
+  {
+    inputTitle: 'Дата осмотра',
+    input: (
+      <DateInput
+        fieldName={FormDataFields.CheckupDate}
+        inputValue={formData.CheckupDate}
+        setFormData={setFormData}
+      />
+    ),
+  },
+  {
+    inputTitle: 'Место осмотра',
+    input: (
+      <SelectInput
+        fieldName={FormDataFields.CheckupLocation}
+        selectValue={formData.CheckupLocation}
+        options={checkupLocationOptions}
+        setFormData={setFormData}
+      />
+    ),
+  },
 ];

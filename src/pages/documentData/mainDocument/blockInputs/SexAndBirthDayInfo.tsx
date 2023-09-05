@@ -6,28 +6,28 @@ import { InputBlockItem } from '../../../../utils/types/shared';
 import { sexOptions } from './data';
 
 export const sexAndBirthDayInfo = (
-    setFormData,
-    formData: FormDataItem
+  setFormData,
+  formData: FormDataItem,
 ): InputBlockItem[] => [
-    {
-        inputTitle: 'Выберите Дату',
-        input: (
-            <DateInput
-                fieldName={FormDataFields.BirthDate}
-                inputValue={formData.BirthDate}
-                setFormData={setFormData}
-            />
-        ),
-    },
-    {
-        inputTitle: 'Пол',
-        input: (
-            <SelectInput
-                fieldName={FormDataFields.Sex}
-                options={sexOptions}
-                selectValue={formData.Sex}
-                setFormData={setFormData}
-            />
-        ),
-    },
+  {
+    inputTitle: 'Выберите Дату',
+    input: (
+      <DateInput
+        fieldName={FormDataFields.BirthDate}
+        inputValue={formData.BirthDate}
+        setFormData={setFormData}
+      />
+    ),
+  },
+  {
+    inputTitle: 'Пол',
+    input: (
+      <SelectInput
+        fieldName={FormDataFields.Sex}
+        options={sexOptions}
+        selectValue={formData.Sex}
+        setFormData={setFormData}
+      />
+    ),
+  },
 ];

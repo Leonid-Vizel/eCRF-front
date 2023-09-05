@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { axiosCardRequest, axiosRequest } from "../../request/NewAxiosRequest";
+import React, { useState } from 'react';
+import { axiosCardRequest, axiosRequest } from '../../request/NewAxiosRequest';
 
 const AddCenterModal = ({
   handleModalClose,
@@ -10,7 +10,7 @@ const AddCenterModal = ({
   const [orgId, setOrgId] = useState<any>();
   const handleAddCenter = async () => {
     await axiosCardRequest
-      .post("/center/create", {
+      .post('/center/create', {
         name: inputCenterValue,
         organizationId: parseInt(orgId),
       })
@@ -41,14 +41,14 @@ const AddCenterModal = ({
           />
           Выберите организацию
           <select
-            placeholder={"Выберите"}
+            placeholder="Выберите"
             onChange={(e) => {
               setOrgId(e.target.value);
             }}
           >
             <option value="">Выберите</option>
-            {organizationValue &&
-              organizationValue.data.map((organization) => (
+            {organizationValue
+              && organizationValue.data.map((organization) => (
                 <option
                   key={organization.organisationId}
                   value={organization.organisationId}

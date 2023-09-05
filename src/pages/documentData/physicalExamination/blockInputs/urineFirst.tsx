@@ -1,12 +1,12 @@
-import { PhysicalExam } from "../../../../utils/types/documentType";
-import SelectInput from "../../../../components/document/inputs/selectInput/SelectInput";
-import { PhysicalExamData } from "../../../../utils/types/enums/documentEnums";
-import Textarea from "../../../../components/document/inputs/textarea/Textarea";
-import DefaultInput from "../../../../components/document/inputs/defaultInput/DefaultInput";
+import { PhysicalExam } from '../../../../utils/types/documentType';
+import SelectInput from '../../../../components/document/inputs/selectInput/SelectInput';
+import { PhysicalExamData } from '../../../../utils/types/enums/documentEnums';
+import Textarea from '../../../../components/document/inputs/textarea/Textarea';
+import DefaultInput from '../../../../components/document/inputs/defaultInput/DefaultInput';
 
 export const urineFirst = (setFormData, formData: PhysicalExam) => [
   {
-    inputTitle: "Название",
+    inputTitle: 'Название',
     input: (
       <DefaultInput
         fieldName={PhysicalExamData.UrineAnalysisName}
@@ -16,17 +16,17 @@ export const urineFirst = (setFormData, formData: PhysicalExam) => [
     ),
   },
   {
-    inputTitle: "Проведено",
+    inputTitle: 'Проведено',
     input: (
       <SelectInput
         fieldName={PhysicalExamData.UrineAnalysis}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}

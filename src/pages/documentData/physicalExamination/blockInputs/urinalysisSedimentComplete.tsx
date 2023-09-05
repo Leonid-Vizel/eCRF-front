@@ -1,24 +1,24 @@
-import { PhysicalExam } from "../../../../utils/types/documentType";
-import SelectInput from "../../../../components/document/inputs/selectInput/SelectInput";
-import { PhysicalExamData } from "../../../../utils/types/enums/documentEnums";
-import Textarea from "../../../../components/document/inputs/textarea/Textarea";
+import { PhysicalExam } from '../../../../utils/types/documentType';
+import SelectInput from '../../../../components/document/inputs/selectInput/SelectInput';
+import { PhysicalExamData } from '../../../../utils/types/enums/documentEnums';
+import Textarea from '../../../../components/document/inputs/textarea/Textarea';
 
 export const urinalysisSedimentComplete = (
   setFormData,
   formData: PhysicalExam,
 ) => [
   {
-    inputTitle: "Выполнено",
+    inputTitle: 'Выполнено',
     input: (
       <SelectInput
         fieldName={PhysicalExamData.UrinalysisSedimentComplete}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -28,17 +28,17 @@ export const urinalysisSedimentComplete = (
     ),
   },
   {
-    inputTitle: "Показатели",
+    inputTitle: 'Показатели',
     input: (
       <SelectInput
         fieldName={PhysicalExamData.UrinalysisSedimentIndicator}
         options={[
           {
-            name: "Норма",
+            name: 'Норма',
             value: 0,
           },
           {
-            name: "Отклонение",
+            name: 'Отклонение',
             value: 1,
           },
         ]}
@@ -48,17 +48,17 @@ export const urinalysisSedimentComplete = (
     ),
   },
   {
-    inputTitle: "Отклонения",
+    inputTitle: 'Отклонения',
     input: (
       <SelectInput
         fieldName={PhysicalExamData.UrinalysisSedimentDeviation}
         options={[
           {
-            name: "Нет",
+            name: 'Нет',
             value: 0,
           },
           {
-            name: "Да",
+            name: 'Да',
             value: 1,
           },
         ]}
@@ -68,13 +68,13 @@ export const urinalysisSedimentComplete = (
     ),
   },
   {
-    inputTitle: "Комментарий",
+    inputTitle: 'Комментарий',
     input: (
       <Textarea
         fieldName={PhysicalExamData.UrinalysisSedimentComment}
         inputValue={formData[PhysicalExamData.UrinalysisSedimentComment]}
         setFormData={setFormData}
-        width={"300px"}
+        width="300px"
       />
     ),
   },

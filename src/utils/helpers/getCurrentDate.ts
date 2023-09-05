@@ -1,24 +1,24 @@
 export const getCurrentDate = () => {
-    const date = new Date();
+  const date = new Date();
 
-    const year = date.getFullYear();
-    const month = date.getMonth() + 1;
-    const day = date.getDate();
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
 
-    let strMonth = '';
-    let strDay = '';
+  let strMonth = '';
+  let strDay = '';
 
-    if (month <= 9) {
-        strMonth = '0' + month;
-    } else {
-        strMonth = month.toString();
-    }
+  if (month <= 9) {
+    strMonth = `0${month}`;
+  } else {
+    strMonth = month.toString();
+  }
 
-    if (day <= 9) {
-        strDay = '0' + day;
-    } else {
-        strDay = day.toString();
-    }
+  if (day <= 9) {
+    strDay = `0${day}`;
+  } else {
+    strDay = day.toString();
+  }
 
-    return `${year}-${strMonth}-${strDay}`;
+  return `${year}-${strMonth}-${strDay}`;
 };

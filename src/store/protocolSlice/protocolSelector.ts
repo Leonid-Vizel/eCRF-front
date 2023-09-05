@@ -1,5 +1,3 @@
-import {RootState} from "../store";
+import { RootState } from '../store';
 
-export const protocolSelector = (state: RootState) => {
-    return state.protocols;
-};
+export const protocolSelector = (state: RootState) => state.protocols;

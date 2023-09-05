@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import Logo from 'shared/assets/images/logo.png';
 import NavbarAuth from '../../components/navbar_auth/NavbarAuth';
 import { useAppDispatch, useAppSelector } from '../../store/redux-hook';
 import { authLogin } from '../../store/authSlice/authSlice';
@@ -62,7 +63,7 @@ const Login = () => {
         )}
       </form>
       <div className="login-logo">
-        <img src="/logo.png" alt="" />
+        <img src={Logo} alt="" />
         <span>Developed and designed by Nabla Lab.</span>
       </div>
     </div>

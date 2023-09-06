@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './journal.scss';
 import { Link, useNavigate } from 'react-router-dom';
+import logo from 'shared/assets/images/logo.png';
 import NavbarAuth from '../../components/navbar_auth/NavbarAuth';
 import { cookiesData } from '../../utils/cookies/getCookies';
 import { axiosRequest } from '../../utils/request/NewAxiosRequest';
@@ -151,7 +152,7 @@ const Journal = () => {
       </div>
       <Link to="/main/filter=0" className="link">
         <div className="journal-logo">
-          <img src="/logo.png" />
+          <img alt="" src={logo} />
           <span>Developed and designed by Nabla Lab.</span>
         </div>
       </Link>

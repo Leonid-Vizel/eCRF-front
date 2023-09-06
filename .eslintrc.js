@@ -25,7 +25,7 @@ module.exports = {
         '.js', '.jsx', '.tsx',
       ],
     }],
-    'linebreak-style':'crlf',
+    'linebreak-style': 'off',
     'no-unused-vars': 'error',
     'no-shadow': 'off',
     'no-underscore-dangle': ['error', {
@@ -44,7 +44,6 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'warn',
     'react/no-unused-prop-types': ['error', { ignore: ['children'] }],
     '@typescript-eslint/no-unused-vars': ['warn'],
-    // todo: УБРАТЬ ПОСЛЕ РЕФАКТОРИНГА !!!
     '@typescript-eslint/no-explicit-any': ['warn'],
 
     'max-len': ['error', { ignoreComments: true, code: 120 }],

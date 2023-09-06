@@ -6,6 +6,7 @@ import { PrivatRoute } from '../../../lib/AccessHepers/PrivatRoute';
 import { journalRoute } from './journalRoutes';
 import { mainFilterPaths, mainFilterRoute } from './mainRoutes';
 import { protocolRoute } from './protocolRoutes';
+import { documentRoute } from './documentRoutes';
 
 export enum BaseRoutesList {
   MAIN = 'main',
@@ -53,7 +54,17 @@ export const baseRoute: Record<BaseRoutesList, RouteProps> = {
   },
   [BaseRoutesList.DOCUMENTS]: {
     path: baseRoutePaths.documents,
-    element: <Layout />,
+    element:
+  <Route>
+    {Object.values(documentRoute).map(({ element, path, index }) => (
+      <Route
+        key={path}
+        element={<PrivatRoute>{element}</PrivatRoute>}
+        path={path}
+        index={index}
+      />
+    ))}
+  </Route>,
   },
   [BaseRoutesList.JOURNAL]: {
     path: baseRoutePaths.journal,

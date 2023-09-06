@@ -38,7 +38,7 @@ const Login = () => {
       navigate('/main/filter=0');
       window.location.reload();
     }
-  }, []);
+  }, [data]);
 
   return (
     <div className="login">

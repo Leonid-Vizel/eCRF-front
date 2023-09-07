@@ -3,12 +3,16 @@ import HTMLWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { BuildOptions } from './types/buildOptions';
-import TerserPlugin from "terser-webpack-plugin"
+import { enviroments } from './deploy.configs';
 
 export function buildPugins({
   paths,
   isDev,
+  stand,
+  isLocal
 }: BuildOptions): webpack.WebpackPluginInstance[] {
+  const baseURL = isLocal ? '' : enviroments[stand].api
+  console.log('definePlugin', baseURL);
   const plugins = [
     new HTMLWebpackPlugin({
       template: paths.html,
@@ -20,13 +24,14 @@ export function buildPugins({
     }),
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
+      __BASE_URL__: JSON.stringify(baseURL),
     }),
-    
 ]
 
   if(isDev){
     plugins.push(new webpack.HotModuleReplacementPlugin())
     plugins.push(new BundleAnalyzerPlugin({openAnalyzer: false}))
   }
+
   return plugins;
 }

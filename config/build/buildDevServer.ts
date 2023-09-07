@@ -1,8 +1,9 @@
 import type { Configuration as DevServerConfiguration } from 'webpack-dev-server';
 import { BuildOptions } from './types/buildOptions';
-import path from 'path';
+import { enviroments } from './deploy.configs';
 
 export default function buildDevServer(options: BuildOptions): DevServerConfiguration {
+  console.log('devServer', enviroments[options.stand].api);
   return {
     port: options.port,
     open: true,
@@ -13,8 +14,8 @@ export default function buildDevServer(options: BuildOptions): DevServerConfigur
     },
     proxy: {
       '/api/net': {
-        target: 'https://ecrf.bioequivalencetrials.ru',
-        changeOrigin: true
+        target: enviroments[options.stand].api,
+        changeOrigin: true,
       },
     },
   };

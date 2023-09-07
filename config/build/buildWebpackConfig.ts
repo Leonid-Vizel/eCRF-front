@@ -20,11 +20,11 @@ export function buildWebpackConfig(
       publicPath: '/',
       devtoolModuleFilenameTemplate: 'eCRF:///[resource-path]'
     },
+    plugins: buildPugins(options),
     resolve: buildResolvers(options),
     module: {
       rules: buildLoader(options),
     },
-    plugins: buildPugins(options),
     devServer: isDev ? buildDevServer(options) : undefined,
     devtool: isDev ? 'inline-cheap-module-source-map' : 'source-map',
 }}

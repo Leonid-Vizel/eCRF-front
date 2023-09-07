@@ -10,6 +10,8 @@ export interface BuildPaths {
 export interface BuildEnv {
   mode: BuildMode;
   port: number;
+  stand: string;
+  server: string;
 }
 
 export interface BuildOptions {
@@ -17,4 +19,6 @@ export interface BuildOptions {
   paths: BuildPaths;
   port: number;
   isDev: boolean;
+  stand: string;
+  isLocal: boolean
 }

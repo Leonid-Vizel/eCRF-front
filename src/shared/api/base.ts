@@ -1,19 +1,21 @@
 import axios, { Method, ResponseType } from 'axios';
 import Cookies from 'js-cookie';
-import { openErrorNotification } from 'shared/lib/notifications';
+import { openErrorNotification } from '../lib/notifications';
+import { REACT_APP_ENDPOINT_URL } from '../constants/constatns';
 
 interface IExternalSystemCallArguments<T> {
   method: Method;
   endpoint: string;
-  url: URL;
+  url: string;
   data?: T;
   responseType?: ResponseType;
 }
 
-export enum URL {
-  BaseURL = '/api',
-  BaseCardUrl = '/api/net',
-}
+// todo удалить после дебага
+// export enum URL {
+//   BaseURL = '/api',
+//   BaseCardUrl = '/api/net',
+// }
 
 const headers = {
   authorization: `Bearer ${Cookies.get('token')}`,
@@ -23,7 +25,7 @@ const headers = {
 export async function externalSystemCall<T>({
   method,
   endpoint,
-  url,
+  url = REACT_APP_ENDPOINT_URL,
   data,
   responseType,
 }: IExternalSystemCallArguments<T>) {

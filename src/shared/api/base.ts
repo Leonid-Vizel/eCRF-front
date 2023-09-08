@@ -6,7 +6,7 @@ import { REACT_APP_ENDPOINT_URL } from '../constants/constatns';
 interface IExternalSystemCallArguments<T> {
   method: Method;
   endpoint: string;
-  url: string;
+  url?: string;
   data?: T;
   responseType?: ResponseType;
 }

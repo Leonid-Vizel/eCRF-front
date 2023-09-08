@@ -83,7 +83,7 @@ module.exports = {
       },
     },
     {
-      files: ['**.slice.ts'],
+      files: ['**.slice.ts', '**slice.ts'],
       rules: {
         'no-param-reassign': 'off',
       },

@@ -1,12 +1,10 @@
 import { createContext, useContext } from 'react';
 
 interface AuthContextTypes {
-  getInSystem: boolean;
-  setInSystem(param: boolean): void;
+  isAuth: boolean;
 }
 export const AuthContext = createContext<AuthContextTypes>({
-  getInSystem: false,
-  setInSystem: () => null,
+  isAuth: false,
 });
 
 export const useAuth = () => useContext(AuthContext);

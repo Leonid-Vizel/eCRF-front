@@ -1,5 +1,5 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import thunkMiddleware from 'redux-thunk';
+import { userSlice } from 'entities/user';
 import { authReducer } from './authSlice/authSlice';
 import { centerReducer } from './centerSlice/centerSlice';
 import { protocolReducer } from './protocolSlice/protocolSlice';
@@ -12,11 +12,11 @@ const rootReducer = combineReducers({
   protocols: protocolReducer,
   journal: journalReducer,
   document: documentReducer,
+  [userSlice.name]: userSlice.reducer,
 });
 
 const store = configureStore({
   reducer: rootReducer,
-  middleware: [thunkMiddleware],
 });
 
 export type RootState = ReturnType<typeof store.getState>;

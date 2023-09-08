@@ -45,7 +45,7 @@ module.exports = {
     'react/no-unused-prop-types': ['error', { ignore: ['children'] }],
     '@typescript-eslint/no-unused-vars': ['warn'],
     '@typescript-eslint/no-explicit-any': ['warn'],
-
+    'react/prop-types': 'off',
     'max-len': ['error', { ignoreComments: true, code: 120 }],
   },
   globals: {

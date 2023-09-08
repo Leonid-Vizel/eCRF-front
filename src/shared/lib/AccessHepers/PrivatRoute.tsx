@@ -8,9 +8,9 @@ interface PrivatRouteProps {
 
 export const PrivatRoute:FC<PrivatRouteProps> = ({ children }) => {
   const location = useLocation();
-  const { getInSystem } = useAuth();
+  const { isAuth } = useAuth();
 
-  if (!getInSystem) {
+  if (!isAuth) {
     return <Navigate to="/login" state={{ from: location }} />;
   }
 

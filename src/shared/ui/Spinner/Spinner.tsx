@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import { Spin, SpinProps } from 'antd';
 import { FC } from 'react';
 

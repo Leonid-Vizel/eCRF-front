@@ -4,6 +4,7 @@ import {
   axiosCardRequest,
   axiosRequest,
 } from '../../utils/request/NewAxiosRequest';
+import { externalSystemCall } from 'shared/api';
 
 interface ICenterSlice {
   data: any | null;
@@ -23,7 +24,10 @@ interface ICenter {
 export const getCenters = createAsyncThunk(
   'center/getCenter',
   async ({ id }: { id: number }) => {
-    const { data } = await axiosCardRequest.get(`/center/name/${id}`);
+    const { data } = await externalSystemCall({
+      method: 'GET',
+      endpoint: `/center/name/${id}`,
+    });
 
     return data;
   },

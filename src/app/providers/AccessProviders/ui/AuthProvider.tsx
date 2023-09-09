@@ -1,28 +1,27 @@
 import {
   FC, ReactNode, useEffect, useMemo, useState,
 } from 'react';
-import Cookies from 'js-cookie';
+import { useCookies } from 'react-cookie';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../lib/AuthContext';
-import { useAppDispatch, useAppSelector } from 'store/redux-hook';
-import { authSelector, setIsAuth } from 'entities/user';
 
 interface AuthProviderProps {
   children: ReactNode
 }
 
 export const AuthProvider: FC<AuthProviderProps> = ({ children }) => {
-  const isAuth = useAppSelector(authSelector);
-  const dispatch = useAppDispatch();
-  
+  const [cookies] = useCookies();
+  const navigate = useNavigate();
+  const [isAuth, setIsAuth] = useState(false);
 
   useEffect(() => {
-    const cookieName = Cookies.get('token_name');
-  const cookieId = Cookies.get('token_id');
-  const cookieRole = Cookies.get('token_role');
-    if (cookieId && cookieRole && cookieName) {
-      dispatch(setIsAuth());
+    if (cookies.token) {
+      setIsAuth(true);
+    } else {
+      setIsAuth(false);
+      navigate('/login');
     }
-  }, []);
+  }, [cookies, navigate]);
 
   const value = useMemo(() => ({ isAuth }), [isAuth]);
 

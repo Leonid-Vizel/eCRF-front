@@ -11,17 +11,6 @@ interface IExternalSystemCallArguments<T> {
   responseType?: ResponseType;
 }
 
-// todo удалить после дебага
-// export enum URL {
-//   BaseURL = '/api',
-//   BaseCardUrl = '/api/net',
-// }
-
-const headers = {
-  authorization: `Bearer ${Cookies.get('token')}`,
-  'Content-Type': 'application/json',
-};
-
 export async function externalSystemCall<T>({
   method,
   endpoint,
@@ -33,7 +22,17 @@ export async function externalSystemCall<T>({
     const client = axios.create({
       baseURL: url,
       withCredentials: true,
-      headers,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    client.interceptors.response.use((response) => response, async (error) => {
+      if (error.response.status === 401) {
+        Cookies.remove('token');
+        return Promise.reject(new Error('Срок сессии истек. Авторизуйтесь снова.'));
+      }
+      return Promise.reject(error);
     });
 
     const response = await client.request({

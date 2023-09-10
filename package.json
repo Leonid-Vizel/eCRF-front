@@ -13,6 +13,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.2.6",
     "@progress/kendo-drawing": "^1.17.5",
     "@progress/kendo-react-pdf": "^5.14.1",
     "@react-pdf/renderer": "^3.1.12",

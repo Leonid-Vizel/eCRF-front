@@ -10,7 +10,9 @@ export const Button: FC<IButtonProps> = memo((props) => {
   const { children, onClick, ...otherProps } = props;
 
   const handleClick = () => {
-    onClick();
+    if (onClick) {
+      onClick();
+    }
   };
 
   return <AntButton onClick={handleClick} {...otherProps}>{children}</AntButton>;

@@ -1,5 +1,5 @@
 import { Outlet, useLocation } from 'react-router-dom';
-import Navbar from './navbar/Navbar';
+import { Navbar } from 'widgets/Navbar/index';
 
 const Layout = () => {
   const { pathname } = useLocation();

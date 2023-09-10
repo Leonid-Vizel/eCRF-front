@@ -3,6 +3,7 @@ import { Input } from 'shared/ui/Input';
 import { useAppDispatch } from 'store/redux-hook';
 import { Button } from 'shared/ui/Button';
 import { userLogin } from '../model/login';
+import cls from './LoginForm.module.scss';
 
 interface FieldType {
   login: string;
@@ -39,7 +40,7 @@ export const LoginForm = () => {
         <Input placeholder="Пароль" type="password" />
       </Form.Item>
       <Form.Item>
-        <Button type="primary" htmlType="submit" size="large">
+        <Button className={cls.LoginForm} type="primary" htmlType="submit">
           Войти
         </Button>
       </Form.Item>

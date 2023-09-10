@@ -309,7 +309,7 @@ const MainDocument = () => {
       suggestions = JSON.parse(dataJSON);
     }
 
-    formData.Deseases.map((item) => {
+    formData.Deseases.forEach((item) => {
       let flag = false;
 
       suggestions.forEach((suggestion) => {

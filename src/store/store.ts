@@ -15,6 +15,7 @@ const rootReducer = combineReducers({
   [userSlice.name]: userSlice.reducer,
 });
 
+// todo протипизировать
 const store = configureStore({
   reducer: rootReducer,
 });

@@ -1,1 +1,1 @@
-export { baseRoute } from './RoutesConfig/baseRoutes';
+export { baseRoute } from './routes/baseRoutes/baseRoutes';

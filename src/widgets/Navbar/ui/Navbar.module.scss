@@ -1,0 +1,22 @@
+.Navbar {
+    padding: 0 20px;
+    height: 70px;
+    background: linear-gradient(to right, var(--secondary-blue) 0%, var(--primary-blue) 100%);
+}
+
+.logo {
+    width: auto;
+    height: 70px;
+}
+
+.menuItemsWrapper {
+    margin: auto 0 auto auto;
+    display: flex;
+    gap: var(--small);
+    height: auto;
+    align-items: center;
+}
+
+.nameInfoWrapper {
+    color: var(--primary-white);
+}

@@ -31,6 +31,11 @@ export default function buildLoader(
     type: "asset/resource",
   }
 
+  const assestFonts = {
+    test: /\.(woff|woff2|eot|ttf|otf)$/i,
+    type: 'asset/resource',
+  }
+
   const cssLoader = buildCssLoader(options.isDev)
 
   // const fileLoader = {
@@ -61,7 +66,8 @@ export default function buildLoader(
     typescriptLoader, 
     cssLoader, 
     svgLoader, 
-    babelLoader, 
+    babelLoader,
+    assestFonts,
     // fileLoader,
     assetsModule,
     sourceMapLoader,

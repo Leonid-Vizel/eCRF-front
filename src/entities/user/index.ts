@@ -1,2 +1,8 @@
-export { IUser } from './model/types';
-export { userSlice, setIsAuth, authSelector } from './model/slice';
+export { IUser } from './types/types';
+export {
+  userSlice, setIsAuth, setIsLogout,
+} from './model/slice/login.slice';
+export {
+  userDataSelector,
+  authSelector,
+} from './model/selectors/userSelectors';

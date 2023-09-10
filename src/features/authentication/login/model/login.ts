@@ -3,7 +3,7 @@ import jwt_decode from 'jwt-decode';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { loginRequest } from 'shared/api/endpoints';
 import { LoginRequest } from 'shared/api/types';
-import { openErrorNotification } from 'shared/lib/notifications';
+import { openErrorNotification } from 'shared/lib/notifications/notifications';
 import { TokenPayload } from './types';
 
 export const userLogin = createAsyncThunk(
@@ -26,6 +26,6 @@ export const userLogin = createAsyncThunk(
     Cookies.set('token_centerId', centerId.toString());
     Cookies.set('token_role', role.toString());
 
-    return data;
+    return decodedToken;
   },
 );

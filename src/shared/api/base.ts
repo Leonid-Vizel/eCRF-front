@@ -1,6 +1,6 @@
 import axios, { Method, ResponseType } from 'axios';
 import Cookies from 'js-cookie';
-import { openErrorNotification } from '../lib/notifications';
+import { openErrorNotification } from '../lib/notifications/notifications';
 import { REACT_APP_ENDPOINT_URL } from '../constants/constatns';
 
 interface IExternalSystemCallArguments<T> {

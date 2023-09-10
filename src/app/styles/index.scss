@@ -1,0 +1,9 @@
+@import "reset";
+@import "./variables/global";
+@import "./fonts/roboto/fonts.css";
+
+body {
+    font-family: var(--font-family-main);
+    letter-spacing: var(--letter-spacing-main);
+    color: var(--primary-black);
+}

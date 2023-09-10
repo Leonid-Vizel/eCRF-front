@@ -307,6 +307,9 @@ export interface Criteria {
     [CriteriaFields.Hospitalized]: CriteriaValues;
     [CriteriaFields.VisitComment]: string | null;
     [CriteriaFields.Doctor]: string | null;
+    [CriteriaFields.PhoneDate]: string | null
+    [CriteriaFields.PhoneTime]: string | null
+    [CriteriaFields.CardId]: number
 }
 
 export interface PhysicalExam {

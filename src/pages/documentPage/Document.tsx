@@ -12,7 +12,7 @@ import Cookies from "js-cookie";
 const Document = () => {
     const [documentData, setDocumentData] = useState<any>('')
 
-    const {document, twelveData, twentyData} = useAppSelector(documentSelector)
+    const {document, twelveData, twentyData} = useAppSelector(documentSelector) as any
     console.log(document)
 
     const {id} = useParams()

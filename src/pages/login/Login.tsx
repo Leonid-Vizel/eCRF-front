@@ -7,6 +7,10 @@ import Cookies from "js-cookie";
 import './login.scss';
 import {authSelector} from "../../store/authSlice/authSelector";
 
+export function defaultRedirect(href:string) {
+    window.location.href = href;
+  }
+
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -34,7 +38,7 @@ const Login = () => {
     };
 
     if (data) {
-        navigate('/main/filter=0');
+       defaultRedirect('https://ecrf.bioequivalencetrials.ru/api/net/Protocols');
         window.location.reload()
     }
 

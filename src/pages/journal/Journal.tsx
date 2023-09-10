@@ -13,6 +13,7 @@ import {
   selectMethod,
   selectType,
 } from "../../store/journalSlice/journalSlice";
+import { defaultRedirect } from "../login/Login";
 
 const Journal = () => {
   const data = [
@@ -88,7 +89,7 @@ const Journal = () => {
   }, []);
 
   const handleNavigate = () => {
-    navigate("/main/filter=0");
+    defaultRedirect('https://ecrf.bioequivalencetrials.ru/api/net/Protocols')
   };
 
   return (
@@ -149,12 +150,12 @@ const Journal = () => {
           </tbody>
         </table>
       </div>
-      <Link to={"/main/filter=0"} className="link">
+      <a onClick={() => defaultRedirect('https://ecrf.bioequivalencetrials.ru/api/net/Protocols')} className="link">
         <div className="journal-logo">
           <img src="/logo.png" />
           <span>Developed and designed by Nabla Lab.</span>
         </div>
-      </Link>
+      </a>
     </div>
   );
 };

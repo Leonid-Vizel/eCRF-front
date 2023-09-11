@@ -4,14 +4,14 @@ import { authReducer } from './authSlice/authSlice';
 import { centerReducer } from './centerSlice/centerSlice';
 import { protocolReducer } from './protocolSlice/protocolSlice';
 import { journalReducer } from './journalSlice/journalSlice';
-import { documentReducer } from './documentSlice/documentSlice';
+import { documentSlice } from 'entities/document/model/slice/document.slice';
 
 const rootReducer = combineReducers({
   auth: authReducer,
   center: centerReducer,
   protocols: protocolReducer,
   journal: journalReducer,
-  document: documentReducer,
+  [documentSlice.name]: documentSlice.reducer,
   [userSlice.name]: userSlice.reducer,
 });
 

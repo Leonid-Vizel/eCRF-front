@@ -22,7 +22,7 @@ export const LoginForm = () => {
     <Form
       name="login"
       onFinish={onFinish}
-      style={{ width: '60%', maxWidth: 600, marginTop: '30px' }}
+      className={cls.LoginForm}
     >
       <Form.Item>
         <Title level={1}>Вход</Title>

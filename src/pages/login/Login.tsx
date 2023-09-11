@@ -21,26 +21,19 @@ const Login = () => {
     const {status, data} = useAppSelector(authSelector)
 
     //проверка на авторизацию
-    // useEffect(() => {
-    //     const cookieName = Cookies.get('token_name');
-    //     const cookieCenterId = Cookies.get('token_centerId');
-    //     const cookieId = Cookies.get('token_id');
-    //     const cookieRole = Cookies.get('token_role');
-    //
-    //     if (cookieName && cookieCenterId && cookieId && cookieRole) {
-    //         navigate('/main/filter=0');
-    //     }
-    // }, [navigate]);
+    useEffect(() => {
+        const token = Cookies.get("token")
+
+        if (token || data) {
+            defaultRedirect('https://ecrf.bioequivalencetrials.ru/api/net/Protocols');
+        }
+    }, [data]);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         await dispatch<any>(authLogin({ email, password }))
     };
 
-    if (data) {
-       defaultRedirect('https://ecrf.bioequivalencetrials.ru/api/net/Protocols');
-        window.location.reload()
-    }
 
     return (
         <div className='login'>

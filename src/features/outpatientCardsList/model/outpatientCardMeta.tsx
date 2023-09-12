@@ -2,8 +2,8 @@ import { ColumnsType } from 'antd/es/table';
 import { ICard } from 'entities/document/types/types';
 import Cookies from 'js-cookie';
 import { Link } from 'react-router-dom';
+import { DownloadForm } from 'shared/ui/DownloadForm/DownloadForm';
 import { BASE_CARD_URL } from 'utils/request/NewAxiosRequest';
-import { DownloadForm } from 'widgets/DownloadForm';
 
 export const columns: ColumnsType = [
   {

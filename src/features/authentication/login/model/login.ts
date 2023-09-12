@@ -18,13 +18,14 @@ export const userLogin = createAsyncThunk(
 
     const decodedToken = jwt_decode<TokenPayload>(data);
     const {
-      name, id, centerId, role,
+      name, id, centerId, role, roleName,
     } = decodedToken;
     Cookies.set('token', data);
     Cookies.set('token_name', name);
     Cookies.set('token_id', id.toString());
     Cookies.set('token_centerId', centerId.toString());
     Cookies.set('token_role', role.toString());
+    Cookies.set('token_rolename', roleName);
 
     return decodedToken;
   },

@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { OutpatientCardsTable } from 'features/outpatientCardsList/ui/OutpatienCardsTable';
+import { OutpatientCardsTable } from 'features/outpatientCardsList/ui/OutpatientCardsTable';
 import { Button } from 'shared/ui/Button';
 import cls from './Documents.module.scss';
 

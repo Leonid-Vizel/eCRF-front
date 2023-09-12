@@ -6,4 +6,5 @@ export interface TokenPayload {
   password?: string;
   email: string;
   exp?: any;
+  roleName :string
 }

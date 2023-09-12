@@ -1,12 +1,10 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import './login.scss';
 import { LoginForm } from 'features/authentication/login';
 import { useAuth } from 'app/providers/AccessProviders/lib/AuthContext';
+import cls from './Login.module.scss';
 // import { defaultRedirect } from 'shared/lib/defaultRedirect';
-import { Footer } from 'shared/ui/Footer';
-import NavbarAuth from '../../components/navbar_auth/NavbarAuth';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -20,10 +18,8 @@ const Login = () => {
   }, [isAuth, navigate]);
 
   return (
-    <div className="login">
-      <NavbarAuth />
+    <div className={cls.Login}>
       <LoginForm />
-      <Footer />
     </div>
   );
 };

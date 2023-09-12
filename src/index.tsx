@@ -1,15 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import 'app/styles/index.scss';
 import { AuthProvider } from 'app/providers/AccessProviders';
 import { RootStylesProvider } from 'app/providers/ThemeProvider';
-import store from './store/store';
+import { StoreProvider } from 'app/providers/StoreProvider';
 import App from './app/App';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <Provider store={store}>
+  <StoreProvider>
     <RootStylesProvider>
       <BrowserRouter>
         <AuthProvider>
@@ -17,6 +16,6 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
         </AuthProvider>
       </BrowserRouter>
     </RootStylesProvider>
-  </Provider>
+  </StoreProvider>
   ,
 );

@@ -1,13 +1,30 @@
 import { externalSystemCall } from './base';
-import { GetUserRequest, LoginRequest } from './types';
+import {
+  GetUserRequest,
+  LoginRequest,
+  GetCardListRequest,
+  GetDictionaryRequest,
+} from './types';
 
-export const loginRequest = (data:LoginRequest) => externalSystemCall<LoginRequest>({
+export const loginRequest = (data: LoginRequest) => externalSystemCall<LoginRequest>({
   endpoint: 'user/login',
   method: 'POST',
   data,
 });
 
-export const getUser = ({ id }:GetUserRequest) => externalSystemCall<GetUserRequest>({
+export const getUser = ({ id }: GetUserRequest) => externalSystemCall<GetUserRequest>({
   endpoint: `user/index/${id}`,
+  method: 'GET',
+});
+
+export const getCardList = ({ id, page = 1 }: GetCardListRequest) => externalSystemCall<GetCardListRequest>({
+  endpoint: `Card/List/${id}?page=${page}`,
+  method: 'GET',
+});
+
+export const getDictionaryRequest = ({
+  dictionaryName,
+}: GetDictionaryRequest) => externalSystemCall<GetDictionaryRequest>({
+  endpoint: `Enum/${dictionaryName}`,
   method: 'GET',
 });

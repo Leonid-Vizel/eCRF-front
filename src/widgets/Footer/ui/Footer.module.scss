@@ -1,0 +1,17 @@
+.Footer {
+    padding: 20px;
+    background: linear-gradient(to right, var(--secondary-blue) 0%, var(--primary-blue) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--small);
+}
+
+.logo {
+    width: auto;
+    height: 70px;
+}
+
+.text {
+    color: var(--primary-white);
+}

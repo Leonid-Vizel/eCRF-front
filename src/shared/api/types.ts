@@ -13,3 +13,12 @@ export interface LoginRequest {
 export interface GetUserRequest {
   id: string
 }
+
+export interface GetCardListRequest {
+  id:string,
+  page?:number
+}
+
+export interface GetDictionaryRequest {
+  dictionaryName: string
+}

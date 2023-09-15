@@ -1,38 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { Dictionary, DictionaryData } from 'entities/dictionary/types/types';
+import { Dictionary, IDictionaryState } from 'entities/dictionary/types/types';
 import { getDictionary } from 'features/dictionary/model/getDictionary';
 import { Status } from 'shared/api';
-
-interface IDictionary {
-  data:DictionaryData
-  status:Status
-}
-
-interface IDictionaryState {
-  [Dictionary.Race]?:IDictionary
-  [Dictionary.Education]?:IDictionary
-  [Dictionary.AllergyType]?:IDictionary
-  [Dictionary.BloodGroup]?:IDictionary
-  [Dictionary.CheckupLocation]?:IDictionary
-  [Dictionary.ConditionType]?:IDictionary
-  [Dictionary.DiagnosisType]?:IDictionary
-  [Dictionary.DisabilityGroup]?:IDictionary
-  [Dictionary.DisabilityType]?:IDictionary
-  [Dictionary.Family]?:IDictionary
-  [Dictionary.Hepatitis]?:IDictionary
-  [Dictionary.Locality]?:IDictionary
-  [Dictionary.Pediculosis]?:IDictionary
-  [Dictionary.PhysicalExaminationSystem]?:IDictionary
-  [Dictionary.PregnancyTest]?:IDictionary
-  [Dictionary.RhFactor]?:IDictionary
-  [Dictionary.Scabies]?:IDictionary
-  [Dictionary.Sex]?:IDictionary
-  [Dictionary.TBS]?:IDictionary
-  [Dictionary.UserRole]?:IDictionary
-  [Dictionary.VenerealDisease]?:IDictionary
-  [Dictionary.WeightMeasurementType]?:IDictionary
-  [Dictionary.Work]?:IDictionary
-}
 
 const initialDictionary = {
   data: null,
@@ -44,7 +13,6 @@ const initialState:IDictionaryState = {
   [Dictionary.Education]: initialDictionary,
   [Dictionary.AllergyType]: initialDictionary,
   [Dictionary.BloodGroup]: initialDictionary,
-  [Dictionary.CheckupLocation]: initialDictionary,
   [Dictionary.ConditionType]: initialDictionary,
   [Dictionary.DiagnosisType]: initialDictionary,
   [Dictionary.DisabilityGroup]: initialDictionary,

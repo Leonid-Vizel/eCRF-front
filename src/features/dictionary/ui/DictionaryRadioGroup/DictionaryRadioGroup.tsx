@@ -1,24 +1,25 @@
-import { DefaultOptionType } from 'antd/es/select';
+import { CheckboxOptionType, RadioChangeEvent } from 'antd';
+import { RadioGroupOptionType } from 'antd/es/radio';
 import { Dictionary, getDictionarySelector, isLoadingSelector } from 'entities/dictionary';
 import { getDictionary } from 'features/dictionary/model/getDictionary';
 import { useEffect } from 'react';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from 'shared/hooks/useAppSelector/useAppSelector';
-import { Select } from 'shared/ui/Select/Select';
+import { RadioGroup } from 'shared/ui/RadioGroup/RadioGroup';
 import { Spinner } from 'shared/ui/Spinner';
 
-interface DictionarySelectProps {
+interface DictionaryRadioGroupProps {
   dictionaryName:Dictionary
-  onChange?:(value)=>void
-  placeholder?: string
+  onChange?:(event:RadioChangeEvent)=>void
+  optionType?:RadioGroupOptionType
 }
 
-export const DictionarySelect = (props:DictionarySelectProps) => {
-  const { dictionaryName, onChange, placeholder = 'Выберите значение' } = props;
+export const DictionaryRadioGroup = (props:DictionaryRadioGroupProps) => {
+  const { dictionaryName, onChange, optionType } = props;
   const dispatch = useAppDispatch();
   const isLoading = useAppSelector(isLoadingSelector(dictionaryName));
   const data = useAppSelector(getDictionarySelector(dictionaryName));
-  const options:DefaultOptionType[] = data && data.map((option) => ({ key: option.value, ...option }));
+  const options:CheckboxOptionType[] = data && data.map((option) => ({ key: option.value, ...option }));
 
   useEffect(() => {
     dispatch(getDictionary({ dictionaryName }));
@@ -26,10 +27,10 @@ export const DictionarySelect = (props:DictionarySelectProps) => {
 
   return (
     <Spinner spinning={isLoading}>
-      <Select
+      <RadioGroup
         options={options}
-        placeholder={placeholder}
         onChange={onChange}
+        optionType={optionType}
       />
     </Spinner>
   );

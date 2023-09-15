@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import cls from './UserCard.module.scss';
 
 export interface UserCardConntentTypes {
+  id: string
   contentTitle: string;
   // todo должна быть только стринга, исправить после рефакторинга стора
   description: (state) => string | number,
@@ -28,8 +29,10 @@ export const UserCard:FC<UserCardProps> = (props) => {
     //   extra={<a href="#">More</a>}
       style={{ width: 300 }}
     >
-      {cardContent.map(({ description, contentTitle, pathTo }) => (
-        <p>
+      {cardContent.map(({
+        id, description, contentTitle, pathTo,
+      }) => (
+        <p key={id}>
           <span className={cls.userCardContentTitle}>{`${contentTitle}: `}</span>
           {pathTo ? <Link to={pathTo}>{description(storeData)}</Link> : <span>{description(storeData)}</span>}
 

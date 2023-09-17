@@ -1,5 +1,5 @@
 import { ColumnsType } from 'antd/es/table';
-import { ICard } from 'entities/document/types/types';
+import { ICard } from 'entities/outpatientCards';
 import Cookies from 'js-cookie';
 import { Link } from 'react-router-dom';
 import { DownloadForm } from 'shared/ui/DownloadForm/DownloadForm';
@@ -9,7 +9,7 @@ export const columns: ColumnsType = [
   {
     title: 'ФИО',
     key: 'fullName',
-    render: (_, record:ICard) => `${record.secondName} ${record.firstName} ${record.thirdName}`,
+    render: (_, record: ICard) => `${record.secondName} ${record.firstName} ${record.thirdName}`,
   },
   {
     title: 'Дата рождения',

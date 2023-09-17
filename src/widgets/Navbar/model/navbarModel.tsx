@@ -1,5 +1,5 @@
 // todo добавить типизацию для стейта
-import { RootState } from 'store/store';
+import { RootState } from 'app/providers/StoreProvider/index';
 import { UserCardConntentTypes } from '../../UserCard/ui/UserCard';
 
 export const userCardContent: UserCardConntentTypes[] = [

@@ -4,10 +4,11 @@ import { RadioGroupOptionType } from 'antd/es/radio';
 import { DefaultOptionType } from 'antd/es/select';
 import { Dictionary } from 'entities/dictionary';
 
-export interface FormCard {
+export interface FormCards {
   id:string
   title:string
-  fields:FormField[]
+  fieldsLayout?: 'default' | 'table'
+  fields: FormField[]
 }
 
 export interface FormField {
@@ -19,6 +20,7 @@ export interface FormField {
   rules?:Rule[]
   options?:CheckboxOptionType[] & DefaultOptionType[]
   optionType?:RadioGroupOptionType
+  rowType?: string
 }
 
 export enum FieldType {
@@ -28,4 +30,11 @@ export enum FieldType {
   Checkbox = 'checkbox',
   RadioGroup = 'radioGroup',
   DictionaryRadioGroup = 'dictionaryRadioGroup',
+  DatePicker = 'datePicker',
+}
+
+export interface FormConstructorModel {
+  entityName: string;
+  formEntityName: string
+  cards: FormCards[]
 }

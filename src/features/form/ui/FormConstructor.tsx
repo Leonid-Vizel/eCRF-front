@@ -1,18 +1,16 @@
-import {
-  Col, Form, Row, Space, Typography,
-} from 'antd';
+import { Form, Space } from 'antd';
 import { Card } from 'shared/ui/Card/Card';
 import chunk from 'lodash/chunk';
 import { useForm } from 'antd/es/form/Form';
 import { ReactNode } from 'react';
-import { FormCard } from '../types/types';
-import { Field } from './Field';
-
-const { Title } = Typography;
+import { Title } from 'shared/ui/Typography/Typography';
+import { useAppSelector } from 'app/providers/StoreProvider';
+import { FormConstructorModel } from '../types/types';
+import { FormLayout } from './FormLayout/FormLayout';
 
 interface FormConstructorProps {
-  cards:FormCard[]
-  onFinish:(values)=>void
+  formCard: FormConstructorModel
+  onFinish: (values)=>void
   colCount?:number
   header?:ReactNode
   footer?:ReactNode
@@ -20,49 +18,36 @@ interface FormConstructorProps {
 
 export const FormConstructor = (props:FormConstructorProps) => {
   const {
-    cards, onFinish, colCount = 4, header, footer,
+    formCard, onFinish, colCount = 5, header, footer,
   } = props;
+  const { entityName, formEntityName, cards } = formCard;
+
   const [form] = useForm();
+  const tableData = useAppSelector((state) => state?.[entityName]?.[formEntityName]);
 
   return (
     <Form
       form={form}
       onFinish={onFinish}
+      layout="vertical"
+      initialValues={tableData}
     >
       {header}
       <Space direction="vertical" style={{ display: 'flex' }}>
         {cards.map((card) => {
-          const { fields } = card;
+          const { fields, fieldsLayout } = card;
           const rows = chunk(fields, colCount);
-
           return (
             <Card key={card.id}>
-              <Title level={2}>
+              <Title level={4}>
                 {card.title}
               </Title>
-              {rows.map((row) => (
-                <Row key={row.toString()} gutter={8}>
-                  {row.map((field) => {
-                    const {
-                      id, title, name, rules, type, dictionaryName, optionType, options,
-                    } = field;
-                    return (
-                      <Col key={id}>
-                        <Form.Item label={title} name={name} rules={rules}>
-                          <Field
-                            type={type}
-                            form={form}
-                            fieldName={name}
-                            dictionaryName={dictionaryName}
-                            optionType={optionType}
-                            options={options}
-                          />
-                        </Form.Item>
-                      </Col>
-                    );
-                  })}
-                </Row>
-              ))}
+              <FormLayout
+                fieldsLayout={fieldsLayout}
+                form={form}
+                rows={rows}
+                formListName={card.id}
+              />
             </Card>
           );
         })}

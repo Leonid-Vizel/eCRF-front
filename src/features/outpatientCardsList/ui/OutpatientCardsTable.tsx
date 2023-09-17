@@ -4,7 +4,7 @@ import { Table } from 'shared/ui/Table/Table';
 import { Spinner } from 'shared/ui/Spinner';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from 'shared/hooks/useAppSelector/useAppSelector';
-import { documentLoadingSelector, outpatientCardsSelector } from 'entities/document/model/selectors/documentSelectors';
+import { documentLoadingSelector, outpatientCardsSelector } from 'entities/outpatientCards';
 import { columns } from '../model/outpatientCardMeta';
 import cls from './OutpatientCardsTable.module.scss';
 import { getOutpatientCards } from '../model/getOutpatientCards';

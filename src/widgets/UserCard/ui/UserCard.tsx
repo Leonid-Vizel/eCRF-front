@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { useAppSelector } from 'store/redux-hook';
+import { useAppSelector } from 'app/providers/StoreProvider/index';
 import { Card } from 'shared/ui/Card/Card';
 import { Link } from 'react-router-dom';
 import cls from './UserCard.module.scss';

@@ -1,38 +1,38 @@
 import { Typography } from 'antd';
 import { Dictionary } from 'entities/dictionary';
 import { FormConstructor } from 'features/form';
-import { FieldType, FormCard } from 'features/form/types/types';
+import { FieldType, FormCards } from 'features/form/types/types';
 import { Button } from 'shared/ui/Button';
 
-const cards:FormCard[] = [
+const cards:FormCards[] = [
   {
     id: 'first',
     title: 'Один',
     fields: [
       {
-        id: '1',
-        title: 'input1',
+        id: 'surname',
+        title: 'Фамилия',
         type: FieldType.Input,
-        name: 'input1',
+        name: 'surname',
         rules: [{ required: true, message: 'Please input your username!' }],
       },
       {
-        id: '2',
-        title: 'input2',
+        id: 'outpatientName',
+        title: 'Имя',
         type: FieldType.Input,
-        name: 'input2',
+        name: 'outpatientName',
       },
       {
-        id: '3',
-        title: 'input3',
+        id: 'outpatientPatronomyc',
+        title: 'Отчество',
         type: FieldType.Input,
-        name: 'input3',
+        name: 'patronomyc',
       },
       {
-        id: '4',
-        title: 'input4',
+        id: 'outpatientCardStartDate',
+        title: 'Дата заполнения медецинской карты',
         type: FieldType.Input,
-        name: 'input4',
+        name: 'outpatientCardStartDate',
       },
       {
         id: '5',
@@ -207,7 +207,7 @@ export const FormPage = () => {
 
   return (
     <FormConstructor
-      cards={cards}
+      formCard={{ entityName: 'any', formEntityName: 'asdasd', cards }}
       onFinish={(values) => console.log(values)}
       header={header}
       footer={footer}

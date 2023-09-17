@@ -1,6 +1,6 @@
 // import React from 'react';
 // import {twentyDataGet} from "../../../store/documentSlice/documentSlice";
-// import {useAppDispatch} from "../../../store/redux-hook";
+// import {useAppDispatch} from "../../../app/providers/StoreProvider/index";
 //
 // const RenderTwentyInputs = ({setFormData, formData, formIndex}) => {
 //

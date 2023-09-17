@@ -1,6 +1,6 @@
-import LeftSidebarOption from '../../components/leftSidebarOption/LeftSidebarOption';
-import { useAppSelector } from '../../store/redux-hook';
-import { protocolSelector } from '../../store/protocolSlice/protocolSelector';
+// import LeftSidebarOption from '../../components/leftSidebarOption/LeftSidebarOption';
+// import { useAppSelector } from '../../app/providers/StoreProvider/index';
+// import { protocolSelector } from '../../store/protocolSlice/protocolSelector';
 
 export const keyProtocols: string[] = [
   'Screening',

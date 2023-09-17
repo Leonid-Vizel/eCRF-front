@@ -1,6 +1,6 @@
 import { Form, Typography } from 'antd';
 import { Input } from 'shared/ui/Input';
-import { useAppDispatch } from 'store/redux-hook';
+import { useAppDispatch } from 'app/providers/StoreProvider/index';
 import { Button } from 'shared/ui/Button';
 import { userLogin } from '../model/login';
 import cls from './LoginForm.module.scss';

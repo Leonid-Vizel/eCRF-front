@@ -2,11 +2,11 @@
 import { Button as AntButton, ButtonProps as AntButtonProps } from 'antd';
 import { FC, memo } from 'react';
 
-interface IButtonProps extends Omit<AntButtonProps, 'onClick'> {
+export interface ButtonProps extends Omit<AntButtonProps, 'onClick'> {
   onClick?: () => void
 }
 
-export const Button: FC<IButtonProps> = memo((props) => {
+export const Button: FC<ButtonProps> = memo((props) => {
   const { children, onClick, ...otherProps } = props;
 
   const handleClick = () => {

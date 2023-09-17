@@ -4,7 +4,7 @@ import { UserOutlined } from '@ant-design/icons';
 import { Logo } from 'shared/ui/Logo/Logo';
 import { UserCard } from 'widgets/UserCard';
 import { userDataSelector } from 'entities/user';
-import { useAppSelector } from 'store/redux-hook';
+import { useAppSelector } from 'app/providers/StoreProvider/index';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Popover } from 'shared/ui/Popover/Popover';
 import { Link } from 'react-router-dom';

@@ -22,6 +22,11 @@ export const getCardList = ({ id }: GetCardListRequest) => externalSystemCall<Ge
   method: 'GET',
 });
 
+export const getCard = ({ id }: GetCardListRequest) => externalSystemCall<GetCardListRequest>({
+  endpoint: `Card/List/${id}`,
+  method: 'GET',
+});
+
 export const getDictionaryRequest = ({
   dictionaryName,
 }: GetDictionaryRequest) => externalSystemCall<GetDictionaryRequest>({

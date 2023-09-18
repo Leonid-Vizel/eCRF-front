@@ -12,10 +12,10 @@ export const outPatientCardMainInfoForm: FormConstructorModel = {
         title: 'Основная информация',
         fields: [
           {
-            id: 'secondName',
+            id: 'surName',
             title: 'Фамилия',
             type: FieldType.Input,
-            name: 'secondName',
+            name: 'surName',
             rules: [{ required: true }],
           },
           {
@@ -26,10 +26,10 @@ export const outPatientCardMainInfoForm: FormConstructorModel = {
             rules: [{ required: true }],
           },
           {
-            id: 'thirdName',
+            id: 'patronymic',
             title: 'Отчество',
             type: FieldType.Input,
-            name: 'thirdName',
+            name: 'patronymic',
           },
           {
             id: 'createDate',
@@ -71,10 +71,10 @@ export const outPatientCardMainInfoForm: FormConstructorModel = {
             name: 'snils',
           },
           {
-            id: 'outpatientMedecineInsuranceOrg',
+            id: 'insuranceOrganisationId',
             title: 'Наименование страховой медицинской организации',
-            type: FieldType.Input,
-            name: 'outpatientMedecineInsuranceOrg',
+            type: FieldType.DictionarySelect,
+            name: 'insuranceOrganisationId',
           },
           {
             id: 'benefitCategoryCode',
@@ -99,6 +99,26 @@ export const outPatientCardMainInfoForm: FormConstructorModel = {
             title: 'Документ - Номер',
             type: FieldType.Input,
             name: 'documentNumber',
+          },
+        ],
+      },
+      {
+        id: 'phones',
+        key: 'phones',
+        title: 'Лист записи заключительных (уточненных) диагнозов',
+        fieldsLayout: 'table',
+        fields: [
+          {
+            id: 'phone',
+            title: 'Номер телефона',
+            type: FieldType.Input,
+            name: 'phone',
+          },
+          {
+            id: 'comment',
+            title: 'Комментарий',
+            type: FieldType.Input,
+            name: 'comment',
           },
         ],
       },
@@ -245,22 +265,22 @@ export const outPatientCardMainInfoForm: FormConstructorModel = {
         ],
       },
       {
-        id: 'outpatientDispansaryObservation',
-        key: 'outpatientDispansaryObservation',
+        id: 'deseases',
+        key: 'deseases',
         title: 'Заболевания, по поводу которых осуществляется диспансерное наблюдение',
         fieldsLayout: 'table',
         fields: [
           {
-            id: 'dispensaryObservationStartDate',
+            id: 'date',
             title: 'Дата начала диспансерного наблюдения',
             type: FieldType.DatePicker,
-            name: 'dispensaryObservationStartDate',
+            name: 'date',
           },
           {
-            id: 'dispensaryObservationEndDate',
+            id: 'endDate',
             title: 'Дата прекращения диспансерного наблюдения',
             type: FieldType.DatePicker,
-            name: 'dispensaryObservationEndDate',
+            name: 'endDate',
           },
           {
             id: 'diagnosis',
@@ -281,30 +301,31 @@ export const outPatientCardMainInfoForm: FormConstructorModel = {
             type: FieldType.Input,
           },
         ],
+        columnCount: 5,
       },
       {
-        id: 'refinedDiagnosesSheet',
-        key: 'refinedDiagnosesSheet',
+        id: 'diagnosis',
+        key: 'diagnosis',
         title: 'Лист записи заключительных (уточненных) диагнозов',
         fieldsLayout: 'table',
         fields: [
           {
-            id: 'refinedDate',
+            id: 'date',
             title: 'Дата (число, месяц, год)',
             type: FieldType.DatePicker,
-            name: 'dispensaryObservationStartDate',
+            name: 'date',
           },
           {
-            id: 'refindDiagnosis',
+            id: 'text',
             title: 'Заключительные (уточненные) диагнозы',
             type: FieldType.Input,
-            name: 'dispensaryObservationEndDate',
+            name: 'text',
           },
           {
-            id: 'refindFirstTime',
+            id: 'type',
             title: 'Установленные впервые или повторно (+/-)',
             type: FieldType.Input,
-            name: 'refindFirstTime',
+            name: 'type',
           },
           {
             id: 'doctor',

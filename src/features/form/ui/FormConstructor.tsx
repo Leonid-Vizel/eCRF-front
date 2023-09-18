@@ -9,10 +9,10 @@ import { FormConstructorModel } from '../types/types';
 import { FormLayout } from './FormLayout/FormLayout';
 
 interface FormConstructorProps {
-  formCard: FormConstructorModel
-  onFinish: (values)=>void
-  header?:ReactNode
-  footer?:ReactNode
+  formCard: FormConstructorModel;
+  onFinish: (values) => void;
+  header?: ReactNode;
+  footer?: ReactNode;
 }
 
 export const FormConstructor = (props:FormConstructorProps) => {
@@ -22,19 +22,19 @@ export const FormConstructor = (props:FormConstructorProps) => {
   const { entityName, formEntityName, cards } = formCard;
 
   const [form] = useForm();
-  const tableData = useAppSelector((state) => state?.[entityName]?.[formEntityName]);
+  const formData = useAppSelector((state) => state?.[entityName]?.[formEntityName]);
 
   return (
     <Form
       form={form}
       onFinish={onFinish}
       layout="vertical"
-      initialValues={tableData}
+      initialValues={formData}
     >
       {header}
       <Space direction="vertical" style={{ display: 'flex' }}>
         {cards.map((card) => {
-          const { fields, fieldsLayout, columnCount = 5 } = card;
+          const { fields, fieldsLayout, columnCount = 4 } = card;
           const rows = chunk(fields, columnCount);
           return (
             <Card key={card.id}>

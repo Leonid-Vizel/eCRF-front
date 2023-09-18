@@ -5,7 +5,7 @@ import {
 import { FormField } from 'features/form/types/types';
 import { Button } from 'shared/ui/Button/Button';
 import { PlusOutlined } from '@ant-design/icons';
-import { Field } from '../Field';
+import { Field } from '../Field/Field';
 import cls from './FormTableConstructor.module.scss';
 
 interface FormTableConstructorProps {

@@ -3,8 +3,9 @@ import {
 } from 'antd';
 import { FC } from 'react';
 import { nanoid } from '@reduxjs/toolkit';
-import { Field } from '../Field';
+import { Field } from '../Field/Field';
 import { FormTableConstructor } from '../FormTableConstructor/FormTableConstructor';
+import cls from './Formlayout.module.scss';
 
 interface FormLayoutProps {
   form: FormInstance<any>
@@ -16,7 +17,6 @@ interface FormLayoutProps {
 export const FormLayout:FC<FormLayoutProps> = ({
   form, rows, fieldsLayout, formListName,
 }) => {
-  console.log(rows);
   switch (fieldsLayout) {
     case 'table':
       return (
@@ -44,13 +44,13 @@ export const FormLayout:FC<FormLayoutProps> = ({
                     {listFields.map((listField) => {
                       const uniquelowKey = nanoid();
                       return (
-                        <Row key={uniquelowKey} gutter={8}>
+                        <Row key={uniquelowKey} gutter={8} className={cls.rowItem}>
                           {row.map((field) => {
                             const {
                               id, title, name, rules, type, dictionaryName, optionType, options,
                             } = field;
                             return (
-                              <Col key={id}>
+                              <Col key={id} className={cls.colItem}>
                                 <Field
                                   type={type}
                                   form={form}

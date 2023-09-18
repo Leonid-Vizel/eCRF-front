@@ -22,16 +22,21 @@ export const columns: ColumnsType = [
     key: 'createDate',
   },
   {
+    title: 'СНИЛС',
+    dataIndex: 'snils',
+    key: 'snils',
+  },
+  {
     title: 'Действия',
     key: 'action',
     render: (_, record:ICard) => (
       <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
         <DownloadForm
-          action={`${BASE_CARD_URL}/Card/Export/${record.id}`}
+          action={`${BASE_CARD_URL}/Card/Export/${record?.id}`}
           inputValue={`${Cookies.get('token')}`}
           title="Напечатать"
         />
-        <Link to={`/document/data/edit/${record.protocol.id}/${record.id}`}>Перейти</Link>
+        <Link to={`/document/data/edit/${record?.protocolId}/${record?.id}`}>Перейти</Link>
       </div>
     ),
   },

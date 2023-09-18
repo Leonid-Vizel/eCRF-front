@@ -15,8 +15,7 @@ export interface GetUserRequest {
 }
 
 export interface GetCardListRequest {
-  id:string,
-  page?:number
+  id:string
 }
 
 export interface GetDictionaryRequest {

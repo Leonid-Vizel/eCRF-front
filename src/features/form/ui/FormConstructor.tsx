@@ -11,14 +11,13 @@ import { FormLayout } from './FormLayout/FormLayout';
 interface FormConstructorProps {
   formCard: FormConstructorModel
   onFinish: (values)=>void
-  colCount?:number
   header?:ReactNode
   footer?:ReactNode
 }
 
 export const FormConstructor = (props:FormConstructorProps) => {
   const {
-    formCard, onFinish, colCount = 5, header, footer,
+    formCard, onFinish, header, footer,
   } = props;
   const { entityName, formEntityName, cards } = formCard;
 
@@ -35,8 +34,8 @@ export const FormConstructor = (props:FormConstructorProps) => {
       {header}
       <Space direction="vertical" style={{ display: 'flex' }}>
         {cards.map((card) => {
-          const { fields, fieldsLayout } = card;
-          const rows = chunk(fields, colCount);
+          const { fields, fieldsLayout, columnCount = 5 } = card;
+          const rows = chunk(fields, columnCount);
           return (
             <Card key={card.id}>
               <Title level={4}>

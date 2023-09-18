@@ -6,9 +6,11 @@ import { Dictionary } from 'entities/dictionary';
 
 export interface FormCards {
   id:string
+  key:string
   title:string
   fieldsLayout?: 'default' | 'table'
   fields: FormField[]
+  columnCount?: number
 }
 
 export interface FormField {

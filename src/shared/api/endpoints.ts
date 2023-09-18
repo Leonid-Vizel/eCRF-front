@@ -17,8 +17,8 @@ export const getUser = ({ id }: GetUserRequest) => externalSystemCall<GetUserReq
   method: 'GET',
 });
 
-export const getCardList = ({ id, page = 1 }: GetCardListRequest) => externalSystemCall<GetCardListRequest>({
-  endpoint: `Card/List/${id}?page=${page}`,
+export const getCardList = ({ id }: GetCardListRequest) => externalSystemCall<GetCardListRequest>({
+  endpoint: `Card/List/${id}`,
   method: 'GET',
 });
 

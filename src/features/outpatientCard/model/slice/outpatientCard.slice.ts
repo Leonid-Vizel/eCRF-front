@@ -1,22 +1,30 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 interface OutpatientDispansaryObservation {
-  dispensaryObservationStartDate: string,
-  dispensaryObservationEndDate: string,
-  diagnosis: string
-  icbCode: string
-  doctor: string
+  dispensaryObservationStartDate: string;
+  dispensaryObservationEndDate: string;
+  diagnosis: string;
+  icbCode: string;
+  doctor: string;
 }
 
 interface OutpatientCardSliceTabs {
-  tabPane:{
-    editMode: boolean
-  }
-  outpatientMainInfoForm:{
-    outpatientDispansaryObservation?: OutpatientDispansaryObservation[]
-    mainInfoPersonal: any[]
-    mainInfo:any[]
-  }
+  tabPane: {
+    editMode: boolean;
+  };
+  outpatientMainInfoForm: {
+    outpatientDispansaryObservation?: OutpatientDispansaryObservation[];
+    mainInfoPersonal: any[];
+    mainInfo: any[];
+  };
+  syphilisExaminationForm: {
+    patientComplaints: any[];
+    externalInspection: any[];
+    tongue: any[];
+    lips: any[];
+    lymph: any[];
+    bone: any[];
+  };
 }
 
 const initialState: OutpatientCardSliceTabs = {
@@ -33,6 +41,14 @@ const initialState: OutpatientCardSliceTabs = {
     ],
     mainInfoPersonal: [{}],
     mainInfo: [{}],
+  },
+  syphilisExaminationForm: {
+    patientComplaints: [{}],
+    externalInspection: [{}],
+    tongue: [{}],
+    lips: [{}],
+    lymph: [{}],
+    bone: [{}],
   },
 };
 

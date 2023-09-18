@@ -21,11 +21,12 @@ interface FieldProps {
   title?: string
   name: string | string[]
   rules?: Rule[]
+  initialValue?: unknown
 }
 
 export const Field = (props:FieldProps) => {
   const {
-    type, form, name, title, dictionaryName, optionType, options, rules,
+    type, form, name, title, dictionaryName, optionType, options, rules, initialValue,
   } = props;
   switch (type) {
     case FieldType.Input:
@@ -57,8 +58,10 @@ export const Field = (props:FieldProps) => {
       );
     case FieldType.Checkbox:
       return (
-        <Form.Item label={title} name={name} rules={rules}>
-          <Checkbox onChange={(event) => form.setFieldValue(name, event.target.checked)} />
+        <Form.Item name={name} rules={rules} valuePropName="checked" initialValue={initialValue}>
+          <Checkbox>
+            {title}
+          </Checkbox>
         </Form.Item>
       );
     case FieldType.RadioGroup:

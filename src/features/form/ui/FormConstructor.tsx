@@ -37,7 +37,7 @@ export const FormConstructor = (props:FormConstructorProps) => {
           const { fields, fieldsLayout, columnCount = 5 } = card;
           const rows = chunk(fields, columnCount);
           return (
-            <Card key={card.id}>
+            <Card key={card.key}>
               <Title level={4}>
                 {card.title}
               </Title>

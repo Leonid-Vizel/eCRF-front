@@ -18,12 +18,7 @@ interface OutpatientCardSliceTabs {
     mainInfo: any[];
   };
   syphilisExaminationForm: {
-    patientComplaints: any[];
-    externalInspection: any[];
-    tongue: any[];
-    lips: any[];
-    lymph: any[];
-    bone: any[];
+    card:any[];
   };
 }
 
@@ -43,12 +38,7 @@ const initialState: OutpatientCardSliceTabs = {
     mainInfo: [{}],
   },
   syphilisExaminationForm: {
-    patientComplaints: [{}],
-    externalInspection: [{}],
-    tongue: [{}],
-    lips: [{}],
-    lymph: [{}],
-    bone: [{}],
+    card: [{}],
   },
 };
 

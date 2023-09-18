@@ -47,7 +47,7 @@ export const FormLayout:FC<FormLayoutProps> = ({
                         <Row key={uniquelowKey} gutter={8}>
                           {row.map((field) => {
                             const {
-                              id, title, name, rules, type, dictionaryName, optionType, options,
+                              id, title, name, rules, type, dictionaryName, optionType, options, initialValue,
                             } = field;
                             return (
                               <Col key={id}>
@@ -60,6 +60,7 @@ export const FormLayout:FC<FormLayoutProps> = ({
                                   optionType={optionType}
                                   options={options}
                                   rules={rules}
+                                  initialValue={initialValue}
                                 />
                               </Col>
                             );

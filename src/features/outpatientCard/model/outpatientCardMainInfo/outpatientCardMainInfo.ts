@@ -73,7 +73,7 @@ export const outPatientCardMainInfoForm: FormConstructorModel = {
           {
             id: 'insuranceOrganisationId',
             title: 'Наименование страховой медицинской организации',
-            type: FieldType.DictionarySelect,
+            type: FieldType.Select,
             name: 'insuranceOrganisationId',
           },
           {

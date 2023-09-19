@@ -4,7 +4,7 @@ import chunk from 'lodash/chunk';
 import { useForm } from 'antd/es/form/Form';
 import { ReactNode } from 'react';
 import { Title } from 'shared/ui/Typography/Typography';
-import { useAppSelector } from 'app/providers/StoreProvider';
+import { RootState, useAppSelector } from 'app/providers/StoreProvider';
 import { FormConstructorModel } from '../types/types';
 import { FormLayout } from './FormLayout/FormLayout';
 
@@ -23,6 +23,7 @@ export const FormConstructor = (props:FormConstructorProps) => {
 
   const [form] = useForm();
   const formData = useAppSelector((state) => state?.[entityName]?.[formEntityName]);
+  const editMode = useAppSelector((state: RootState) => state[entityName].tabPane.editMode);
 
   return (
     <Form
@@ -30,6 +31,7 @@ export const FormConstructor = (props:FormConstructorProps) => {
       onFinish={onFinish}
       layout="vertical"
       initialValues={formData}
+      disabled={!editMode}
     >
       {header}
       <Space direction="vertical" style={{ display: 'flex' }}>

@@ -62,11 +62,13 @@ export const Field = (props:FieldProps) => {
       );
     case FieldType.Checkbox:
       return (
-        <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)} className={cls.formItem}>
+        <Form.Item name={name} rules={getEmptyValidationText(rules)} valuePropName="checked">
           <Checkbox
             onChange={(event) => form.setFieldValue(name, event.target.checked)}
-            className={cls.inputType}
-          />
+            className={cls.checkbox}
+          >
+            {title}
+          </Checkbox>
         </Form.Item>
       );
     case FieldType.RadioGroup:

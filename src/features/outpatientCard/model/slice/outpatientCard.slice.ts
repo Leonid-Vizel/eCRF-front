@@ -1,4 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { SyphilisExaminationCard } from 'features/outpatientCard/types/types';
+import { initialSyphilisExamination } from '../syphilisExamination/syphilisExamination';
 
 interface OutpatientDeseases {
   date: string;
@@ -45,12 +47,7 @@ interface OutpatientCardSliceTabs {
     mainInfo?: any[];
   };
   syphilisExaminationForm: {
-    patientComplaints: any[];
-    externalInspection: any[];
-    tongue: any[];
-    lips: any[];
-    lymph: any[];
-    bone: any[];
+    card:SyphilisExaminationCard[];
   };
 }
 
@@ -70,12 +67,7 @@ const initialState: OutpatientCardSliceTabs = {
     mainInfo: [{}],
   },
   syphilisExaminationForm: {
-    patientComplaints: [{}],
-    externalInspection: [{}],
-    tongue: [{}],
-    lips: [{}],
-    lymph: [{}],
-    bone: [{}],
+    card: [initialSyphilisExamination],
   },
 };
 

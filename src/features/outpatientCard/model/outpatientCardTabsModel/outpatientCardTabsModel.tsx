@@ -1,4 +1,5 @@
 import { OutpatientCardMainInfo } from 'features/outpatientCard/ui/outpatientCardMainInfo/OutpatientCardMainInfo';
+import { SyphilisExamination } from 'features/outpatientCard/ui/syphilisExamination/SyphilisExamination';
 import { TabPaneModel } from 'widgets/TabPane';
 
 export const OUTAPTIENT_CARD = 'outpatientCard';
@@ -21,7 +22,7 @@ export const outpatientCardTabsModel: TabPaneModel = {
   {
     key: SYPHILIS_EXAMINATION,
     label: 'Обследование на сифилис',
-    children: <div>обследование на сифилис</div>,
+    children: <SyphilisExamination />,
   },
   {
     key: SCREENING_VISIT,

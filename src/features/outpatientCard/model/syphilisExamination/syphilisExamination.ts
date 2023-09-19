@@ -1,3 +1,4 @@
+import { SyphilisExaminationCard } from 'features/outpatientCard/types/types';
 import { FieldType, FormConstructorModel } from '../../../form/types/types';
 
 export const syphilisExaminationForm: FormConstructorModel = {
@@ -246,10 +247,23 @@ export const syphilisExaminationForm: FormConstructorModel = {
         },
       ],
     },
+    {
+      id: 'card',
+      key: 'doctor',
+      title: 'Врач',
+      fields: [
+        {
+          id: 'doctor',
+          title: 'ФИО полностью',
+          type: FieldType.Input,
+          name: 'doctor',
+        },
+      ],
+    },
   ],
 };
 
-export const initialSyphilisExamination = {
+export const initialSyphilisExamination: SyphilisExaminationCard = {
   decreasedVision: false,
   decreasedHearing: false,
   decreasedMemory: false,
@@ -281,4 +295,5 @@ export const initialSyphilisExamination = {
   genitaliaPapula: false,
   genitaliaErosion: false,
   genitaliaUlcers: false,
+  doctor: '',
 };

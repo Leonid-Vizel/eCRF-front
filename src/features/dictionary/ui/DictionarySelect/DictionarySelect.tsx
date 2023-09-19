@@ -11,10 +11,13 @@ interface DictionarySelectProps {
   dictionaryName:Dictionary
   onChange?:(value)=>void
   placeholder?: string
+  className?: string
 }
 
 export const DictionarySelect = (props:DictionarySelectProps) => {
-  const { dictionaryName, onChange, placeholder = 'Выберите значение' } = props;
+  const {
+    dictionaryName, onChange, placeholder = 'Выберите значение', className,
+  } = props;
   const dispatch = useAppDispatch();
   const isLoading = useAppSelector(isLoadingSelector(dictionaryName));
   const data = useAppSelector(getDictionarySelector(dictionaryName));
@@ -30,6 +33,7 @@ export const DictionarySelect = (props:DictionarySelectProps) => {
         options={options}
         placeholder={placeholder}
         onChange={onChange}
+        className={className}
       />
     </Spinner>
   );

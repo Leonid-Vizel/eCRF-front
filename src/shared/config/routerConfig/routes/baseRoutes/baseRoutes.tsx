@@ -1,6 +1,6 @@
 import { Layout } from 'antd';
-import Login from 'pages/login/Login';
 import { Route, RouteProps } from 'react-router-dom';
+import Login from 'pages/Login/Login';
 import { outpatientCardsRoute } from '../outpatientCardsRoutes/outpatientCardsRoutesConfig';
 
 export enum BaseRoutesList {

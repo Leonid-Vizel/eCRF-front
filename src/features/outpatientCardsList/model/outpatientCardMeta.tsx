@@ -36,7 +36,7 @@ export const columns: ColumnsType = [
           inputValue={`${Cookies.get('token')}`}
           title="Напечатать"
         />
-        <Link to={`/document/data/edit/${record?.protocolId}/${record?.id}`}>Перейти</Link>
+        <Link to={`/outpatientCards/card/${record?.id}`}>Перейти</Link>
       </div>
     ),
   },

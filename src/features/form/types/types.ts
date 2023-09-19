@@ -23,7 +23,6 @@ export interface FormField {
   options?:CheckboxOptionType[] & DefaultOptionType[]
   optionType?:RadioGroupOptionType
   rowType?: string
-  initialValue?: unknown
 }
 
 export enum FieldType {

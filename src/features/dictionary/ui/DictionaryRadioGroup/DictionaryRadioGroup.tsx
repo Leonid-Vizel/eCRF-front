@@ -12,10 +12,13 @@ interface DictionaryRadioGroupProps {
   dictionaryName:Dictionary
   onChange?:(event:RadioChangeEvent)=>void
   optionType?:RadioGroupOptionType
+  className?: string
 }
 
 export const DictionaryRadioGroup = (props:DictionaryRadioGroupProps) => {
-  const { dictionaryName, onChange, optionType } = props;
+  const {
+    dictionaryName, onChange, optionType, className,
+  } = props;
   const dispatch = useAppDispatch();
   const isLoading = useAppSelector(isLoadingSelector(dictionaryName));
   const data = useAppSelector(getDictionarySelector(dictionaryName));
@@ -31,6 +34,7 @@ export const DictionaryRadioGroup = (props:DictionaryRadioGroupProps) => {
         options={options}
         onChange={onChange}
         optionType={optionType}
+        className={className}
       />
     </Spinner>
   );

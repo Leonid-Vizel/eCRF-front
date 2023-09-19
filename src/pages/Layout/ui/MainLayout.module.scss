@@ -1,0 +1,8 @@
+.Layout {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.layoutWrapper {
+    height: calc(100vh - var(--navbar-height));
+}

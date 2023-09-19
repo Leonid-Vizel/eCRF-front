@@ -1,4 +1,3 @@
-import { Layout } from 'antd';
 import { Route, RouteProps } from 'react-router-dom';
 import Login from 'pages/Login/Login';
 import { outpatientCardsRoute } from '../outpatientCardsRoutes/outpatientCardsRoutesConfig';
@@ -35,6 +34,6 @@ export const baseRoute: Record<BaseRoutesList, RouteProps> = {
   },
   [BaseRoutesList.NOT_FOUND]: {
     path: baseRoutePaths.notFound,
-    element: <Layout />,
+    element: <div />,
   },
 };

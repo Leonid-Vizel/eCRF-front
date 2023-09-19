@@ -15,7 +15,11 @@ export interface GetUserRequest {
 }
 
 export interface GetCardListRequest {
-  id:string
+  id: string
+}
+
+export interface CreateOutpatientCardRequest {
+  id: string
 }
 
 export interface GetDictionaryRequest {

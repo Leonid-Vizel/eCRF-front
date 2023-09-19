@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { useAppSelector } from 'app/providers/StoreProvider/index';
+import { RootState, useAppSelector } from 'app/providers/StoreProvider/index';
 import { Card } from 'shared/ui/Card/Card';
 import { Link } from 'react-router-dom';
 import cls from './UserCard.module.scss';
@@ -8,7 +8,7 @@ export interface UserCardConntentTypes {
   id: string
   contentTitle: string;
   // todo должна быть только стринга, исправить после рефакторинга стора
-  description: (state) => string | number,
+  description: (state: RootState) => string | number,
   pathTo?: string
 }
 

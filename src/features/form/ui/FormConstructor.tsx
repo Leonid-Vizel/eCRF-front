@@ -19,11 +19,14 @@ export const FormConstructor = (props:FormConstructorProps) => {
   const {
     formCard, onFinish, header, footer,
   } = props;
-  const { entityName, formEntityName, cards } = formCard;
+  const {
+    rootEntityName, entityName, formEntityName, cards,
+  } = formCard;
 
   const [form] = useForm();
-  const formData = useAppSelector((state) => state?.[entityName]?.[formEntityName]);
-  const editMode = useAppSelector((state: RootState) => state[entityName].tabPane.editMode);
+  const formData = useAppSelector((state: RootState) => state?.[rootEntityName]?.[entityName]?.[formEntityName]);
+  // todo порефакторить
+  const editMode = useAppSelector((state: RootState) => state?.[rootEntityName]?.[entityName].tabPane.editMode);
 
   return (
     <Form
@@ -32,6 +35,7 @@ export const FormConstructor = (props:FormConstructorProps) => {
       layout="vertical"
       initialValues={formData}
       disabled={!editMode}
+      name={formEntityName}
     >
       {header}
       <Space direction="vertical" style={{ display: 'flex' }}>

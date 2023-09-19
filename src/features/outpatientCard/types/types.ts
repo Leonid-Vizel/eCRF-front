@@ -16,7 +16,7 @@ export interface SyphilisExaminationCard {
   lipsJammed: boolean
   lipsErosion: boolean
   voiceHoarseness: boolean
-  сervicalLymph: boolean
+  cervicalLymph: boolean
   submandibularLymph: boolean
   axillaryLymph: boolean
   elbowLymph: boolean

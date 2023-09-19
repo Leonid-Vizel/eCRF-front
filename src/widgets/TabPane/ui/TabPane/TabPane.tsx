@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useCallback } from 'react';
 import { Tabs } from 'shared/ui/Tabs/Tabs';
 import { useAppSelector } from 'shared/hooks/useAppSelector/useAppSelector';
 import { RootState } from 'app/providers/StoreProvider';
@@ -12,9 +12,16 @@ export interface TabPaneProps extends TabPaneModel {
 
 export const TabPane:FC<TabPaneProps> = (props) => {
   const {
-    className, buttons, items, entityName,
+    className, buttons, items, entityName, onChange,
   } = props;
-  const editMode = useAppSelector((state: RootState) => state[entityName].tabPane.editMode);
+  const editMode = useAppSelector((state: RootState) => state?.[entityName]?.tabPane.editMode);
+  const onTabPaneChange = useCallback(
+    (key: string) => {
+      onChange(key);
+    },
+    [onChange],
+  );
+
   return (
     <div className={`${cls.TabPane} ${className}`}>
       <Tabs
@@ -27,6 +34,7 @@ export const TabPane:FC<TabPaneProps> = (props) => {
         tabBarExtraContent={{
           right: <TabPaneButtonContainer buttons={buttons} />,
         }}
+        onChange={onTabPaneChange}
       />
     </div>
   );

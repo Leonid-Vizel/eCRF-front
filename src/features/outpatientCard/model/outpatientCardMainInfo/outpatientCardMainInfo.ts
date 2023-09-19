@@ -2,6 +2,7 @@ import { Dictionary } from 'entities/dictionary';
 import { FieldType, FormConstructorModel } from '../../../form/types/types';
 
 export const outPatientCardMainInfoForm: FormConstructorModel = {
+  rootEntityName: 'outpatientCards',
   entityName: 'outpatientCard',
   formEntityName: 'outpatientMainInfoForm',
   cards:

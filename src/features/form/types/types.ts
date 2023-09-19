@@ -36,6 +36,7 @@ export enum FieldType {
 }
 
 export interface FormConstructorModel {
+  rootEntityName: string;
   entityName: string;
   formEntityName: string
   cards: FormCards[]

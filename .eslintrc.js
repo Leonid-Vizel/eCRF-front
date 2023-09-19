@@ -1,5 +1,3 @@
-const { warn } = require('console');
-
 module.exports = {
   env: {
     browser: true,
@@ -42,11 +40,11 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
-    'react/no-unused-prop-types': ['error', { ignore: ['children'] }],
-    '@typescript-eslint/no-unused-vars': ['warn'],
-    '@typescript-eslint/no-explicit-any': ['warn'],
+    'react/no-unused-prop-types': ['error', { ignore: ['children', 'className'] }],
+    '@typescript-eslint/no-unused-vars': ['error'],
+    '@typescript-eslint/no-explicit-any': ['error'],
     'react/prop-types': 'off',
-    'max-len': ['error', { ignoreComments: true, code: 120 }],
+    'max-len': ['error', { ignoreComments: true, code: 130 }],
   },
   globals: {
     __IS_DEV__: true,

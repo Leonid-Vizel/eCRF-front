@@ -22,9 +22,15 @@ export const getCardList = ({ id }: GetCardListRequest) => externalSystemCall<Ge
   method: 'GET',
 });
 
-export const getCard = ({ id }: GetCardListRequest) => externalSystemCall<GetCardListRequest>({
-  endpoint: `Card/List/${id}`,
-  method: 'GET',
+// export const getCard = ({ id }: GetCardListRequest) => externalSystemCall<GetCardListRequest>({
+//   endpoint: `Card/List/${id}`,
+//   method: 'GET',
+// });
+
+export const createOutpatientCard = ({ id }: any) => externalSystemCall<any>({
+  endpoint: 'Card/Create',
+  method: 'POST',
+  data: { id },
 });
 
 export const getDictionaryRequest = ({

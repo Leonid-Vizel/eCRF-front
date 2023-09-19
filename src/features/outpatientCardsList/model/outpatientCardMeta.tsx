@@ -3,7 +3,6 @@ import { ICard } from 'entities/outpatientCards';
 import Cookies from 'js-cookie';
 import { Link } from 'react-router-dom';
 import { DownloadForm } from 'shared/ui/DownloadForm/DownloadForm';
-import { BASE_CARD_URL } from 'utils/request/NewAxiosRequest';
 
 export const columns: ColumnsType = [
   {
@@ -31,8 +30,9 @@ export const columns: ColumnsType = [
     key: 'action',
     render: (_, record:ICard) => (
       <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+        {/* todo: добавить url если нужен */}
         <DownloadForm
-          action={`${BASE_CARD_URL}/Card/Export/${record?.id}`}
+          action={`/Card/Export/${record?.id}`}
           inputValue={`${Cookies.get('token')}`}
           title="Напечатать"
         />

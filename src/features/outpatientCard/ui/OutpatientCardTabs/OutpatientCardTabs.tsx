@@ -1,10 +1,12 @@
-import { FC } from 'react';
+import { FC, useCallback } from 'react';
 import { EditOutlined, SaveOutlined } from '@ant-design/icons';
-import { TabPane } from 'widgets/TabPane';
-import { outpatientCardTabsModel } from 'features/outpatientCard/model/outpatientCardTabsModel/outpatientCardTabsModel';
+import { TabPane, TabPaneButtons } from 'widgets/TabPane';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch/useAppDispatch';
+import { useAppSelector } from 'app/providers/StoreProvider';
+import { outpatientCardTabsModel } from '../../model/outpatientCardTabsModel/outpatientCardTabsModel';
 import cls from './OutpatientCardTabs.module.scss';
-import { setEditMode } from '../../model/slice/outpatientCard.slice';
+import { setEditMode, setTabName } from '../../model/slice/outpatientCard.slice';
+import { cardTabPaneSelector } from '../../model/selectors/outpatientCardSelectors';
 
 interface OutpatientCardTabsProps {
   className?: string;
@@ -13,12 +15,31 @@ interface OutpatientCardTabsProps {
 export const OutpatientCardTabs:FC<OutpatientCardTabsProps> = (props) => {
   const { className } = props;
   const dispatch = useAppDispatch();
+  const tabPaneData = useAppSelector((state) => cardTabPaneSelector(state));
 
-  const tabPaneButtons = [{
-    icon: <EditOutlined />, disabled: false, name: 'edit', id: 'editBtn', onClick: () => dispatch(setEditMode(true)),
+  const onTabPaneChange = useCallback(
+    (key: string) => {
+      dispatch(setTabName(key));
+    },
+    [dispatch],
+  );
+
+  const tabPaneButtons: TabPaneButtons[] = [{
+    icon: <EditOutlined />,
+    disabled: false,
+    name: 'edit',
+    id: 'editBtn',
+    // вынести в usecallback и в функцию
+    onClick: () => dispatch(setEditMode(true)),
   },
   {
-    icon: <SaveOutlined />, disabled: false, name: 'save', id: 'saveBtn', onClick: () => dispatch(setEditMode(false)),
+    icon: <SaveOutlined />,
+    disabled: false,
+    name: 'save',
+    id: 'saveBtn',
+    onClick: () => { dispatch(setEditMode(false)); },
+    form: tabPaneData.formEntityName,
+    htmlType: 'submit',
   },
   ];
   return (
@@ -26,6 +47,7 @@ export const OutpatientCardTabs:FC<OutpatientCardTabsProps> = (props) => {
       entityName={outpatientCardTabsModel.entityName}
       items={outpatientCardTabsModel.items}
       buttons={tabPaneButtons}
+      onChange={onTabPaneChange}
     />
   );
 };

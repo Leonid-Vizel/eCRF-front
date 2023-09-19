@@ -2,6 +2,7 @@ import { SyphilisExaminationCard } from 'features/outpatientCard/types/types';
 import { FieldType, FormConstructorModel } from '../../../form/types/types';
 
 export const syphilisExaminationForm: FormConstructorModel = {
+  rootEntityName: 'outpatientCards',
   entityName: 'outpatientCard',
   formEntityName: 'syphilisExaminationForm',
   cards: [
@@ -281,7 +282,7 @@ export const initialSyphilisExamination: SyphilisExaminationCard = {
   lipsJammed: false,
   lipsErosion: false,
   voiceHoarseness: false,
-  сervicalLymph: false,
+  cervicalLymph: false,
   submandibularLymph: false,
   axillaryLymph: false,
   elbowLymph: false,

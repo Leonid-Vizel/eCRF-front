@@ -13,8 +13,8 @@ export const TabPaneButtonContainer:FC<TabPaneButtonContainerProps> = (props) =>
   return (
     <div className={`${cls.TabPaneButtonContainer} ${className}`}>
       {buttons?.map(({
-        icon, onClick, name, disabled,
-      }) => <Button key={name} disabled={disabled} name={name} icon={icon} onClick={onClick} />)}
+        icon, onClick, name, disabled, form, htmlType,
+      }) => <Button key={name} disabled={disabled} name={name} icon={icon} onClick={onClick} form={form} htmlType={htmlType} />)}
     </div>
   );
 };

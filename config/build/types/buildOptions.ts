@@ -1,5 +1,9 @@
 export type BuildMode = 'development' | 'production';
 
+export enum Stand {
+  DEV = 'dev'
+}
+
 export interface BuildPaths {
   entry: string;
   build: string;
@@ -19,6 +23,6 @@ export interface BuildOptions {
   paths: BuildPaths;
   port: number;
   isDev: boolean;
-  stand: string;
+  stand: Stand;
   isLocal: boolean
 }

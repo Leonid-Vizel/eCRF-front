@@ -1,10 +1,13 @@
+import { ButtonHTMLType } from 'antd/es/button';
 import { RootState } from 'app/providers/StoreProvider';
 
 export interface TabPaneButtons {
+  form?: string
+  htmlType?: ButtonHTMLType
   id: string;
   name: string;
   icon: JSX.Element;
-  onClick: ()=> void;
+  onClick?: ()=> void;
   disabled?: boolean;
 }
 
@@ -16,6 +19,7 @@ export interface TabPaneItems {
 }
 
 export interface TabPaneModel {
+  onChange?: (key: string) => void
   entityName: string
   items: TabPaneItems[]
   buttons?: TabPaneButtons[];

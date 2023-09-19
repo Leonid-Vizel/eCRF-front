@@ -4,17 +4,18 @@ import { Status } from 'shared/api';
 import { ICard } from '../../types/types';
 
 export interface IOutpatientCardsSlice {
-  outpatientCards: ICard[]
+  cardslist: ICard[]
   status:Status
 }
+// todo вынести в features
 
 const initialState: IOutpatientCardsSlice = {
-  outpatientCards: [],
+  cardslist: [],
   status: Status.Init,
 };
 
 export const outpatientCardsSlice = createSlice({
-  name: 'outpatientCards',
+  name: 'outpatientCardslist',
   initialState,
   reducers: {},
   extraReducers(builder) {
@@ -25,8 +26,8 @@ export const outpatientCardsSlice = createSlice({
       .addCase(getOutpatientCards.fulfilled, (state, action) => {
         state.status = Status.Success;
         const cards = action.payload.map((card) => ({ key: card.id, ...card }));
-        state.outpatientCards = action.payload;
-        state.outpatientCards = cards;
+        state.cardslist = action.payload;
+        state.cardslist = cards;
       })
       .addCase(getOutpatientCards.rejected, (state) => {
         state.status = Status.Error;

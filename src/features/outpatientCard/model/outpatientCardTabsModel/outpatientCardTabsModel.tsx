@@ -4,7 +4,7 @@ import { TabPaneModel } from 'widgets/TabPane';
 
 export const OUTAPTIENT_CARD = 'outpatientCard';
 
-export const OUTAPTIENT_CARD_MAIN_INFO = 'outaptientCardMainInfo';
+export const OUTAPTIENT_CARD_MAIN_INFO = 'outpatientMainInfoForm';
 export const SYPHILIS_EXAMINATION = 'syphilisExamination';
 export const SCREENING_VISIT = 'screeningVisit';
 export const LIFE_ANAMNESIS = 'lifeAnamnesis';

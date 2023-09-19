@@ -1,2 +1,2 @@
 export { TabPane, TabPaneProps } from './ui/TabPane/TabPane';
-export { TabPaneModel } from './types/tabPaneTypes';
+export { TabPaneModel, TabPaneButtons } from './types/tabPaneTypes';

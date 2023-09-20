@@ -3,6 +3,7 @@ import { EditOutlined, SaveOutlined } from '@ant-design/icons';
 import { TabPane, TabPaneButtons } from 'widgets/TabPane';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from 'app/providers/StoreProvider';
+import { createNewOutpatientCard } from '../../model/lib/createOutpatientCardAction';
 import { outpatientCardTabsModel } from '../../model/outpatientCardTabsModel/outpatientCardTabsModel';
 import cls from './OutpatientCardTabs.module.scss';
 import { setEditMode, setTabName } from '../../model/slice/outpatientCard.slice';
@@ -37,7 +38,9 @@ export const OutpatientCardTabs:FC<OutpatientCardTabsProps> = (props) => {
     disabled: false,
     name: 'save',
     id: 'saveBtn',
-    onClick: () => { dispatch(setEditMode(false)); },
+    onClick: () => {
+      dispatch(setEditMode(false));
+    },
     form: tabPaneData.formEntityName,
     htmlType: 'submit',
   },

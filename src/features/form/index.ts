@@ -1,3 +1,2 @@
-import { FormConstructor } from './ui/FormConstructor';
-
-export { FormConstructor };
+export { hideField } from './lib/hideField';
+export { FormConstructor } from './ui/FormConstructor';

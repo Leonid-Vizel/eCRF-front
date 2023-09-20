@@ -1,4 +1,5 @@
 import { Dictionary } from 'entities/dictionary';
+import { hideField } from 'features/form';
 import { FieldType, FormConstructorModel } from '../../../form/types/types';
 
 export const outPatientCardMainInfoForm: FormConstructorModel = {
@@ -106,7 +107,7 @@ export const outPatientCardMainInfoForm: FormConstructorModel = {
       {
         id: 'phones',
         key: 'phones',
-        title: 'Лист записи заключительных (уточненных) диагнозов',
+        title: 'Телефоны',
         fieldsLayout: 'table',
         fields: [
           {
@@ -176,6 +177,67 @@ export const outPatientCardMainInfoForm: FormConstructorModel = {
             type: FieldType.DictionarySelect,
             dictionaryName: Dictionary.Locality,
             name: 'locality',
+          },
+        ],
+      },
+      {
+        id: 'headerInfo',
+        key: 'headerInfo',
+        title: 'Информация о состоянии испытуемого (нужно другое название)',
+        fields: [
+          {
+            id: 'pediculosis',
+            name: 'pediculosis',
+            title: 'Педикулёз',
+            dictionaryName: Dictionary.YesNo,
+            type: FieldType.DictionaryRadioGroup,
+            optionType: 'button',
+          },
+          {
+            id: 'Scabies',
+            name: 'Scabies',
+            title: 'Часотка',
+            dictionaryName: Dictionary.YesNo,
+            type: FieldType.DictionaryRadioGroup,
+            optionType: 'button',
+          },
+          {
+            id: 'TBS',
+            name: 'TBS',
+            title: 'ТБС',
+            dictionaryName: Dictionary.YesNo,
+            type: FieldType.DictionaryRadioGroup,
+            optionType: 'button',
+          },
+          {
+            id: 'Hepatitis',
+            name: 'Hepatitis',
+            title: 'Гепатит',
+            dictionaryName: Dictionary.YesNo,
+            type: FieldType.DictionaryRadioGroup,
+            optionType: 'button',
+          },
+          {
+            id: 'venerealDisease',
+            name: 'venerealDisease',
+            title: 'Венерические заболевания',
+            dictionaryName: Dictionary.YesNo,
+            type: FieldType.DictionaryRadioGroup,
+            optionType: 'button',
+          },
+          {
+            id: 'venerealDisease',
+            name: 'venerealDisease',
+            title: 'Рандомизирован',
+            dictionaryName: Dictionary.YesNo,
+            type: FieldType.DictionaryRadioGroup,
+            optionType: 'button',
+          },
+          {
+            id: 'randomNumber',
+            name: 'randomNumber',
+            title: 'Рандомизационный номер',
+            type: FieldType.Input,
           },
         ],
       },
@@ -258,10 +320,48 @@ export const outPatientCardMainInfoForm: FormConstructorModel = {
           },
           {
             id: 'allergicReactions',
-            title: 'Аллергические реакции',
-            type: FieldType.DictionarySelect,
-            dictionaryName: Dictionary.RhFactor,
             name: 'allergicReactions',
+            title: 'Аллергические реакции',
+            type: FieldType.Input,
+          },
+        ],
+      },
+      {
+        id: 'additionalInfo',
+        key: 'additionalInfo',
+        title: 'Дополнительная информация',
+        fields: [
+          {
+            id: 'race',
+            name: 'race',
+            title: 'Раса',
+            type: FieldType.DictionarySelect,
+            dictionaryName: Dictionary.Race,
+          },
+          {
+            id: 'otherRace',
+            name: 'otherRace',
+            title: 'Раса',
+            type: FieldType.Input,
+            hidden: hideField('additionalInfo', 'race', 3),
+          },
+          {
+            id: 'patientDate',
+            name: 'patientDate',
+            title: 'Дата',
+            type: FieldType.DatePicker,
+          },
+          {
+            id: 'patientDiagnosis',
+            name: 'patientDiagnosis',
+            title: 'Диагноз',
+            type: FieldType.Input,
+          },
+          {
+            id: 'patientPath',
+            name: 'patientPath',
+            title: 'Маршрут пациента',
+            type: FieldType.Input,
           },
         ],
       },

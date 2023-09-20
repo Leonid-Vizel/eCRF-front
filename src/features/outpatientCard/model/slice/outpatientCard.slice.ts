@@ -6,8 +6,10 @@ import {
 import { LifeAnamnesisForm } from 'features/outpatientCard/types/lifeAnamnesisTypes';
 import { initialSyphilisExamination } from '../syphilisExamination/syphilisExamination';
 import { initialLifeAnamnesis } from '../lifeAnamnesis/lifeAnamnesis';
+import { createNewOutpatientCard } from '../lib/createOutpatientCardAction';
 
 interface OutpatientCardSliceTabs {
+  isLoading: boolean
   tabPane: {
     editMode: boolean;
     formEntityName: string
@@ -18,6 +20,7 @@ interface OutpatientCardSliceTabs {
 }
 
 const initialState: OutpatientCardSliceTabs = {
+  isLoading: false,
   tabPane: { editMode: false, formEntityName: '' },
   syphilisExaminationForm: {
     card: [initialSyphilisExamination],
@@ -37,10 +40,10 @@ export const outpatientCardSlice = createSlice({
     setTabName: (state, action) => {
       state.tabPane.formEntityName = action.payload;
     },
-    createNewCard: (state, action) => {
+    initOutpatientMainInfo: (state, action) => {
       const prepareForm = {
         ...state.outpatientMainInfoForm,
-        protocolid: action.payload,
+        protocolId: Number(action.payload),
         deseases: [{}],
         mainInfoPersonal: [{}],
         mainInfo: [{}],
@@ -52,24 +55,27 @@ export const outpatientCardSlice = createSlice({
       };
       state.outpatientMainInfoForm = prepareForm as any;
     },
+    getFormData: (state, action) => {
+      const prepareData = { ...state[action.payload.formEntityName], ...action.payload.data };
+      state[action.payload.formEntityName] = prepareData;
+    },
   },
-  // extraReducers(builder) {
-  //   builder
-  //     .addCase(getOutpatientCards.pending, (state) => {
-  //       state.status = Status.Loading;
-  //     })
-  //     .addCase(getOutpatientCards.fulfilled, (state, action) => {
-  //       state.status = Status.Success;
-  //       const cards = action.payload.map((card) => ({ key: card.id, ...card }));
-  //       state.cardslist = action.payload;
-  //       state.cardslist = cards;
-  //     })
-  //     .addCase(getOutpatientCards.rejected, (state) => {
-  //       state.status = Status.Error;
-  //     });
-  // },
+  extraReducers(builder) {
+    builder
+      .addCase(createNewOutpatientCard.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(createNewOutpatientCard.fulfilled, (state) => {
+        state.isLoading = false;
+      })
+      .addCase(createNewOutpatientCard.rejected, (state) => {
+        state.isLoading = false;
+      });
+  },
 });
 
 export const outpatientCardReducer = outpatientCardSlice.reducer;
 
-export const { setEditMode, createNewCard, setTabName } = outpatientCardSlice.actions;
+export const {
+  setEditMode, initOutpatientMainInfo, setTabName, getFormData,
+} = outpatientCardSlice.actions;

@@ -1,3 +1,4 @@
+import { LifeAnamnesis } from 'features/outpatientCard/ui/LifeAnamnesis/LifeAnamnesis';
 import { OutpatientCardMainInfo } from 'features/outpatientCard/ui/outpatientCardMainInfo/OutpatientCardMainInfo';
 import { SyphilisExamination } from 'features/outpatientCard/ui/syphilisExamination/SyphilisExamination';
 import { TabPaneModel } from 'widgets/TabPane';
@@ -5,9 +6,9 @@ import { TabPaneModel } from 'widgets/TabPane';
 export const OUTAPTIENT_CARD = 'outpatientCard';
 
 export const OUTAPTIENT_CARD_MAIN_INFO = 'outpatientMainInfoForm';
-export const SYPHILIS_EXAMINATION = 'syphilisExamination';
+export const SYPHILIS_EXAMINATION = 'syphilisExaminationForm';
 export const SCREENING_VISIT = 'screeningVisit';
-export const LIFE_ANAMNESIS = 'lifeAnamnesis';
+export const LIFE_ANAMNESIS = 'lifeAnamnesisForm';
 export const VISIT_DAY_2 = 'visitDay2';
 export const VISIT_DAY_3 = 'visitDay3';
 export const VISIT_DAY_4 = 'visitDay4';
@@ -32,7 +33,7 @@ export const outpatientCardTabsModel: TabPaneModel = {
   {
     key: LIFE_ANAMNESIS,
     label: 'Анамнез жизни',
-    children: <div>Анамнез жизни</div>,
+    children: <LifeAnamnesis />,
   },
   {
     key: VISIT_DAY_2,

@@ -1,4 +1,4 @@
-import { SyphilisExaminationCard } from 'features/outpatientCard/types/types';
+import { SyphilisExaminationCard } from 'features/outpatientCard/types/syphilisExaminationTypes';
 import { FieldType, FormConstructorModel } from '../../../form/types/types';
 
 export const syphilisExaminationForm: FormConstructorModel = {
@@ -147,10 +147,10 @@ export const syphilisExaminationForm: FormConstructorModel = {
       columnCount: 2,
       fields: [
         {
-          id: 'сervicalLymph',
+          id: 'cervicalLymph',
           title: 'Шейные',
           type: FieldType.Checkbox,
-          name: 'сervicalLymph',
+          name: 'cervicalLymph',
         },
         {
           id: 'submandibularLymph',
@@ -296,5 +296,4 @@ export const initialSyphilisExamination: SyphilisExaminationCard = {
   genitaliaPapula: false,
   genitaliaErosion: false,
   genitaliaUlcers: false,
-  doctor: '',
 };

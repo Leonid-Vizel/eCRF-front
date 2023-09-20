@@ -10,7 +10,8 @@ import { DefaultOptionType } from 'antd/es/select';
 import { RadioGroup } from 'shared/ui/RadioGroup/RadioGroup';
 import { Rule } from 'antd/es/form';
 import { DatePicker } from 'shared/ui/DatePicker/DatePicker';
-import { FieldType } from '../../types/types';
+import { TextArea } from 'shared/ui/TextArea/TextArea';
+import { FieldType, Hidden } from '../../types/types';
 import cls from './Field.module.scss';
 import { getEmptyValidationText } from '../../model/fieldModel/getValidation';
 
@@ -23,15 +24,17 @@ interface FieldProps {
   title?: string
   name: string | string[]
   rules?: Rule[]
+  hidden?:Hidden
 }
 
 export const Field = (props:FieldProps) => {
   const {
-    type, form, name, title, dictionaryName, optionType, options, rules,
+    type, form, name, title, dictionaryName, optionType, options, rules, hidden,
   } = props;
+  let field;
   switch (type) {
     case FieldType.Input:
-      return (
+      field = (
         <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)} className={cls.formItem}>
           <Input
             className={cls.inputType}
@@ -39,8 +42,9 @@ export const Field = (props:FieldProps) => {
           />
         </Form.Item>
       );
+      break;
     case FieldType.Select:
-      return (
+      field = (
         <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)} className={cls.formItem}>
           <Select
             className={cls.inputType}
@@ -50,8 +54,9 @@ export const Field = (props:FieldProps) => {
 
         </Form.Item>
       );
+      break;
     case FieldType.DictionarySelect:
-      return (
+      field = (
         <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)} className={cls.formItem}>
           <DictionarySelect
             className={cls.inputType}
@@ -60,8 +65,9 @@ export const Field = (props:FieldProps) => {
           />
         </Form.Item>
       );
+      break;
     case FieldType.Checkbox:
-      return (
+      field = (
         <Form.Item name={name} rules={getEmptyValidationText(rules)} valuePropName="checked">
           <Checkbox
             onChange={(event) => form.setFieldValue(name, event.target.checked)}
@@ -71,8 +77,10 @@ export const Field = (props:FieldProps) => {
           </Checkbox>
         </Form.Item>
       );
+      break;
     case FieldType.RadioGroup:
-      return (
+
+      field = (
         <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)} className={cls.formItem}>
           <RadioGroup
             className={cls.inputType}
@@ -83,8 +91,10 @@ export const Field = (props:FieldProps) => {
 
         </Form.Item>
       );
+      break;
     case FieldType.DictionaryRadioGroup:
-      return (
+
+      field = (
         <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)} className={cls.formItem}>
           <DictionaryRadioGroup
             className={cls.inputType}
@@ -95,8 +105,9 @@ export const Field = (props:FieldProps) => {
 
         </Form.Item>
       );
+      break;
     case FieldType.DatePicker:
-      return (
+      field = (
         <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)} className={cls.formItem}>
           <DatePicker
             className={cls.inputType}
@@ -104,7 +115,38 @@ export const Field = (props:FieldProps) => {
           />
         </Form.Item>
       );
+      break;
+    case FieldType.TextArea:
+      field = (
+        <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)}>
+          <TextArea
+            className={cls.inputType}
+            onChange={(event) => form.setFieldValue(name, event.target.value)}
+          />
+        </Form.Item>
+      );
+      break;
     default:
-      return null;
+      field = null;
   }
+
+  return (
+    hidden
+      ? (
+        <Form.Item
+          noStyle
+          shouldUpdate={(prevValues, currentValues) => hidden.shouldUpdate(prevValues, currentValues)}
+        >
+          {({ getFieldsValue }) => {
+            const values = getFieldsValue();
+            if (hidden.condition(values)) {
+              return field;
+            }
+
+            return null;
+          }}
+        </Form.Item>
+      )
+      : field
+  );
 };

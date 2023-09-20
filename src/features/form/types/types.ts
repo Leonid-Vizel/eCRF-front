@@ -23,6 +23,13 @@ export interface FormField {
   options?:CheckboxOptionType[] & DefaultOptionType[]
   optionType?:RadioGroupOptionType
   rowType?: string
+  hidden?:Hidden
+  columnStyle?:React.CSSProperties
+}
+
+export interface Hidden {
+  shouldUpdate: (prevValues:any, currentValues:any)=>boolean
+  condition: (values:any)=>boolean
 }
 
 export enum FieldType {
@@ -33,6 +40,7 @@ export enum FieldType {
   RadioGroup = 'radioGroup',
   DictionaryRadioGroup = 'dictionaryRadioGroup',
   DatePicker = 'datePicker',
+  TextArea = 'textArea',
 }
 
 export interface FormConstructorModel {

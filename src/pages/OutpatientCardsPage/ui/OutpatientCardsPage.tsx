@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { OutpatientCardsTable } from 'features/outpatientCardsList/ui/OutpatientCardsTable';
 import { Button } from 'shared/ui/Button';
 import { useAppDispatch } from 'app/providers/StoreProvider';
-import { OUTAPTIENT_CARD_MAIN_INFO, createNewCard, setTabName } from 'features/outpatientCard';
+import { OUTAPTIENT_CARD_MAIN_INFO, initOutpatientMainInfo, setTabName } from 'features/outpatientCard';
 import cls from './OutpatientCardsPage.module.scss';
 
 export const OutpatientCardsPage = () => {
@@ -13,7 +13,7 @@ export const OutpatientCardsPage = () => {
 
   const onClick = useCallback(() => {
     navigate('/outpatientCards/card/create');
-    dispatch(createNewCard(id));
+    dispatch(initOutpatientMainInfo(id));
     dispatch(setTabName(OUTAPTIENT_CARD_MAIN_INFO));
   }, [id, navigate]);
 

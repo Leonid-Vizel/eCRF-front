@@ -28,8 +28,8 @@ export interface FormField {
 }
 
 export interface Hidden {
-  shouldUpdate: (prevValues:any, currentValues:any)=>boolean
-  condition: (values:any)=>boolean
+  shouldUpdate: (prevValues: any, currentValues: any) => boolean
+  condition: (values: any) => boolean
 }
 
 export enum FieldType {

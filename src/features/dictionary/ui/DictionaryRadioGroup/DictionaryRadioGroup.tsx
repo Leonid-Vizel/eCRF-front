@@ -25,7 +25,9 @@ export const DictionaryRadioGroup = (props:DictionaryRadioGroupProps) => {
   const options:CheckboxOptionType[] = data && data.map((option) => ({ key: option.value, ...option }));
 
   useEffect(() => {
-    dispatch(getDictionary({ dictionaryName }));
+    if (!data) {
+      dispatch(getDictionary({ dictionaryName }));
+    }
   }, [dictionaryName, dispatch]);
 
   return (

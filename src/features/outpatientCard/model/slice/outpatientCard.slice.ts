@@ -1,9 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { SyphilisExaminationCard } from 'features/outpatientCard/types/types';
+import { SyphilisExaminationForm } from 'features/outpatientCard/types/syphilisExaminationTypes';
 import {
   OutpatientMainInfoForm,
 } from 'features/outpatientCard/types/outpatientCardMainInfoTypes';
+import { LifeAnamnesisForm } from 'features/outpatientCard/types/lifeAnamnesisTypes';
 import { initialSyphilisExamination } from '../syphilisExamination/syphilisExamination';
+import { initialLifeAnamnesis } from '../lifeAnamnesis/lifeAnamnesis';
 
 interface OutpatientCardSliceTabs {
   tabPane: {
@@ -11,15 +13,17 @@ interface OutpatientCardSliceTabs {
     formEntityName: string
   };
   outpatientMainInfoForm?: OutpatientMainInfoForm;
-  syphilisExaminationForm: {
-    card:SyphilisExaminationCard[];
-  };
+  syphilisExaminationForm?: SyphilisExaminationForm;
+  lifeAnamnesisForm?: LifeAnamnesisForm
 }
 
 const initialState: OutpatientCardSliceTabs = {
   tabPane: { editMode: false, formEntityName: '' },
   syphilisExaminationForm: {
     card: [initialSyphilisExamination],
+  },
+  lifeAnamnesisForm: {
+    card: [initialLifeAnamnesis],
   },
 };
 

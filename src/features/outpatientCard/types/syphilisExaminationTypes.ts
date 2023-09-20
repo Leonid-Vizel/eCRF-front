@@ -30,5 +30,10 @@ export interface SyphilisExaminationCard {
   genitaliaPapula: boolean
   genitaliaErosion: boolean
   genitaliaUlcers: boolean
-  doctor: string
+  doctor?: string
+}
+
+export interface SyphilisExaminationForm {
+  cardId?:string,
+  card:SyphilisExaminationCard[]
 }

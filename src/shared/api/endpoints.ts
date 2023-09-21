@@ -1,3 +1,4 @@
+import { OutpatientMainInfoForm } from 'features/outpatientCard';
 import { externalSystemCall } from './base';
 import {
   GetUserRequest,
@@ -23,16 +24,15 @@ export const getCardList = ({ id }: GetCardListRequest) => externalSystemCall<Ge
   method: 'GET',
 });
 
-// export const getCard = ({ id }: GetCardListRequest) => externalSystemCall<GetCardListRequest>({
-//   endpoint: `Card/List/${id}`,
-//   method: 'GET',
-// });
+export const createOutpatientCard = (mainIfoData: OutpatientMainInfoForm) => {
+  console.log(mainIfoData);
 
-export const createOutpatientCard = ({ id }: any) => externalSystemCall<any>({
-  endpoint: 'Card/Create',
-  method: 'POST',
-  data: { id },
-});
+  return externalSystemCall<OutpatientMainInfoForm>({
+    endpoint: 'Card/Create',
+    method: 'POST',
+    data: mainIfoData,
+  });
+};
 
 export const getDictionaryRequest = ({
   dictionaryName,

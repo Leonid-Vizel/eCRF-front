@@ -3,7 +3,7 @@ import { getCardList } from 'shared/api/endpoints';
 import { GetCardListRequest } from 'shared/api/types';
 
 export const getOutpatientCards = createAsyncThunk(
-  'document/getOutpatientCards',
+  'outpatientCards/outpatientCardslist',
   async (requestData: GetCardListRequest) => {
     const { data } = await getCardList(requestData);
 

@@ -13,12 +13,10 @@ export const MainLayout:FC<MainLayoutProps> = (props) => {
   return (
     <>
       <Navbar />
-      <div className={cls.layoutWrapper}>
-        <div className={`${cls.Layout} ${className}`}>
-          <Outlet />
-        </div>
-        <Footer />
+      <div className={`${cls.Layout} ${className}`}>
+        <Outlet />
       </div>
+      <Footer />
 
     </>
   );

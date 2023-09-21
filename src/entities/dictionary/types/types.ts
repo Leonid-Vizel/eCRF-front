@@ -23,6 +23,7 @@ export enum Dictionary {
   VenerealDisease = 'VenerealDisease',
   WeightMeasurementType = 'WeightMeasurementType',
   Work = 'Work',
+  YesNo = 'YesNo',
   InsuranceOrganisation = 'InsuranceOrganisation',
 }
 
@@ -31,33 +32,36 @@ export interface DictionaryData {
   label:string
 }
 
-export interface IDictionary {
-  data:DictionaryData
-  status:Status
+export interface DictionaryModel {
+  data: DictionaryData[]
+}
+export interface IExternalDictionary extends DictionaryModel {
+  status: Status
 }
 
 export interface IDictionaryState {
-  [Dictionary.Race]?:IDictionary
-  [Dictionary.Education]?:IDictionary
-  [Dictionary.AllergyType]?:IDictionary
-  [Dictionary.BloodGroup]?:IDictionary
-  [Dictionary.ConditionType]?:IDictionary
-  [Dictionary.DiagnosisType]?:IDictionary
-  [Dictionary.DisabilityGroup]?:IDictionary
-  [Dictionary.DisabilityType]?:IDictionary
-  [Dictionary.Family]?:IDictionary
-  [Dictionary.Hepatitis]?:IDictionary
-  [Dictionary.Locality]?:IDictionary
-  [Dictionary.Pediculosis]?:IDictionary
-  [Dictionary.PhysicalExaminationSystem]?:IDictionary
-  [Dictionary.PregnancyTest]?:IDictionary
-  [Dictionary.RhFactor]?:IDictionary
-  [Dictionary.Scabies]?:IDictionary
-  [Dictionary.Sex]?:IDictionary
-  [Dictionary.TBS]?:IDictionary
-  [Dictionary.UserRole]?:IDictionary
-  [Dictionary.VenerealDisease]?:IDictionary
-  [Dictionary.WeightMeasurementType]?:IDictionary
-  [Dictionary.Work]?:IDictionary
-  [Dictionary.InsuranceOrganisation]?:IDictionary
+  [Dictionary.Race]?:IExternalDictionary
+  [Dictionary.Education]?:IExternalDictionary
+  [Dictionary.AllergyType]?:IExternalDictionary
+  [Dictionary.BloodGroup]?:IExternalDictionary
+  [Dictionary.ConditionType]?:IExternalDictionary
+  [Dictionary.DiagnosisType]?:IExternalDictionary
+  [Dictionary.DisabilityGroup]?:IExternalDictionary
+  [Dictionary.DisabilityType]?:IExternalDictionary
+  [Dictionary.Family]?:IExternalDictionary
+  [Dictionary.Hepatitis]?:IExternalDictionary
+  [Dictionary.Locality]?:IExternalDictionary
+  [Dictionary.Pediculosis]?:IExternalDictionary
+  [Dictionary.PhysicalExaminationSystem]?:IExternalDictionary
+  [Dictionary.PregnancyTest]?:IExternalDictionary
+  [Dictionary.RhFactor]?:IExternalDictionary
+  [Dictionary.Scabies]?:IExternalDictionary
+  [Dictionary.Sex]?:IExternalDictionary
+  [Dictionary.TBS]?:IExternalDictionary
+  [Dictionary.UserRole]?:IExternalDictionary
+  [Dictionary.VenerealDisease]?:IExternalDictionary
+  [Dictionary.WeightMeasurementType]?:IExternalDictionary
+  [Dictionary.Work]?:IExternalDictionary
+  [Dictionary.YesNo]?: DictionaryModel
+  [Dictionary.InsuranceOrganisation]?:IExternalDictionary
 }

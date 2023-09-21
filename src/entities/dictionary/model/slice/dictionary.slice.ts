@@ -8,7 +8,7 @@ const initialDictionary = {
   status: Status.Init,
 };
 
-const initialState:IDictionaryState = {
+const initialState: IDictionaryState = {
   [Dictionary.Race]: initialDictionary,
   [Dictionary.Education]: initialDictionary,
   [Dictionary.AllergyType]: initialDictionary,
@@ -37,7 +37,22 @@ const initialState:IDictionaryState = {
 export const dictionarySlice = createSlice({
   name: 'dictionary',
   initialState,
-  reducers: {},
+  reducers: {
+    getYesNoDictionary: (state) => {
+      state[Dictionary.YesNo] = {
+        data: [
+          {
+            value: 0,
+            label: 'Да',
+          },
+          {
+            value: 1,
+            label: 'Нет',
+          },
+        ],
+      };
+    },
+  },
   extraReducers(builder) {
     builder
       .addCase(getDictionary.pending, (state, action) => {
@@ -52,3 +67,5 @@ export const dictionarySlice = createSlice({
       });
   },
 });
+
+export const { getYesNoDictionary } = dictionarySlice.actions;

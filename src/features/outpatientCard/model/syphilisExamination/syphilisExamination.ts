@@ -263,7 +263,7 @@ export const syphilisExaminationForm: FormConstructorModel = {
     },
   ],
 };
-
+// todo: порефакторить
 export const initialSyphilisExamination: SyphilisExaminationCard = {
   decreasedVision: false,
   decreasedHearing: false,

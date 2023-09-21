@@ -214,7 +214,7 @@ export const lifeAnamnesisForm: FormConstructorModel = {
         {
           id: 'tobaccoDailyPack',
           title: 'Количество пачек в день',
-          type: FieldType.Input,
+          type: FieldType.InputNumber,
           name: 'tobaccoDailyPack',
           hidden: {
             shouldUpdate(prevValues, currentValues) {
@@ -256,14 +256,14 @@ export const lifeAnamnesisForm: FormConstructorModel = {
         {
           id: 'alcoholOnceAmount',
           title: 'Употребляет на данный момент ____ единиц за раз',
-          type: FieldType.Input,
+          type: FieldType.InputNumber,
           name: 'alcoholOnceAmount',
           hidden: alcoholHidden,
         },
         {
           id: 'alcoholWeekAmount',
           title: 'Употребляет на данный момент (единиц в неделю)',
-          type: FieldType.Input,
+          type: FieldType.InputNumber,
           name: 'alcoholWeekAmount',
           hidden: alcoholHidden,
         },

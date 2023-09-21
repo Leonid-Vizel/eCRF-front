@@ -6,8 +6,10 @@ import { useAppSelector } from 'shared/hooks/useAppSelector/useAppSelector';
 import { screeningVisitCards, screeningVisitTable } from 'features/outpatientCard/model/screeningVisit/screeningVisit';
 import { getFormCards } from 'shared/lib/getFormCards/getFormCards';
 import { FormSkeleton } from 'widgets/Skeleton';
-import { getScreeningVisit } from 'features/outpatientCard/model/screeningVisit/getScreeningVisit';
+import { getScreeningVisit } from 'features/outpatientCard/model/lib/getScreeningVisitAction';
 import { setForm } from 'features/outpatientCard/model/slice/outpatientCard.slice';
+import { getCardId } from 'features/outpatientCard/model/selectors/outpatientCardSelectors';
+import { modifyScreeningVisit } from 'features/outpatientCard/model/lib/modifyScreeningVisitAction';
 
 interface ScreeningVisitProps {
   className?: string;
@@ -19,6 +21,7 @@ export const ScreeningVisit: FC<ScreeningVisitProps> = (props) => {
   const formData = useAppSelector(
     (state) => state.outpatientCards.outpatientCard.screeningVisitSchema,
   );
+  const cardId = useAppSelector(getCardId);
   const cards = formData
     && formData.data
     && getFormCards({
@@ -36,8 +39,8 @@ export const ScreeningVisit: FC<ScreeningVisitProps> = (props) => {
     cards: [...cards, screeningVisitTable],
   };
   useEffect(() => {
-    dispatch(getScreeningVisit({ cardId: '4' }));
-  }, [dispatch]);
+    dispatch(getScreeningVisit({ cardId }));
+  }, [dispatch, cardId]);
 
   useEffect(() => {
     if (formData) {
@@ -56,7 +59,7 @@ export const ScreeningVisit: FC<ScreeningVisitProps> = (props) => {
       {screeningVisitForm ? (
         <FormConstructor
           formCard={screeningVisitForm}
-          onFinish={(values) => console.log(values)}
+          onFinish={(values) => dispatch(modifyScreeningVisit({ cardId, ...values }))}
           footer={<Button htmlType="submit">submit</Button>}
         />
       ) : (

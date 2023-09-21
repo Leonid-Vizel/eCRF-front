@@ -1,3 +1,7 @@
+import { LifeAnamnesisForm } from 'features/outpatientCard/types/lifeAnamnesisTypes';
+import { ScreeningVisitForm } from 'features/outpatientCard/types/screeningVisitTypes';
+import { SyphilisExaminationForm } from 'features/outpatientCard/types/syphilisExaminationTypes';
+
 export enum Status {
   Init = 'init',
   Loading = 'loading',
@@ -27,5 +31,27 @@ export interface GetDictionaryRequest {
 }
 
 export interface GetScreeningRequest {
-  cardId: string
+  cardId: number
+}
+
+export interface ModifySyphilisExaminationRequest {
+  data:SyphilisExaminationForm
+}
+
+export interface GetOutpatientCardRequest {
+  id:string
+}
+export interface GetSyphilisExaminationRequest {
+  id:number
+}
+export interface GetLifeAnamnesisRequest {
+  cardId:number
+}
+
+export interface ModifyLifeAnamnesisRequest {
+  data:LifeAnamnesisForm
+}
+
+export interface ModifyScreeningVisitRequest {
+  data: ScreeningVisitForm
 }

@@ -5,10 +5,17 @@ import {
 } from 'features/outpatientCard/types/outpatientCardMainInfoTypes';
 import { LifeAnamnesisForm } from 'features/outpatientCard/types/lifeAnamnesisTypes';
 import { ScreeningVisitForm, ScreeningVisitSchema } from 'features/outpatientCard/types/screeningVisitTypes';
-import { getScreeningVisit } from '../screeningVisit/getScreeningVisit';
+import { getScreeningVisit } from '../lib/getScreeningVisitAction';
 import { createNewOutpatientCard } from '../lib/createOutpatientCardAction';
+import { modifySyphilisExamination } from '../lib/modifySyphilisExaminationAction';
+import { getOutpatientCard } from '../lib/getOutpatientCardAction';
+import { getSyphilisExamination } from '../lib/getSyphilisExaminationAction';
+import { getLifeAnamnesis } from '../lib/getLifeAnamnesisAction';
+import { modifyLifeAnamnesis } from '../lib/modifyLifeAnamnesisAction';
+import { modifyScreeningVisit } from '../lib/modifyScreeningVisitAction';
 
 interface OutpatientCardSliceTabs {
+  cardId?: number
   isLoading: boolean
   tabPane: {
     editMode: boolean;
@@ -78,18 +85,38 @@ export const outpatientCardSlice = createSlice({
   },
   extraReducers(builder) {
     builder
-    .addCase(getScreeningVisit.fulfilled, (state, action) => {
-      state.screeningVisitSchema = action.payload;
-    })
-    .addCase(createNewOutpatientCard.pending, (state) => {
-      state.isLoading = true;
-    })
-    .addCase(createNewOutpatientCard.fulfilled, (state) => {
-      state.isLoading = false;
-    })
-    .addCase(createNewOutpatientCard.rejected, (state) => {
-      state.isLoading = false;
-    }); 
+      .addCase(getScreeningVisit.fulfilled, (state, action) => {
+        state.screeningVisitSchema = action.payload;
+      })
+      .addCase(createNewOutpatientCard.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(createNewOutpatientCard.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.cardId = action.payload.id;
+      })
+      .addCase(createNewOutpatientCard.rejected, (state) => {
+        state.isLoading = false;
+      })
+      .addCase(modifySyphilisExamination.fulfilled, (state, action) => {
+        state.syphilisExaminationForm = action.payload;
+      })
+      .addCase(getOutpatientCard.fulfilled, (state, action) => {
+        state.outpatientMainInfoForm = action.payload;
+        state.cardId = action.payload.id;
+      })
+      .addCase(getSyphilisExamination.fulfilled, (state, action) => {
+        state.syphilisExaminationForm = action.payload;
+      })
+      .addCase(getLifeAnamnesis.fulfilled, (state, action) => {
+        state.lifeAnamnesisForm = action.payload;
+      })
+      .addCase(modifyLifeAnamnesis.fulfilled, (state, action) => {
+        state.lifeAnamnesisForm = action.payload;
+      })
+      .addCase(modifyScreeningVisit.fulfilled, (state, action) => {
+        state.screeningVisitForm = action.payload;
+      });
   },
 });
 

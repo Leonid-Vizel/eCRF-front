@@ -2,7 +2,7 @@ import { Form, Space } from 'antd';
 import { Card } from 'shared/ui/Card/Card';
 import chunk from 'lodash/chunk';
 import { useForm } from 'antd/es/form/Form';
-import { ReactNode } from 'react';
+import { ReactNode, useEffect } from 'react';
 import { Title } from 'shared/ui/Typography/Typography';
 import { RootState, useAppSelector } from 'app/providers/StoreProvider';
 import { FormConstructorModel } from '../types/types';
@@ -27,6 +27,10 @@ export const FormConstructor = (props:FormConstructorProps) => {
   const formData = useAppSelector((state: RootState) => state?.[rootEntityName]?.[entityName]?.[formEntityName]);
   // todo порефакторить
   const editMode = useAppSelector((state: RootState) => state?.[rootEntityName]?.[entityName].tabPane.editMode);
+
+  useEffect(() => {
+    form.setFieldsValue(formData);
+  }, [formData, form]);
 
   return (
     <Form

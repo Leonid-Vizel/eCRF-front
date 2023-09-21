@@ -7,7 +7,7 @@ import { createNewOutpatientCard } from '../../model/lib/createOutpatientCardAct
 import { outpatientCardTabsModel } from '../../model/outpatientCardTabsModel/outpatientCardTabsModel';
 import cls from './OutpatientCardTabs.module.scss';
 import { setEditMode, setTabName } from '../../model/slice/outpatientCard.slice';
-import { cardTabPaneSelector } from '../../model/selectors/outpatientCardSelectors';
+import { cardTabPaneSelector, getCardId } from '../../model/selectors/outpatientCardSelectors';
 
 interface OutpatientCardTabsProps {
   className?: string;
@@ -17,6 +17,7 @@ export const OutpatientCardTabs:FC<OutpatientCardTabsProps> = (props) => {
   const { className } = props;
   const dispatch = useAppDispatch();
   const tabPaneData = useAppSelector((state) => cardTabPaneSelector(state));
+  const cardId = useAppSelector(getCardId);
 
   const onTabPaneChange = useCallback(
     (key: string) => {
@@ -51,6 +52,7 @@ export const OutpatientCardTabs:FC<OutpatientCardTabsProps> = (props) => {
       items={outpatientCardTabsModel.items}
       buttons={tabPaneButtons}
       onChange={onTabPaneChange}
+      disabled={!cardId}
     />
   );
 };

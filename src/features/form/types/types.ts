@@ -43,6 +43,7 @@ export enum FieldType {
   DateTimePicker = 'dateTimePicker',
   TimePicker = 'timePicker',
   TextArea = 'textArea',
+  InputNumber = 'inputNumber',
 }
 
 export interface FormConstructorModel {

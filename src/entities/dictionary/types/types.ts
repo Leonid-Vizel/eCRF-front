@@ -23,6 +23,7 @@ export enum Dictionary {
   VenerealDisease = 'VenerealDisease',
   WeightMeasurementType = 'WeightMeasurementType',
   Work = 'Work',
+  InsuranceOrganisation = 'InsuranceOrganisation',
 }
 
 export interface DictionaryData {
@@ -58,4 +59,5 @@ export interface IDictionaryState {
   [Dictionary.VenerealDisease]?:IDictionary
   [Dictionary.WeightMeasurementType]?:IDictionary
   [Dictionary.Work]?:IDictionary
+  [Dictionary.InsuranceOrganisation]?:IDictionary
 }

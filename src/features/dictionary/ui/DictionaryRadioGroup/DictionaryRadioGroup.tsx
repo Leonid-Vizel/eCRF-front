@@ -25,8 +25,10 @@ export const DictionaryRadioGroup = (props:DictionaryRadioGroupProps) => {
   const options:CheckboxOptionType[] = data && data.map((option) => ({ key: option.value, ...option }));
 
   useEffect(() => {
-    dispatch(getDictionary({ dictionaryName }));
-  }, [dictionaryName, dispatch]);
+    if (!data) {
+      dispatch(getDictionary({ dictionaryName }));
+    }
+  }, [dictionaryName, dispatch, data]);
 
   return (
     <Spinner spinning={isLoading}>

@@ -40,6 +40,8 @@ export enum FieldType {
   RadioGroup = 'radioGroup',
   DictionaryRadioGroup = 'dictionaryRadioGroup',
   DatePicker = 'datePicker',
+  DateTimePicker = 'dateTimePicker',
+  TimePicker = 'timePicker',
   TextArea = 'textArea',
 }
 
@@ -48,4 +50,14 @@ export interface FormConstructorModel {
   entityName: string;
   formEntityName: string
   cards: FormCards[]
+}
+
+export interface FormSchemaItem {
+  label:string,
+  value:unknown[]
+}
+
+export interface FormCardsItem {
+  name:string,
+  fields:FormField[]
 }

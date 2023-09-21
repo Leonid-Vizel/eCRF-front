@@ -24,8 +24,10 @@ export const DictionarySelect = (props:DictionarySelectProps) => {
   const options:DefaultOptionType[] = data && data.map((option) => ({ key: option.value, ...option }));
 
   useEffect(() => {
-    dispatch(getDictionary({ dictionaryName }));
-  }, [dictionaryName, dispatch]);
+    if (!data) {
+      dispatch(getDictionary({ dictionaryName }));
+    }
+  }, [dictionaryName, dispatch, data]);
 
   return (
     <Spinner spinning={isLoading}>

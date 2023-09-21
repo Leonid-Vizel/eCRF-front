@@ -32,7 +32,7 @@ export const columns: ColumnsType = [
       <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
         {/* todo: добавить url если нужен */}
         <DownloadForm
-          action={`/Card/Export/${record?.id}`}
+          action={`/api/net/Card/Export/${record?.id}`}
           inputValue={`${Cookies.get('token')}`}
           title="Напечатать"
         />

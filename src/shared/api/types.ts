@@ -25,3 +25,7 @@ export interface CreateOutpatientCardRequest {
 export interface GetDictionaryRequest {
   dictionaryName: string
 }
+
+export interface GetScreeningRequest {
+  cardId: string
+}

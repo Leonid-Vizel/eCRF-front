@@ -4,6 +4,7 @@ import {
   LoginRequest,
   GetCardListRequest,
   GetDictionaryRequest,
+  GetScreeningRequest,
 } from './types';
 
 export const loginRequest = (data: LoginRequest) => externalSystemCall<LoginRequest>({
@@ -37,5 +38,10 @@ export const getDictionaryRequest = ({
   dictionaryName,
 }: GetDictionaryRequest) => externalSystemCall<GetDictionaryRequest>({
   endpoint: `Enum/${dictionaryName}`,
+  method: 'GET',
+});
+
+export const getScreeningRequest = ({ cardId }:GetScreeningRequest) => externalSystemCall<GetScreeningRequest>({
+  endpoint: `Screening/Modify/${cardId}`,
   method: 'GET',
 });

@@ -3,6 +3,6 @@ export { OUTAPTIENT_CARD_MAIN_INFO } from './model/outpatientCardTabsModel/outpa
 export { cardTabPaneSelector } from './model/selectors/outpatientCardSelectors';
 export { OutpatientCardTabs } from './ui/OutpatientCardTabs/OutpatientCardTabs';
 export {
-  outpatientCardReducer, outpatientCardSlice, setEditMode, createNewCard, setTabName,
+  outpatientCardReducer, outpatientCardSlice, setEditMode, createNewCard, setTabName, setFormData, setForm,
 } from './model/slice/outpatientCard.slice';
 export { OutpatientMainInfoForm } from './types/outpatientCardMainInfoTypes';

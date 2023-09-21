@@ -11,6 +11,7 @@ import { RadioGroup } from 'shared/ui/RadioGroup/RadioGroup';
 import { Rule } from 'antd/es/form';
 import { DatePicker } from 'shared/ui/DatePicker/DatePicker';
 import { TextArea } from 'shared/ui/TextArea/TextArea';
+import { TimePicker } from 'shared/ui/TimePicker/TimePicker';
 import { FieldType, Hidden } from '../../types/types';
 import cls from './Field.module.scss';
 import { getEmptyValidationText } from '../../model/fieldModel/getValidation';
@@ -68,7 +69,7 @@ export const Field = (props:FieldProps) => {
       break;
     case FieldType.Checkbox:
       field = (
-        <Form.Item name={name} rules={getEmptyValidationText(rules)} valuePropName="checked">
+        <Form.Item initialValue={false} name={name} rules={getEmptyValidationText(rules)} valuePropName="checked">
           <Checkbox
             onChange={(event) => form.setFieldValue(name, event.target.checked)}
             className={cls.checkbox}
@@ -112,6 +113,31 @@ export const Field = (props:FieldProps) => {
           <DatePicker
             className={cls.inputType}
             onChange={(date) => form.setFieldValue(name, date)}
+          />
+        </Form.Item>
+      );
+      break;
+    case FieldType.DateTimePicker:
+      field = (
+        <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)} className={cls.formItem}>
+          <DatePicker
+            className={cls.inputType}
+            onChange={(date) => form.setFieldValue(name, date)}
+            format="MM/DD/YYYY HH:mm"
+            placeholder="Выберите дату и время"
+            showTime
+          />
+        </Form.Item>
+      );
+      break;
+    case FieldType.TimePicker:
+      field = (
+        <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)} className={cls.formItem}>
+          <TimePicker
+            className={cls.inputType}
+            onChange={(date) => form.setFieldValue(name, date)}
+            placeholder="Выберите время"
+            format="HH:mm"
           />
         </Form.Item>
       );

@@ -2,27 +2,27 @@ export interface LifeAnamnesisCard {
   anamnesis?:string
   medicalAnamnesis?:string
   pharmacologicalAnamnesis?:string
-  foodAllergies:boolean
+  foodAllergies?:boolean
   foodAllergiesString?:string
-  drugAllergies:boolean
+  drugAllergies?:boolean
   drugAllergiesDrugName?:string
   allergyType?:number
   heredity?:string
   pastIllnesses?:string
   accompanyingIllnesses?:string
   surgicalInterventions?:string
-  tobaccoSmoking:boolean
+  tobaccoSmoking?:boolean
   tobaccoDailyPack?:number
-  alcohol:boolean
+  alcohol?:boolean
   alcoholAgeRange?:string
   alcoholLastDate?:string
   alcoholOnceAmount?:number
   alcoholWeekAmount?:number
-  narcotics:boolean
+  narcotics?:boolean
   narcoticsLastDate?:string
   narcoticsCurrent?:string
-  addictionAbuse:boolean
-  past90Days:boolean
+  addictionAbuse?:boolean
+  past90Days?:boolean
 }
 
 export interface LifeAnamnesisForm {

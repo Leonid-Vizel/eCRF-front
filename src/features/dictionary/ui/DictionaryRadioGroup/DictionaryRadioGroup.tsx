@@ -28,7 +28,7 @@ export const DictionaryRadioGroup = (props:DictionaryRadioGroupProps) => {
     if (!data) {
       dispatch(getDictionary({ dictionaryName }));
     }
-  }, [dictionaryName, dispatch]);
+  }, [dictionaryName, dispatch, data]);
 
   return (
     <Spinner spinning={isLoading}>

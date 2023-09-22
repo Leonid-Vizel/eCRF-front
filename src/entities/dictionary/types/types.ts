@@ -24,6 +24,7 @@ export enum Dictionary {
   WeightMeasurementType = 'WeightMeasurementType',
   Work = 'Work',
   YesNo = 'YesNo',
+  InsuranceOrganisation = 'InsuranceOrganisation',
 }
 
 export interface DictionaryData {
@@ -62,4 +63,5 @@ export interface IDictionaryState {
   [Dictionary.WeightMeasurementType]?:IExternalDictionary
   [Dictionary.Work]?:IExternalDictionary
   [Dictionary.YesNo]?: DictionaryModel
+  [Dictionary.InsuranceOrganisation]?:IExternalDictionary
 }

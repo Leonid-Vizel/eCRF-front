@@ -8,11 +8,12 @@ import { TabPaneButtonContainer } from '../TabPaneButtonContainer/TabPaneButtonC
 
 export interface TabPaneProps extends TabPaneModel {
   className?: string;
+  disabled?: boolean
 }
 
 export const TabPane:FC<TabPaneProps> = (props) => {
   const {
-    className, buttons, items, entityName, onChange,
+    className, buttons, items, entityName, onChange, disabled,
   } = props;
   const editMode = useAppSelector((state: RootState) => state?.[entityName]?.tabPane.editMode);
   const onTabPaneChange = useCallback(
@@ -28,7 +29,7 @@ export const TabPane:FC<TabPaneProps> = (props) => {
         type="card"
         // todo что то не так  ерндером, проверить
         items={items.map((item) => {
-          const isDisabledTab = editMode || false;
+          const isDisabledTab = editMode || disabled || false;
           return ({ ...item, disabled: isDisabledTab });
         })}
         tabBarExtraContent={{

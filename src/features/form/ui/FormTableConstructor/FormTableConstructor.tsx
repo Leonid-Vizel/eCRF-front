@@ -14,6 +14,7 @@ interface FormTableConstructorProps {
   tableDataSource: any[]
   add: () => void
   remove?: (index: number | number[]) => void
+  tableWithButton?: boolean
 }
 
 export const FormTableConstructor: React.FC<FormTableConstructorProps> = ({
@@ -21,6 +22,7 @@ export const FormTableConstructor: React.FC<FormTableConstructorProps> = ({
   form,
   tableDataSource,
   add,
+  tableWithButton,
 //   remove,
 }) => {
   const addRow = () => {
@@ -32,7 +34,7 @@ export const FormTableConstructor: React.FC<FormTableConstructorProps> = ({
 
   const renderFormColumns = columns.map((item) => {
     const {
-      type, name, rules, id, title, dictionaryName, optionType, options,
+      type, name, rules, id, title, dictionaryName, optionType, options, hidden,
     } = item;
     return ({
       dataIndex: id,
@@ -46,15 +48,18 @@ export const FormTableConstructor: React.FC<FormTableConstructorProps> = ({
           optionType={optionType}
           options={options}
           rules={rules}
+          hidden={hidden}
         />
       ),
     });
   });
   return (
     <div>
-      <div className={cls.ButtonWrapper}>
-        <Button type="text" onClick={addRow}><PlusOutlined /></Button>
-      </div>
+      {tableWithButton ? (
+        <div className={cls.ButtonWrapper}>
+          <Button type="text" onClick={addRow}><PlusOutlined /></Button>
+        </div>
+      ) : null}
       <Table
         rowKey="id"
         columns={renderFormColumns}

@@ -5,6 +5,13 @@ import {
   LoginRequest,
   GetCardListRequest,
   GetDictionaryRequest,
+  GetScreeningRequest,
+  ModifySyphilisExaminationRequest,
+  GetOutpatientCardRequest,
+  GetSyphilisExaminationRequest,
+  GetLifeAnamnesisRequest,
+  ModifyLifeAnamnesisRequest,
+  ModifyScreeningVisitRequest,
 } from './types';
 
 export const loginRequest = (data: LoginRequest) => externalSystemCall<LoginRequest>({
@@ -23,19 +30,63 @@ export const getCardList = ({ id }: GetCardListRequest) => externalSystemCall<Ge
   method: 'GET',
 });
 
-export const createOutpatientCard = (mainIfoData: OutpatientMainInfoForm) => {
-  console.log(mainIfoData);
-
-  return externalSystemCall<OutpatientMainInfoForm>({
-    endpoint: 'Card/Create',
-    method: 'POST',
-    data: mainIfoData,
-  });
-};
+export const createOutpatientCard = (mainIfoData: OutpatientMainInfoForm) => externalSystemCall<OutpatientMainInfoForm>({
+  endpoint: 'Card/Create',
+  method: 'POST',
+  data: mainIfoData,
+});
 
 export const getDictionaryRequest = ({
   dictionaryName,
 }: GetDictionaryRequest) => externalSystemCall<GetDictionaryRequest>({
   endpoint: `Enum/${dictionaryName}`,
   method: 'GET',
+});
+
+export const getScreeningRequest = ({ cardId }:GetScreeningRequest) => externalSystemCall<GetScreeningRequest>({
+  endpoint: `Screening/Modify/${cardId}`,
+  method: 'GET',
+});
+
+export const modifySyphilisExaminationRequest = (
+  data:ModifySyphilisExaminationRequest,
+) => externalSystemCall<ModifySyphilisExaminationRequest>({
+  endpoint: 'Syphilis/Modify',
+  method: 'POST',
+  data,
+});
+
+export const getOutpatientCardRequest = ({ id }:GetOutpatientCardRequest) => externalSystemCall<GetOutpatientCardRequest>({
+  endpoint: `Card/Edit/${id}`,
+  method: 'GET',
+});
+
+export const getSyphilisExaminationRequest = (
+  { id }:GetSyphilisExaminationRequest,
+) => externalSystemCall<GetSyphilisExaminationRequest>({
+  endpoint: `Syphilis/Modify/${id}`,
+  method: 'GET',
+});
+
+export const getLifeAnamnesisRequest = (
+  { cardId }: GetLifeAnamnesisRequest,
+) => externalSystemCall<GetLifeAnamnesisRequest>({
+  endpoint: `Anamnesis/Modify/${cardId}`,
+  method: 'GET',
+});
+
+export const modifyLifeAnamnesisRequest = (
+  data: ModifyLifeAnamnesisRequest,
+) => externalSystemCall<ModifyLifeAnamnesisRequest>({
+  endpoint: 'Anamnesis/Modify',
+  method: 'POST',
+  data,
+});
+
+export const modifyScreeningVisitRequest = (
+  data: ModifyScreeningVisitRequest,
+) => externalSystemCall<ModifyScreeningVisitRequest>({
+  endpoint: 'Screening/Modify',
+  method: 'POST',
+  data,
 });

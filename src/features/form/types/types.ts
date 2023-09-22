@@ -11,6 +11,7 @@ export interface FormCards {
   fieldsLayout?: 'default' | 'table'
   fields: FormField[]
   columnCount?: number
+  tableWithButton?: boolean
 }
 
 export interface FormField {
@@ -40,7 +41,10 @@ export enum FieldType {
   RadioGroup = 'radioGroup',
   DictionaryRadioGroup = 'dictionaryRadioGroup',
   DatePicker = 'datePicker',
+  DateTimePicker = 'dateTimePicker',
+  TimePicker = 'timePicker',
   TextArea = 'textArea',
+  InputNumber = 'inputNumber',
 }
 
 export interface FormConstructorModel {
@@ -48,4 +52,14 @@ export interface FormConstructorModel {
   entityName: string;
   formEntityName: string
   cards: FormCards[]
+}
+
+export interface FormSchemaItem {
+  label:string,
+  value:unknown[]
+}
+
+export interface FormCardsItem {
+  name:string,
+  fields:FormField[]
 }

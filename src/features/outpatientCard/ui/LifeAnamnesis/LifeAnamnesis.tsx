@@ -7,6 +7,7 @@ import { getCardId } from 'features/outpatientCard/model/selectors/outpatientCar
 import { useAppDispatch } from 'shared/hooks/useAppDispatch/useAppDispatch';
 import { getLifeAnamnesis } from 'features/outpatientCard/model/lib/getLifeAnamnesisAction';
 import { modifyLifeAnamnesis } from 'features/outpatientCard/model/lib/modifyLifeAnamnesisAction';
+import { getFormData } from 'features/outpatientCard/model/slice/outpatientCard.slice';
 
 interface LifeAnamnesisProps {
   className?: string;
@@ -27,7 +28,12 @@ export const LifeAnamnesis:FC<LifeAnamnesisProps> = (props) => {
     <div className={`${className}`}>
       <FormConstructor
         formCard={lifeAnamnesisForm}
-        onFinish={(values) => dispatch(modifyLifeAnamnesis({ cardId, ...values }))}
+        onFinish={(values) => {
+          dispatch(getFormData(
+            { formEntityName: lifeAnamnesisForm.formEntityName, data: { cardId, ...values } },
+          ));
+          dispatch(modifyLifeAnamnesis());
+        }}
         footer={<Button htmlType="submit">submit</Button>}
       />
     </div>

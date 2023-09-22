@@ -7,6 +7,7 @@ import { getCardId } from 'features/outpatientCard/model/selectors/outpatientCar
 import { useAppDispatch } from 'shared/hooks/useAppDispatch/useAppDispatch';
 import { modifySyphilisExamination } from 'features/outpatientCard/model/lib/modifySyphilisExaminationAction';
 import { getSyphilisExamination } from 'features/outpatientCard/model/lib/getSyphilisExaminationAction';
+import { getFormData } from 'features/outpatientCard/model/slice/outpatientCard.slice';
 
 interface SyphilisExaminationProps {
   className?: string;
@@ -28,7 +29,10 @@ export const SyphilisExamination:FC<SyphilisExaminationProps> = (props) => {
       <FormConstructor
         formCard={syphilisExaminationForm}
         onFinish={(values) => {
-          dispatch(modifySyphilisExamination({ cardId, ...values }));
+          dispatch(getFormData(
+            { formEntityName: syphilisExaminationForm.formEntityName, data: { cardId, ...values } },
+          ));
+          dispatch(modifySyphilisExamination());
         }}
         footer={<Button htmlType="submit">submit</Button>}
       />

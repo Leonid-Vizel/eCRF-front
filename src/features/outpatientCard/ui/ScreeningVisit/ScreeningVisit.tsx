@@ -7,8 +7,8 @@ import { screeningVisitCards, screeningVisitTable } from 'features/outpatientCar
 import { getFormCards } from 'shared/lib/getFormCards/getFormCards';
 import { FormSkeleton } from 'widgets/Skeleton';
 import { getScreeningVisit } from 'features/outpatientCard/model/lib/getScreeningVisitAction';
-import { setForm } from 'features/outpatientCard/model/slice/outpatientCard.slice';
-import { getCardId } from 'features/outpatientCard/model/selectors/outpatientCardSelectors';
+import { getFormData, setForm } from 'features/outpatientCard/model/slice/outpatientCard.slice';
+import { getCardId, getOutpatientCardFormData } from 'features/outpatientCard/model/selectors/outpatientCardSelectors';
 import { modifyScreeningVisit } from 'features/outpatientCard/model/lib/modifyScreeningVisitAction';
 
 interface ScreeningVisitProps {
@@ -18,9 +18,7 @@ interface ScreeningVisitProps {
 export const ScreeningVisit: FC<ScreeningVisitProps> = (props) => {
   const { className } = props;
   const dispatch = useAppDispatch();
-  const formData = useAppSelector(
-    (state) => state.outpatientCards.outpatientCard.screeningVisitSchema,
-  );
+  const formData = useAppSelector(getOutpatientCardFormData('screeningVisitSchema'));
   const cardId = useAppSelector(getCardId);
   const cards = formData
     && formData.data
@@ -59,7 +57,12 @@ export const ScreeningVisit: FC<ScreeningVisitProps> = (props) => {
       {screeningVisitForm ? (
         <FormConstructor
           formCard={screeningVisitForm}
-          onFinish={(values) => dispatch(modifyScreeningVisit({ cardId, ...values }))}
+          onFinish={(values) => {
+            dispatch(getFormData(
+              { formEntityName: screeningVisitForm.formEntityName, data: { cardId, ...values } },
+            ));
+            dispatch(modifyScreeningVisit());
+          }}
           footer={<Button htmlType="submit">submit</Button>}
         />
       ) : (

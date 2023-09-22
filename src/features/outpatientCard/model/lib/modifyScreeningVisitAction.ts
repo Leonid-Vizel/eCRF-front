@@ -1,10 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { modifyScreeningVisitRequest } from 'shared/api/endpoints';
-import { ModifyScreeningVisitRequest } from 'shared/api/types';
+import { RootState } from 'app/providers/StoreProvider';
+import { getOutpatientCardFormData } from '../selectors/outpatientCardSelectors';
 
 export const modifyScreeningVisit = createAsyncThunk(
-  'outpatientCards/modifySyphilisExamination',
-  async (formData:ModifyScreeningVisitRequest) => {
+  'outpatientCards/modifyScreeningVisit',
+  async (_, thunkApi) => {
+    const formData = getOutpatientCardFormData('screeningVisitForm')(thunkApi.getState() as RootState);
     const { data } = await modifyScreeningVisitRequest(formData);
 
     return data;

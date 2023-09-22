@@ -7,6 +7,7 @@ import { Button } from 'shared/ui/Button/Button';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch/useAppDispatch';
 import { useParams } from 'react-router-dom';
 import { getOutpatientCard } from 'features/outpatientCard/model/lib/getOutpatientCardAction';
+import { editOutpatientCard } from 'features/outpatientCard/model/lib/editOutpatientCardAction';
 import cls from './OutpatientCardMainInfo.module.scss';
 import { getFormData } from '../../model/slice/outpatientCard.slice';
 import { createNewOutpatientCard } from '../../model/lib/createOutpatientCardAction';
@@ -19,23 +20,30 @@ export const OutpatientCardMainInfo:FC<OutpatientCardMainInfoProps> = (props) =>
   const { className } = props;
   const dispatch = useAppDispatch();
   const { id } = useParams();
+  const isEditing = Number.isInteger(+id);
+
+  const onFinish = (data) => {
+    dispatch(getFormData(
+      { formEntityName: outPatientCardMainInfoForm.formEntityName, data },
+    ));
+    if (isEditing) {
+      dispatch(editOutpatientCard());
+    } else {
+      dispatch(createNewOutpatientCard());
+    }
+  };
 
   useEffect(() => {
-    if (id) {
+    if (id && isEditing) {
       dispatch(getOutpatientCard({ id }));
     }
-  }, [id, dispatch]);
+  }, [id, dispatch, isEditing]);
 
   return (
     <div className={`${cls.OutpatientCardMainInfo} ${className}`}>
       <FormConstructor
         formCard={outPatientCardMainInfoForm}
-        onFinish={(data) => {
-          dispatch(getFormData(
-            { formEntityName: outPatientCardMainInfoForm.formEntityName, data },
-          ));
-          dispatch(createNewOutpatientCard());
-        }}
+        onFinish={onFinish}
         footer={<Button htmlType="submit">sub,it</Button>}
       />
     </div>

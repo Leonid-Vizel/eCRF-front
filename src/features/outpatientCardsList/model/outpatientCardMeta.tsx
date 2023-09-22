@@ -8,7 +8,7 @@ export const columns: ColumnsType = [
   {
     title: 'ФИО',
     key: 'fullName',
-    render: (_, record: ICard) => `${record.secondName} ${record.firstName} ${record.thirdName}`,
+    render: (_, record: ICard) => `${record.secondName} ${record.firstName} ${record.thirdName ? record.thirdName : ''}`,
   },
   {
     title: 'Дата рождения',
@@ -30,7 +30,6 @@ export const columns: ColumnsType = [
     key: 'action',
     render: (_, record:ICard) => (
       <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-        {/* todo: добавить url если нужен */}
         <DownloadForm
           action={`/api/net/Card/Export/${record?.id}`}
           inputValue={`${Cookies.get('token')}`}

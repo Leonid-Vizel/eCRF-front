@@ -11,6 +11,7 @@ export interface FormCards {
   fieldsLayout?: 'default' | 'table'
   fields: FormField[]
   columnCount?: number
+  tableWithButton?: boolean
 }
 
 export interface FormField {

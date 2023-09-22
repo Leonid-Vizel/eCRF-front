@@ -12,10 +12,11 @@ interface FormLayoutProps {
   rows: any
   fieldsLayout: string
   formListName: string
+  tableWithButton: boolean
 }
 
 export const FormLayout:FC<FormLayoutProps> = ({
-  form, rows, fieldsLayout, formListName,
+  form, rows, fieldsLayout, formListName, tableWithButton = true,
 }) => {
   switch (fieldsLayout) {
     case 'table':
@@ -28,6 +29,7 @@ export const FormLayout:FC<FormLayoutProps> = ({
               tableDataSource={data}
               add={add}
               remove={remove}
+              tableWithButton={tableWithButton}
             />
           )}
         </Form.List>

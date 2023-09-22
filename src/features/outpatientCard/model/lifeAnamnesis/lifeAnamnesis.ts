@@ -1,24 +1,11 @@
 import { Dictionary } from 'entities/dictionary';
 import { LifeAnamnesisCard } from 'features/outpatientCard/types/lifeAnamnesisTypes';
-import { FieldType, FormConstructorModel, Hidden } from '../../../form/types/types';
+import { hideField } from 'features/form';
+import { FieldType, FormConstructorModel } from '../../../form/types/types';
 
-const alcoholHidden:Hidden = {
-  shouldUpdate(prevValues, currentValues) {
-    return prevValues[0]?.alcohol !== currentValues[0]?.alcohol;
-  },
-  condition(values) {
-    return values && values.card && values.card[0].alcohol;
-  },
-};
+const alcoholHidden = hideField('card', 'alcohol', true);
 
-const narcoticsHidden:Hidden = {
-  shouldUpdate(prevValues, currentValues) {
-    return prevValues[0]?.narcotics !== currentValues[0]?.narcotics;
-  },
-  condition(values) {
-    return values && values.card && values.card[0].narcotics;
-  },
-};
+const narcoticsHidden = hideField('card', 'narcotics', true);
 
 export const lifeAnamnesisForm: FormConstructorModel = {
   rootEntityName: 'outpatientCards',
@@ -93,14 +80,7 @@ export const lifeAnamnesisForm: FormConstructorModel = {
           title: 'Продукты питания',
           type: FieldType.Input,
           name: 'foodAllergiesString',
-          hidden: {
-            shouldUpdate(prevValues, currentValues) {
-              return prevValues[0]?.foodAllergies !== currentValues[0]?.foodAllergies;
-            },
-            condition(values) {
-              return values && values.card && values.card[0].foodAllergies;
-            },
-          },
+          hidden: hideField('card', 'foodAllergies', true),
         },
         {
           id: 'drugAllergies',
@@ -113,14 +93,7 @@ export const lifeAnamnesisForm: FormConstructorModel = {
           title: 'Лекарственные препараты',
           type: FieldType.Input,
           name: 'drugAllergiesDrugName',
-          hidden: {
-            shouldUpdate(prevValues, currentValues) {
-              return prevValues[0]?.drugAllergies !== currentValues[0]?.drugAllergies;
-            },
-            condition(values) {
-              return values && values.card && values.card[0].drugAllergies;
-            },
-          },
+          hidden: hideField('card', 'drugAllergies', true),
         },
         {
           id: 'allergyType',
@@ -216,14 +189,7 @@ export const lifeAnamnesisForm: FormConstructorModel = {
           title: 'Количество пачек в день',
           type: FieldType.InputNumber,
           name: 'tobaccoDailyPack',
-          hidden: {
-            shouldUpdate(prevValues, currentValues) {
-              return prevValues[0]?.tobaccoSmoking !== currentValues[0]?.tobaccoSmoking;
-            },
-            condition(values) {
-              return values && values.card && values.card[0].tobaccoSmoking;
-            },
-          },
+          hidden: hideField('card', 'tobaccoSmoking', true),
         },
       ],
     },

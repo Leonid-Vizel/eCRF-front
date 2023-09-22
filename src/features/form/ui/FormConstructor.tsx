@@ -44,7 +44,9 @@ export const FormConstructor = (props:FormConstructorProps) => {
       {header}
       <Space direction="vertical" style={{ display: 'flex' }}>
         {cards.map((card) => {
-          const { fields, fieldsLayout, columnCount = 4 } = card;
+          const {
+            fields, fieldsLayout, columnCount = 4, tableWithButton,
+          } = card;
           const rows = chunk(fields, columnCount);
           return (
             <Card key={card.key}>
@@ -56,6 +58,7 @@ export const FormConstructor = (props:FormConstructorProps) => {
                 form={form}
                 rows={rows}
                 formListName={card.id}
+                tableWithButton={tableWithButton}
               />
             </Card>
           );

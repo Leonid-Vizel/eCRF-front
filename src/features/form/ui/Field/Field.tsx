@@ -14,7 +14,7 @@ import { Rule } from 'antd/es/form';
 import { DatePicker } from 'shared/ui/DatePicker/DatePicker';
 import { TextArea } from 'shared/ui/TextArea/TextArea';
 import { TimePicker } from 'shared/ui/TimePicker/TimePicker';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import { FieldType, Hidden } from '../../types/types';
 import cls from './Field.module.scss';
 import { getEmptyValidationText } from '../../model/fieldModel/getValidation';
@@ -117,7 +117,7 @@ export const Field = (props:FieldProps) => {
           name={name}
           rules={getEmptyValidationText(rules)}
           className={cls.formItem}
-          getValueProps={(i) => (i ? { value: moment(i) } : { value: i })}
+          getValueProps={(i) => (i ? { value: dayjs(i) } : { value: i })}
         >
           <DatePicker
             className={cls.inputType}
@@ -133,7 +133,7 @@ export const Field = (props:FieldProps) => {
           name={name}
           rules={getEmptyValidationText(rules)}
           className={cls.formItem}
-          getValueProps={(i) => (i ? { value: moment(i) } : { value: i })}
+          getValueProps={(i) => (i ? { value: dayjs(i) } : { value: i })}
         >
           <DatePicker
             className={cls.inputType}

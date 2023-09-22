@@ -90,3 +90,9 @@ export const modifyScreeningVisitRequest = (
   method: 'POST',
   data,
 });
+
+export const editOutpatientCardRequest = (data:OutpatientMainInfoForm) => externalSystemCall<OutpatientMainInfoForm>({
+  endpoint: 'Card/Edit',
+  method: 'POST',
+  data,
+});

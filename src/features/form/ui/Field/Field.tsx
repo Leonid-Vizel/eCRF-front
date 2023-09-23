@@ -177,6 +177,13 @@ export const Field = (props:FieldProps) => {
         </Form.Item>
       );
       break;
+    case FieldType.Text:
+      field = (
+        <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)}>
+          <Input readOnly bordered={false} />
+        </Form.Item>
+      );
+      break;
     default:
       field = null;
   }

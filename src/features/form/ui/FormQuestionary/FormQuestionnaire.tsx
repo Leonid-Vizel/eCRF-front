@@ -46,7 +46,7 @@ export const FormQuestionnaire: FC<FormQuestionaryProps> = (props) => {
                                 <Field
                                   key={key}
                                   name={[listField.key, field.value, key]}
-                                  dictionaryName={key === 'dictionarySelect' ? testData[field.value][key] : null}
+                                  dictionaryName={testData[field.value][key]?.dictionaryName}
                                   form={form}
                                   type={key}
                                 />

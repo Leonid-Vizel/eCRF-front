@@ -2,7 +2,7 @@ import { Button } from 'shared/ui/Button';
 
 interface DownloadFormProps {
   action:string
-  inputValue: string
+  inputValue?: string
   title:string
 }
 

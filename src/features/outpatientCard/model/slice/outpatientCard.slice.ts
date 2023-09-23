@@ -13,6 +13,7 @@ import { getSyphilisExamination } from '../lib/getSyphilisExaminationAction';
 import { getLifeAnamnesis } from '../lib/getLifeAnamnesisAction';
 import { modifyLifeAnamnesis } from '../lib/modifyLifeAnamnesisAction';
 import { modifyScreeningVisit } from '../lib/modifyScreeningVisitAction';
+import { getPhysicalExamination } from '../lib/getPhysicalExaminationAction';
 
 interface OutpatientCardSliceTabs {
   cardId?: number
@@ -26,6 +27,7 @@ interface OutpatientCardSliceTabs {
   lifeAnamnesisForm?: LifeAnamnesisForm
   screeningVisitSchema?: ScreeningVisitSchema
   screeningVisitForm?: ScreeningVisitForm
+  physicalExaminationForm?: any
 }
 
 const initialState: OutpatientCardSliceTabs = {
@@ -113,6 +115,9 @@ export const outpatientCardSlice = createSlice({
       })
       .addCase(modifyScreeningVisit.fulfilled, (state, action) => {
         state.screeningVisitForm = action.payload;
+      })
+      .addCase(getPhysicalExamination.fulfilled, (state, action) => {
+        state.physicalExaminationForm = action.payload;
       });
   },
 });

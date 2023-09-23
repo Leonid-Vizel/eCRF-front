@@ -6,7 +6,7 @@ import { getOutpatientCardFormData } from '../selectors/outpatientCardSelectors'
 export const modifyScreeningVisit = createAsyncThunk(
   'outpatientCards/modifyScreeningVisit',
   async (_, thunkApi) => {
-    const formData = getOutpatientCardFormData('screeningVisitForm')(thunkApi.getState() as RootState);
+    const formData = getOutpatientCardFormData('screeningVisitSchema')(thunkApi.getState() as RootState);
     const { data } = await modifyScreeningVisitRequest(formData);
 
     return data;

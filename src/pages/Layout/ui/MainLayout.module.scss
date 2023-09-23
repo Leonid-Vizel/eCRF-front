@@ -1,5 +1,5 @@
 .Layout {
-    width: 1200px;
+    max-width: 1200px;
     margin: var(--extra-large) auto;
     min-height: calc(100vh - var(--navbar-height) - var(--footer-height));
     overflow: auto;

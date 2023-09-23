@@ -1,3 +1,4 @@
+import { Criteria } from 'features/outpatientCard/ui/Criteria/Criteria';
 import { LifeAnamnesis } from 'features/outpatientCard/ui/LifeAnamnesis/LifeAnamnesis';
 import { PhysicalExamination } from 'features/outpatientCard/ui/PhysicalExamination/PhysicalExamination';
 import { ScreeningVisit } from 'features/outpatientCard/ui/ScreeningVisit/ScreeningVisit';
@@ -11,6 +12,7 @@ export const OUTAPTIENT_CARD_MAIN_INFO = 'outpatientMainInfoForm';
 export const SYPHILIS_EXAMINATION = 'syphilisExaminationForm';
 export const SCREENING_VISIT = 'screeningVisitForm';
 export const LIFE_ANAMNESIS = 'lifeAnamnesisForm';
+export const CRITERIA = 'criteria';
 export const PHYSICAL_EXAMINATION = 'physicalExamination';
 export const VISIT_DAY_2 = 'visitDay2';
 export const VISIT_DAY_3 = 'visitDay3';
@@ -39,10 +41,14 @@ export const outpatientCardTabsModel: TabPaneModel = {
     children: <LifeAnamnesis />,
   },
   {
+    key: CRITERIA,
+    label: 'Оценка критериев',
+    children: <Criteria />,
+  },
+  {
     key: PHYSICAL_EXAMINATION,
     label: 'Физикальный осмотр',
     children: <PhysicalExamination />,
-    // itemDisabled: true,
   },
   {
     key: VISIT_DAY_2,

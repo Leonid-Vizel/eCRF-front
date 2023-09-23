@@ -1,4 +1,6 @@
 import { OutpatientMainInfoForm } from 'features/outpatientCard';
+import { CriteriaForm } from 'features/outpatientCard/types/criteriaTypes';
+import { PhysicalExaminationForm } from 'features/outpatientCard/types/physicalExaminationTypes';
 import { externalSystemCall } from './base';
 import {
   GetUserRequest,
@@ -13,6 +15,7 @@ import {
   ModifyLifeAnamnesisRequest,
   ModifyScreeningVisitRequest,
   GetPhysicalExaminationRequest,
+  GetCriteriaRequest,
 } from './types';
 
 export const loginRequest = (data: LoginRequest) => externalSystemCall<LoginRequest>({
@@ -106,9 +109,24 @@ export const getPhysicalExaminationRequest = (
 });
 
 export const modifyPhysicalExaminationRequest = (
-  data,
-) => externalSystemCall({
+  data: PhysicalExaminationForm,
+) => externalSystemCall<PhysicalExaminationForm>({
   endpoint: 'PhysicalExam/Modify',
+  method: 'POST',
+  data,
+});
+
+export const getCriteriaRequest = (
+  { cardId }: GetCriteriaRequest,
+) => externalSystemCall<GetCriteriaRequest>({
+  endpoint: `Criteria/Modify/${cardId}`,
+  method: 'GET',
+});
+
+export const modifyCriteriaRequest = (
+  data:CriteriaForm,
+) => externalSystemCall<CriteriaForm>({
+  endpoint: 'Criteria/Modify',
   method: 'POST',
   data,
 });

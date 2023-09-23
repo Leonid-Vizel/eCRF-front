@@ -63,3 +63,8 @@ export interface GetPhysicalExaminationRequest {
 export interface GetCriteriaRequest {
   cardId: number
 }
+
+export interface GetDayRequest {
+  cardId: number
+  day: number
+}

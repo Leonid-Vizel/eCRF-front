@@ -1,4 +1,5 @@
 import { Criteria } from 'features/outpatientCard/ui/Criteria/Criteria';
+import { Day } from 'features/outpatientCard/ui/Day/Day';
 import { LifeAnamnesis } from 'features/outpatientCard/ui/LifeAnamnesis/LifeAnamnesis';
 import { PhysicalExamination } from 'features/outpatientCard/ui/PhysicalExamination/PhysicalExamination';
 import { ScreeningVisit } from 'features/outpatientCard/ui/ScreeningVisit/ScreeningVisit';
@@ -53,19 +54,16 @@ export const outpatientCardTabsModel: TabPaneModel = {
   {
     key: VISIT_DAY_2,
     label: 'Визит 2',
-    children: <div>Визит 2</div>,
-    itemDisabled: true,
+    children: <Day day={2} />,
   },
   {
     key: VISIT_DAY_3,
     label: 'Визит 3',
-    children: <div>Визит 3</div>,
-    itemDisabled: true,
+    children: <Day day={3} />,
   },
   {
     key: VISIT_DAY_4,
     label: 'Визит 4',
-    children: <div>Визит 4</div>,
-    itemDisabled: true,
+    children: <Day day={4} />,
   }],
 };

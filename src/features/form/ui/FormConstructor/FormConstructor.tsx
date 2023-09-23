@@ -5,8 +5,9 @@ import { useForm } from 'antd/es/form/Form';
 import { ReactNode, useEffect } from 'react';
 import { Title } from 'shared/ui/Typography/Typography';
 import { RootState, useAppSelector } from 'app/providers/StoreProvider';
-import { FormConstructorModel } from '../types/types';
-import { FormLayout } from './FormLayout/FormLayout';
+import { FormConstructorModel } from '../../types/types';
+import { FormLayout } from '../FormLayout/FormLayout';
+import cls from './FormConstructor.module.scss';
 
 interface FormConstructorProps {
   formCard: FormConstructorModel;
@@ -45,9 +46,9 @@ export const FormConstructor = (props:FormConstructorProps) => {
       <Space direction="vertical" style={{ display: 'flex' }}>
         {cards.map((card) => {
           const {
-            fields, fieldsLayout, columnCount = 4, tableWithButton,
+            fields, fieldsLayout, columnCount = 4, nestedFields, tableWithButton,
           } = card;
-          const rows = chunk(fields, columnCount);
+          const rows = fields ? chunk(fields, columnCount) : chunk(nestedFields, columnCount);
           return (
             <Card key={card.key}>
               <Title level={4}>
@@ -58,13 +59,16 @@ export const FormConstructor = (props:FormConstructorProps) => {
                 form={form}
                 rows={rows}
                 formListName={card.id}
+                externalData={formData}
                 tableWithButton={tableWithButton}
               />
             </Card>
           );
         })}
       </Space>
-      {footer}
+      <div className={cls.footerWrapper}>
+        {footer}
+      </div>
     </Form>
   );
 };

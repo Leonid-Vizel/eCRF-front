@@ -25,7 +25,7 @@ interface OutpatientCardSliceTabs {
   syphilisExaminationForm?: SyphilisExaminationForm;
   lifeAnamnesisForm?: LifeAnamnesisForm
   screeningVisitSchema?: ScreeningVisitSchema
-  screeningVisitForm?:ScreeningVisitForm
+  screeningVisitForm?: ScreeningVisitForm
 }
 
 const initialState: OutpatientCardSliceTabs = {
@@ -36,9 +36,6 @@ const initialState: OutpatientCardSliceTabs = {
   },
   lifeAnamnesisForm: {
     card: [{}],
-  },
-  screeningVisitForm: {
-    card: [],
   },
 };
 

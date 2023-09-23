@@ -8,7 +8,6 @@ import { useAppDispatch } from 'shared/hooks/useAppDispatch/useAppDispatch';
 import { useParams } from 'react-router-dom';
 import { getOutpatientCard } from 'features/outpatientCard/model/lib/getOutpatientCardAction';
 import { editOutpatientCard } from 'features/outpatientCard/model/lib/editOutpatientCardAction';
-import cls from './OutpatientCardMainInfo.module.scss';
 import { getFormData } from '../../model/slice/outpatientCard.slice';
 import { createNewOutpatientCard } from '../../model/lib/createOutpatientCardAction';
 
@@ -40,11 +39,11 @@ export const OutpatientCardMainInfo:FC<OutpatientCardMainInfoProps> = (props) =>
   }, [id, dispatch, isEditing]);
 
   return (
-    <div className={`${cls.OutpatientCardMainInfo} ${className}`}>
+    <div className={` ${className}`}>
       <FormConstructor
         formCard={outPatientCardMainInfoForm}
         onFinish={onFinish}
-        footer={<Button htmlType="submit">sub,it</Button>}
+        footer={<Button type="primary" size="large" htmlType="submit">Соxранить</Button>}
       />
     </div>
   );

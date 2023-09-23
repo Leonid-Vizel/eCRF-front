@@ -5,13 +5,20 @@ import { DefaultOptionType } from 'antd/es/select';
 import { Dictionary } from 'entities/dictionary';
 
 export interface FormCards {
-  id:string
-  key:string
-  title:string
-  fieldsLayout?: 'default' | 'table'
-  fields: FormField[]
+  id: string
+  key: string
+  title: string
+  fieldsLayout?: 'default' | 'table' | 'questionnaire'
+  fields?: FormField[]
+  nestedFields?: NestedFields[]
   columnCount?: number
   tableWithButton?: boolean
+}
+
+export interface NestedFields {
+  // todo: скорее всего атрибутивный состав увеличиться и нужно будет прокидывать FormField
+  label: string,
+  value: string
 }
 
 export interface FormField {

@@ -2,14 +2,13 @@ import {
   FormInstance,
   Table,
 } from 'antd';
-import { FormField } from 'features/form/types/types';
 import { Button } from 'shared/ui/Button/Button';
 import { PlusOutlined } from '@ant-design/icons';
 import { Field } from '../Field/Field';
 import cls from './FormTableConstructor.module.scss';
 
 interface FormTableConstructorProps {
-  columns: FormField[]
+  columns: any
   form: FormInstance<any>
   tableDataSource: any[]
   add: () => void
@@ -41,6 +40,7 @@ export const FormTableConstructor: React.FC<FormTableConstructorProps> = ({
       title,
       render: (value, row, index) => (
         <Field
+          key={`${index}-${name}`}
           form={form}
           name={[index, name]}
           type={type}

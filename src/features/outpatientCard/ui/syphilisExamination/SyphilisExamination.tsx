@@ -34,7 +34,7 @@ export const SyphilisExamination:FC<SyphilisExaminationProps> = (props) => {
           ));
           dispatch(modifySyphilisExamination());
         }}
-        footer={<Button htmlType="submit">submit</Button>}
+        footer={<Button type="primary" size="large" htmlType="submit">Соxранить</Button>}
       />
     </div>
   );

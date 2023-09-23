@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "start:dev": "webpack serve --env port=3000 mode=development stand=dev server=local",
+    "start:dev": "webpack serve --env port=3000 mode=development stand=dev server=local NODE_OPTIONS=--max-old-space-size=6144",
     "build:dev": "webpack --env mode=development",
     "build:prod": "webpack --env mode=production",
     "lint": "npx eslint . --ext .js,.jsx,.ts,.tsx",

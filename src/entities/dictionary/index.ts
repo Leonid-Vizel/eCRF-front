@@ -1,5 +1,5 @@
 import { getDictionarySelector, isLoadingSelector } from './model/selectors/dictionarySelectors';
-import { dictionarySlice, getYesNoDictionary } from './model/slice/dictionary.slice';
+import { dictionarySlice, setLocalDictionary } from './model/slice/dictionary.slice';
 import { Dictionary } from './types/types';
 
 export {
@@ -7,5 +7,5 @@ export {
   Dictionary,
   getDictionarySelector,
   isLoadingSelector,
-  getYesNoDictionary,
+  setLocalDictionary,
 };

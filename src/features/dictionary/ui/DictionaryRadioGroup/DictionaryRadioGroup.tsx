@@ -1,12 +1,12 @@
 import { CheckboxOptionType, RadioChangeEvent } from 'antd';
 import { RadioGroupOptionType } from 'antd/es/radio';
 import { Dictionary, getDictionarySelector, isLoadingSelector } from 'entities/dictionary';
-import { getDictionary } from 'features/dictionary/model/getDictionary';
 import { useEffect } from 'react';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from 'shared/hooks/useAppSelector/useAppSelector';
 import { RadioGroup } from 'shared/ui/RadioGroup/RadioGroup';
 import { Spinner } from 'shared/ui/Spinner';
+import { getDictionary } from '../../model/getDictionary';
 
 interface DictionaryRadioGroupProps {
   dictionaryName:Dictionary
@@ -26,7 +26,7 @@ export const DictionaryRadioGroup = (props:DictionaryRadioGroupProps) => {
 
   useEffect(() => {
     if (!data) {
-      dispatch(getDictionary({ dictionaryName }));
+      dispatch(getDictionary(dictionaryName));
     }
   }, [dictionaryName, dispatch, data]);
 

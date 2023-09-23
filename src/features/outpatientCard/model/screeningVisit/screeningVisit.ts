@@ -1,5 +1,25 @@
 import { Dictionary } from 'entities/dictionary';
-import { FieldType, FormCards, FormCardsItem } from 'features/form/types/types';
+import {
+  FieldType, FormCards, FormCardsItem, FormConstructorModel,
+} from 'features/form/types/types';
+
+export const scrVisit: FormConstructorModel = {
+  rootEntityName: 'outpatientCards',
+  entityName: 'outpatientCard',
+  formEntityName: 'screeningVisitSchema',
+  cards: [
+    {
+      id: 'data',
+      key: 'data',
+      title: 'Телефоны',
+      fieldsLayout: 'questionnaire',
+      nestedFields: [{
+        label: 'label',
+        value: 'value',
+      }],
+    },
+  ],
+};
 
 export const screeningVisitCards:FormCardsItem[] = [
   {

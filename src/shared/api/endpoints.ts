@@ -12,6 +12,7 @@ import {
   GetLifeAnamnesisRequest,
   ModifyLifeAnamnesisRequest,
   ModifyScreeningVisitRequest,
+  GetPhysicalExaminationRequest,
 } from './types';
 
 export const loginRequest = (data: LoginRequest) => externalSystemCall<LoginRequest>({
@@ -93,6 +94,21 @@ export const modifyScreeningVisitRequest = (
 
 export const editOutpatientCardRequest = (data:OutpatientMainInfoForm) => externalSystemCall<OutpatientMainInfoForm>({
   endpoint: 'Card/Edit',
+  method: 'POST',
+  data,
+});
+
+export const getPhysicalExaminationRequest = (
+  { cardId }:GetPhysicalExaminationRequest,
+) => externalSystemCall<GetPhysicalExaminationRequest>({
+  endpoint: `PhysicalExam/Modify/${cardId}`,
+  method: 'GET',
+});
+
+export const modifyPhysicalExaminationRequest = (
+  data,
+) => externalSystemCall({
+  endpoint: 'PhysicalExam/Modify',
   method: 'POST',
   data,
 });

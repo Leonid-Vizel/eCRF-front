@@ -55,3 +55,7 @@ export interface ModifyLifeAnamnesisRequest {
 export interface ModifyScreeningVisitRequest {
   data: ScreeningVisitForm
 }
+
+export interface GetPhysicalExaminationRequest {
+  cardId: number
+}

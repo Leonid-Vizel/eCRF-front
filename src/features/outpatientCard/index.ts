@@ -7,7 +7,7 @@ export {
   outpatientCardSlice,
   setEditMode,
   initOutpatientMainInfo,
-  setTabName, 
+  setTabName,
   setFormData,
   setForm,
   getFormData,

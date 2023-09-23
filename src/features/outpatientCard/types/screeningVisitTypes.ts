@@ -13,8 +13,15 @@ export interface ScreeningVisitSchema {
   table: ScreeningVisitTable
 }
 
+export interface ScreeningQuestionnary {
+  label: string;
+  value: {
+    [key: string]: unknown | null;
+  };
+}
 export interface ScreeningVisitForm {
   cardId?: number
+  data?: ScreeningQuestionnary[]
   card?: ScreeningVisitCard[]
   table?:ScreeningVisitTable[]
 }

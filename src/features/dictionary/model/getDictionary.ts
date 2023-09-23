@@ -1,14 +1,21 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { getYesNoDictionary } from 'entities/dictionary';
+import { setLocalDictionary } from 'entities/dictionary';
+import { localDictionaries } from 'entities/dictionary/model/slice/dictionary.slice';
 import { getDictionaryRequest } from 'shared/api/endpoints';
 import { GetDictionaryRequest } from 'shared/api/types';
 
-export const getDictionary = createAsyncThunk(
+export const getExternalDictionary = createAsyncThunk(
   'dictionary/getDictionary',
-  async (requestData: GetDictionaryRequest, thunkApi) => {
+  async (requestData: GetDictionaryRequest) => {
     const { data } = await getDictionaryRequest(requestData);
-    thunkApi.dispatch(getYesNoDictionary());
-
     return data;
   },
 );
+
+export const getDictionary = (dictionaryName) => (dispatch) => {
+  if (localDictionaries.includes(dictionaryName)) {
+    dispatch(setLocalDictionary(dictionaryName));
+  } else {
+    dispatch(getExternalDictionary({ dictionaryName }));
+  }
+};

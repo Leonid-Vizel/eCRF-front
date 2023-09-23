@@ -1,24 +1,26 @@
-export function formatSnils(value: string) {
-  // const groups = value.match(/^(\d{0,3})(\d{0,3})(\d{0,3})(\d{0,2})$/);
-  // if (groups) {
-  //     return [groups[1], groups[2], groups[3], groups[4]]
-  //         .filter(Boolean)
-  //         .join('-');
-  // }
-  // return '';
+// todo посмотреть, модно ли это как то использовать?
 
-  const template = '___-___-___-__';
-  let result = '';
-  let valueIndex = 0;
+// export function formatSnils(value: string) {
+//   // const groups = value.match(/^(\d{0,3})(\d{0,3})(\d{0,3})(\d{0,2})$/);
+//   // if (groups) {
+//   //     return [groups[1], groups[2], groups[3], groups[4]]
+//   //         .filter(Boolean)
+//   //         .join('-');
+//   // }
+//   // return '';
 
-  for (let i = 0; i < template.length; i++) {
-    if (template[i] === '_') {
-      result += value[valueIndex] || '_';
-      valueIndex++;
-    } else {
-      result += template[i];
-    }
-  }
+//   // const template = '___-___-___-__';
+//   // let result = '';
+//   // let valueIndex = 0;
 
-  return result;
-}
+//   // for (let i = 0; i < template.length; i++) {
+//   //   if (template[i] === '_') {
+//   //     result += value[valueIndex] || '_';
+//   //     valueIndex++;
+//   //   } else {
+//   //     result += template[i];
+//   //   }
+//   // }
+
+//   // return result;
+// }

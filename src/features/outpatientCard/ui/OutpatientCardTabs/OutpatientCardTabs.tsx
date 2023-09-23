@@ -3,18 +3,15 @@ import { EditOutlined, SaveOutlined } from '@ant-design/icons';
 import { TabPane, TabPaneButtons } from 'widgets/TabPane';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from 'app/providers/StoreProvider';
-import { createNewOutpatientCard } from '../../model/lib/createOutpatientCardAction';
 import { outpatientCardTabsModel } from '../../model/outpatientCardTabsModel/outpatientCardTabsModel';
-import cls from './OutpatientCardTabs.module.scss';
 import { setEditMode, setTabName } from '../../model/slice/outpatientCard.slice';
 import { cardTabPaneSelector, getCardId } from '../../model/selectors/outpatientCardSelectors';
 
 interface OutpatientCardTabsProps {
-  className?: string;
+  // className?: string;
 }
 
-export const OutpatientCardTabs:FC<OutpatientCardTabsProps> = (props) => {
-  const { className } = props;
+export const OutpatientCardTabs:FC<OutpatientCardTabsProps> = () => {
   const dispatch = useAppDispatch();
   const tabPaneData = useAppSelector((state) => cardTabPaneSelector(state));
   const cardId = useAppSelector(getCardId);

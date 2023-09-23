@@ -30,6 +30,7 @@ export const outpatientCardTabsModel: TabPaneModel = {
     key: SCREENING_VISIT,
     label: 'Скрининговый визит',
     children: <ScreeningVisit />,
+    itemDisabled: true,
   },
   {
     key: LIFE_ANAMNESIS,
@@ -40,15 +41,18 @@ export const outpatientCardTabsModel: TabPaneModel = {
     key: VISIT_DAY_2,
     label: 'Визит 2',
     children: <div>Визит 2</div>,
+    itemDisabled: true,
   },
   {
     key: VISIT_DAY_3,
     label: 'Визит 3',
     children: <div>Визит 3</div>,
+    itemDisabled: true,
   },
   {
     key: VISIT_DAY_4,
     label: 'Визит 4',
     children: <div>Визит 4</div>,
+    itemDisabled: true,
   }],
 };

@@ -7,7 +7,6 @@ import { Button } from 'shared/ui/Button/Button';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch/useAppDispatch';
 import { useParams } from 'react-router-dom';
 import { getOutpatientCard } from 'features/outpatientCard/model/lib/getOutpatientCardAction';
-import cls from './OutpatientCardMainInfo.module.scss';
 import { getFormData } from '../../model/slice/outpatientCard.slice';
 import { createNewOutpatientCard } from '../../model/lib/createOutpatientCardAction';
 
@@ -21,13 +20,13 @@ export const OutpatientCardMainInfo:FC<OutpatientCardMainInfoProps> = (props) =>
   const { id } = useParams();
 
   useEffect(() => {
-    if (id) {
+    if (id && id !== 'create') {
       dispatch(getOutpatientCard({ id }));
     }
   }, [id, dispatch]);
 
   return (
-    <div className={`${cls.OutpatientCardMainInfo} ${className}`}>
+    <div className={` ${className}`}>
       <FormConstructor
         formCard={outPatientCardMainInfoForm}
         onFinish={(data) => {
@@ -36,7 +35,7 @@ export const OutpatientCardMainInfo:FC<OutpatientCardMainInfoProps> = (props) =>
           ));
           dispatch(createNewOutpatientCard());
         }}
-        footer={<Button htmlType="submit">sub,it</Button>}
+        footer={<Button type="primary" size="large" htmlType="submit">Соxранить</Button>}
       />
     </div>
   );

@@ -6,19 +6,26 @@ import { nanoid } from '@reduxjs/toolkit';
 import { Field } from '../Field/Field';
 import { FormTableConstructor } from '../FormTableConstructor/FormTableConstructor';
 import cls from './Formlayout.module.scss';
+import { FormQuestionnaire } from '../FormQuestionary/FormQuestionnaire';
 
 interface FormLayoutProps {
-  form: FormInstance<any>
+  form: FormInstance<unknown>
+  // todo протипизировать
   rows: any
   fieldsLayout: string
   formListName: string
+  externalData: unknown
 }
 
 export const FormLayout:FC<FormLayoutProps> = ({
-  form, rows, fieldsLayout, formListName,
+  form, rows, fieldsLayout, formListName, externalData,
 }) => {
   switch (fieldsLayout) {
-    case 'table':
+    case 'questionnaire':
+      return (
+        <FormQuestionnaire formListName={formListName} form={form} rows={rows} dataSource={externalData} />
+      );
+    case 'table': {
       return (
         <Form.List name={formListName}>
           {(data, { add, remove }) => (
@@ -32,6 +39,7 @@ export const FormLayout:FC<FormLayoutProps> = ({
           )}
         </Form.List>
       );
+    }
     default:
       return (
         <>

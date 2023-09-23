@@ -36,7 +36,7 @@ export interface DictionaryModel {
   data: DictionaryData[]
 }
 export interface IExternalDictionary extends DictionaryModel {
-  status: Status
+  status?: Status
 }
 
 export interface IDictionaryState {

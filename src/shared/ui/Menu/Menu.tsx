@@ -16,10 +16,12 @@ function menuTypeGuard(props: MenuDefaultProps | SubMenuProps): props is SubMenu
 
 export const Menu: FC< MenuDefaultProps | SubMenuProps> = (props) => {
   if (menuTypeGuard(props)) {
+    const { menuChainType, ...rest } = props;
     return (
-      <AntMenu.SubMenu {...props} />
+      <AntMenu.SubMenu {...rest} />
     );
   }
+  const { menuChainType, ...rest } = props;
   return (
-    <AntMenu {...props} />);
+    <AntMenu {...rest} />);
 };

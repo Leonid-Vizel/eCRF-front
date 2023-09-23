@@ -1,0 +1,10 @@
+.colWrapper {
+    display: grid;
+    width: 100%;
+    gap: var(--extra-large);
+    margin-bottom: var(--extra-large);
+}
+
+.colLabel {
+    grid-column: 1;
+}

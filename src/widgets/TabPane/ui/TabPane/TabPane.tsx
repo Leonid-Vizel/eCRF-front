@@ -29,7 +29,8 @@ export const TabPane:FC<TabPaneProps> = (props) => {
         type="card"
         // todo что то не так  ерндером, проверить
         items={items.map((item) => {
-          const isDisabledTab = editMode || disabled || false;
+          const { itemDisabled } = item;
+          const isDisabledTab = itemDisabled || editMode || disabled || false;
           return ({ ...item, disabled: isDisabledTab });
         })}
         tabBarExtraContent={{

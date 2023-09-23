@@ -16,6 +16,7 @@ export interface TabPaneItems {
   key: string;
   children: React.ReactElement
   editMode?: (state: RootState) => boolean;
+  itemDisabled?: boolean;
 }
 
 export interface TabPaneModel {

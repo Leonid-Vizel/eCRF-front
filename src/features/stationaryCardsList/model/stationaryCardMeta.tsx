@@ -1,14 +1,14 @@
 import { ColumnsType } from 'antd/es/table';
-import { ICard } from 'entities/outpatientCards';
 import Cookies from 'js-cookie';
 import { Link } from 'react-router-dom';
 import { DownloadForm } from 'shared/ui/DownloadForm/DownloadForm';
+import { StationaryCard } from '../types/stationaryCardTypes';
 
 export const columns: ColumnsType = [
   {
     title: 'ФИО',
     key: 'fullName',
-    render: (_, record: ICard) => `${record.secondName} ${record.firstName} ${record.thirdName ? record.thirdName : ''}`,
+    render: (_, record: StationaryCard) => `${record.secondName} ${record.firstName} ${record.thirdName ? record.thirdName : ''}`,
   },
   {
     title: 'Дата рождения',
@@ -28,15 +28,14 @@ export const columns: ColumnsType = [
   {
     title: 'Действия',
     key: 'action',
-    render: (_, record:ICard) => (
+    render: (_, record: StationaryCard) => (
       <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
         <DownloadForm
           action={`/api/net/Card/Export/${record?.id}`}
           inputValue={`${Cookies.get('token')}`}
           title="Напечатать"
         />
-        <Link to={`/outpatientCards/card/${record?.id}`}>Перейти</Link>
-        <Link to={`/stationaryCards/card/${record?.id}`}>Cтационарная карта</Link>
+        <Link to={`/stationaryCards/card/${record?.id}`}>Перейти</Link>
       </div>
     ),
   },

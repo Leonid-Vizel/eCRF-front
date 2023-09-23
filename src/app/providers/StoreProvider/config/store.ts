@@ -1,6 +1,7 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { dictionarySlice } from 'entities/dictionary';
 import { outpatientCards } from 'entities/outpatientCards';
+import { stationaryCards } from 'entities/stationaryCards';
 import { userSlice } from 'entities/user';
 
 export function createReduxStore() {
@@ -8,6 +9,7 @@ export function createReduxStore() {
     outpatientCards,
     [userSlice.name]: userSlice.reducer,
     [dictionarySlice.name]: dictionarySlice.reducer,
+    stationaryCards,
   });
   const store = configureStore({
     reducer: rootReducer,

@@ -59,3 +59,7 @@ export interface ModifyScreeningVisitRequest {
 export interface GetPhysicalExaminationRequest {
   cardId: number
 }
+
+export interface GetCriteriaRequest {
+  cardId: number
+}

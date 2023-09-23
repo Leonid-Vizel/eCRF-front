@@ -13,53 +13,6 @@ interface ScreeningVisitProps {
   // className?: string;
 }
 
-// const { className } = props;
-
-// const formData = useAppSelector(
-//   (state) => state.outpatientCards.outpatientCard.screeningVisitSchema,
-// );
-
-// const cards = formData
-//   && formData.data
-//   && getFormCards({
-//     data: formData.data,
-//     formCards: screeningVisitCards,
-//     cardId: 'card',
-//     dispatch,
-//     formEntityName: 'screeningVisitForm',
-//   });
-
-// const screeningVisitForm = cards && {
-//   rootEntityName: 'outpatientCards',
-//   entityName: 'outpatientCard',
-//   formEntityName: 'screeningVisitForm',
-//   cards: [...cards, screeningVisitTable],
-// };
-
-// useEffect(() => {
-//   if (formData) {
-//     dispatch(setForm({
-//       formEntityName: 'screeningVisitForm',
-//       data: {
-//         cardId: formData?.cardId,
-//         table: formData?.table,
-//       },
-//     }));
-//   }
-// }, [formData, dispatch]);
-
-// <div className={`${className}`}>
-//   {screeningVisitForm ? (
-//     <FormConstructor
-//       formCard={screeningVisitForm}
-//       onFinish={(values) => dispatch(modifyScreeningVisit({ cardId, ...values }))}
-//       footer={<Button htmlType="submit">submit</Button>}
-//     />
-//   ) : (
-//     <FormSkeleton />
-//   )}
-// </div>
-
 export const ScreeningVisit: FC<ScreeningVisitProps> = () => {
   const dispatch = useAppDispatch();
   const cardId = useAppSelector(getCardId);
@@ -77,7 +30,7 @@ export const ScreeningVisit: FC<ScreeningVisitProps> = () => {
           ));
           dispatch(modifyScreeningVisit());
         }}
-        footer={<Button htmlType="submit">submit</Button>}
+        footer={<Button type="primary" size="large" htmlType="submit">Соxранить</Button>}
       />
 
     </div>

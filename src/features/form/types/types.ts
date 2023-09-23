@@ -33,6 +33,7 @@ export interface FormField {
   rowType?: string
   hidden?:Hidden
   columnStyle?:React.CSSProperties
+  action?: (args:unknown)=>string
 }
 
 export interface Hidden {
@@ -52,12 +53,13 @@ export enum FieldType {
   TimePicker = 'timePicker',
   TextArea = 'textArea',
   InputNumber = 'inputNumber',
+  Text = 'text',
 }
 
 export interface FormConstructorModel {
   rootEntityName: string;
   entityName: string;
-  formEntityName: string
+  formEntityName?: string
   cards: FormCards[]
 }
 

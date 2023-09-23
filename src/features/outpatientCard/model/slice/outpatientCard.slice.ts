@@ -5,6 +5,9 @@ import {
 } from 'features/outpatientCard/types/outpatientCardMainInfoTypes';
 import { LifeAnamnesisForm } from 'features/outpatientCard/types/lifeAnamnesisTypes';
 import { ScreeningVisitForm, ScreeningVisitSchema } from 'features/outpatientCard/types/screeningVisitTypes';
+import { CriteriaForm } from 'features/outpatientCard/types/criteriaTypes';
+import { PhysicalExaminationForm } from 'features/outpatientCard/types/physicalExaminationTypes';
+import { DayForm } from 'features/outpatientCard/types/dayTypes';
 import { getScreeningVisit } from '../lib/getScreeningVisitAction';
 import { createNewOutpatientCard } from '../lib/createOutpatientCardAction';
 import { modifySyphilisExamination } from '../lib/modifySyphilisExaminationAction';
@@ -13,6 +16,9 @@ import { getSyphilisExamination } from '../lib/getSyphilisExaminationAction';
 import { getLifeAnamnesis } from '../lib/getLifeAnamnesisAction';
 import { modifyLifeAnamnesis } from '../lib/modifyLifeAnamnesisAction';
 import { modifyScreeningVisit } from '../lib/modifyScreeningVisitAction';
+import { getPhysicalExamination } from '../lib/getPhysicalExaminationAction';
+import { getCriteria } from '../lib/getCriteriaAction';
+import { getDay } from '../lib/getDayAction';
 
 interface OutpatientCardSliceTabs {
   cardId?: number
@@ -26,6 +32,11 @@ interface OutpatientCardSliceTabs {
   lifeAnamnesisForm?: LifeAnamnesisForm
   screeningVisitSchema?: ScreeningVisitSchema
   screeningVisitForm?: ScreeningVisitForm
+  physicalExaminationForm?: PhysicalExaminationForm
+  criteriaForm?:CriteriaForm
+  dayForm2?: DayForm
+  dayForm3?: DayForm
+  dayForm4?: DayForm
 }
 
 const initialState: OutpatientCardSliceTabs = {
@@ -113,6 +124,16 @@ export const outpatientCardSlice = createSlice({
       })
       .addCase(modifyScreeningVisit.fulfilled, (state, action) => {
         state.screeningVisitForm = action.payload;
+      })
+      .addCase(getPhysicalExamination.fulfilled, (state, action) => {
+        state.physicalExaminationForm = action.payload;
+      })
+      .addCase(getCriteria.fulfilled, (state, action) => {
+        state.criteriaForm = action.payload;
+      })
+      .addCase(getDay.fulfilled, (state, action) => {
+        const { dayNumber } = action.payload;
+        state[`dayForm${dayNumber}`] = action.payload;
       });
   },
 });

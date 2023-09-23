@@ -1,4 +1,7 @@
 import { OutpatientMainInfoForm } from 'features/outpatientCard';
+import { CriteriaForm } from 'features/outpatientCard/types/criteriaTypes';
+import { PhysicalExaminationForm } from 'features/outpatientCard/types/physicalExaminationTypes';
+import { DayForm } from 'features/outpatientCard/types/dayTypes';
 import { externalSystemCall } from './base';
 import {
   GetUserRequest,
@@ -12,6 +15,9 @@ import {
   GetLifeAnamnesisRequest,
   ModifyLifeAnamnesisRequest,
   ModifyScreeningVisitRequest,
+  GetPhysicalExaminationRequest,
+  GetCriteriaRequest,
+  GetDayRequest,
 } from './types';
 
 export const loginRequest = (data: LoginRequest) => externalSystemCall<LoginRequest>({
@@ -93,6 +99,51 @@ export const modifyScreeningVisitRequest = (
 
 export const editOutpatientCardRequest = (data:OutpatientMainInfoForm) => externalSystemCall<OutpatientMainInfoForm>({
   endpoint: 'Card/Edit',
+  method: 'POST',
+  data,
+});
+
+export const getPhysicalExaminationRequest = (
+  { cardId }:GetPhysicalExaminationRequest,
+) => externalSystemCall<GetPhysicalExaminationRequest>({
+  endpoint: `PhysicalExam/Modify/${cardId}`,
+  method: 'GET',
+});
+
+export const modifyPhysicalExaminationRequest = (
+  data: PhysicalExaminationForm,
+) => externalSystemCall<PhysicalExaminationForm>({
+  endpoint: 'PhysicalExam/Modify',
+  method: 'POST',
+  data,
+});
+
+export const getCriteriaRequest = (
+  { cardId }: GetCriteriaRequest,
+) => externalSystemCall<GetCriteriaRequest>({
+  endpoint: `Criteria/Modify/${cardId}`,
+  method: 'GET',
+});
+
+export const modifyCriteriaRequest = (
+  data:CriteriaForm,
+) => externalSystemCall<CriteriaForm>({
+  endpoint: 'Criteria/Modify',
+  method: 'POST',
+  data,
+});
+
+export const getDayRequest = (
+  { cardId, day }: GetDayRequest,
+) => externalSystemCall<GetDayRequest>({
+  endpoint: `Day/Modify/${cardId}/${day}`,
+  method: 'GET',
+});
+
+export const modifyDayRequest = (
+  data:DayForm,
+) => externalSystemCall<DayForm>({
+  endpoint: 'Dat/Modify',
   method: 'POST',
   data,
 });

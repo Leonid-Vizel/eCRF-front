@@ -17,3 +17,7 @@ declare module '*.svg' {
 }
 
 declare const __IS_DEV__: boolean;
+declare const __IS_LOCAL__: boolean;
+
+// eslint-disable-next-line no-underscore-dangle
+declare const __BASE_URL__: string;

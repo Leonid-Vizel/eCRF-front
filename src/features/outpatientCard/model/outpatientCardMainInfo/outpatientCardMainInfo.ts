@@ -184,7 +184,7 @@ export const outPatientCardMainInfoForm: FormConstructorModel = {
       {
         id: 'headerInfo',
         key: 'headerInfo',
-        title: 'Информация о состоянии испытуемого (нужно другое название)',
+        title: '',
         fields: [
           {
             id: 'pediculosis',

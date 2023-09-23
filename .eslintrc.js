@@ -28,7 +28,7 @@ module.exports = {
     'no-shadow': 'off',
     'no-underscore-dangle': ['error', {
       allowFunctionParams: true,
-      allow: ['__IS_DEV__'],
+      allow: ['__IS_DEV__', '__IS_LOCAL__'],
     }],
     'import/no-unresolved': 'off',
     'import/prefer-default-export': 'off',

@@ -3,9 +3,9 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "start:dev": "webpack serve --env port=3000 mode=development stand=dev server=local NODE_OPTIONS=--max-old-space-size=6144",
-    "build:dev": "webpack --env mode=development",
-    "build:prod": "webpack --env mode=production",
+    "start:dev": "webpack serve --env port=3000 mode=development stand=dev server=local",
+    "build:dev": "webpack --env mode=development stand=dev",
+    "build:prod": "webpack --env mode=production stand=prod",
     "lint": "npx eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "npx eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "style:lint": "npx stylelint **/*.scss",

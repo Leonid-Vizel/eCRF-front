@@ -24,6 +24,7 @@ export function buildPugins({
     }),
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
+      __IS_LOCAL__: JSON.stringify(isLocal),
       __BASE_URL__: JSON.stringify(baseURL),
     }),
 ]

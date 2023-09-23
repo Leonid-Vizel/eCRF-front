@@ -1,7 +1,8 @@
 export type BuildMode = 'development' | 'production';
 
 export enum Stand {
-  DEV = 'dev'
+  DEV = 'dev',
+  PROD = 'prod'
 }
 
 export interface BuildPaths {

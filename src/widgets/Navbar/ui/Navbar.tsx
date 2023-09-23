@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import { UserOutlined } from '@ant-design/icons';
 import { Logo } from 'shared/ui/Logo/Logo';
 import { UserCard } from 'widgets/UserCard';
@@ -5,8 +7,8 @@ import { userDataSelector } from 'entities/user';
 import { useAppSelector } from 'app/providers/StoreProvider/index';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Popover } from 'shared/ui/Popover/Popover';
-import { Link } from 'react-router-dom';
 import { Header } from 'shared/ui/Header/Header';
+import { defaultRedirect } from 'shared/lib/defaultRedirect';
 import cls from './Navbar.module.scss';
 import { userCardContent } from '../model/navbarModel';
 
@@ -23,9 +25,9 @@ export const Navbar = (props: NavbarProps) => {
       className={`${cls.Navbar} ${className}`}
     >
       {/* https://ecrf.bioequivalencetrials.ru/api/net/admin/panel */}
-      <Link to="/document/1">
+      <div style={{ cursor: 'pointer' }} onClick={() => defaultRedirect(`${__BASE_URL__}/api/net/Protocols`)}>
         <Logo className={cls.logo} />
-      </Link>
+      </div>
       <div className={cls.menuItemsWrapper}>
         <div className={cls.nameInfoWrapper}>
           <span>{fullName}</span>

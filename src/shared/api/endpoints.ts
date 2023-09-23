@@ -1,6 +1,7 @@
 import { OutpatientMainInfoForm } from 'features/outpatientCard';
 import { CriteriaForm } from 'features/outpatientCard/types/criteriaTypes';
 import { PhysicalExaminationForm } from 'features/outpatientCard/types/physicalExaminationTypes';
+import { DayForm } from 'features/outpatientCard/types/dayTypes';
 import { externalSystemCall } from './base';
 import {
   GetUserRequest,
@@ -16,6 +17,7 @@ import {
   ModifyScreeningVisitRequest,
   GetPhysicalExaminationRequest,
   GetCriteriaRequest,
+  GetDayRequest,
 } from './types';
 
 export const loginRequest = (data: LoginRequest) => externalSystemCall<LoginRequest>({
@@ -127,6 +129,21 @@ export const modifyCriteriaRequest = (
   data:CriteriaForm,
 ) => externalSystemCall<CriteriaForm>({
   endpoint: 'Criteria/Modify',
+  method: 'POST',
+  data,
+});
+
+export const getDayRequest = (
+  { cardId, day }: GetDayRequest,
+) => externalSystemCall<GetDayRequest>({
+  endpoint: `Day/Modify/${cardId}/${day}`,
+  method: 'GET',
+});
+
+export const modifyDayRequest = (
+  data:DayForm,
+) => externalSystemCall<DayForm>({
+  endpoint: 'Dat/Modify',
   method: 'POST',
   data,
 });

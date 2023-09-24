@@ -13,7 +13,7 @@ const initialState: StationaryCardListSlice = {
   status: Status.Init,
 };
 
-export const stationaryCardsListSlice = createSlice({
+export const stationaryCardsList = createSlice({
   name: 'stationaryCardList',
   initialState,
   reducers: {},

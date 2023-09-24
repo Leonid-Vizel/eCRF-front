@@ -3,15 +3,15 @@ import { Button as AntButton, ButtonProps as AntButtonProps } from 'antd';
 import { FC, memo } from 'react';
 
 export interface ButtonProps extends Omit<AntButtonProps, 'onClick'> {
-  onClick?: () => void
+  onClick?: (params: unknown) => void
 }
 
 export const Button: FC<ButtonProps> = memo((props) => {
   const { children, onClick, ...otherProps } = props;
 
-  const handleClick = () => {
+  const handleClick = (params: unknown) => {
     if (onClick) {
-      onClick();
+      onClick(params);
     }
   };
 

@@ -3,9 +3,9 @@ import { EditOutlined, SaveOutlined } from '@ant-design/icons';
 import { TabPane, TabPaneButtons } from 'widgets/TabPane';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from 'app/providers/StoreProvider';
-import { setEditMode, setTabName } from '../model/slice/stationaryCard.slice';
-import { stationaryCardTabsModel } from '../model/stationaryCardTabsModel/stationaryCardTabsModel';
-import { cardTabPaneSelector, getCardId } from '../model/selectors/stationaryCardSelectors';
+import { setEditMode, setTabName } from '../../model/slice/stationaryCard.slice';
+import { stationaryCardTabsModel } from '../../model/stationaryCardTabsModel/stationaryCardTabsModel';
+import { cardTabPaneSelector, getCardId } from '../../model/selectors/stationaryCardSelectors';
 
 interface StationaryCardTabsProps {
 }

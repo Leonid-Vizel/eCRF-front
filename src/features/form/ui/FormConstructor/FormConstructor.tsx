@@ -5,6 +5,7 @@ import { useForm } from 'antd/es/form/Form';
 import { ReactNode, useEffect } from 'react';
 import { Title } from 'shared/ui/Typography/Typography';
 import { RootState, useAppSelector } from 'app/providers/StoreProvider';
+import { nanoid } from '@reduxjs/toolkit';
 import { FormConstructorModel } from '../../types/types';
 import { FormLayout } from '../FormLayout/FormLayout';
 import cls from './FormConstructor.module.scss';
@@ -46,11 +47,12 @@ export const FormConstructor = (props:FormConstructorProps) => {
       <Space direction="vertical" style={{ display: 'flex' }}>
         {cards.map((card) => {
           const {
-            fields, fieldsLayout, columnCount = 4, nestedFields, tableWithButton,
+            fields, fieldsLayout, columnCount = 4, nestedFields, addRemoveButtons,
           } = card;
           const rows = fields ? chunk(fields, columnCount) : chunk(nestedFields, columnCount);
+          const uniqueKey = nanoid();
           return (
-            <Card key={card.key}>
+            <Card key={uniqueKey}>
               <Title level={4}>
                 {card.title}
               </Title>
@@ -60,7 +62,7 @@ export const FormConstructor = (props:FormConstructorProps) => {
                 rows={rows}
                 formListName={card.id}
                 externalData={formData}
-                tableWithButton={tableWithButton}
+                addRemoveButtons={addRemoveButtons}
               />
             </Card>
           );

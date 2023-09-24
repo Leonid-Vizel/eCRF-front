@@ -72,7 +72,11 @@ export const Field = (props:FieldProps) => {
       break;
     case FieldType.Checkbox:
       field = (
-        <Form.Item initialValue={false} name={name} rules={getEmptyValidationText(rules)} valuePropName="checked">
+        <Form.Item
+          name={name}
+          rules={getEmptyValidationText(rules)}
+          valuePropName="checked"
+        >
           <Checkbox
             onChange={(event) => form.setFieldValue(name, event.target.checked)}
             className={cls.checkbox}

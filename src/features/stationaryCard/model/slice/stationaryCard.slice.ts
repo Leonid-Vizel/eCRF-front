@@ -24,6 +24,21 @@ export const stationaryCardSlice = createSlice({
     setTabName: (state, action) => {
       state.tabPane.formEntityName = action.payload;
     },
+    // initStationaryMainInfo: (state, action) => {
+    // const prepareForm = {
+    //   ...state.outpatientMainInfoForm,
+    //   protocolId: Number(action.payload),
+    //   deseases: [{}],
+    //   mainInfoPersonal: [{}],
+    //   mainInfo: [{}],
+    //   additionalInfo: [{}],
+    //   diagnosis: [{}],
+    //   disease: [{}],
+    //   headerInfo: [{}],
+    //   phones: [{}],
+    // };
+    // state.outpatientMainInfoForm = prepareForm as any;
+    // },
   },
 });
 

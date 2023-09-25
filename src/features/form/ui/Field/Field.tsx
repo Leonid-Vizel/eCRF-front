@@ -18,6 +18,7 @@ import dayjs from 'dayjs';
 import { FieldType, Hidden } from '../../types/types';
 import cls from './Field.module.scss';
 import { getEmptyValidationText } from '../../model/fieldModel/getValidation';
+import { DictionaryTreeSelect } from 'features/dictionary';
 
 interface FieldProps {
   type: FieldType
@@ -185,6 +186,13 @@ export const Field = (props:FieldProps) => {
       field = (
         <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)}>
           <Input readOnly bordered={false} />
+        </Form.Item>
+      );
+      break;
+    case FieldType.DictionaryTreeSelect:
+      field = (
+        <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)}>
+          <DictionaryTreeSelect dictionaryName={dictionaryName} />
         </Form.Item>
       );
       break;

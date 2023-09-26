@@ -59,6 +59,7 @@ export enum FieldType {
   TextArea = 'textArea',
   InputNumber = 'inputNumber',
   Text = 'text',
+  DictionaryTreeSelect = 'dictionaryTreeSelect',
 }
 
 export interface FormConstructorModel {

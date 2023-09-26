@@ -15,6 +15,7 @@ import { DatePicker } from 'shared/ui/DatePicker/DatePicker';
 import { TextArea } from 'shared/ui/TextArea/TextArea';
 import { TimePicker } from 'shared/ui/TimePicker/TimePicker';
 import dayjs from 'dayjs';
+import { DictionaryTreeSelect } from 'features/dictionary';
 import { FieldType, Hidden } from '../../types/types';
 import cls from './Field.module.scss';
 import { getEmptyValidationText } from '../../model/fieldModel/getValidation';
@@ -126,6 +127,7 @@ export const Field = (props:FieldProps) => {
           <DatePicker
             className={cls.inputType}
             onChange={(date) => form.setFieldValue(name, date)}
+            format="DD/MM/YYYY"
           />
         </Form.Item>
       );
@@ -142,7 +144,7 @@ export const Field = (props:FieldProps) => {
           <DatePicker
             className={cls.inputType}
             onChange={(date) => form.setFieldValue(name, date)}
-            format="MM/DD/YYYY HH:mm"
+            format="DD/MM/YYYY HH:mm"
             placeholder="Выберите дату и время"
             showTime
           />
@@ -185,6 +187,13 @@ export const Field = (props:FieldProps) => {
       field = (
         <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)}>
           <Input readOnly bordered={false} />
+        </Form.Item>
+      );
+      break;
+    case FieldType.DictionaryTreeSelect:
+      field = (
+        <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)}>
+          <DictionaryTreeSelect dictionaryName={dictionaryName} />
         </Form.Item>
       );
       break;

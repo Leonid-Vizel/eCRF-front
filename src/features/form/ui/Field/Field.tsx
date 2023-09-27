@@ -52,6 +52,7 @@ export const Field = (props:FieldProps) => {
       field = (
         <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)} className={cls.formItem}>
           <Select
+            popupMatchSelectWidth={false}
             className={cls.inputType}
             options={options}
             onChange={(value) => form.setFieldValue(name, value)}
@@ -165,7 +166,7 @@ export const Field = (props:FieldProps) => {
       break;
     case FieldType.TextArea:
       field = (
-        <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)}>
+        <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)} className={cls.responsiveFormItem}>
           <TextArea
             className={cls.inputType}
             onChange={(event) => form.setFieldValue(name, event.target.value)}
@@ -175,7 +176,7 @@ export const Field = (props:FieldProps) => {
       break;
     case FieldType.InputNumber:
       field = (
-        <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)}>
+        <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)} className={cls.formItem}>
           <InputNumber
             className={cls.inputType}
             onChange={(value) => form.setFieldValue(name, value)}
@@ -192,7 +193,7 @@ export const Field = (props:FieldProps) => {
       break;
     case FieldType.DictionaryTreeSelect:
       field = (
-        <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)}>
+        <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)} className={cls.formItem}>
           <DictionaryTreeSelect dictionaryName={dictionaryName} />
         </Form.Item>
       );

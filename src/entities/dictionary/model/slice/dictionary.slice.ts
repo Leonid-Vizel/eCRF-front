@@ -34,6 +34,14 @@ const initialState: IDictionaryState = {
   [Dictionary.WeightMeasurementType]: initialDictionary,
   [Dictionary.Work]: initialDictionary,
   [Dictionary.InsuranceOrganisation]: initialDictionary,
+  [Dictionary.OtherTreatments]: initialDictionary,
+  [Dictionary.TransportationType]: initialDictionary,
+  [Dictionary.RussiaSubject]: initialDictionary,
+  [Dictionary.StationaryReason]: initialDictionary,
+  [Dictionary.StationaryEmergencyReason]: initialDictionary,
+  [Dictionary.StationaryHospitalisation]: initialDictionary,
+  [Dictionary.DiseaseOutcome]: initialDictionary,
+  [Dictionary.WorkAbility]: initialDictionary,
 };
 
 export const dictionarySlice = createSlice({

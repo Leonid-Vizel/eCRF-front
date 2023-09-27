@@ -28,11 +28,11 @@ export const columns: ColumnsType = [
   },
   {
     title: 'Стационарная карта',
-    dataIndex: 'statioanryCard',
-    key: 'statioanryCard',
+    // dataIndex: 'statioanaryCard',
+    key: 'stationaryCard',
     render: (record) => (record?.stationaryId
-      ? <Link to={`/stationaryCards/card/${record?.stationaryid}`}>Cтационарная карта</Link>
-      : <Link to="/stationaryCards/card/create">Создать стационарную карту</Link>),
+      ? <Link to={`/stationaryCards/card/${record?.id}`}>Cтационарная карта</Link>
+      : <Link to={`/stationaryCards/card/${record?.id}`}>Создать стационарную карту</Link>),
   },
   {
     title: 'Действия',

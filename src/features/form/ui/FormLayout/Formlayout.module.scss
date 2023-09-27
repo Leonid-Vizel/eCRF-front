@@ -1,4 +1,4 @@
-.colItem {
+.colItem:has(div) {
     height: 100%;
     min-width: 200px;
 }

@@ -1,4 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { StationaryCardMainInfoForm } from 'features/stationaryCard/types/stationaryCardMainInfoTypes';
+import { getStationaryCard } from '../lib/getStationaryCardAction';
+import { modifyStationaryCard } from '../lib/modifyStationaryCardAction';
 
 interface StationaryCardSliceTabs {
   cardId?: number
@@ -7,6 +10,7 @@ interface StationaryCardSliceTabs {
     editMode: boolean;
     formEntityName: string
   };
+  stationaryMainInfoForm?: StationaryCardMainInfoForm
 }
 
 const initialState: StationaryCardSliceTabs = {
@@ -24,6 +28,10 @@ export const stationaryCardSlice = createSlice({
     setTabName: (state, action) => {
       state.tabPane.formEntityName = action.payload;
     },
+    getFormData: (state, action) => {
+      const prepareData = { ...state[action.payload.formEntityName], ...action.payload.data };
+      state[action.payload.formEntityName] = prepareData;
+    },
     // initStationaryMainInfo: (state, action) => {
     // const prepareForm = {
     //   ...state.outpatientMainInfoForm,
@@ -40,8 +48,17 @@ export const stationaryCardSlice = createSlice({
     // state.outpatientMainInfoForm = prepareForm as any;
     // },
   },
+  extraReducers(builder) {
+    builder
+      .addCase(getStationaryCard.fulfilled, (state, action) => {
+        state.stationaryMainInfoForm = action.payload;
+      })
+      .addCase(modifyStationaryCard.fulfilled, (state, action) => {
+        state.stationaryMainInfoForm = action.payload;
+      });
+  },
 });
 
 export const {
-  setEditMode, setTabName,
+  setEditMode, setTabName, getFormData,
 } = stationaryCardSlice.actions;

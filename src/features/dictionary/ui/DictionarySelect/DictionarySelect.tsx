@@ -32,6 +32,7 @@ export const DictionarySelect = (props:DictionarySelectProps) => {
   return (
     <Spinner spinning={isLoading}>
       <Select
+        popupMatchSelectWidth={false}
         options={options}
         placeholder={placeholder}
         onChange={onChange}

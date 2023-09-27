@@ -30,6 +30,7 @@ export const DictionaryTreeSelect = (props:DictionaryTreeSelectProps) => {
   return (
     <Spinner spinning={isLoading}>
       <TreeSelect
+        popupMatchSelectWidth={false}
         treeData={data}
         onChange={onChange}
         className={className}

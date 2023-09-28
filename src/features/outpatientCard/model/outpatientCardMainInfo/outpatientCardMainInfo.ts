@@ -1,5 +1,6 @@
 import { Dictionary } from 'entities/dictionary';
 import { hideField } from 'features/form';
+import { Mask } from 'features/mask';
 import { FieldType, FormConstructorModel } from '../../../form/types/types';
 
 export const outPatientCardMainInfoForm: FormConstructorModel = {
@@ -59,18 +60,21 @@ export const outPatientCardMainInfoForm: FormConstructorModel = {
             title: 'Полис ОМС - Серия',
             type: FieldType.Input,
             name: 'chIseries',
+            mask: Mask.OmsSeria,
           },
           {
             id: 'chInumber',
             title: 'Полис ОМС - Номер',
             type: FieldType.Input,
             name: 'chInumber',
+            mask: Mask.OmsNumber,
           },
           {
             id: 'snils',
             title: 'СНИЛС',
             type: FieldType.Input,
             name: 'snils',
+            mask: Mask.Snils,
           },
           {
             id: 'insuranceOrganisationId',
@@ -84,6 +88,7 @@ export const outPatientCardMainInfoForm: FormConstructorModel = {
             title: 'Код категории льготы',
             type: FieldType.Input,
             name: 'benefitCategoryCode',
+            mask: Mask.BenefitCode,
           },
           {
             id: 'documentName',
@@ -116,6 +121,7 @@ export const outPatientCardMainInfoForm: FormConstructorModel = {
             title: 'Номер телефона',
             type: FieldType.Input,
             name: 'phone',
+            mask: Mask.Phone,
           },
           {
             id: 'comment',
@@ -239,6 +245,7 @@ export const outPatientCardMainInfoForm: FormConstructorModel = {
             name: 'randomNumber',
             title: 'Рандомизационный номер',
             type: FieldType.Input,
+            mask: Mask.RandomNumber,
           },
         ],
       },
@@ -395,6 +402,7 @@ export const outPatientCardMainInfoForm: FormConstructorModel = {
             title: 'Код по МКБ-10',
             type: FieldType.Input,
             name: 'icbCode',
+            mask: Mask.MKB,
           },
           {
             id: 'doctor',

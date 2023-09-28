@@ -34,6 +34,7 @@ export interface FormField {
   hidden?:Hidden
   columnStyle?:React.CSSProperties
   action?: (args:unknown)=>string
+  mask?: string | (string | RegExp)[]
 }
 
 export interface Hidden {

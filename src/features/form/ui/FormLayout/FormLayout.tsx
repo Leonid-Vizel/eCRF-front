@@ -57,7 +57,7 @@ export const FormLayout:FC<FormLayoutProps> = ({
                         <Row key={uniquelowKey} gutter={8} className={cls.rowItem}>
                           {row.map((field) => {
                             const {
-                              id, title, name, rules, type, dictionaryName, optionType, options, hidden, columnStyle,
+                              id, title, name, rules, type, dictionaryName, optionType, options, hidden, columnStyle, mask,
                             } = field;
                             return (
                               <Col style={columnStyle} key={id} className={cls.colItem}>
@@ -71,6 +71,7 @@ export const FormLayout:FC<FormLayoutProps> = ({
                                   options={options}
                                   rules={rules}
                                   hidden={hidden}
+                                  mask={mask}
                                 />
                               </Col>
                             );

@@ -56,7 +56,12 @@ export const FormLayout:FC<FormLayoutProps> = ({
                       {listFields.map((listField) => {
                         const uniqueFieldKey = nanoid();
                         return (
-                          <Row key={uniqueFieldKey} gutter={8} className={cls.rowItem}>
+                          <Row
+                            key={uniqueFieldKey}
+                            style={{ gridTemplateColumns: `repeat(${row.length}, 1fr)` }}
+                            gutter={8}
+                            className={cls.rowItem}
+                          >
                             {row.map((field) => {
                               const {
                                 id, title, name, rules, type, dictionaryName, optionType, options, hidden, columnStyle,

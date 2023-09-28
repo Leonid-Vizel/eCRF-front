@@ -3,12 +3,13 @@
 import { UserOutlined } from '@ant-design/icons';
 import { Logo } from 'shared/ui/Logo/Logo';
 import { UserCard } from 'widgets/UserCard';
-import { userDataSelector } from 'entities/user';
+import { availableToAuthorizedUser, userDataSelector } from 'entities/user';
 import { useAppSelector } from 'app/providers/StoreProvider/index';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Popover } from 'shared/ui/Popover/Popover';
 import { Header } from 'shared/ui/Header/Header';
 import { defaultRedirect } from 'shared/lib/defaultRedirect';
+import { PrivateComponent } from 'shared/ui/PrivateComponent/PrivateComponent';
 import cls from './Navbar.module.scss';
 import { userCardContent } from '../model/navbarModel';
 
@@ -18,7 +19,7 @@ interface NavbarProps {
 
 export const Navbar = (props: NavbarProps) => {
   const { className } = props;
-  const { fullName } = useAppSelector(userDataSelector);
+  const { userName } = useAppSelector(userDataSelector);
 
   return (
     <Header
@@ -28,22 +29,24 @@ export const Navbar = (props: NavbarProps) => {
       <div style={{ cursor: 'pointer' }} onClick={() => defaultRedirect(`${__BASE_URL__}/api/net/Protocols`)}>
         <Logo className={cls.logo} />
       </div>
-      <div className={cls.menuItemsWrapper}>
-        <div className={cls.nameInfoWrapper}>
-          <span>{fullName}</span>
-        </div>
-        <Popover
-          placement="bottom"
-          content={(
-            <UserCard
-              title="Информация о пользователе"
-              cardContent={userCardContent}
-            />
+      <PrivateComponent accessRules={availableToAuthorizedUser}>
+        <div className={cls.menuItemsWrapper}>
+          <div className={cls.nameInfoWrapper}>
+            <span>{userName}</span>
+          </div>
+          <Popover
+            placement="bottom"
+            content={(
+              <UserCard
+                title="Информация о пользователе"
+                cardContent={userCardContent}
+              />
           )}
-        >
-          <Avatar className={cls.avatar} icon={<UserOutlined />} />
-        </Popover>
-      </div>
+          >
+            <Avatar className={cls.avatar} icon={<UserOutlined />} />
+          </Popover>
+        </div>
+      </PrivateComponent>
     </Header>
   );
 };

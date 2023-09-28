@@ -16,10 +16,11 @@ interface FormLayoutProps {
   formListName: string
   externalData: unknown
   addRemoveButtons: boolean
+  columnCount: number
 }
 
 export const FormLayout:FC<FormLayoutProps> = ({
-  form, rows, fieldsLayout, formListName, externalData, addRemoveButtons = true,
+  form, rows, fieldsLayout, formListName, externalData, addRemoveButtons = true, columnCount,
 }) => {
   switch (fieldsLayout) {
     case 'questionnaire':
@@ -58,7 +59,7 @@ export const FormLayout:FC<FormLayoutProps> = ({
                         return (
                           <Row
                             key={uniqueFieldKey}
-                            style={{ gridTemplateColumns: `repeat(${row.length}, 1fr)` }}
+                            style={{ gridTemplateColumns: `repeat(${columnCount}, 1fr)` }}
                             gutter={8}
                             className={cls.rowItem}
                           >

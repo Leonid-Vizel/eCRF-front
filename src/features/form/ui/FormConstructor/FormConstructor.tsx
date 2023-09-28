@@ -63,6 +63,7 @@ export const FormConstructor = (props:FormConstructorProps) => {
                 formListName={card.id}
                 externalData={formData}
                 addRemoveButtons={addRemoveButtons}
+                columnCount={columnCount}
               />
             </Card>
           );

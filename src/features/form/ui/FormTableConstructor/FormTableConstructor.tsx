@@ -34,7 +34,7 @@ export const FormTableConstructor: React.FC<FormTableConstructorProps> = ({
 
   const renderFormColumns = columns.map((item) => {
     const {
-      type, name, rules, id, title, dictionaryName, optionType, options, hidden, columnButton,
+      type, name, rules, id, title, dictionaryName, optionType, options, hidden, columnButton, mask,
     } = item;
     if (columnButton === 'remove') {
       return ({
@@ -65,6 +65,7 @@ export const FormTableConstructor: React.FC<FormTableConstructorProps> = ({
           options={options}
           rules={rules}
           hidden={hidden}
+          mask={mask}
         />
       ),
     });

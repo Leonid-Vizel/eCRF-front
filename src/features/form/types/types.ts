@@ -39,6 +39,7 @@ export interface FormField {
   action?: (args:unknown) => string
   columnStyle?: React.CSSProperties
   columnButton?: ColumnButton;
+  mask?: string | (string | RegExp)[]
 }
 
 export interface Hidden {

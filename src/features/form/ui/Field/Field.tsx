@@ -15,6 +15,7 @@ import { DatePicker } from 'shared/ui/DatePicker/DatePicker';
 import { TextArea } from 'shared/ui/TextArea/TextArea';
 import { TimePicker } from 'shared/ui/TimePicker/TimePicker';
 import dayjs from 'dayjs';
+import ReactInputMask from 'react-input-mask';
 import { DictionaryTreeSelect } from 'features/dictionary';
 import { FieldType, Hidden } from '../../types/types';
 import cls from './Field.module.scss';
@@ -30,21 +31,33 @@ interface FieldProps {
   name: string | string[]
   rules?: Rule[]
   hidden?:Hidden
+  mask?:string | (string | RegExp)[]
 }
 
 export const Field = (props:FieldProps) => {
   const {
-    type, form, name, title, dictionaryName, optionType, options, rules, hidden,
+    type, form, name, title, dictionaryName, optionType, options, rules, hidden, mask,
   } = props;
   let field;
   switch (type) {
     case FieldType.Input:
       field = (
         <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)} className={cls.formItem}>
-          <Input
-            className={cls.inputType}
-            onChange={(event) => form.setFieldValue(name, event.target.value)}
-          />
+          {mask
+            ? (
+              <ReactInputMask mask={mask} onChange={(event) => form.setFieldValue(name, event.target.value)}>
+                <Input
+                  className={cls.inputType}
+
+                />
+              </ReactInputMask>
+            )
+            : (
+              <Input
+                className={cls.inputType}
+                onChange={(event) => form.setFieldValue(name, event.target.value)}
+              />
+            )}
         </Form.Item>
       );
       break;

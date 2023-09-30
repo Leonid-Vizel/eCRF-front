@@ -79,6 +79,7 @@ export const FormLayout:FC<FormLayoutProps> = ({
                                     options={options}
                                     rules={rules}
                                     hidden={hidden}
+                                    mask={mask}
                                   />
                                 </Col>
                               );

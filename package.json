@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "start:dev": "webpack serve --env port=3000 mode=development stand=dev server=local",
-    "build:dev": "webpack --env mode=development stand=dev",
+    "build:dev": "webpack --env mode=production stand=dev",
     "build:prod": "webpack --env mode=production stand=prod",
     "lint": "npx eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "npx eslint . --ext .js,.jsx,.ts,.tsx --fix",
@@ -33,7 +33,7 @@
     "react-autosuggest": "^10.1.0",
     "react-cookie": "^6.1.1",
     "react-dom": "^18.2.0",
-    "react-input-mask": "^2.0.4",
+    "react-input-mask": "3.0.0-alpha.2",
     "react-pdf": "^7.1.2",
     "react-primitives": "^0.8.1",
     "react-redux": "^8.1.1",

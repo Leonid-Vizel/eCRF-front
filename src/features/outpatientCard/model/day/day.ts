@@ -75,7 +75,7 @@ export const dayForm: FormConstructorModel = {
       key: 'table',
       title: 'Физикальный осмотр',
       fieldsLayout: 'table',
-      tableWithButton: false,
+      addRemoveButtons: false,
       columnCount: 5,
       fields: [
         {

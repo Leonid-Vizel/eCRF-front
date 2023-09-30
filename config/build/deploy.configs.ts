@@ -11,7 +11,7 @@ interface Enviroments {
 
 export const enviroments: Enviroments = {
     dev: {
-        api: 'https://dev.ecrf.bioequivalencetrials.ru/',
+        api: 'https://dev.ecrf.bioequivalencetrials.ru',
     },
     prod:{
         api: 'https://ecrf.bioequivalencetrials.ru'

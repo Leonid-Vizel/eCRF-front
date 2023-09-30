@@ -15,6 +15,7 @@ import { DatePicker } from 'shared/ui/DatePicker/DatePicker';
 import { TextArea } from 'shared/ui/TextArea/TextArea';
 import { TimePicker } from 'shared/ui/TimePicker/TimePicker';
 import dayjs from 'dayjs';
+import { DictionaryTreeSelect } from 'features/dictionary';
 import ReactInputMask from 'react-input-mask';
 import { FieldType, Hidden } from '../../types/types';
 import cls from './Field.module.scss';
@@ -64,6 +65,7 @@ export const Field = (props:FieldProps) => {
       field = (
         <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)} className={cls.formItem}>
           <Select
+            popupMatchSelectWidth={false}
             className={cls.inputType}
             options={options}
             onChange={(value) => form.setFieldValue(name, value)}
@@ -85,7 +87,11 @@ export const Field = (props:FieldProps) => {
       break;
     case FieldType.Checkbox:
       field = (
-        <Form.Item initialValue={false} name={name} rules={getEmptyValidationText(rules)} valuePropName="checked">
+        <Form.Item
+          name={name}
+          rules={getEmptyValidationText(rules)}
+          valuePropName="checked"
+        >
           <Checkbox
             onChange={(event) => form.setFieldValue(name, event.target.checked)}
             className={cls.checkbox}
@@ -135,6 +141,7 @@ export const Field = (props:FieldProps) => {
           <DatePicker
             className={cls.inputType}
             onChange={(date) => form.setFieldValue(name, date)}
+            format="DD/MM/YYYY"
           />
         </Form.Item>
       );
@@ -151,7 +158,7 @@ export const Field = (props:FieldProps) => {
           <DatePicker
             className={cls.inputType}
             onChange={(date) => form.setFieldValue(name, date)}
-            format="MM/DD/YYYY HH:mm"
+            format="DD/MM/YYYY HH:mm"
             placeholder="Выберите дату и время"
             showTime
           />
@@ -172,7 +179,7 @@ export const Field = (props:FieldProps) => {
       break;
     case FieldType.TextArea:
       field = (
-        <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)}>
+        <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)} className={cls.responsiveFormItem}>
           <TextArea
             className={cls.inputType}
             onChange={(event) => form.setFieldValue(name, event.target.value)}
@@ -182,7 +189,7 @@ export const Field = (props:FieldProps) => {
       break;
     case FieldType.InputNumber:
       field = (
-        <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)}>
+        <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)} className={cls.formItem}>
           <InputNumber
             className={cls.inputType}
             onChange={(value) => form.setFieldValue(name, value)}
@@ -194,6 +201,13 @@ export const Field = (props:FieldProps) => {
       field = (
         <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)}>
           <Input readOnly bordered={false} />
+        </Form.Item>
+      );
+      break;
+    case FieldType.DictionaryTreeSelect:
+      field = (
+        <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)} className={cls.formItem}>
+          <DictionaryTreeSelect dictionaryName={dictionaryName} />
         </Form.Item>
       );
       break;

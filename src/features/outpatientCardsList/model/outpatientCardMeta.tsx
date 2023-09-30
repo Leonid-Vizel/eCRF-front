@@ -1,3 +1,4 @@
+import { PrinterOutlined } from '@ant-design/icons';
 import { ColumnsType } from 'antd/es/table';
 import { ICard } from 'entities/outpatientCards';
 import Cookies from 'js-cookie';
@@ -26,6 +27,14 @@ export const columns: ColumnsType = [
     key: 'snils',
   },
   {
+    title: 'Стационарная карта',
+    // dataIndex: 'statioanaryCard',
+    key: 'stationaryCard',
+    render: (record) => (record?.stationaryId
+      ? <Link to={`/stationaryCards/card/${record?.id}`}>Cтационарная карта</Link>
+      : <Link to={`/stationaryCards/card/${record?.id}`}>Создать стационарную карту</Link>),
+  },
+  {
     title: 'Действия',
     key: 'action',
     render: (_, record:ICard) => (
@@ -33,9 +42,11 @@ export const columns: ColumnsType = [
         <DownloadForm
           action={`/api/net/Card/Export/${record?.id}`}
           inputValue={`${Cookies.get('token')}`}
-          title="Напечатать"
+          type="text"
+          icon={<PrinterOutlined />}
         />
         <Link to={`/outpatientCards/card/${record?.id}`}>Перейти</Link>
+
       </div>
     ),
   },

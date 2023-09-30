@@ -15,11 +15,12 @@ interface FormLayoutProps {
   fieldsLayout: string
   formListName: string
   externalData: unknown
-  tableWithButton: boolean
+  addRemoveButtons: boolean
+  columnCount: number
 }
 
 export const FormLayout:FC<FormLayoutProps> = ({
-  form, rows, fieldsLayout, formListName, externalData, tableWithButton = true,
+  form, rows, fieldsLayout, formListName, externalData, addRemoveButtons = true, columnCount,
 }) => {
   switch (fieldsLayout) {
     case 'questionnaire':
@@ -36,7 +37,7 @@ export const FormLayout:FC<FormLayoutProps> = ({
               tableDataSource={data}
               add={add}
               remove={remove}
-              tableWithButton={tableWithButton}
+              addRemoveButtons={addRemoveButtons}
             />
           )}
         </Form.List>
@@ -45,45 +46,53 @@ export const FormLayout:FC<FormLayoutProps> = ({
     default:
       return (
         <>
-          {rows.map((row) => (
-            <Form.List key={row.toString()} name={formListName}>
-              {(listFields) => {
-                const uniqueKey = nanoid();
-                return (
-                  <div key={uniqueKey}>
-                    {listFields.map((listField) => {
-                      const uniquelowKey = nanoid();
-                      return (
-                        <Row key={uniquelowKey} gutter={8} className={cls.rowItem}>
-                          {row.map((field) => {
-                            const {
-                              id, title, name, rules, type, dictionaryName, optionType, options, hidden, columnStyle, mask,
-                            } = field;
-                            return (
-                              <Col style={columnStyle} key={id} className={cls.colItem}>
-                                <Field
-                                  type={type}
-                                  form={form}
-                                  name={[listField.name, name]}
-                                  title={title}
-                                  dictionaryName={dictionaryName}
-                                  optionType={optionType}
-                                  options={options}
-                                  rules={rules}
-                                  hidden={hidden}
-                                  mask={mask}
-                                />
-                              </Col>
-                            );
-                          })}
-                        </Row>
-                      );
-                    })}
-                  </div>
-                );
-              }}
-            </Form.List>
-          ))}
+          {rows.map((row) => {
+            const uniqueRowKey = nanoid();
+            return (
+              <Form.List key={uniqueRowKey} name={formListName}>
+                {(listFields) => {
+                  const uniqueListFieldsKey = nanoid();
+                  return (
+                    <div key={uniqueListFieldsKey}>
+                      {listFields.map((listField) => {
+                        const uniqueFieldKey = nanoid();
+                        return (
+                          <Row
+                            key={uniqueFieldKey}
+                            style={{ gridTemplateColumns: `repeat(${columnCount}, 1fr)` }}
+                            gutter={8}
+                            className={cls.rowItem}
+                          >
+                            {row.map((field) => {
+                              const {
+                                id, title, name, rules, type, dictionaryName, optionType, options, hidden, columnStyle,
+                              } = field;
+                              return (
+                                <Col style={columnStyle} key={id} className={cls.colItem}>
+                                  <Field
+                                    type={type}
+                                    form={form}
+                                    name={[listField.name, name]}
+                                    title={title}
+                                    dictionaryName={dictionaryName}
+                                    optionType={optionType}
+                                    options={options}
+                                    rules={rules}
+                                    hidden={hidden}
+                                    mask={mask}
+                                  />
+                                </Col>
+                              );
+                            })}
+                          </Row>
+                        );
+                      })}
+                    </div>
+                  );
+                }}
+              </Form.List>
+            );
+          })}
         </>
       );
   }

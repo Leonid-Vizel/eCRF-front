@@ -10,4 +10,5 @@ export interface ICard extends IBase {
   birthDate:string
   snils:string
   protocolId:string
+  staionaryId:string
 }

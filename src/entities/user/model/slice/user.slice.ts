@@ -11,7 +11,7 @@ interface IUserSlice {
 const initialState: IUserSlice = {
   data: {
     isAuth: false,
-    fullName: '',
+    userName: '',
   },
   status: Status.Init,
 };
@@ -27,10 +27,15 @@ export const userSlice = createSlice({
       state.data.isAuth = true;
     },
     setUserData: (state, action) => {
-      state.data.fullName = action.payload.userName;
-      state.data.center = action.payload.userCenter;
-      state.data.role = action.payload.userRole;
-      state.data.id = action.payload.userId;
+      state.data.userName = action.payload.userName;
+      state.data.centerId = action.payload.centerId;
+      state.data.role = action.payload.role;
+      state.data.roleName = action.payload.roleName;
+      state.data.id = action.payload.id;
+      state.data.isAuth = true;
+    },
+    clearUserData: (state) => {
+      state.data = { isAuth: false };
     },
   },
   extraReducers(builder) {
@@ -40,8 +45,10 @@ export const userSlice = createSlice({
       })
       .addCase(userLogin.fulfilled, (state, action) => {
         state.status = Status.Success;
-        state.data.isAuth = true;
-        state.data.fullName = action.payload.name;
+        const prepareData = {
+          ...state.data, ...action.payload, isAuth: true,
+        };
+        state.data = prepareData;
       })
       .addCase(userLogin.rejected, (state) => {
         state.status = Status.Error;
@@ -51,4 +58,6 @@ export const userSlice = createSlice({
 
 export const userReducer = userSlice.reducer;
 
-export const { setIsLogout, setIsAuth, setUserData } = userSlice.actions;
+export const {
+  setIsLogout, setIsAuth, setUserData, clearUserData,
+} = userSlice.actions;

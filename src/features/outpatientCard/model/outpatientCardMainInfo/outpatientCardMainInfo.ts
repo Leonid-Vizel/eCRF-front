@@ -129,6 +129,11 @@ export const outPatientCardMainInfoForm: FormConstructorModel = {
             type: FieldType.Input,
             name: 'comment',
           },
+          {
+            id: 'remove',
+            title: '',
+            columnButton: 'remove',
+          },
         ],
       },
       {
@@ -233,8 +238,8 @@ export const outPatientCardMainInfoForm: FormConstructorModel = {
             optionType: 'button',
           },
           {
-            id: 'randomState',
-            name: 'randomState',
+            id: 'venerealDisease',
+            name: 'venerealDisease',
             title: 'Рандомизирован',
             dictionaryName: Dictionary.YesNo,
             type: FieldType.DictionaryRadioGroup,

@@ -23,7 +23,7 @@ export const FormQuestionnaire: FC<FormQuestionaryProps> = (props) => {
   return (
     <>
       {rows.map((row) => (
-        <Form.List key={row.toString()} name={formListName}>
+        <Form.List key={formListName} name={formListName}>
           {(listFields) => {
             const uniqueKey = nanoid();
             return (

@@ -5,8 +5,9 @@ export interface IUser {
   firstName?: string
   secondName?: string
   thirdName?: string
-  role?: number
-  fullName?: string
+  role?: string
+  roleName?: string
+  userName?: string
   id?: number
   login?: string
   centerId?: number

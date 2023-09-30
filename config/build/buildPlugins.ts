@@ -4,6 +4,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { BuildOptions } from './types/buildOptions';
 import { enviroments } from './deploy.configs';
+import CopyPlugin from 'copy-webpack-plugin'
 
 export function buildPugins({
   paths,
@@ -16,6 +17,7 @@ export function buildPugins({
   const plugins = [
     new HTMLWebpackPlugin({
       template: paths.html,
+      favicon: paths.favicon
     }),
     new webpack.ProgressPlugin(),
     new MiniCssExtractPlugin({
@@ -27,6 +29,11 @@ export function buildPugins({
       __IS_LOCAL__: JSON.stringify(isLocal),
       __BASE_URL__: JSON.stringify(baseURL),
     }),
+    new CopyPlugin({
+      patterns: [{
+        from: paths.htaccess,
+      }]
+    })
 ]
 
   if(isDev){

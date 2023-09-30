@@ -6,7 +6,6 @@ export const getStationaryCard = createAsyncThunk(
   'stationaryCards/getStationaryCard',
   async (requestData:GetStationaryCardRequest) => {
     const { data } = await getStationaryCardRequest(requestData);
-
     return data;
   },
 );

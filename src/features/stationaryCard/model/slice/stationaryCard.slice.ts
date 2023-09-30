@@ -51,7 +51,9 @@ export const stationaryCardSlice = createSlice({
   extraReducers(builder) {
     builder
       .addCase(getStationaryCard.fulfilled, (state, action) => {
-        state.stationaryMainInfoForm = action.payload;
+        const { outpatientCardId, ...rest } = action.payload;
+        state.cardId = outpatientCardId;
+        state.stationaryMainInfoForm = rest;
       })
       .addCase(modifyStationaryCard.fulfilled, (state, action) => {
         state.stationaryMainInfoForm = action.payload;

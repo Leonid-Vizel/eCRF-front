@@ -20,46 +20,27 @@ export const lifeAnamnesisForm: FormConstructorModel = {
       fields: [
         {
           id: 'anamnesis',
-          title: '',
+          title: 'Анамнез жизни',
           type: FieldType.TextArea,
           name: 'anamnesis',
-          columnStyle: {
-            width: '100%',
-          },
+          // columnStyle: {
+          //   width: '100%',
+          // },
         },
-      ],
-    },
-    {
-      id: 'card',
-      key: 'medicalAnamnesis',
-      title: 'Медицинский анамнез (указать все имеющиеся заболевания и представляющие интерес состояния)',
-      columnCount: 2,
-      fields: [
         {
           id: 'medicalAnamnesis',
-          title: '',
+          title: 'Медицинский анамнез (указать все имеющиеся заболевания и представляющие интерес состояния)',
           type: FieldType.TextArea,
           name: 'medicalAnamnesis',
-          columnStyle: {
-            width: '100%',
-          },
+          // columnStyle: {
+          //   width: '100%',
+          // },
         },
-      ],
-    },
-    {
-      id: 'card',
-      key: 'pharmacologicalAnamnesis',
-      title: 'Фармакологический анамнез (указать все принимаемые препараты и препараты, принимаемые за последние 2 месяца)',
-      columnCount: 2,
-      fields: [
         {
           id: 'pharmacologicalAnamnesis',
-          title: '',
+          title: 'Фармакологический анамнез (указать все принимаемые препараты и препараты, принимаемые за последние 2 месяца)',
           type: FieldType.TextArea,
           name: 'pharmacologicalAnamnesis',
-          columnStyle: {
-            width: '100%',
-          },
         },
       ],
     },
@@ -107,63 +88,39 @@ export const lifeAnamnesisForm: FormConstructorModel = {
     {
       id: 'card',
       key: 'heredity',
-      title: 'Наследственность',
+      title: 'Детальная информация о заболеваниях',
       columnCount: 2,
       fields: [
         {
           id: 'heredity',
-          title: '',
+          title: 'Наследственность',
           type: FieldType.TextArea,
           name: 'heredity',
           columnStyle: {
             width: '100%',
           },
         },
-      ],
-    },
-    {
-      id: 'card',
-      key: 'pastIllnesses',
-      title: 'Перенесенные заболевания',
-      columnCount: 2,
-      fields: [
         {
           id: 'pastIllnesses',
-          title: '',
+          title: 'Перенесенные заболевания',
           type: FieldType.TextArea,
           name: 'pastIllnesses',
           columnStyle: {
             width: '100%',
           },
         },
-      ],
-    },
-    {
-      id: 'card',
-      key: 'accompanyingIllnesses',
-      title: 'Cопутствующие заболевания',
-      columnCount: 2,
-      fields: [
         {
           id: 'accompanyingIllnesses',
-          title: '',
+          title: 'Cопутствующие заболевания',
           type: FieldType.TextArea,
           name: 'accompanyingIllnesses',
           columnStyle: {
             width: '100%',
           },
         },
-      ],
-    },
-    {
-      id: 'card',
-      key: 'surgicalInterventions',
-      title: 'Оперативные вмешательства',
-      columnCount: 2,
-      fields: [
         {
           id: 'surgicalInterventions',
-          title: '',
+          title: 'Оперативные вмешательства',
           type: FieldType.TextArea,
           name: 'surgicalInterventions',
           columnStyle: {

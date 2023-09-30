@@ -5,6 +5,7 @@ export {
   outpatientCardMainInfo,
   getProtocolId,
   getOutpatientCardFormData,
+  getCardId,
 } from './model/selectors/outpatientCardSelectors';
 export { OutpatientCardTabs } from './ui/OutpatientCardTabs/OutpatientCardTabs';
 export {

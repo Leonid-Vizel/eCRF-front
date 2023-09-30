@@ -33,7 +33,7 @@ export const FormTableConstructor: React.FC<FormTableConstructorProps> = ({
 
   const renderFormColumns = columns.map((item) => {
     const {
-      type, name, rules, id, title, dictionaryName, optionType, options, hidden,
+      type, name, rules, id, title, dictionaryName, optionType, options, hidden, mask,
     } = item;
     return ({
       dataIndex: id,
@@ -49,6 +49,7 @@ export const FormTableConstructor: React.FC<FormTableConstructorProps> = ({
           options={options}
           rules={rules}
           hidden={hidden}
+          mask={mask}
         />
       ),
     });

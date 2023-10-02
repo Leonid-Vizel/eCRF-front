@@ -6,6 +6,10 @@
     margin-bottom: 0;
     margin-right: 0;
     width: 100%;
+
+    :global(.ant-form-item-explain) {
+        display: none;
+    }
 }
 
 .responsiveFormItem {

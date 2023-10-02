@@ -46,25 +46,25 @@ export const syphilisExaminationForm: FormConstructorModel = {
       fields: [
         {
           id: 'hairAllopecia',
-          title: 'аллопеций',
+          title: 'Аллопеций',
           type: FieldType.Checkbox,
           name: 'hairAllopecia',
         },
         {
           id: 'hairPapula',
-          title: 'папулы',
+          title: 'Папулы',
           type: FieldType.Checkbox,
           name: 'hairPapula',
         },
         {
           id: 'hairPustula',
-          title: 'пустулы',
+          title: 'Пустулы',
           type: FieldType.Checkbox,
           name: 'hairPustula',
         },
         {
           id: 'hairCrust',
-          title: 'корочки',
+          title: 'Корочки',
           type: FieldType.Checkbox,
           name: 'hairCrust',
         },

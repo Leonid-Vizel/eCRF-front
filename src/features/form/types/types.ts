@@ -40,6 +40,10 @@ export interface FormField {
   columnStyle?: React.CSSProperties
   columnButton?: ColumnButton;
   mask?: string | (string | RegExp)[]
+  inputNumberProps?: {
+    min?: number
+    max?: number
+  }
 }
 
 export interface Hidden {

@@ -1,3 +1,9 @@
 .footerWrapper {
     margin-top: var(--extra-large);
 }
+
+.messageWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--small);
+}

@@ -19,7 +19,6 @@ import ReactInputMask from 'react-input-mask';
 import { DictionaryTreeSelect } from 'features/dictionary';
 import { FieldType, Hidden } from '../../types/types';
 import cls from './Field.module.scss';
-import { getEmptyValidationText } from '../../model/fieldModel/getValidation';
 
 interface FieldProps {
   type: FieldType
@@ -32,17 +31,21 @@ interface FieldProps {
   rules?: Rule[]
   hidden?:Hidden
   mask?:string | (string | RegExp)[]
+  inputNumberProps?: {
+    min?: number
+    max?: number
+  }
 }
 
 export const Field = (props:FieldProps) => {
   const {
-    type, form, name, title, dictionaryName, optionType, options, rules, hidden, mask,
+    type, form, name, title, dictionaryName, optionType, options, rules, hidden, mask, inputNumberProps,
   } = props;
   let field;
   switch (type) {
     case FieldType.Input:
       field = (
-        <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)} className={cls.formItem}>
+        <Form.Item label={title} name={name} rules={rules} className={cls.formItem}>
           {mask
             ? (
               <ReactInputMask mask={mask} onChange={(event) => form.setFieldValue(name, event.target.value)}>
@@ -63,7 +66,7 @@ export const Field = (props:FieldProps) => {
       break;
     case FieldType.Select:
       field = (
-        <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)} className={cls.formItem}>
+        <Form.Item label={title} name={name} rules={rules} className={cls.formItem}>
           <Select
             popupMatchSelectWidth={false}
             className={cls.inputType}
@@ -76,7 +79,7 @@ export const Field = (props:FieldProps) => {
       break;
     case FieldType.DictionarySelect:
       field = (
-        <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)} className={cls.formItem}>
+        <Form.Item label={title} name={name} rules={rules} className={cls.formItem}>
           <DictionarySelect
             className={cls.inputType}
             dictionaryName={dictionaryName}
@@ -89,7 +92,7 @@ export const Field = (props:FieldProps) => {
       field = (
         <Form.Item
           name={name}
-          rules={getEmptyValidationText(rules)}
+          rules={rules}
           valuePropName="checked"
         >
           <Checkbox
@@ -104,7 +107,7 @@ export const Field = (props:FieldProps) => {
     case FieldType.RadioGroup:
 
       field = (
-        <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)} className={cls.formItem}>
+        <Form.Item label={title} name={name} rules={rules} className={cls.formItem}>
           <RadioGroup
             className={cls.inputType}
             options={options}
@@ -118,7 +121,7 @@ export const Field = (props:FieldProps) => {
     case FieldType.DictionaryRadioGroup:
 
       field = (
-        <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)} className={cls.formItem}>
+        <Form.Item label={title} name={name} rules={rules} className={cls.formItem}>
           <DictionaryRadioGroup
             className={cls.inputType}
             onChange={(event) => form.setFieldValue(name, event.target.value)}
@@ -134,7 +137,7 @@ export const Field = (props:FieldProps) => {
         <Form.Item
           label={title}
           name={name}
-          rules={getEmptyValidationText(rules)}
+          rules={rules}
           className={cls.formItem}
           getValueProps={(i) => (i ? { value: dayjs(i) } : { value: i })}
         >
@@ -151,7 +154,7 @@ export const Field = (props:FieldProps) => {
         <Form.Item
           label={title}
           name={name}
-          rules={getEmptyValidationText(rules)}
+          rules={rules}
           className={cls.formItem}
           getValueProps={(i) => (i ? { value: dayjs(i) } : { value: i })}
         >
@@ -167,7 +170,7 @@ export const Field = (props:FieldProps) => {
       break;
     case FieldType.TimePicker:
       field = (
-        <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)} className={cls.formItem}>
+        <Form.Item label={title} name={name} rules={rules} className={cls.formItem}>
           <TimePicker
             className={cls.inputType}
             onChange={(date) => form.setFieldValue(name, date)}
@@ -179,7 +182,7 @@ export const Field = (props:FieldProps) => {
       break;
     case FieldType.TextArea:
       field = (
-        <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)} className={cls.responsiveFormItem}>
+        <Form.Item label={title} name={name} rules={rules} className={cls.responsiveFormItem}>
           <TextArea
             className={cls.inputType}
             onChange={(event) => form.setFieldValue(name, event.target.value)}
@@ -189,8 +192,10 @@ export const Field = (props:FieldProps) => {
       break;
     case FieldType.InputNumber:
       field = (
-        <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)} className={cls.formItem}>
+        <Form.Item label={title} name={name} rules={rules} className={cls.formItem}>
           <InputNumber
+            min={inputNumberProps?.min}
+            max={inputNumberProps?.max}
             className={cls.inputType}
             onChange={(value) => form.setFieldValue(name, value)}
           />
@@ -199,14 +204,14 @@ export const Field = (props:FieldProps) => {
       break;
     case FieldType.Text:
       field = (
-        <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)}>
+        <Form.Item label={title} name={name} rules={rules}>
           <Input readOnly bordered={false} />
         </Form.Item>
       );
       break;
     case FieldType.DictionaryTreeSelect:
       field = (
-        <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)} className={cls.formItem}>
+        <Form.Item label={title} name={name} rules={rules} className={cls.formItem}>
           <DictionaryTreeSelect dictionaryName={dictionaryName} />
         </Form.Item>
       );

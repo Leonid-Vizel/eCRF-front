@@ -41,10 +41,12 @@ export const FormConstructor = (props:FormConstructorProps) => {
 
     const message = (
       <div className={cls.messageWrapper}>
-        {errors.map((error, index) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <span key={index}>{error}</span>
-        )) }
+        {errors.map((error) => {
+          const uniqueKey = nanoid();
+          return (
+            <span key={uniqueKey}>{error}</span>
+          );
+        }) }
       </div>
     );
 

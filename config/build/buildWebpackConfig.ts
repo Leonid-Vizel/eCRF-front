@@ -4,6 +4,7 @@ import buildLoader from './buildLoaders';
 import { buildPugins } from './buildPlugins';
 import buildResolvers from './buildResolvers';
 import buildDevServer from './buildDevServer';
+import path from 'path';
 
 export function buildWebpackConfig(
   options: BuildOptions,
@@ -18,7 +19,15 @@ export function buildWebpackConfig(
       path: paths.build,
       clean: true,
       publicPath: '/',
-      devtoolModuleFilenameTemplate: 'eCRF:///[resource-path]'
+      devtoolModuleFilenameTemplate: 'eCRF:///[resource-path]',
+      assetModuleFilename: (pathData) => {
+        const filepath = path
+        .dirname(pathData.filename)
+        .split("/")
+        .slice(1)
+        .join("/");
+      return `${filepath}/[name].[hash][ext][query]`;
+      }
     },
     plugins: buildPugins(options),
     resolve: buildResolvers(options),

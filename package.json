@@ -6,6 +6,8 @@
     "start:dev": "webpack serve --env port=3000 mode=development stand=dev server=local",
     "build:dev": "webpack --env mode=production stand=dev",
     "build:prod": "webpack --env mode=production stand=prod",
+    "deploy:dev": "npm run build:dev && node deploy.js dev",
+    "deploy:prod": "npm run build:prod && node deploy.js prod",
     "lint": "npx eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "npx eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "style:lint": "npx stylelint **/*.scss",
@@ -29,6 +31,7 @@
     "jspdf": "^2.5.1",
     "jwt-decode": "^3.1.2",
     "lodash": "^4.17.21",
+    "node-ssh": "^13.1.0",
     "react": "^18.2.0",
     "react-autosuggest": "^10.1.0",
     "react-cookie": "^6.1.1",
@@ -39,7 +42,8 @@
     "react-redux": "^8.1.1",
     "react-router-dom": "^6.13.0",
     "react-scroll": "^1.8.9",
-    "sass": "^1.63.4"
+    "sass": "^1.63.4",
+    "walk-sync": "^3.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.22.10",

@@ -37,6 +37,10 @@ export const getCardList = ({ id }: GetCardListRequest) => externalSystemCall<Ge
   endpoint: `Card/List/${id}`,
   method: 'GET',
 });
+export const getStationaryCardList = ({ id }: GetCardListRequest) => externalSystemCall<GetCardListRequest>({
+  endpoint: `StationaryCard/List/${id}`,
+  method: 'GET',
+});
 
 export const createOutpatientCard = (mainIfoData: OutpatientMainInfoForm) => externalSystemCall<OutpatientMainInfoForm>({
   endpoint: 'Card/Create',

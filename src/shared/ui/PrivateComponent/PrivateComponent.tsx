@@ -1,16 +1,15 @@
 import { FC, ReactNode } from 'react';
-import { roleSelector } from 'entities/user';
-import { useAppSelector } from '../../hooks/useAppSelector/useAppSelector';
 
 interface PrivateComponentProps {
-  accessRules: string[]
+  accessRules: string[];
+  roleName: string;
   children: ReactNode;
 }
 
 export const PrivateComponent:FC<PrivateComponentProps> = (props) => {
-  const { children, accessRules } = props;
-  const role = useAppSelector(roleSelector) as unknown as string;
-  if (accessRules.includes(role)) {
+  const { children, accessRules, roleName } = props;
+
+  if (accessRules.includes(roleName)) {
     return children;
   }
   return null;

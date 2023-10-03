@@ -57,7 +57,7 @@ export const outpatientCardSlice = createSlice({
     setEditMode: (state, action) => {
       state.tabPane.editMode = action.payload;
     },
-    setTabName: (state, action) => {
+    setOutpatientCardTabName: (state, action) => {
       state.tabPane.formEntityName = action.payload;
     },
     initOutpatientMainInfo: (state, action) => {
@@ -141,5 +141,5 @@ export const outpatientCardSlice = createSlice({
 export const outpatientCardReducer = outpatientCardSlice.reducer;
 
 export const {
-  setEditMode, initOutpatientMainInfo, setTabName, getFormData, setFormData, setForm,
+  setEditMode, initOutpatientMainInfo, setOutpatientCardTabName, getFormData, setFormData, setForm,
 } = outpatientCardSlice.actions;

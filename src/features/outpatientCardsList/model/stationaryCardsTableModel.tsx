@@ -27,25 +27,17 @@ export const columns: ColumnsType = [
     key: 'snils',
   },
   {
-    title: 'Стационарная карта',
-    // dataIndex: 'statioanaryCard',
-    key: 'stationaryCard',
-    render: (record) => (record?.stationaryId
-      ? <Link to={`/stationaryCards/card/${record?.id}`}>Cтационарная карта</Link>
-      : <Link to={`/stationaryCards/card/${record?.id}`}>Создать стационарную карту</Link>),
-  },
-  {
     title: 'Действия',
     key: 'action',
     render: (_, record:ICard) => (
       <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
         <DownloadForm
-          action={`/api/net/Card/Export/${record?.id}`}
+          action={`/api/net/stationaryCard/Export/${record?.id}`}
           inputValue={`${Cookies.get('token')}`}
           type="text"
           icon={<PrinterOutlined />}
         />
-        <Link to={`/outpatientCards/card/${record?.id}`}>Перейти</Link>
+        <Link to={`/StationaryCards/card/${record?.id}`}>Перейти</Link>
 
       </div>
     ),

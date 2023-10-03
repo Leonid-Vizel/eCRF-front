@@ -7,7 +7,7 @@ interface OutpatientCardPageProps {
   className?: string;
 }
 
-export const OutpatientCardPage:FC<OutpatientCardPageProps> = () => {
+const OutpatientCardPage:FC<OutpatientCardPageProps> = () => {
   const cardId = useAppSelector(getCardId);
   return (
     <>
@@ -16,3 +16,5 @@ export const OutpatientCardPage:FC<OutpatientCardPageProps> = () => {
     </>
   );
 };
+
+export default OutpatientCardPage;

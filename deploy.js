@@ -2,7 +2,7 @@
 const { NodeSSH } = require('node-ssh');
 const path = require('path');
 const walk = require('walk-sync');
-const deployConfig = require('./depoy.configs.js');
+const deployConfig = require('./deploy.configs.js');
 
 let timer = 0;
 

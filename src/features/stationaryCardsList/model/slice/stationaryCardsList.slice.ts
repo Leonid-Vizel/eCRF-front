@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { Status } from 'shared/api';
+import dayJS from 'dayjs';
 import { StationaryCard } from '../../types/stationaryCardTypes';
 import { getStationaryCards } from '../lib/getStationaryCardsAction';
 
@@ -24,8 +25,12 @@ export const stationaryCardsList = createSlice({
       })
       .addCase(getStationaryCards.fulfilled, (state, action) => {
         state.status = Status.Success;
-        const cards = action.payload.map((card) => ({ key: card.id, ...card }));
-        state.cardList = action.payload;
+        const cards = action.payload.map((card) => ({
+          key: card.id,
+          birthDate: dayJS(card.birthDate).format('DD/MM/YYY'),
+          createDate: dayJS(card.createDate).format('DD/MM/YYY'),
+          ...card,
+        }));
         state.cardList = cards;
       })
       .addCase(getStationaryCards.rejected, (state) => {

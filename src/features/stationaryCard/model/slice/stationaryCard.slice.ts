@@ -1,7 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { StationaryCardMainInfoForm } from 'features/stationaryCard/types/stationaryCardMainInfoTypes';
+import { StationaryCardSecondDayForm } from 'features/stationaryCard/types/stationaryCardSecondDayTypes';
 import { getStationaryCard } from '../lib/getStationaryCardAction';
 import { modifyStationaryCard } from '../lib/modifyStationaryCardAction';
+import { getStationaryCardSecondDay } from '../lib/getStationaryCardSecondDayAction';
 
 interface StationaryCardSliceTabs {
   cardId?: number
@@ -11,6 +13,7 @@ interface StationaryCardSliceTabs {
     formEntityName: string
   };
   stationaryMainInfoForm?: StationaryCardMainInfoForm
+  stationaryCardSecondDayForm?: StationaryCardSecondDayForm
 }
 
 const initialState: StationaryCardSliceTabs = {
@@ -51,12 +54,15 @@ export const stationaryCardSlice = createSlice({
   extraReducers(builder) {
     builder
       .addCase(getStationaryCard.fulfilled, (state, action) => {
-        const { outpatientCardId, ...rest } = action.payload;
-        state.cardId = outpatientCardId;
+        const { stationaryCardId, ...rest } = action.payload;
+        state.cardId = stationaryCardId;
         state.stationaryMainInfoForm = rest;
       })
       .addCase(modifyStationaryCard.fulfilled, (state, action) => {
         state.stationaryMainInfoForm = action.payload;
+      })
+      .addCase(getStationaryCardSecondDay.fulfilled, (state, action) => {
+        state.stationaryCardSecondDayForm = action.payload;
       });
   },
 });

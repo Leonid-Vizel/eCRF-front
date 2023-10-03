@@ -170,7 +170,13 @@ export const Field = (props:FieldProps) => {
       break;
     case FieldType.TimePicker:
       field = (
-        <Form.Item label={title} name={name} rules={rules} className={cls.formItem}>
+        <Form.Item
+          label={title}
+          name={name}
+          rules={rules}
+          className={cls.formItem}
+          getValueProps={(i) => (i ? { value: dayjs(i) } : { value: i })}
+        >
           <TimePicker
             className={cls.inputType}
             onChange={(date) => form.setFieldValue(name, date)}

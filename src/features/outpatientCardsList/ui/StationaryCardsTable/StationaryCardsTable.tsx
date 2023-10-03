@@ -6,26 +6,26 @@ import { useAppDispatch } from 'shared/hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from 'shared/hooks/useAppSelector/useAppSelector';
 import {
   documentLoadingSelector,
-  outpatientCardsSelector,
 } from 'entities/outpatientCards';
-import { columns } from '../model/outpatientCardMeta';
-import cls from './OutpatientCardsTable.module.scss';
-import { getOutpatientCards } from '../model/getOutpatientCards';
+import { stationaryCardsSelector } from 'entities/stationaryCards';
+import cls from './StationaryCardsTable.module.scss';
+import { CardsList, getCardsList } from '../../model/lib/getCardsList';
+import { columns } from '../../model/stationaryCardsTableModel';
 
-export const OutpatientCardsTable = () => {
+export const StationaryCardsTable = () => {
   const dispatch = useAppDispatch();
   const { id } = useParams();
-  const outpatientCards = useAppSelector(outpatientCardsSelector);
+  const stationaryCards = useAppSelector(stationaryCardsSelector);
   const isLoading = useAppSelector(documentLoadingSelector);
 
   useEffect(() => {
-    dispatch(getOutpatientCards({ id }));
+    dispatch(getCardsList({ entity: CardsList.STATIONARY_CARDS_LIST, id }));
   }, [dispatch, id]);
 
   return (
     <Spinner spinning={isLoading} wrapperClassName={cls.spinner}>
       <Table
-        dataSource={outpatientCards}
+        dataSource={stationaryCards}
         columns={columns}
         pagination={{
           hideOnSinglePage: true,

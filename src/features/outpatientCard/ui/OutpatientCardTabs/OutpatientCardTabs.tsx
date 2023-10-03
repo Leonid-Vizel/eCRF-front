@@ -4,7 +4,7 @@ import { TabPane, TabPaneButtons } from 'widgets/TabPane';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from 'app/providers/StoreProvider';
 import { outpatientCardTabsModel } from '../../model/outpatientCardTabsModel/outpatientCardTabsModel';
-import { setEditMode, setTabName } from '../../model/slice/outpatientCard.slice';
+import { setEditMode, setOutpatientCardTabName } from '../../model/slice/outpatientCard.slice';
 import { cardTabPaneSelector, getCardId } from '../../model/selectors/outpatientCardSelectors';
 
 interface OutpatientCardTabsProps {
@@ -18,7 +18,7 @@ export const OutpatientCardTabs:FC<OutpatientCardTabsProps> = () => {
 
   const onTabPaneChange = useCallback(
     (key: string) => {
-      dispatch(setTabName(key));
+      dispatch(setOutpatientCardTabName(key));
     },
     [dispatch],
   );

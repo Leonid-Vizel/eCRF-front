@@ -1,1 +1,1 @@
-export { OutpatientCardsPage } from './ui/OutpatientCardsPage';
+export { OutpatientCardsPageAsync as OutpatientCardsPage } from './ui/OutpatientCardsPage.async';

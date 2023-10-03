@@ -13,7 +13,7 @@ export {
   outpatientCardSlice,
   setEditMode,
   initOutpatientMainInfo,
-  setTabName,
+  setOutpatientCardTabName,
   setFormData,
   setForm,
   getFormData,

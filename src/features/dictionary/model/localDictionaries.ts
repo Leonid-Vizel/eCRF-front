@@ -10,20 +10,18 @@ const yesNoDictionary = [
 ];
 
 const yesNoNotSuitableDictionary = [
-  [
-    {
-      value: 0,
-      label: 'Да',
-    },
-    {
-      value: 1,
-      label: 'Нет',
-    },
-    {
-      value: 2,
-      label: 'Не применимо',
-    },
-  ],
+  {
+    value: 0,
+    label: 'Да',
+  },
+  {
+    value: 1,
+    label: 'Нет',
+  },
+  {
+    value: 2,
+    label: 'Не применимо',
+  },
 ];
 
 export const LocalDictionary = {

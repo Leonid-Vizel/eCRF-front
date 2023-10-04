@@ -1,4 +1,3 @@
-import { Dictionary } from 'entities/dictionary';
 import { FieldType, FormConstructorModel } from 'features/form/types/types';
 
 export const stationaryCardFirstDayForm: FormConstructorModel = {
@@ -14,8 +13,7 @@ export const stationaryCardFirstDayForm: FormConstructorModel = {
         {
           id: 'systolicPressure',
           title: 'Систолическое давление',
-          type: FieldType.DictionarySelect,
-          dictionaryName: Dictionary.YesNo,
+          type: FieldType.InputNumber,
           name: 'systolicPressure',
           inputNumberProps: {
             min: 90,

@@ -13,11 +13,16 @@ interface FormQuestionaryProps {
   formListName: string;
   dataSource: unknown;
   rows: any;
+  entities: {
+    rootEntityName: string;
+    entityName: string;
+    formEntityName: string;
+  }
 }
 
 export const FormQuestionnaire: FC<FormQuestionaryProps> = (props) => {
   const {
-    dataSource, rows, formListName, form,
+    dataSource, rows, formListName, form, entities,
   } = props;
 
   return (
@@ -49,6 +54,8 @@ export const FormQuestionnaire: FC<FormQuestionaryProps> = (props) => {
                                   dictionaryName={testData[field.value][key]?.dictionaryName}
                                   form={form}
                                   type={key}
+                                  entities={entities}
+                                  formListName={formListName}
                                 />
                               </div>
                             ))}

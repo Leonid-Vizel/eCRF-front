@@ -38,11 +38,17 @@ interface FieldProps {
     min?: number
     max?: number
   }
+  entities: {
+    rootEntityName: string;
+    entityName: string;
+    formEntityName: string;
+  }
+  formListName: string
 }
 
 export const Field = (props:FieldProps) => {
   const {
-    type, form, name, title, dictionaryName, optionType, options, rules, hidden, mask, inputNumberProps,
+    type, form, name, title, dictionaryName, optionType, options, rules, hidden, mask, inputNumberProps, entities, formListName,
   } = props;
   let field;
   switch (type) {
@@ -87,6 +93,9 @@ export const Field = (props:FieldProps) => {
             className={cls.inputType}
             dictionaryName={dictionaryName}
             onChange={(value) => form.setFieldValue(name, value)}
+            entities={entities}
+            formListName={formListName}
+            name={name}
           />
         </Form.Item>
       );
@@ -130,6 +139,9 @@ export const Field = (props:FieldProps) => {
             onChange={(event) => form.setFieldValue(name, event.target.value)}
             dictionaryName={dictionaryName}
             optionType={optionType}
+            entities={entities}
+            formListName={formListName}
+            name={name}
           />
 
         </Form.Item>

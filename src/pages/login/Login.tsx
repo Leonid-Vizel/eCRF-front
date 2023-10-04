@@ -12,7 +12,7 @@ const Login = () => {
   useEffect(() => {
     if (isAuth) {
       if (!__IS_LOCAL__) defaultRedirect('api/net/Protocols');
-      if (__IS_LOCAL__) navigate('/document/1');
+      if (__IS_LOCAL__) navigate('/outpatienCards/1');
     }
   }, [isAuth, navigate]);
 

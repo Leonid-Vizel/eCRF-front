@@ -85,6 +85,11 @@ export const FormConstructor = (props:FormConstructorProps) => {
                 externalData={formData}
                 addRemoveButtons={addRemoveButtons}
                 columnCount={columnCount}
+                entities={{
+                  rootEntityName,
+                  entityName,
+                  formEntityName,
+                }}
               />
             </Card>
           );

@@ -1,6 +1,6 @@
 import { DefaultOptionType } from 'antd/es/select';
 import { Dictionary, getDictionarySelector, isLoadingSelector } from 'entities/dictionary';
-import { getExternalDictionary } from 'features/dictionary/model/getDictionary';
+import { getDictionary } from 'features/dictionary/model/getDictionary';
 import { useEffect } from 'react';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from 'shared/hooks/useAppSelector/useAppSelector';
@@ -25,7 +25,7 @@ export const DictionarySelect = (props:DictionarySelectProps) => {
 
   useEffect(() => {
     if (!data) {
-      dispatch(getExternalDictionary({ dictionaryName }));
+      dispatch(getDictionary(dictionaryName));
     }
   }, [dictionaryName, dispatch, data]);
 

@@ -4,6 +4,7 @@ import { StationaryCardSecondDayForm } from 'features/stationaryCard/types/stati
 import { getStationaryCard } from '../lib/getStationaryCardAction';
 import { modifyStationaryCard } from '../lib/modifyStationaryCardAction';
 import { getStationaryCardSecondDay } from '../lib/getStationaryCardSecondDayAction';
+import { getStationaryCardFirstDay } from '../lib/getStationaryCardFirstDayAction';
 
 interface StationaryCardSliceTabs {
   cardId?: number
@@ -14,6 +15,7 @@ interface StationaryCardSliceTabs {
   };
   stationaryMainInfoForm?: StationaryCardMainInfoForm
   stationaryCardSecondDayForm?: StationaryCardSecondDayForm
+  stationaryCardFirstDayForm?: StationaryCardSecondDayForm
 }
 
 const initialState: StationaryCardSliceTabs = {
@@ -63,6 +65,9 @@ export const stationaryCardSlice = createSlice({
       })
       .addCase(getStationaryCardSecondDay.fulfilled, (state, action) => {
         state.stationaryCardSecondDayForm = action.payload;
+      })
+      .addCase(getStationaryCardFirstDay.fulfilled, (state, action) => {
+        state.stationaryCardFirstDayForm = action.payload;
       });
   },
 });

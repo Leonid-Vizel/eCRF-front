@@ -17,8 +17,11 @@ import { TimePicker } from 'shared/ui/TimePicker/TimePicker';
 import dayjs from 'dayjs';
 import { DictionaryTreeSelect } from 'features/dictionary';
 import ReactInputMask from 'react-input-mask';
+import utc from 'dayjs/plugin/utc';
 import { FieldType, Hidden } from '../../types/types';
 import cls from './Field.module.scss';
+
+dayjs.extend(utc);
 
 interface FieldProps {
   type: FieldType
@@ -156,7 +159,7 @@ export const Field = (props:FieldProps) => {
           name={name}
           rules={rules}
           className={cls.formItem}
-          getValueProps={(i) => (i ? { value: dayjs(i) } : { value: i })}
+          getValueProps={(i) => (i ? { value: dayjs.utc(i) } : { value: i })}
         >
           <DatePicker
             className={cls.inputType}

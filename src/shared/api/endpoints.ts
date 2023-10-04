@@ -3,6 +3,7 @@ import { CriteriaForm } from 'features/outpatientCard/types/criteriaTypes';
 import { PhysicalExaminationForm } from 'features/outpatientCard/types/physicalExaminationTypes';
 import { DayForm } from 'features/outpatientCard/types/dayTypes';
 import { StationaryCardMainInfoForm } from 'features/stationaryCard/types/stationaryCardMainInfoTypes';
+import { StationaryCardSecondDayForm } from 'features/stationaryCard/types/stationaryCardSecondDayTypes';
 import { externalSystemCall } from './base';
 import {
   GetUserRequest,
@@ -20,6 +21,8 @@ import {
   GetCriteriaRequest,
   GetDayRequest,
   GetStationaryCardRequest,
+  GetStationaryCardSecondDayRequest,
+  GetStationaryCardFirstDayRequest,
 } from './types';
 
 export const loginRequest = (data: LoginRequest) => externalSystemCall<LoginRequest>({
@@ -165,6 +168,36 @@ export const modifyStationaryCardRequest = (
   data: StationaryCardMainInfoForm,
 ) => externalSystemCall<StationaryCardMainInfoForm>({
   endpoint: 'StationaryCard/Modify',
+  method: 'POST',
+  data,
+});
+
+export const getStationaryCardSecondDayRequest = (
+  { cardId }: GetStationaryCardSecondDayRequest,
+) => externalSystemCall<GetStationaryCardSecondDayRequest>({
+  endpoint: `StationaryCard/Second/Modify/${cardId}`,
+  method: 'GET',
+});
+
+export const modifyStationaryCardSecondDayRequest = (
+  data: StationaryCardSecondDayForm,
+) => externalSystemCall<StationaryCardSecondDayForm>({
+  endpoint: 'StationaryCard/Second/Modify',
+  method: 'POST',
+  data,
+});
+
+export const getStationaryCardFirstDayRequest = (
+  { cardId }: GetStationaryCardFirstDayRequest,
+) => externalSystemCall<GetStationaryCardFirstDayRequest>({
+  endpoint: `StationaryCard/First/Modify/${cardId}`,
+  method: 'GET',
+});
+
+export const modifyStationaryCardFirstDayRequest = (
+  data: StationaryCardSecondDayForm,
+) => externalSystemCall<StationaryCardSecondDayForm>({
+  endpoint: 'StationaryCard/First/Modify',
   method: 'POST',
   data,
 });

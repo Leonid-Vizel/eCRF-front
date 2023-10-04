@@ -30,6 +30,7 @@ export const OutpatientCardsTable = () => {
         pagination={{
           hideOnSinglePage: true,
         }}
+        rowKey="id"
       />
     </Spinner>
   );

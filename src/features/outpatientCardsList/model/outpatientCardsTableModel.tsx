@@ -4,6 +4,7 @@ import { ICard } from 'entities/outpatientCards';
 import Cookies from 'js-cookie';
 import { Link } from 'react-router-dom';
 import { DownloadForm } from 'shared/ui/DownloadForm/DownloadForm';
+import dayJS from 'dayjs';
 
 export const columns: ColumnsType = [
   {
@@ -15,11 +16,19 @@ export const columns: ColumnsType = [
     title: 'Дата рождения',
     dataIndex: 'birthDate',
     key: 'birthDate',
+    render(_, record: ICard) {
+      const { birthDate } = record;
+      return birthDate ? `${dayJS(birthDate).format('DD.MM.YYYY')}` : '';
+    },
   },
   {
     title: 'Дата создания',
     dataIndex: 'createDate',
     key: 'createDate',
+    render(_, record: ICard) {
+      const { createDate } = record;
+      return createDate ? `${dayJS(createDate).format('DD.MM.YYYY')}` : '';
+    },
   },
   {
     title: 'СНИЛС',

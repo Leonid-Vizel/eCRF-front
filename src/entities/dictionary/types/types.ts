@@ -33,6 +33,9 @@ export enum Dictionary {
   StationaryHospitalisation = 'StationaryHospitalisation',
   DiseaseOutcome = 'DiseaseOutcome',
   WorkAbility = 'WorkAbility',
+  COVIDExpressTest = 'COVIDExpressTest',
+  RandomState = 'RandomState',
+  YesNoNotSuitable = 'YesNoNotSuitable',
 }
 
 export interface DictionaryData {
@@ -92,4 +95,7 @@ export interface IDictionaryState {
   [Dictionary.StationaryHospitalisation]?: IExternalDictionary
   [Dictionary.DiseaseOutcome]?: IExternalDictionary
   [Dictionary.WorkAbility]?: IExternalDictionary
+  [Dictionary.COVIDExpressTest]?: IExternalDictionary
+  [Dictionary.RandomState]?: IExternalDictionary
+  [Dictionary.YesNoNotSuitable]?: DictionaryModel
 }

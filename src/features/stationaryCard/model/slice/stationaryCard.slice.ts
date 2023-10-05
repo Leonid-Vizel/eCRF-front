@@ -20,7 +20,7 @@ interface StationaryCardSliceTabs {
 
 const initialState: StationaryCardSliceTabs = {
   isLoading: false,
-  tabPane: { editMode: false, formEntityName: '' },
+  tabPane: { editMode: false, formEntityName: 'stationaryMainInfoForm' },
 };
 
 export const stationaryCardSlice = createSlice({

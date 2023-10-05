@@ -1,10 +1,11 @@
-import { PrinterOutlined } from '@ant-design/icons';
+import { FileAddOutlined, PrinterOutlined } from '@ant-design/icons';
 import { ColumnsType } from 'antd/es/table';
 import { ICard } from 'entities/outpatientCards';
-import Cookies from 'js-cookie';
 import { Link } from 'react-router-dom';
 import { DownloadForm } from 'shared/ui/DownloadForm/DownloadForm';
 import dayJS from 'dayjs';
+import { NavigateButton } from 'shared/ui/NavigateButton/NavigateButton';
+import { Tooltip } from 'shared/ui/Tooltip/Tooltip';
 
 export const columns: ColumnsType = [
   {
@@ -42,12 +43,18 @@ export const columns: ColumnsType = [
       <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
         <DownloadForm
           action={`/api/net/Card/Export/${record?.id}`}
-          inputValue={`${Cookies.get('token')}`}
           type="text"
           icon={<PrinterOutlined />}
         />
+        {!record.stationaryId
+        && (
+        <Tooltip
+          title="Создать стационарную карту"
+        >
+          <NavigateButton type="text" to={`/stationaryCards/card/${record?.id}`} icon={<FileAddOutlined />} />
+        </Tooltip>
+        )}
         <Link to={`/outpatientCards/card/${record?.id}`}>Перейти</Link>
-
       </div>
     ),
   },

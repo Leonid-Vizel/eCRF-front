@@ -1,5 +1,4 @@
 import { ColumnsType } from 'antd/es/table';
-import Cookies from 'js-cookie';
 import { Link } from 'react-router-dom';
 import { DownloadForm } from 'shared/ui/DownloadForm/DownloadForm';
 import { StationaryCard } from '../types/stationaryCardTypes';
@@ -32,7 +31,6 @@ export const columns: ColumnsType = [
       <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
         <DownloadForm
           action={`/api/net/Card/Export/${record?.id}`}
-          inputValue={`${Cookies.get('token')}`}
           title="Напечатать"
         />
         <Link to={`/stationaryCards/card/${record?.id}`}>Перейти</Link>

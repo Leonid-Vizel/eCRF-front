@@ -11,7 +11,8 @@
             "extensions": [".ts", ".tsx", ".js"],
             "root": ["./src"],
             "alias": {
-              "src": "/src"
+              "src": "/src",
+              "root": "."
             }
           }
         ]

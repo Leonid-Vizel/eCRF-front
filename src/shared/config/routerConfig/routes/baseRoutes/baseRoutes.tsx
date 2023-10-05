@@ -1,5 +1,5 @@
 import { Route, RouteProps } from 'react-router-dom';
-import { Login } from '../../../../../pages/Login/Login';
+import { Login } from 'pages/Login';
 import { outpatientCardsRoute } from '../outpatientCardsRoutes/outpatientCardsRoutesConfig';
 import { stationaryCardsRoute } from '../stationaryCardsRoutes/stationaryCardsRoutesConfig';
 import { DefaultRedirect } from '../../../../ui/DefaultRedireact/DefaultRedirect';

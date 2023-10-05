@@ -1,5 +1,5 @@
 import { Route, RouteProps } from 'react-router-dom';
-import { Login } from 'pages/Login/Login';
+import { Login } from '../../../../../pages/Login/Login';
 import { outpatientCardsRoute } from '../outpatientCardsRoutes/outpatientCardsRoutesConfig';
 import { stationaryCardsRoute } from '../stationaryCardsRoutes/stationaryCardsRoutesConfig';
 import { DefaultRedirect } from '../../../../ui/DefaultRedireact/DefaultRedirect';
@@ -53,7 +53,7 @@ export const baseRoute: Record<BaseRoutesList, RouteProps> = {
   },
   [BaseRoutesList.LOGIN]: {
     path: baseRoutePaths.login,
-    children: <Route element={<Login />} path={baseRoutePaths.login} />,
+    element: <Login />,
   },
   [BaseRoutesList.NOT_FOUND]: {
     path: baseRoutePaths.notFound,

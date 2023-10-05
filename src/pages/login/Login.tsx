@@ -5,7 +5,7 @@ import { useAuth } from 'app/providers/AccessProviders/lib/AuthContext';
 import { defaultRedirect } from 'shared/lib/defaultRedirect';
 import cls from './Login.module.scss';
 
-const Login = () => {
+export const Login = () => {
   const navigate = useNavigate();
   const { isAuth } = useAuth();
 
@@ -22,5 +22,3 @@ const Login = () => {
     </div>
   );
 };
-
-export default Login;

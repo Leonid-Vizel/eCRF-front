@@ -7,7 +7,7 @@ export default function buildResolvers(options: BuildOptions): webpack.ResolveOp
     extensions: ['.tsx', '.ts', '.js'],
     preferAbsolute: true,
     modules: [options.paths.src, 'node_modules'],
-    alias: {src: path.resolve(__dirname, 'src'),},
+    alias: {src: path.resolve(__dirname, 'src')},
     mainFiles: ['index'],
   };
 }

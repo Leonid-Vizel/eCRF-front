@@ -3,18 +3,22 @@ const { NodeSSH } = require('node-ssh');
 const path = require('path');
 const walk = require('walk-sync');
 const deployConfig = require('./deploy.configs.js');
+const dotenv = require('dotenv')
 
+dotenv.config()
 let timer = 0;
-
 deploy();
 
 async function deploy() {
+    const stand = process.env.STAND || process.argv[2]
     const ssh = new NodeSSH();
-    const configs = deployConfig[process.argv[2]];
+    const configs = deployConfig[stand];
     const buildPath = getBuildPath();
     const buildFiles = getEntries(buildPath);
     const publicPath = getPublicPath('');
     const reactPath = `${publicPath}/${configs.relativePath}`;
+
+    const password = process.env.PASSWORD || deployConfig[stand].password
 
     while (true) {
         let connection;
@@ -22,7 +26,7 @@ async function deploy() {
             connection = await ssh.connect({
                 host: configs.host,
                 username: configs.username,
-                password: configs.password,
+                password: password,
                 port: configs.port,
             });
 

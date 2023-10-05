@@ -17,8 +17,11 @@ import { TimePicker } from 'shared/ui/TimePicker/TimePicker';
 import dayjs from 'dayjs';
 import ReactInputMask from 'react-input-mask';
 import { DictionaryTreeSelect } from 'features/dictionary';
+import utc from 'dayjs/plugin/utc';
 import { FieldType, Hidden } from '../../types/types';
 import cls from './Field.module.scss';
+
+dayjs.extend(utc);
 
 interface FieldProps {
   type: FieldType
@@ -35,11 +38,17 @@ interface FieldProps {
     min?: number
     max?: number
   }
+  entities: {
+    rootEntityName: string;
+    entityName: string;
+    formEntityName: string;
+  }
+  formListName: string
 }
 
 export const Field = (props:FieldProps) => {
   const {
-    type, form, name, title, dictionaryName, optionType, options, rules, hidden, mask, inputNumberProps,
+    type, form, name, title, dictionaryName, optionType, options, rules, hidden, mask, inputNumberProps, entities, formListName,
   } = props;
   let field;
   switch (type) {
@@ -84,6 +93,9 @@ export const Field = (props:FieldProps) => {
             className={cls.inputType}
             dictionaryName={dictionaryName}
             onChange={(value) => form.setFieldValue(name, value)}
+            entities={entities}
+            formListName={formListName}
+            name={name}
           />
         </Form.Item>
       );
@@ -127,6 +139,9 @@ export const Field = (props:FieldProps) => {
             onChange={(event) => form.setFieldValue(name, event.target.value)}
             dictionaryName={dictionaryName}
             optionType={optionType}
+            entities={entities}
+            formListName={formListName}
+            name={name}
           />
 
         </Form.Item>
@@ -156,7 +171,7 @@ export const Field = (props:FieldProps) => {
           name={name}
           rules={rules}
           className={cls.formItem}
-          getValueProps={(i) => (i ? { value: dayjs(i) } : { value: i })}
+          getValueProps={(i) => (i ? { value: dayjs.utc(i) } : { value: i })}
         >
           <DatePicker
             className={cls.inputType}
@@ -175,7 +190,7 @@ export const Field = (props:FieldProps) => {
           name={name}
           rules={rules}
           className={cls.formItem}
-          getValueProps={(i) => (i ? { value: dayjs(i) } : { value: i })}
+          getValueProps={(i) => (i ? { value: dayjs.utc(i) } : { value: i })}
         >
           <TimePicker
             className={cls.inputType}
@@ -218,7 +233,12 @@ export const Field = (props:FieldProps) => {
     case FieldType.DictionaryTreeSelect:
       field = (
         <Form.Item label={title} name={name} rules={rules} className={cls.formItem}>
-          <DictionaryTreeSelect dictionaryName={dictionaryName} />
+          <DictionaryTreeSelect
+            dictionaryName={dictionaryName}
+            entities={entities}
+            formListName={formListName}
+            name={name}
+          />
         </Form.Item>
       );
       break;

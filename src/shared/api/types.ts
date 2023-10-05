@@ -76,3 +76,7 @@ export interface GetStationaryCardRequest {
 export interface GetStationaryCardSecondDayRequest {
   cardId: number
 }
+
+export interface GetStationaryCardFirstDayRequest {
+  cardId: number
+}

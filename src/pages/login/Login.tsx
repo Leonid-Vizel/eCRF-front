@@ -5,14 +5,14 @@ import { useAuth } from 'app/providers/AccessProviders/lib/AuthContext';
 import { defaultRedirect } from 'shared/lib/defaultRedirect';
 import cls from './Login.module.scss';
 
-const Login = () => {
+export const Login = () => {
   const navigate = useNavigate();
   const { isAuth } = useAuth();
 
   useEffect(() => {
     if (isAuth) {
       if (!__IS_LOCAL__) defaultRedirect('api/net/Protocols');
-      if (__IS_LOCAL__) navigate('/document/1');
+      if (__IS_LOCAL__) navigate('/outpatientCards/1');
     }
   }, [isAuth, navigate]);
 
@@ -22,5 +22,3 @@ const Login = () => {
     </div>
   );
 };
-
-export default Login;

@@ -22,6 +22,7 @@ import {
   GetDayRequest,
   GetStationaryCardRequest,
   GetStationaryCardSecondDayRequest,
+  GetStationaryCardFirstDayRequest,
 } from './types';
 
 export const loginRequest = (data: LoginRequest) => externalSystemCall<LoginRequest>({
@@ -182,6 +183,21 @@ export const modifyStationaryCardSecondDayRequest = (
   data: StationaryCardSecondDayForm,
 ) => externalSystemCall<StationaryCardSecondDayForm>({
   endpoint: 'StationaryCard/Second/Modify',
+  method: 'POST',
+  data,
+});
+
+export const getStationaryCardFirstDayRequest = (
+  { cardId }: GetStationaryCardFirstDayRequest,
+) => externalSystemCall<GetStationaryCardFirstDayRequest>({
+  endpoint: `StationaryCard/First/Modify/${cardId}`,
+  method: 'GET',
+});
+
+export const modifyStationaryCardFirstDayRequest = (
+  data: StationaryCardSecondDayForm,
+) => externalSystemCall<StationaryCardSecondDayForm>({
+  endpoint: 'StationaryCard/First/Modify',
   method: 'POST',
   data,
 });

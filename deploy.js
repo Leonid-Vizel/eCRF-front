@@ -11,6 +11,7 @@ deploy();
 
 async function deploy() {
     const stand = process.env.STAND || process.argv[2]
+    console.log(stand);
     const ssh = new NodeSSH();
     const configs = deployConfig[stand];
     const buildPath = getBuildPath();

@@ -175,6 +175,13 @@ export const stationaryMainInfoForm: FormConstructorModel = {
             hidden: hideField('hospitalisationInfo', 'reason', 0),
           },
           {
+            id: 'stationaryTransportationHours',
+            title: 'Через сколько часов доставлен в стационар?',
+            type: FieldType.InputNumber,
+            name: 'stationaryTransportationHours',
+            hidden: hideField('hospitalisationInfo', 'reason', 0),
+          },
+          {
             id: 'referringDiagnosis',
             title: 'Диагноз направившего учреждения',
             type: FieldType.Input,

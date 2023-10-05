@@ -24,4 +24,4 @@ jobs:
       - name: Install modules
         run: npm install
       - name: Build production project
-        run: npm run console
+        run: npm run deploy:dev

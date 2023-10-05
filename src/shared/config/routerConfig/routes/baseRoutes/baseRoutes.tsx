@@ -53,7 +53,7 @@ export const baseRoute: Record<BaseRoutesList, RouteProps> = {
   },
   [BaseRoutesList.LOGIN]: {
     path: baseRoutePaths.login,
-    element: <Login />,
+    children: <Route element={<Login />} path={baseRoutePaths.login} />,
   },
   [BaseRoutesList.NOT_FOUND]: {
     path: baseRoutePaths.notFound,

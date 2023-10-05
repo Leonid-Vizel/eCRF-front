@@ -41,7 +41,7 @@ interface OutpatientCardSliceTabs {
 
 const initialState: OutpatientCardSliceTabs = {
   isLoading: false,
-  tabPane: { editMode: false, formEntityName: '' },
+  tabPane: { editMode: false, formEntityName: 'outpatientMainInfoForm' },
   syphilisExaminationForm: {
     card: [{}],
   },

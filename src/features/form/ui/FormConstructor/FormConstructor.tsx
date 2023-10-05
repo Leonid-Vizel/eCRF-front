@@ -55,6 +55,7 @@ export const FormConstructor = (props:FormConstructorProps) => {
 
   return (
     <Form
+      id={formEntityName}
       form={form}
       onFinish={onFinish}
       layout="vertical"

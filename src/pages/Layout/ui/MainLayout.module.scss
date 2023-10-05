@@ -1,12 +1,19 @@
+.app {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
 .Layout {
+    flex: 1 0 auto;
+    width: 100%;
     max-width: 1200px;
     margin: var(--extra-large) auto;
-    /* stylelint-disable-next-line max-line-length */
-    min-height: calc(100vh - var(--navbar-height) - var(--footer-height) - var(--go-back-button-height) - (var(--small) + var(--extra-large)) * 2);
     overflow: auto;
 }
 
 .goBackButton {
+    width: fit-content;
     height: var(--go-back-button-height);
     margin: var(--small);
 }

@@ -9,10 +9,10 @@ function App() {
     dispatch(retrieveDataFromCookie());
   }, []);
   return (
-    <>
-      <h1>hello world</h1>
-      <AppRouter />
-    </>
+  // <>
+  // <h1>hello world</h1>
+    <AppRouter />
+  // </>
   );
 }
 export default App;

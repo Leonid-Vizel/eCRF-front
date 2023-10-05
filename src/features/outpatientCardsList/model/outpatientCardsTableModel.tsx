@@ -1,7 +1,6 @@
 import { FileAddOutlined, PrinterOutlined } from '@ant-design/icons';
 import { ColumnsType } from 'antd/es/table';
 import { ICard } from 'entities/outpatientCards';
-import Cookies from 'js-cookie';
 import { Link } from 'react-router-dom';
 import { DownloadForm } from 'shared/ui/DownloadForm/DownloadForm';
 import dayJS from 'dayjs';
@@ -44,7 +43,6 @@ export const columns: ColumnsType = [
       <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
         <DownloadForm
           action={`/api/net/Card/Export/${record?.id}`}
-          inputValue={`${Cookies.get('token')}`}
           type="text"
           icon={<PrinterOutlined />}
         />

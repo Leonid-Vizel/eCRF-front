@@ -1,4 +1,3 @@
-import Cookies from 'js-cookie';
 import { Button } from 'shared/ui/Button';
 import { Card } from 'shared/ui/Card/Card';
 import { DownloadForm } from 'shared/ui/DownloadForm/DownloadForm';
@@ -35,7 +34,6 @@ export const FileCard:FC<FileCardProps> = (props) => {
         {download && (
         <DownloadForm
           action={downloadAction}
-          inputValue={`${Cookies.get('token')}`}
           title="Скачать"
         />
         )}

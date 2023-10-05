@@ -55,6 +55,7 @@ export const FormConstructor = (props:FormConstructorProps) => {
 
   return (
     <Form
+      id={formEntityName}
       form={form}
       onFinish={onFinish}
       layout="vertical"
@@ -85,6 +86,11 @@ export const FormConstructor = (props:FormConstructorProps) => {
                 externalData={formData}
                 addRemoveButtons={addRemoveButtons}
                 columnCount={columnCount}
+                entities={{
+                  rootEntityName,
+                  entityName,
+                  formEntityName,
+                }}
               />
             </Card>
           );

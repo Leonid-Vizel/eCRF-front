@@ -237,21 +237,6 @@ export const outPatientCardMainInfoForm: FormConstructorModel = {
             type: FieldType.DictionaryRadioGroup,
             optionType: 'button',
           },
-          {
-            id: 'venerealDisease',
-            name: 'venerealDisease',
-            title: 'Рандомизирован',
-            dictionaryName: Dictionary.YesNo,
-            type: FieldType.DictionaryRadioGroup,
-            optionType: 'button',
-          },
-          {
-            id: 'randomNumber',
-            name: 'randomNumber',
-            title: 'Рандомизационный номер',
-            type: FieldType.Input,
-            mask: Mask.RandomNumber,
-          },
         ],
       },
       {

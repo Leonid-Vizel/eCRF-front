@@ -43,30 +43,50 @@ export const dayForm: FormConstructorModel = {
           title: 'Систолическое давление',
           type: FieldType.InputNumber,
           name: 'systolicPressure',
+          inputNumberProps: {
+            min: 90,
+            max: 139,
+          },
         },
         {
           id: 'diastolicPressure',
           title: 'Диастолическое давление',
           type: FieldType.InputNumber,
           name: 'diastolicPressure',
+          inputNumberProps: {
+            min: 55,
+            max: 95,
+          },
         },
         {
           id: 'heartRate',
           title: 'ЧСС',
           type: FieldType.InputNumber,
           name: 'heartRate',
+          inputNumberProps: {
+            min: 50,
+            max: 95,
+          },
         },
         {
           id: 'respiratoryRate',
           title: 'ЧДД',
           type: FieldType.InputNumber,
           name: 'respiratoryRate',
+          inputNumberProps: {
+            min: 12,
+            max: 21,
+          },
         },
         {
           id: 'temperature',
           title: 'Температура тела',
           type: FieldType.InputNumber,
           name: 'temperature',
+          inputNumberProps: {
+            min: 25,
+            max: 41,
+          },
         },
       ],
     },
@@ -75,7 +95,7 @@ export const dayForm: FormConstructorModel = {
       key: 'table',
       title: 'Физикальный осмотр',
       fieldsLayout: 'table',
-      tableWithButton: false,
+      addRemoveButtons: false,
       columnCount: 5,
       fields: [
         {

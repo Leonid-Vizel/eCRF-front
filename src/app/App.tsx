@@ -7,9 +7,12 @@ function App() {
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(retrieveDataFromCookie());
-  });
+  }, []);
   return (
+  // <>
+  // <h1>hello world</h1>
     <AppRouter />
+  // </>
   );
 }
 export default App;

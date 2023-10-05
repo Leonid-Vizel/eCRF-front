@@ -3,12 +3,14 @@ import { BuildOptions } from './types/buildOptions';
 import { enviroments } from './deploy.configs';
 
 export default function buildDevServer(options: BuildOptions): DevServerConfiguration {
-  console.log('devServer', enviroments[options.stand].api);
   return {
     port: options.port,
     open: true,
     historyApiFallback: true,
-    hot: true,
+    // hot: true,
+    allowedHosts: [
+      'all'
+    ],
     static: {
       directory: (__dirname)
     },

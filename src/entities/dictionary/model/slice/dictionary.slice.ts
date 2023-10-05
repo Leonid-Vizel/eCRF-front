@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { Dictionary, IDictionaryState } from 'entities/dictionary/types/types';
 import { getExternalDictionary } from 'features/dictionary/model/getDictionary';
+import { LocalDictionary } from 'features/dictionary/model/localDictionaries';
 import { Status } from 'shared/api';
 
 const initialDictionary = {
@@ -8,7 +9,7 @@ const initialDictionary = {
   status: Status.Init,
 };
 
-export const localDictionaries = [Dictionary.YesNo];
+export const localDictionaries = Object.keys(LocalDictionary);
 
 const initialState: IDictionaryState = {
   [Dictionary.Race]: initialDictionary,
@@ -34,6 +35,16 @@ const initialState: IDictionaryState = {
   [Dictionary.WeightMeasurementType]: initialDictionary,
   [Dictionary.Work]: initialDictionary,
   [Dictionary.InsuranceOrganisation]: initialDictionary,
+  [Dictionary.OtherTreatments]: initialDictionary,
+  [Dictionary.TransportationType]: initialDictionary,
+  [Dictionary.RussiaSubject]: initialDictionary,
+  [Dictionary.StationaryReason]: initialDictionary,
+  [Dictionary.StationaryEmergencyReason]: initialDictionary,
+  [Dictionary.StationaryHospitalisation]: initialDictionary,
+  [Dictionary.DiseaseOutcome]: initialDictionary,
+  [Dictionary.WorkAbility]: initialDictionary,
+  [Dictionary.COVIDExpressTest]: initialDictionary,
+  [Dictionary.RandomState]: initialDictionary,
 };
 
 export const dictionarySlice = createSlice({
@@ -41,24 +52,7 @@ export const dictionarySlice = createSlice({
   initialState,
   reducers: {
     setLocalDictionary: (state, action) => {
-      switch (action.payload) {
-        case Dictionary.YesNo:
-          state[action.payload] = {
-            data: [
-              {
-                value: 0,
-                label: 'Да',
-              },
-              {
-                value: 1,
-                label: 'Нет',
-              },
-            ],
-          };
-          break;
-        default:
-          break;
-      }
+      state[action.payload] = { data: LocalDictionary[action.payload] };
     },
   },
   extraReducers(builder) {

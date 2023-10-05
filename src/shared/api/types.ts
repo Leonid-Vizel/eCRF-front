@@ -68,3 +68,15 @@ export interface GetDayRequest {
   cardId: number
   day: number
 }
+
+export interface GetStationaryCardRequest {
+  cardId: number
+}
+
+export interface GetStationaryCardSecondDayRequest {
+  cardId: number
+}
+
+export interface GetStationaryCardFirstDayRequest {
+  cardId: number
+}

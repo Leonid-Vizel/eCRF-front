@@ -1,11 +1,15 @@
 .colItem {
-    height: 100%;
-    min-width: 200px;
+    display: none;
+
+    &:has(div) {
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+    }
 }
 
 .rowItem {
-    align-items: end;
-    flex-wrap: wrap;
+    display: grid;
     width: 100%;
     margin-bottom: var(--small);
     margin-top: var(--medium);

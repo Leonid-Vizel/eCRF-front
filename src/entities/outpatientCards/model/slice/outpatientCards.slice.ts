@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getOutpatientCards } from 'features/outpatientCardsList/model/getOutpatientCards';
+import { getOutpatientCards } from 'features/outpatientCardsList/model/lib/getCardsList';
 import { Status } from 'shared/api';
 import { ICard } from '../../types/types';
 

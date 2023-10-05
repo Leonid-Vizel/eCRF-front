@@ -1,15 +1,18 @@
 import Cookies from 'js-cookie';
-import { setUserData } from '../model/slice/login.slice';
+import { setUserData } from '../model/slice/user.slice';
 
 export const retrieveDataFromCookie = () => (dispatch) => {
   const userName = Cookies.get('token_name');
-  const userId = Cookies.get('token_id');
-  const userRole = Cookies.get('token_rolename');
-  const userCenter = Cookies.get('token_centerId');
+  const id = Cookies.get('token_id');
+  const role = Cookies.get('token_role');
+  const roleName = Cookies.get('token_rolename');
+  const centerId = Cookies.get('token_centerId');
+
   dispatch(setUserData({
     userName,
-    userId,
-    userRole,
-    userCenter,
+    id,
+    role,
+    centerId,
+    roleName,
   }));
 };

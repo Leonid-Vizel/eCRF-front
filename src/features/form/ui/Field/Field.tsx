@@ -15,9 +15,13 @@ import { DatePicker } from 'shared/ui/DatePicker/DatePicker';
 import { TextArea } from 'shared/ui/TextArea/TextArea';
 import { TimePicker } from 'shared/ui/TimePicker/TimePicker';
 import dayjs from 'dayjs';
+import { DictionaryTreeSelect } from 'features/dictionary';
+import ReactInputMask from 'react-input-mask';
+import utc from 'dayjs/plugin/utc';
 import { FieldType, Hidden } from '../../types/types';
 import cls from './Field.module.scss';
-import { getEmptyValidationText } from '../../model/fieldModel/getValidation';
+
+dayjs.extend(utc);
 
 interface FieldProps {
   type: FieldType
@@ -29,28 +33,51 @@ interface FieldProps {
   name: string | string[]
   rules?: Rule[]
   hidden?:Hidden
+  mask?:string | (string | RegExp)[]
+  inputNumberProps?: {
+    min?: number
+    max?: number
+  }
+  entities: {
+    rootEntityName: string;
+    entityName: string;
+    formEntityName: string;
+  }
+  formListName: string
 }
 
 export const Field = (props:FieldProps) => {
   const {
-    type, form, name, title, dictionaryName, optionType, options, rules, hidden,
+    type, form, name, title, dictionaryName, optionType, options, rules, hidden, mask, inputNumberProps, entities, formListName,
   } = props;
   let field;
   switch (type) {
     case FieldType.Input:
       field = (
-        <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)} className={cls.formItem}>
-          <Input
-            className={cls.inputType}
-            onChange={(event) => form.setFieldValue(name, event.target.value)}
-          />
+        <Form.Item label={title} name={name} rules={rules} className={cls.formItem}>
+          {mask
+            ? (
+              <ReactInputMask mask={mask} onChange={(event) => form.setFieldValue(name, event.target.value)}>
+                <Input
+                  className={cls.inputType}
+
+                />
+              </ReactInputMask>
+            )
+            : (
+              <Input
+                className={cls.inputType}
+                onChange={(event) => form.setFieldValue(name, event.target.value)}
+              />
+            )}
         </Form.Item>
       );
       break;
     case FieldType.Select:
       field = (
-        <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)} className={cls.formItem}>
+        <Form.Item label={title} name={name} rules={rules} className={cls.formItem}>
           <Select
+            popupMatchSelectWidth={false}
             className={cls.inputType}
             options={options}
             onChange={(value) => form.setFieldValue(name, value)}
@@ -61,18 +88,25 @@ export const Field = (props:FieldProps) => {
       break;
     case FieldType.DictionarySelect:
       field = (
-        <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)} className={cls.formItem}>
+        <Form.Item label={title} name={name} rules={rules} className={cls.formItem}>
           <DictionarySelect
             className={cls.inputType}
             dictionaryName={dictionaryName}
             onChange={(value) => form.setFieldValue(name, value)}
+            entities={entities}
+            formListName={formListName}
+            name={name}
           />
         </Form.Item>
       );
       break;
     case FieldType.Checkbox:
       field = (
-        <Form.Item initialValue={false} name={name} rules={getEmptyValidationText(rules)} valuePropName="checked">
+        <Form.Item
+          name={name}
+          rules={rules}
+          valuePropName="checked"
+        >
           <Checkbox
             onChange={(event) => form.setFieldValue(name, event.target.checked)}
             className={cls.checkbox}
@@ -85,7 +119,7 @@ export const Field = (props:FieldProps) => {
     case FieldType.RadioGroup:
 
       field = (
-        <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)} className={cls.formItem}>
+        <Form.Item label={title} name={name} rules={rules} className={cls.formItem}>
           <RadioGroup
             className={cls.inputType}
             options={options}
@@ -99,12 +133,15 @@ export const Field = (props:FieldProps) => {
     case FieldType.DictionaryRadioGroup:
 
       field = (
-        <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)} className={cls.formItem}>
+        <Form.Item label={title} name={name} rules={rules} className={cls.formItem}>
           <DictionaryRadioGroup
             className={cls.inputType}
             onChange={(event) => form.setFieldValue(name, event.target.value)}
             dictionaryName={dictionaryName}
             optionType={optionType}
+            entities={entities}
+            formListName={formListName}
+            name={name}
           />
 
         </Form.Item>
@@ -115,13 +152,14 @@ export const Field = (props:FieldProps) => {
         <Form.Item
           label={title}
           name={name}
-          rules={getEmptyValidationText(rules)}
+          rules={rules}
           className={cls.formItem}
           getValueProps={(i) => (i ? { value: dayjs(i) } : { value: i })}
         >
           <DatePicker
             className={cls.inputType}
             onChange={(date) => form.setFieldValue(name, date)}
+            format="DD/MM/YYYY"
           />
         </Form.Item>
       );
@@ -131,14 +169,14 @@ export const Field = (props:FieldProps) => {
         <Form.Item
           label={title}
           name={name}
-          rules={getEmptyValidationText(rules)}
+          rules={rules}
           className={cls.formItem}
-          getValueProps={(i) => (i ? { value: dayjs(i) } : { value: i })}
+          getValueProps={(i) => (i ? { value: dayjs.utc(i) } : { value: i })}
         >
           <DatePicker
             className={cls.inputType}
             onChange={(date) => form.setFieldValue(name, date)}
-            format="MM/DD/YYYY HH:mm"
+            format="DD/MM/YYYY HH:mm"
             placeholder="Выберите дату и время"
             showTime
           />
@@ -147,7 +185,13 @@ export const Field = (props:FieldProps) => {
       break;
     case FieldType.TimePicker:
       field = (
-        <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)} className={cls.formItem}>
+        <Form.Item
+          label={title}
+          name={name}
+          rules={rules}
+          className={cls.formItem}
+          getValueProps={(i) => (i ? { value: dayjs.utc(i) } : { value: i })}
+        >
           <TimePicker
             className={cls.inputType}
             onChange={(date) => form.setFieldValue(name, date)}
@@ -159,7 +203,7 @@ export const Field = (props:FieldProps) => {
       break;
     case FieldType.TextArea:
       field = (
-        <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)}>
+        <Form.Item label={title} name={name} rules={rules} className={cls.responsiveFormItem}>
           <TextArea
             className={cls.inputType}
             onChange={(event) => form.setFieldValue(name, event.target.value)}
@@ -169,8 +213,10 @@ export const Field = (props:FieldProps) => {
       break;
     case FieldType.InputNumber:
       field = (
-        <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)}>
+        <Form.Item label={title} name={name} rules={rules} className={cls.formItem}>
           <InputNumber
+            min={inputNumberProps?.min}
+            max={inputNumberProps?.max}
             className={cls.inputType}
             onChange={(value) => form.setFieldValue(name, value)}
           />
@@ -179,8 +225,20 @@ export const Field = (props:FieldProps) => {
       break;
     case FieldType.Text:
       field = (
-        <Form.Item label={title} name={name} rules={getEmptyValidationText(rules)}>
+        <Form.Item label={title} name={name} rules={rules}>
           <Input readOnly bordered={false} />
+        </Form.Item>
+      );
+      break;
+    case FieldType.DictionaryTreeSelect:
+      field = (
+        <Form.Item label={title} name={name} rules={rules} className={cls.formItem}>
+          <DictionaryTreeSelect
+            dictionaryName={dictionaryName}
+            entities={entities}
+            formListName={formListName}
+            name={name}
+          />
         </Form.Item>
       );
       break;

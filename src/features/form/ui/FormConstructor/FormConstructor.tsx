@@ -2,9 +2,12 @@ import { Form, Space } from 'antd';
 import { Card } from 'shared/ui/Card/Card';
 import chunk from 'lodash/chunk';
 import { useForm } from 'antd/es/form/Form';
-import { ReactNode, useEffect } from 'react';
+import React, { ReactNode, useCallback, useEffect } from 'react';
 import { Title } from 'shared/ui/Typography/Typography';
 import { RootState, useAppSelector } from 'app/providers/StoreProvider';
+import { nanoid } from '@reduxjs/toolkit';
+import { openErrorNotification } from 'shared/lib/notifications/notifications';
+import { ValidateErrorEntity } from 'rc-field-form/lib/interface';
 import { FormConstructorModel } from '../../types/types';
 import { FormLayout } from '../FormLayout/FormLayout';
 import cls from './FormConstructor.module.scss';
@@ -33,24 +36,45 @@ export const FormConstructor = (props:FormConstructorProps) => {
     form.setFieldsValue(formData);
   }, [formData, form]);
 
+  const onFinishFailed = useCallback((errorInfo:ValidateErrorEntity) => {
+    const errors = errorInfo.errorFields.map((field) => field.errors).filter((error) => error[0]);
+
+    const message = (
+      <div className={cls.messageWrapper}>
+        {errors.map((error) => {
+          const uniqueKey = nanoid();
+          return (
+            <span key={uniqueKey}>{error}</span>
+          );
+        }) }
+      </div>
+    );
+
+    openErrorNotification(message);
+  }, []);
+
   return (
     <Form
+      id={formEntityName}
       form={form}
       onFinish={onFinish}
       layout="vertical"
       initialValues={formData}
       disabled={!editMode}
       name={formEntityName}
+      scrollToFirstError={{ behavior: 'smooth', block: 'center' }}
+      onFinishFailed={onFinishFailed}
     >
       {header}
       <Space direction="vertical" style={{ display: 'flex' }}>
         {cards.map((card) => {
           const {
-            fields, fieldsLayout, columnCount = 4, nestedFields, tableWithButton,
+            fields, fieldsLayout, columnCount = 4, nestedFields, addRemoveButtons,
           } = card;
           const rows = fields ? chunk(fields, columnCount) : chunk(nestedFields, columnCount);
+          const uniqueKey = nanoid();
           return (
-            <Card key={card.key}>
+            <Card key={uniqueKey}>
               <Title level={4}>
                 {card.title}
               </Title>
@@ -60,7 +84,13 @@ export const FormConstructor = (props:FormConstructorProps) => {
                 rows={rows}
                 formListName={card.id}
                 externalData={formData}
-                tableWithButton={tableWithButton}
+                addRemoveButtons={addRemoveButtons}
+                columnCount={columnCount}
+                entities={{
+                  rootEntityName,
+                  entityName,
+                  formEntityName,
+                }}
               />
             </Card>
           );

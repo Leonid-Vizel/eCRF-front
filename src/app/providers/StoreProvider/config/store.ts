@@ -1,6 +1,7 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { combineReducers, configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import { dictionarySlice } from 'entities/dictionary';
 import { outpatientCards } from 'entities/outpatientCards';
+import { stationaryCards } from 'entities/stationaryCards';
 import { userSlice } from 'entities/user';
 
 export function createReduxStore() {
@@ -8,9 +9,14 @@ export function createReduxStore() {
     outpatientCards,
     [userSlice.name]: userSlice.reducer,
     [dictionarySlice.name]: dictionarySlice.reducer,
+    stationaryCards,
+  });
+  const customizedMiddleware = getDefaultMiddleware({
+    serializableCheck: false,
   });
   const store = configureStore({
     reducer: rootReducer,
+    middleware: customizedMiddleware,
   });
   return store;
 }

@@ -15,16 +15,93 @@ interface FormLayoutProps {
   fieldsLayout: string
   formListName: string
   externalData: unknown
-  tableWithButton: boolean
+  addRemoveButtons: boolean
+  columnCount: number
+  entities: {
+    rootEntityName: string;
+    entityName: string;
+    formEntityName: string;
+  }
 }
 
+const FormRow = (props:any) => {
+  const {
+    rows, formListName, columnCount, form, entities,
+  } = props;
+  return (
+    <>
+      {rows.map((row) => {
+        const uniqueRowKey = nanoid();
+        return (
+          <Form.List key={uniqueRowKey} name={formListName}>
+            {(listFields) => {
+              const uniqueListFieldsKey = nanoid();
+              return (
+                <div key={uniqueListFieldsKey}>
+                  {listFields.map((listField) => {
+                    const uniqueFieldKey = nanoid();
+                    return (
+                      <Row
+                        key={uniqueFieldKey}
+                        style={{ gridTemplateColumns: `repeat(${columnCount}, 1fr)` }}
+                        gutter={8}
+                        className={cls.rowItem}
+                      >
+                        {row.map((field) => {
+                          const {
+                            id,
+                            title,
+                            name,
+                            rules,
+                            type,
+                            dictionaryName,
+                            optionType,
+                            options,
+                            hidden,
+                            columnStyle,
+                            mask,
+                            inputNumberProps,
+                          } = field;
+                          return (
+                            <Col style={columnStyle} key={id} className={cls.colItem}>
+                              <Field
+                                type={type}
+                                form={form}
+                                name={[listField.name, name]}
+                                title={title}
+                                dictionaryName={dictionaryName}
+                                optionType={optionType}
+                                options={options}
+                                rules={rules}
+                                hidden={hidden}
+                                mask={mask}
+                                inputNumberProps={inputNumberProps}
+                                entities={entities}
+                                formListName={formListName}
+                              />
+                            </Col>
+                          );
+                        })}
+                      </Row>
+                    );
+                  })}
+                </div>
+              );
+            }}
+          </Form.List>
+        );
+      })}
+    </>
+  );
+};
+
 export const FormLayout:FC<FormLayoutProps> = ({
-  form, rows, fieldsLayout, formListName, externalData, tableWithButton = true,
+  form, rows, fieldsLayout, formListName, externalData, addRemoveButtons = true, columnCount, entities,
 }) => {
   switch (fieldsLayout) {
     case 'questionnaire':
       return (
-        <FormQuestionnaire formListName={formListName} form={form} rows={rows} dataSource={externalData} />
+        <FormQuestionnaire entities={entities} formListName={formListName} form={form} rows={rows} dataSource={externalData} />
       );
     case 'table': {
       return (
@@ -36,54 +113,15 @@ export const FormLayout:FC<FormLayoutProps> = ({
               tableDataSource={data}
               add={add}
               remove={remove}
-              tableWithButton={tableWithButton}
+              addRemoveButtons={addRemoveButtons}
+              entities={entities}
+              formListName={formListName}
             />
           )}
         </Form.List>
       );
     }
     default:
-      return (
-        <>
-          {rows.map((row) => (
-            <Form.List key={row.toString()} name={formListName}>
-              {(listFields) => {
-                const uniqueKey = nanoid();
-                return (
-                  <div key={uniqueKey}>
-                    {listFields.map((listField) => {
-                      const uniquelowKey = nanoid();
-                      return (
-                        <Row key={uniquelowKey} gutter={8} className={cls.rowItem}>
-                          {row.map((field) => {
-                            const {
-                              id, title, name, rules, type, dictionaryName, optionType, options, hidden, columnStyle,
-                            } = field;
-                            return (
-                              <Col style={columnStyle} key={id} className={cls.colItem}>
-                                <Field
-                                  type={type}
-                                  form={form}
-                                  name={[listField.name, name]}
-                                  title={title}
-                                  dictionaryName={dictionaryName}
-                                  optionType={optionType}
-                                  options={options}
-                                  rules={rules}
-                                  hidden={hidden}
-                                />
-                              </Col>
-                            );
-                          })}
-                        </Row>
-                      );
-                    })}
-                  </div>
-                );
-              }}
-            </Form.List>
-          ))}
-        </>
-      );
+      return <FormRow rows={rows} formListName={formListName} columnCount={columnCount} form={form} entities={entities} />;
   }
 };

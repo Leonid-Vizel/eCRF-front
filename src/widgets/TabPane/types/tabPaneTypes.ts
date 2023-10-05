@@ -1,7 +1,9 @@
 import { ButtonHTMLType } from 'antd/es/button';
 import { RootState } from 'app/providers/StoreProvider';
+import { ButtonProps } from 'shared/ui/Button/Button';
 
-export interface TabPaneButtons {
+export interface TabPaneButtons extends ButtonProps {
+  title?: string
   form?: string
   htmlType?: ButtonHTMLType
   id: string;

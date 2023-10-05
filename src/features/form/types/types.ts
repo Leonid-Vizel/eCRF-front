@@ -4,15 +4,18 @@ import { RadioGroupOptionType } from 'antd/es/radio';
 import { DefaultOptionType } from 'antd/es/select';
 import { Dictionary } from 'entities/dictionary';
 
+export type FieldsLayout = 'default' | 'table' | 'questionnaire';
+export type ColumnButton = 'remove';
+
 export interface FormCards {
   id: string
   key: string
   title: string
-  fieldsLayout?: 'default' | 'table' | 'questionnaire'
+  fieldsLayout?: FieldsLayout
   fields?: FormField[]
   nestedFields?: NestedFields[]
   columnCount?: number
-  tableWithButton?: boolean
+  addRemoveButtons?: boolean
 }
 
 export interface NestedFields {
@@ -21,19 +24,26 @@ export interface NestedFields {
   value: string
 }
 
+// todo: рабить на разные интерфейсы, для таблиц и для филдов
 export interface FormField {
-  id:string
-  name:string
-  title:string
-  type:FieldType
+  id: string
+  title: string
+  name?: string
+  type?: FieldType
   dictionaryName?: Dictionary
-  rules?:Rule[]
-  options?:CheckboxOptionType[] & DefaultOptionType[]
-  optionType?:RadioGroupOptionType
+  rules?: Rule[]
+  options?: CheckboxOptionType[] & DefaultOptionType[]
+  optionType?: RadioGroupOptionType
   rowType?: string
-  hidden?:Hidden
-  columnStyle?:React.CSSProperties
-  action?: (args:unknown)=>string
+  hidden?: Hidden
+  action?: (args:unknown) => string
+  columnStyle?: React.CSSProperties
+  columnButton?: ColumnButton;
+  mask?: string | (string | RegExp)[]
+  inputNumberProps?: {
+    min?: number
+    max?: number
+  }
 }
 
 export interface Hidden {
@@ -54,6 +64,7 @@ export enum FieldType {
   TextArea = 'textArea',
   InputNumber = 'inputNumber',
   Text = 'text',
+  DictionaryTreeSelect = 'dictionaryTreeSelect',
 }
 
 export interface FormConstructorModel {

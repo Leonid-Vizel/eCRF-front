@@ -10,7 +10,6 @@ import { Popover } from 'shared/ui/Popover/Popover';
 import { Header } from 'shared/ui/Header/Header';
 import { defaultRedirect } from 'shared/lib/defaultRedirect';
 import { PrivateComponent } from 'shared/ui/PrivateComponent/PrivateComponent';
-import { GoBackButton } from '../../GoBackButton/ui/GoBackButton';
 import cls from './Navbar.module.scss';
 import { userCardContent } from '../model/navbarModel';
 
@@ -31,7 +30,6 @@ export const Navbar = (props: NavbarProps) => {
       <div style={{ cursor: 'pointer' }} onClick={() => defaultRedirect(`${__BASE_URL__}/api/net/Protocols`)}>
         <Logo className={cls.logo} />
       </div>
-      <GoBackButton classNames={cls.goBackButton} />
       <PrivateComponent accessRules={availableToAuthorizedUser} roleName={roleName}>
         <div className={cls.menuItemsWrapper}>
           <div className={cls.nameInfoWrapper}>

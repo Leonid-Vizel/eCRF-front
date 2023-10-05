@@ -1,6 +1,12 @@
 .Layout {
     max-width: 1200px;
     margin: var(--extra-large) auto;
-    min-height: calc(100vh - var(--navbar-height) - var(--footer-height));
+    /* stylelint-disable-next-line max-line-length */
+    min-height: calc(100vh - var(--navbar-height) - var(--footer-height) - var(--go-back-button-height) - (var(--small) + var(--extra-large)) * 2);
     overflow: auto;
+}
+
+.goBackButton {
+    height: var(--go-back-button-height);
+    margin: var(--small);
 }

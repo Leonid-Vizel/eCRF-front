@@ -15,6 +15,12 @@ interface FormTableConstructorProps {
   add: () => void
   remove?: (index: number | number[]) => void
   addRemoveButtons?: boolean
+  formListName: string
+  entities: {
+    rootEntityName: string;
+    entityName: string;
+    formEntityName: string;
+  }
 }
 
 export const FormTableConstructor: React.FC<FormTableConstructorProps> = ({
@@ -22,6 +28,8 @@ export const FormTableConstructor: React.FC<FormTableConstructorProps> = ({
   form,
   tableDataSource,
   addRemoveButtons,
+  entities,
+  formListName,
   add,
   remove,
 }) => {
@@ -67,6 +75,8 @@ export const FormTableConstructor: React.FC<FormTableConstructorProps> = ({
           hidden={hidden}
           mask={mask}
           inputNumberProps={inputNumberProps}
+          entities={entities}
+          formListName={formListName}
         />
       ),
     });

@@ -1,5 +1,5 @@
 import { PlusOutlined } from '@ant-design/icons';
-import { FC, useCallback } from 'react';
+import { FC, useCallback, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch/useAppDispatch';
 import { TabPane, TabPaneButtons } from 'widgets/TabPane';
@@ -16,6 +16,7 @@ export const OutpatientCardsListTabs:FC<OutpatientCardTabsProps> = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { id } = useParams();
+  const [tab, setTab] = useState(CardsList.OUTPATIENT_CARDS_LIST);
 
   const onClick = useCallback(() => {
     navigate('/outpatientCards/card/create');
@@ -25,6 +26,7 @@ export const OutpatientCardsListTabs:FC<OutpatientCardTabsProps> = () => {
 
   const onTabPaneChange = useCallback(
     (key: string) => {
+      setTab(key as CardsList);
       dispatch(getCardsList({ entity: key as CardsList, id }));
     },
     [dispatch],
@@ -45,7 +47,7 @@ export const OutpatientCardsListTabs:FC<OutpatientCardTabsProps> = () => {
     <TabPane
       entityName={outpatientCardsListTabsModel.entityName}
       items={outpatientCardsListTabsModel.items}
-      buttons={tabPaneButtons}
+      buttons={tab === CardsList.OUTPATIENT_CARDS_LIST ? tabPaneButtons : null}
       onChange={onTabPaneChange}
     />
   );

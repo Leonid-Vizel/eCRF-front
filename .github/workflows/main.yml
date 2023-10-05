@@ -1,35 +1,27 @@
-name: CD
-
-# Controls when the workflow will run
+name: DEPLOY_DEV
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
-  push:
-    branches: [ "master" ]
   pull_request:
-    branches: [ "master" ]
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+    branches:
+      - dev
+    types: [closed]
 jobs:
-  # This workflow contains a single job called "build"
-  deploy:
+  pipeline_pull_request:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
+    strategy:
+      matrix:
+        node-version:
+          - 18.x
+    env:
+        STAND: ${{ vars.STAND_DEV }}
+        PASSWORD: ${{ secrets.DEV_SERVER_PASSWORD }}
     steps:
-      - name: deploy
-        uses: D3rHase/ssh-command-action@v0.2.2
+      - uses: actions/checkout@v2
+      - name: Starting Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
         with:
-          host: ${{secrets.SSH_HOST}}
-          user: ${{secrets.SSH_USER}}
-          private_key: ${{secrets.SSH_PRIVATE_KEY}}
-          command: |
-            cd eCRF/eCRF-front;
-            ls;
-            git checkout master;
-            git pull;
-            cd ..;
-            docker ps;
-            docker compose --file docker-compose.yml up --build --force-recreate -d front;
-      
+          node-version: ${{ matrix.node-version }}
+      - name: Install modules
+        run: npm install
+      - name: Build production project
+        run: npm run console

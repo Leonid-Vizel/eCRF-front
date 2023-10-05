@@ -8,6 +8,7 @@
     "build:prod": "webpack --env mode=production stand=prod",
     "deploy": "node deploy.js",
     "deploy:dev": "npm run build:dev && npm run deploy",
+    "deploy:prod": "npm run build:prod && npm run deploy",
     "deploy:dev:manual": "npm run build:dev && node deploy.js dev",
     "deploy:prod:manual": "npm run build:prod && node deploy.js prod",
     "lint": "npx eslint . --ext .js,.jsx,.ts,.tsx",

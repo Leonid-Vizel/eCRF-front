@@ -233,7 +233,12 @@ export const Field = (props:FieldProps) => {
     case FieldType.DictionaryTreeSelect:
       field = (
         <Form.Item label={title} name={name} rules={rules} className={cls.formItem}>
-          <DictionaryTreeSelect dictionaryName={dictionaryName} />
+          <DictionaryTreeSelect
+            dictionaryName={dictionaryName}
+            entities={entities}
+            formListName={formListName}
+            name={name}
+          />
         </Form.Item>
       );
       break;

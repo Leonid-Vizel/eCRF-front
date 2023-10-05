@@ -4,3 +4,7 @@
     min-height: calc(100vh - var(--navbar-height) - var(--footer-height));
     overflow: auto;
 }
+
+.goBackButton {
+    margin: var(--small);
+}

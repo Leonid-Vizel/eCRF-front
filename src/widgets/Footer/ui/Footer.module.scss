@@ -1,5 +1,5 @@
 .Footer {
-    height: var(--footer-height);
+    height: var(--header-height);
     padding: 20px;
     background: linear-gradient(to right, var(--secondary-blue) 0%, var(--primary-blue) 100%);
     display: flex;
@@ -16,4 +16,12 @@
 
 .text {
     color: var(--primary-white);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.developerLogo {
+    width: 100px;
+    height: auto;
 }

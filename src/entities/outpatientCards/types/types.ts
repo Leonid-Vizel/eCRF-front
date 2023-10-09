@@ -11,4 +11,5 @@ export interface ICard extends IBase {
   snils:string
   protocolId:string
   stationaryId:string
+  outpatientId:number
 }

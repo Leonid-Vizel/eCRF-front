@@ -33,7 +33,7 @@ export const columns: ColumnsType = [
           action={`/api/net/Card/Export/${record?.id}`}
           title="Напечатать"
         />
-        <Link to={`/stationaryCards/card/${record?.id}`}>Перейти</Link>
+        <Link to={`/stationaryCards/card/${record?.outpatientId}`}>Перейти</Link>
       </div>
     ),
   },

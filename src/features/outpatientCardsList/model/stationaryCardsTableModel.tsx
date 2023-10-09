@@ -44,7 +44,7 @@ export const columns: ColumnsType = [
           type="text"
           icon={<PrinterOutlined />}
         />
-        <Link to={`/StationaryCards/card/${record?.id}`}>Перейти</Link>
+        <Link to={`/StationaryCards/card/${record?.stationaryId}`}>Перейти</Link>
 
       </div>
     ),

@@ -148,6 +148,19 @@ export const lifeAnamnesisForm: FormConstructorModel = {
           name: 'tobaccoDailyPack',
           hidden: hideField('card', 'tobaccoSmoking', true),
         },
+        {
+          id: 'electroTobaccoSmoking',
+          title: 'Употребление электронного табака',
+          type: FieldType.Checkbox,
+          name: 'electroTobaccoSmoking',
+        },
+        {
+          id: 'electroTobaccoSmokingComment',
+          title: 'Как часто?',
+          type: FieldType.Input,
+          name: 'electroTobaccoSmokingComment',
+          hidden: hideField('card', 'electroTobaccoSmoking', true),
+        },
       ],
     },
     {
@@ -190,6 +203,13 @@ export const lifeAnamnesisForm: FormConstructorModel = {
           name: 'alcoholWeekAmount',
           hidden: alcoholHidden,
         },
+        {
+          id: 'commentsToAlcohol',
+          title: 'Комментарий',
+          type: FieldType.Input,
+          name: 'commentsToAlcohol',
+          hidden: alcoholHidden,
+        },
       ],
     },
     {
@@ -216,6 +236,13 @@ export const lifeAnamnesisForm: FormConstructorModel = {
           title: 'Употребляет на данный момент',
           type: FieldType.Input,
           name: 'narcoticsCurrent',
+          hidden: narcoticsHidden,
+        },
+        {
+          id: 'commentsToDrugs',
+          title: 'Комментарий',
+          type: FieldType.Input,
+          name: 'commentsToDrugs',
           hidden: narcoticsHidden,
         },
       ],

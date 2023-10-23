@@ -24,7 +24,7 @@ export const stationaryCardSecondDayForm: FormConstructorModel = {
       fields: [
         {
           id: 'systolicPressure',
-          title: 'Систолическое давление',
+          title: 'Систолическое давление (мм. рт. ст.)',
           type: FieldType.InputNumber,
           name: 'systolicPressure',
           inputNumberProps: {
@@ -44,7 +44,7 @@ export const stationaryCardSecondDayForm: FormConstructorModel = {
         },
         {
           id: 'heartRate',
-          title: 'ЧСС',
+          title: 'Частота сердечных сокращений (уд/мин)',
           type: FieldType.InputNumber,
           name: 'heartRate',
           inputNumberProps: {
@@ -54,7 +54,7 @@ export const stationaryCardSecondDayForm: FormConstructorModel = {
         },
         {
           id: 'respiratoryRate',
-          title: 'ЧДД',
+          title: 'Частота дыхательных движений (дв/мин)',
           type: FieldType.InputNumber,
           name: 'respiratoryRate',
           inputNumberProps: {

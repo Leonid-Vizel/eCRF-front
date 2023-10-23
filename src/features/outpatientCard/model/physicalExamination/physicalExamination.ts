@@ -1,4 +1,3 @@
-import { Dictionary } from 'entities/dictionary';
 import { FieldType, FormConstructorModel } from 'features/form/types/types';
 
 export const physicalExaminationForm: FormConstructorModel = {
@@ -28,15 +27,8 @@ export const physicalExaminationForm: FormConstructorModel = {
           name: 'height',
         },
         {
-          id: 'weightMeasurement',
-          title: 'Мера измерения',
-          type: FieldType.DictionarySelect,
-          dictionaryName: Dictionary.WeightMeasurementType,
-          name: 'weightMeasurement',
-        },
-        {
           id: 'systolicPressure',
-          title: 'Систолическое давление',
+          title: 'Систолическое давление (мм. рт. ст.)',
           type: FieldType.InputNumber,
           name: 'systolicPressure',
           inputNumberProps: {
@@ -46,7 +38,7 @@ export const physicalExaminationForm: FormConstructorModel = {
         },
         {
           id: 'diastolicPressure',
-          title: 'Диастолическое давление',
+          title: 'Диастолическое давление (мм. рт. ст.)',
           type: FieldType.InputNumber,
           name: 'diastolicPressure',
           inputNumberProps: {
@@ -56,7 +48,7 @@ export const physicalExaminationForm: FormConstructorModel = {
         },
         {
           id: 'heartRate',
-          title: 'ЧСС',
+          title: 'Частота сердечных сокращений (уд/мин)',
           type: FieldType.InputNumber,
           name: 'heartRate',
           inputNumberProps: {
@@ -66,7 +58,7 @@ export const physicalExaminationForm: FormConstructorModel = {
         },
         {
           id: 'respiratoryRate',
-          title: 'ЧДД',
+          title: 'Частота дыхательных движений (дв/мин)',
           type: FieldType.InputNumber,
           name: 'respiratoryRate',
           inputNumberProps: {

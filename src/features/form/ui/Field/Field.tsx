@@ -18,10 +18,12 @@ import dayjs from 'dayjs';
 import ReactInputMask from 'react-input-mask';
 import { DictionaryTreeSelect } from 'features/dictionary';
 import utc from 'dayjs/plugin/utc';
+import tz from 'dayjs/plugin/timezone';
 import { FieldType, Hidden } from '../../types/types';
 import cls from './Field.module.scss';
 
 dayjs.extend(utc);
+dayjs.extend(tz);
 
 interface FieldProps {
   type: FieldType
@@ -48,7 +50,19 @@ interface FieldProps {
 
 export const Field = (props:FieldProps) => {
   const {
-    type, form, name, title, dictionaryName, optionType, options, rules, hidden, mask, inputNumberProps, entities, formListName,
+    type,
+    form,
+    name,
+    title,
+    dictionaryName,
+    optionType = 'button',
+    options,
+    rules,
+    hidden,
+    mask,
+    inputNumberProps,
+    entities,
+    formListName,
   } = props;
   let field;
   switch (type) {
@@ -154,12 +168,12 @@ export const Field = (props:FieldProps) => {
           name={name}
           rules={rules}
           className={cls.formItem}
-          getValueProps={(i) => (i ? { value: dayjs(i) } : { value: i })}
+          getValueProps={(i) => (i ? { value: dayjs.utc(i).tz() } : { value: i })}
         >
           <DatePicker
             className={cls.inputType}
             onChange={(date) => form.setFieldValue(name, date)}
-            format="DD/MM/YYYY"
+            format="DD.MM.YYYY"
           />
         </Form.Item>
       );
@@ -171,12 +185,12 @@ export const Field = (props:FieldProps) => {
           name={name}
           rules={rules}
           className={cls.formItem}
-          getValueProps={(i) => (i ? { value: dayjs.utc(i) } : { value: i })}
+          getValueProps={(i) => (i ? { value: dayjs.utc(i).tz() } : { value: i })}
         >
           <DatePicker
             className={cls.inputType}
             onChange={(date) => form.setFieldValue(name, date)}
-            format="DD/MM/YYYY HH:mm"
+            format="DD.MM.YYYY HH:mm"
             placeholder="Выберите дату и время"
             showTime
           />
@@ -190,7 +204,7 @@ export const Field = (props:FieldProps) => {
           name={name}
           rules={rules}
           className={cls.formItem}
-          getValueProps={(i) => (i ? { value: dayjs.utc(i) } : { value: i })}
+          getValueProps={(i) => (i ? { value: dayjs.utc(i).tz() } : { value: i })}
         >
           <TimePicker
             className={cls.inputType}

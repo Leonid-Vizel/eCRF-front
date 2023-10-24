@@ -46,6 +46,7 @@ interface FieldProps {
     formEntityName: string;
   }
   formListName: string
+  confirmTitle?: string
 }
 
 export const Field = (props:FieldProps) => {
@@ -63,6 +64,7 @@ export const Field = (props:FieldProps) => {
     inputNumberProps,
     entities,
     formListName,
+    confirmTitle,
   } = props;
   let field;
   const rules = [
@@ -70,8 +72,8 @@ export const Field = (props:FieldProps) => {
     {
       // eslint-disable-next-line consistent-return
       validator: async (_, value) => {
-        if (!value) {
-          return Promise.reject(new Error(title));
+        if (value === null || value === undefined) {
+          return Promise.reject(new Error(title || confirmTitle));
         }
       },
     },
@@ -130,8 +132,9 @@ export const Field = (props:FieldProps) => {
       field = (
         <Form.Item
           name={name}
-          rules={rules}
+          rules={[...rules]}
           valuePropName="checked"
+          className={cls.formItem}
         >
           <Checkbox
             onChange={(event) => form.setFieldValue(name, event.target.checked)}

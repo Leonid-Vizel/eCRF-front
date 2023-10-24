@@ -42,7 +42,7 @@ export const FormConstructor = (props:FormConstructorProps) => {
     const errors = [].concat(...errorInfo.errorFields.map((field) => field.errors).filter((error) => error[0]));
     const filtredErrors = errors.filter((message) => message.includes('Пожалуйста, введите')).length
       ? errors.filter((message) => message.includes('Пожалуйста, введите'))
-      : errors.filter((message) => !message.includes('Пожалуйста, введите'));
+      : [...new Set(errors.filter((message) => !message.includes('Пожалуйста, введите')))];
 
     const message = (
       <div className={cls.messageWrapper}>

@@ -7,6 +7,7 @@ import { TreeSelect } from 'shared/ui/TreeSelect/TreeSelect';
 
 import { RootState } from 'app/providers/StoreProvider';
 import { getDefaultDictionaryOption } from 'features/form/model/selectors/formSelectors';
+import get from 'lodash/get';
 import { getDictionary } from '../../model/getDictionary';
 
 interface DictionaryTreeSelectProps {
@@ -31,12 +32,12 @@ export const DictionaryTreeSelect = (props:DictionaryTreeSelectProps) => {
   const { formEntityName, entityName, rootEntityName } = entities;
   const isLoading = useAppSelector(isLoadingSelector(dictionaryName));
   const data = useAppSelector(getDictionarySelector(dictionaryName));
-  const defaultOption = useAppSelector((state: RootState) => getDefaultDictionaryOption(state, {
+  const defaultOption = useAppSelector((state: RootState) => get(getDefaultDictionaryOption(state, {
     formEntityName, entityName, rootEntityName, formListName,
-  })?.[name[0]]?.[name[1]]);
+  }), name));
 
   useEffect(() => {
-    if (!data) {
+    if (dictionaryName && !data) {
       dispatch(getDictionary(dictionaryName));
     }
   }, [dictionaryName, dispatch, data]);

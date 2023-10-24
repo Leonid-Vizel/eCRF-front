@@ -8,6 +8,7 @@ import { RadioGroup } from 'shared/ui/RadioGroup/RadioGroup';
 import { Spinner } from 'shared/ui/Spinner';
 import { RootState } from 'app/providers/StoreProvider';
 import { getDefaultDictionaryOption } from 'features/form/model/selectors/formSelectors';
+import get from 'lodash/get';
 import { getDictionary } from '../../model/getDictionary';
 
 interface DictionaryRadioGroupProps {
@@ -34,12 +35,12 @@ export const DictionaryRadioGroup = (props:DictionaryRadioGroupProps) => {
   const isLoading = useAppSelector(isLoadingSelector(dictionaryName));
   const data = useAppSelector(getDictionarySelector(dictionaryName));
   const options:CheckboxOptionType[] = data && data.map((option) => ({ key: option.value, ...option }));
-  const defaultOption = useAppSelector((state: RootState) => getDefaultDictionaryOption(state, {
+  const defaultOption = useAppSelector((state: RootState) => get(getDefaultDictionaryOption(state, {
     formEntityName, entityName, rootEntityName, formListName,
-  })?.[name[0]]?.[name[1]]);
+  }), name));
 
   useEffect(() => {
-    if (!data) {
+    if (dictionaryName && !data) {
       dispatch(getDictionary(dictionaryName));
     }
   }, [dictionaryName, dispatch, data]);

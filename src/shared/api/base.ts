@@ -1,5 +1,4 @@
 import axios, { Method, ResponseType } from 'axios';
-import Cookies from 'js-cookie';
 import { openErrorNotification } from '../lib/notifications/notifications';
 
 export const REACT_APP_ENDPOINT_URL = `${__BASE_URL__}/api/net`;
@@ -30,7 +29,6 @@ export async function externalSystemCall<T>({
 
     client.interceptors.response.use((response) => response, async (error) => {
       if (error.response.status === 401) {
-        Cookies.remove('token');
         return Promise.reject(new Error('Срок сессии истек. Авторизуйтесь снова.'));
       }
       return Promise.reject(error);

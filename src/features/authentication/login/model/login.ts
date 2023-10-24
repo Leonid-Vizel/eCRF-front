@@ -1,4 +1,3 @@
-import Cookies from 'js-cookie';
 import jwt_decode from 'jwt-decode';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { loginRequest } from 'shared/api/endpoints';
@@ -21,13 +20,6 @@ export const userLogin = createAsyncThunk(
     const {
       name: userName, id, centerId, role, roleName,
     } = decodedToken;
-
-    Cookies.set('token', data);
-    Cookies.set('token_name', userName);
-    Cookies.set('token_id', id.toString());
-    Cookies.set('token_centerId', centerId.toString());
-    Cookies.set('token_role', role.toString());
-    Cookies.set('token_rolename', roleName);
 
     thunkApi.dispatch(setUserData({
       userName,

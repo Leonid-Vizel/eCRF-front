@@ -46,19 +46,24 @@ export const FormQuestionnaire: FC<FormQuestionaryProps> = (props) => {
                             style={{ gridTemplateColumns: `70% repeat(${nestedFields?.length}, auto)` }}
                           >
                             <Paragraph className={cls.colLabel}>{testData[field.label]}</Paragraph>
-                            {nestedFields.map((key: FieldType) => (
-                              <div className={cls.colItem}>
-                                <Field
-                                  key={key}
-                                  name={[listField.key, field.value, key]}
-                                  dictionaryName={testData[field.value][key]?.dictionaryName}
-                                  form={form}
-                                  type={key}
-                                  entities={entities}
-                                  formListName={formListName}
-                                />
-                              </div>
-                            ))}
+                            {nestedFields.map((key: FieldType) => {
+                              const isDictionary = key.includes('dictionary');
+                              return (
+                                <div className={cls.colItem}>
+                                  <Field
+                                    key={key}
+                                    name={isDictionary
+                                      ? [listField.key, field.value, key, 'dictionaryValue']
+                                      : [listField.key, field.value, key]}
+                                    dictionaryName={testData[field.value][key]?.dictionaryName}
+                                    form={form}
+                                    type={key}
+                                    entities={entities}
+                                    formListName={formListName}
+                                  />
+                                </div>
+                              );
+                            })}
                           </Col>
                         );
                       })}

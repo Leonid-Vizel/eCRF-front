@@ -33,7 +33,6 @@ export const FormConstructor = (props:FormConstructorProps) => {
   const formData = useAppSelector((state: RootState) => state?.[rootEntityName]?.[entityName]?.[formEntityName]);
   // todo порефакторить
   const editMode = useAppSelector((state: RootState) => state?.[rootEntityName]?.[entityName].tabPane.editMode);
-  // const [confirmMessage, setConfirmMessage];
 
   useEffect(() => {
     form.setFieldsValue(formData);

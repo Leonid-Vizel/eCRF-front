@@ -60,6 +60,7 @@ export const FormQuestionnaire: FC<FormQuestionaryProps> = (props) => {
                                     type={key}
                                     entities={entities}
                                     formListName={formListName}
+                                    confirmTitle={testData[field.label]}
                                   />
                                 </div>
                               );

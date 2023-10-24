@@ -77,6 +77,7 @@ export const FormTableConstructor: React.FC<FormTableConstructorProps> = ({
           inputNumberProps={inputNumberProps}
           entities={entities}
           formListName={formListName}
+          confirmTitle={title}
         />
       ),
     });

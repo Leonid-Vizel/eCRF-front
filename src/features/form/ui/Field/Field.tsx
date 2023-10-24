@@ -57,7 +57,7 @@ export const Field = (props:FieldProps) => {
     dictionaryName,
     optionType = 'button',
     options,
-    rules,
+    rules: fieldRules = [],
     hidden,
     mask,
     inputNumberProps,
@@ -65,6 +65,18 @@ export const Field = (props:FieldProps) => {
     formListName,
   } = props;
   let field;
+  const rules = [
+    ...fieldRules,
+    {
+      // eslint-disable-next-line consistent-return
+      validator: async (_, value) => {
+        if (!value) {
+          return Promise.reject(new Error(title));
+        }
+      },
+    },
+  ];
+
   switch (type) {
     case FieldType.Input:
       field = (

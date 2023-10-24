@@ -1,4 +1,4 @@
-import { Form, Space } from 'antd';
+import { Form, Modal, Space } from 'antd';
 import { Card } from 'shared/ui/Card/Card';
 import chunk from 'lodash/chunk';
 import { useForm } from 'antd/es/form/Form';
@@ -11,6 +11,8 @@ import { ValidateErrorEntity } from 'rc-field-form/lib/interface';
 import { FormConstructorModel } from '../../types/types';
 import { FormLayout } from '../FormLayout/FormLayout';
 import cls from './FormConstructor.module.scss';
+
+const { confirm } = Modal;
 
 interface FormConstructorProps {
   formCard: FormConstructorModel;
@@ -31,17 +33,21 @@ export const FormConstructor = (props:FormConstructorProps) => {
   const formData = useAppSelector((state: RootState) => state?.[rootEntityName]?.[entityName]?.[formEntityName]);
   // todo порефакторить
   const editMode = useAppSelector((state: RootState) => state?.[rootEntityName]?.[entityName].tabPane.editMode);
+  // const [confirmMessage, setConfirmMessage];
 
   useEffect(() => {
     form.setFieldsValue(formData);
   }, [formData, form]);
 
   const onFinishFailed = useCallback((errorInfo:ValidateErrorEntity) => {
-    const errors = errorInfo.errorFields.map((field) => field.errors).filter((error) => error[0]);
+    const errors = [].concat(...errorInfo.errorFields.map((field) => field.errors).filter((error) => error[0]));
+    const filtredErrors = errors.filter((message) => message.includes('Пожалуйста, введите')).length
+      ? errors.filter((message) => message.includes('Пожалуйста, введите'))
+      : errors.filter((message) => !message.includes('Пожалуйста, введите'));
 
     const message = (
       <div className={cls.messageWrapper}>
-        {errors.map((error) => {
+        {filtredErrors.map((error) => {
           const uniqueKey = nanoid();
           return (
             <span key={uniqueKey}>{error}</span>
@@ -50,10 +56,22 @@ export const FormConstructor = (props:FormConstructorProps) => {
       </div>
     );
 
-    openErrorNotification(message);
+    if (filtredErrors[0].includes('Пожалуйста, введите')) {
+      openErrorNotification(message);
+    } else {
+      confirm({
+        title: 'Незаполнены следующие поля. Вы уверены, что хотите продолжить?',
+        content: message,
+        onOk() {
+          onFinish(form.getFieldsValue());
+        },
+        className: cls.modal,
+      });
+    }
   }, []);
 
   return (
+
     <Form
       id={formEntityName}
       form={form}
@@ -100,5 +118,6 @@ export const FormConstructor = (props:FormConstructorProps) => {
         {footer}
       </div>
     </Form>
+
   );
 };

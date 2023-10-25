@@ -351,12 +351,6 @@ export const stationaryMainInfoForm: FormConstructorModel = {
             type: FieldType.Input,
             name: 'specialMarks',
           },
-          {
-            id: 'headDoctor',
-            title: 'Главный врач',
-            type: FieldType.Input,
-            name: 'headDoctor',
-          },
         ],
       },
       {

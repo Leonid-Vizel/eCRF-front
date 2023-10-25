@@ -22,11 +22,12 @@ interface FormLayoutProps {
     entityName: string;
     formEntityName: string;
   }
+  disabled: boolean
 }
 
 const FormRow = (props:any) => {
   const {
-    rows, formListName, columnCount, form, entities,
+    rows, formListName, columnCount, form, entities, disabled,
   } = props;
   return (
     <>
@@ -84,6 +85,7 @@ const FormRow = (props:any) => {
                                 uploadAction={uploadAction}
                                 uploadAccept={uploadAccept}
                                 downloadAction={downloadAction}
+                                disabled={disabled}
                               />
                             </Col>
                           );
@@ -102,7 +104,7 @@ const FormRow = (props:any) => {
 };
 
 export const FormLayout:FC<FormLayoutProps> = ({
-  form, rows, fieldsLayout, formListName, externalData, addRemoveButtons = true, columnCount, entities,
+  form, rows, fieldsLayout, formListName, externalData, addRemoveButtons = true, columnCount, entities, disabled,
 }) => {
   switch (fieldsLayout) {
     case 'questionnaire':
@@ -128,6 +130,15 @@ export const FormLayout:FC<FormLayoutProps> = ({
       );
     }
     default:
-      return <FormRow rows={rows} formListName={formListName} columnCount={columnCount} form={form} entities={entities} />;
+      return (
+        <FormRow
+          rows={rows}
+          formListName={formListName}
+          columnCount={columnCount}
+          form={form}
+          entities={entities}
+          disabled={disabled}
+        />
+      );
   }
 };

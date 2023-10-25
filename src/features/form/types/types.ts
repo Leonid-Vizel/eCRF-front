@@ -16,6 +16,7 @@ export interface FormCards {
   nestedFields?: NestedFields[]
   columnCount?: number
   addRemoveButtons?: boolean
+  isDisabledCondition?: boolean
 }
 
 export interface NestedFields {
@@ -73,6 +74,10 @@ export interface FormConstructorModel {
   entityName: string;
   formEntityName?: string
   cards: FormCards[]
+  disabledCondition?: {
+    name:(string | number)[]
+    value:number | string | boolean
+  }
 }
 
 export interface FormSchemaItem {

@@ -2,12 +2,15 @@ import { Form, Modal, Space } from 'antd';
 import { Card } from 'shared/ui/Card/Card';
 import chunk from 'lodash/chunk';
 import { useForm } from 'antd/es/form/Form';
-import React, { ReactNode, useCallback, useEffect } from 'react';
+import React, {
+  ReactNode, useCallback, useEffect, useState,
+} from 'react';
 import { Title } from 'shared/ui/Typography/Typography';
 import { RootState, useAppSelector } from 'app/providers/StoreProvider';
 import { nanoid } from '@reduxjs/toolkit';
 import { openErrorNotification } from 'shared/lib/notifications/notifications';
 import { ValidateErrorEntity } from 'rc-field-form/lib/interface';
+import get from 'lodash/get';
 import { FormConstructorModel } from '../../types/types';
 import { FormLayout } from '../FormLayout/FormLayout';
 import cls from './FormConstructor.module.scss';
@@ -26,16 +29,20 @@ export const FormConstructor = (props:FormConstructorProps) => {
     formCard, onFinish, header, footer,
   } = props;
   const {
-    rootEntityName, entityName, formEntityName, cards,
+    rootEntityName, entityName, formEntityName, cards, disabledCondition,
   } = formCard;
 
   const [form] = useForm();
   const formData = useAppSelector((state: RootState) => state?.[rootEntityName]?.[entityName]?.[formEntityName]);
   // todo порефакторить
   const editMode = useAppSelector((state: RootState) => state?.[rootEntityName]?.[entityName].tabPane.editMode);
+  const [disabled, setDisabled] = useState(false);
 
   useEffect(() => {
     form.setFieldsValue(formData);
+    if (disabledCondition) {
+      setDisabled(get(formData, disabledCondition.name) === disabledCondition.value);
+    }
   }, [formData, form]);
 
   const onFinishFailed = useCallback((errorInfo:ValidateErrorEntity) => {
@@ -72,6 +79,11 @@ export const FormConstructor = (props:FormConstructorProps) => {
   return (
 
     <Form
+      onValuesChange={(values) => {
+        if (get(values, disabledCondition.name) !== undefined) {
+          setDisabled(get(values, disabledCondition.name) === disabledCondition.value);
+        }
+      }}
       id={formEntityName}
       form={form}
       onFinish={onFinish}
@@ -86,10 +98,11 @@ export const FormConstructor = (props:FormConstructorProps) => {
       <Space direction="vertical" style={{ display: 'flex' }}>
         {cards.map((card) => {
           const {
-            fields, fieldsLayout, columnCount = 4, nestedFields, addRemoveButtons,
+            fields, fieldsLayout, columnCount = 4, nestedFields, addRemoveButtons, isDisabledCondition,
           } = card;
           const rows = fields ? chunk(fields, columnCount) : chunk(nestedFields, columnCount);
           const uniqueKey = nanoid();
+
           return (
             <Card key={uniqueKey}>
               <Title level={4}>
@@ -108,6 +121,7 @@ export const FormConstructor = (props:FormConstructorProps) => {
                   entityName,
                   formEntityName,
                 }}
+                disabled={(disabled && isDisabledCondition) || !editMode}
               />
             </Card>
           );

@@ -53,6 +53,7 @@ interface FieldProps {
   uploadAccept?: string
   downloadAction?: string
   fileLoaded?: boolean
+  disabled?:boolean
 }
 
 export const Field = (props:FieldProps) => {
@@ -75,9 +76,10 @@ export const Field = (props:FieldProps) => {
     uploadAccept = '.pdf',
     downloadAction,
     fileLoaded,
+    disabled,
   } = props;
   let field;
-  const rules = [
+  const rules = disabled ? fieldRules : [
     ...fieldRules,
     {
       // eslint-disable-next-line consistent-return
@@ -95,10 +97,9 @@ export const Field = (props:FieldProps) => {
         <Form.Item label={title} name={name} rules={rules} className={cls.formItem}>
           {mask
             ? (
-              <ReactInputMask mask={mask} onChange={(event) => form.setFieldValue(name, event.target.value)}>
+              <ReactInputMask disabled={disabled} mask={mask} onChange={(event) => form.setFieldValue(name, event.target.value)}>
                 <Input
                   className={cls.inputType}
-
                 />
               </ReactInputMask>
             )
@@ -106,6 +107,7 @@ export const Field = (props:FieldProps) => {
               <Input
                 className={cls.inputType}
                 onChange={(event) => form.setFieldValue(name, event.target.value)}
+                disabled={disabled}
               />
             )}
         </Form.Item>
@@ -119,6 +121,7 @@ export const Field = (props:FieldProps) => {
             className={cls.inputType}
             options={options}
             onChange={(value) => form.setFieldValue(name, value)}
+            disabled={disabled}
           />
 
         </Form.Item>
@@ -134,6 +137,7 @@ export const Field = (props:FieldProps) => {
             entities={entities}
             formListName={formListName}
             name={name}
+            disabled={disabled}
           />
         </Form.Item>
       );
@@ -149,6 +153,7 @@ export const Field = (props:FieldProps) => {
           <Checkbox
             onChange={(event) => form.setFieldValue(name, event.target.checked)}
             className={cls.checkbox}
+            disabled={disabled}
           >
             {title}
           </Checkbox>
@@ -164,6 +169,7 @@ export const Field = (props:FieldProps) => {
             options={options}
             onChange={(event) => form.setFieldValue(name, event.target.value)}
             optionType={optionType}
+            disabled={disabled}
           />
 
         </Form.Item>
@@ -181,6 +187,7 @@ export const Field = (props:FieldProps) => {
             entities={entities}
             formListName={formListName}
             name={name}
+            disabled={disabled}
           />
 
         </Form.Item>
@@ -199,6 +206,7 @@ export const Field = (props:FieldProps) => {
             className={cls.inputType}
             onChange={(date) => form.setFieldValue(name, date)}
             format="DD.MM.YYYY"
+            disabled={disabled}
           />
         </Form.Item>
       );
@@ -218,6 +226,7 @@ export const Field = (props:FieldProps) => {
             format="DD.MM.YYYY HH:mm"
             placeholder="Выберите дату и время"
             showTime
+            disabled={disabled}
           />
         </Form.Item>
       );
@@ -236,6 +245,7 @@ export const Field = (props:FieldProps) => {
             onChange={(date) => form.setFieldValue(name, date)}
             placeholder="Выберите время"
             format="HH:mm"
+            disabled={disabled}
           />
         </Form.Item>
       );
@@ -246,6 +256,7 @@ export const Field = (props:FieldProps) => {
           <TextArea
             className={cls.inputType}
             onChange={(event) => form.setFieldValue(name, event.target.value)}
+            disabled={disabled}
           />
         </Form.Item>
       );
@@ -258,6 +269,7 @@ export const Field = (props:FieldProps) => {
             max={inputNumberProps?.max}
             className={cls.inputType}
             onChange={(value) => form.setFieldValue(name, value)}
+            disabled={disabled}
           />
         </Form.Item>
       );
@@ -277,6 +289,7 @@ export const Field = (props:FieldProps) => {
             entities={entities}
             formListName={formListName}
             name={name}
+            disabled={disabled}
           />
         </Form.Item>
       );
@@ -287,6 +300,7 @@ export const Field = (props:FieldProps) => {
           <Upload
             action={uploadAction}
             accept={uploadAccept}
+            disabled={disabled}
           >
             <Button>Загрузить</Button>
           </Upload>

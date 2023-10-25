@@ -22,11 +22,12 @@ interface DictionaryTreeSelectProps {
     formEntityName: string;
   }
   formListName: string
+  disabled: boolean
 }
 
 export const DictionaryTreeSelect = (props:DictionaryTreeSelectProps) => {
   const {
-    dictionaryName, onChange, placeholder = 'Выберите значение', className, entities, formListName, name,
+    dictionaryName, onChange, placeholder = 'Выберите значение', className, entities, formListName, name, disabled,
   } = props;
   const dispatch = useAppDispatch();
   const { formEntityName, entityName, rootEntityName } = entities;
@@ -51,6 +52,7 @@ export const DictionaryTreeSelect = (props:DictionaryTreeSelectProps) => {
         treeData={data}
         onChange={onChange}
         className={className}
+        disabled={disabled}
       />
     </Spinner>
   );

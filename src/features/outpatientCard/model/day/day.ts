@@ -3,11 +3,29 @@ import { FieldType, FormConstructorModel } from 'features/form/types/types';
 export const dayForm: FormConstructorModel = {
   rootEntityName: 'outpatientCards',
   entityName: 'outpatientCard',
+  disabledCondition: {
+    name: ['bodyInfo', 0, 'notSuitable'],
+    value: true,
+  },
   cards: [
+    {
+      id: 'bodyInfo',
+      key: 'notSuitable',
+      title: '',
+      fields: [
+        {
+          id: 'notSuitable',
+          title: 'Не применимо',
+          type: FieldType.Checkbox,
+          name: 'notSuitable',
+        },
+      ],
+    },
     {
       id: 'bodyInfo',
       key: 'bodyInfo',
       title: 'Дата визита',
+      isDisabledCondition: true,
       fields: [
         {
           id: 'date',
@@ -21,6 +39,7 @@ export const dayForm: FormConstructorModel = {
       id: 'bodyInfo',
       key: 'complaints',
       title: 'Жалобы добровольца',
+      isDisabledCondition: true,
       fields: [
         {
           id: 'complaints',
@@ -37,6 +56,7 @@ export const dayForm: FormConstructorModel = {
       id: 'bodyInfo',
       key: 'pressureTemperature',
       title: 'Давление и температура',
+      isDisabledCondition: true,
       fields: [
         {
           id: 'systolicPressure',
@@ -97,6 +117,7 @@ export const dayForm: FormConstructorModel = {
       fieldsLayout: 'table',
       addRemoveButtons: false,
       columnCount: 5,
+      isDisabledCondition: true,
       fields: [
         {
           id: 'system',
@@ -135,6 +156,7 @@ export const dayForm: FormConstructorModel = {
       key: 'labInstrumentalInfo',
       title: 'Лабораторные и инструментальные исследования',
       fieldsLayout: 'questionnaire',
+      isDisabledCondition: true,
       nestedFields: [
         {
           label: 'label',
@@ -147,6 +169,7 @@ export const dayForm: FormConstructorModel = {
       key: 'criteriaInfo',
       title: 'Оценка критериев исключения',
       fieldsLayout: 'questionnaire',
+      isDisabledCondition: true,
       nestedFields: [
         {
           label: 'label',
@@ -159,6 +182,7 @@ export const dayForm: FormConstructorModel = {
       key: 'visitInfo',
       title: 'Информация о визите',
       fieldsLayout: 'questionnaire',
+      isDisabledCondition: true,
       nestedFields: [
         {
           label: 'label',

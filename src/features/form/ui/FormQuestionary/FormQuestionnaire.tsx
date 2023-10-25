@@ -18,11 +18,12 @@ interface FormQuestionaryProps {
     entityName: string;
     formEntityName: string;
   }
+  disabled: boolean
 }
 
 export const FormQuestionnaire: FC<FormQuestionaryProps> = (props) => {
   const {
-    dataSource, rows, formListName, form, entities,
+    dataSource, rows, formListName, form, entities, disabled,
   } = props;
 
   return (
@@ -65,6 +66,7 @@ export const FormQuestionnaire: FC<FormQuestionaryProps> = (props) => {
                                     uploadAccept={testData[field.value][key]?.uploadAccept}
                                     downloadAction={testData[field.value][key]?.downloadAction}
                                     fileLoaded={testData[field.value][key]?.fileLoaded}
+                                    disabled={disabled}
                                   />
                                 </div>
                               );

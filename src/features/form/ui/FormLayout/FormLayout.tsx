@@ -109,7 +109,14 @@ export const FormLayout:FC<FormLayoutProps> = ({
   switch (fieldsLayout) {
     case 'questionnaire':
       return (
-        <FormQuestionnaire entities={entities} formListName={formListName} form={form} rows={rows} dataSource={externalData} />
+        <FormQuestionnaire
+          entities={entities}
+          formListName={formListName}
+          form={form}
+          rows={rows}
+          dataSource={externalData}
+          disabled={disabled}
+        />
       );
     case 'table': {
       return (
@@ -124,6 +131,7 @@ export const FormLayout:FC<FormLayoutProps> = ({
               addRemoveButtons={addRemoveButtons}
               entities={entities}
               formListName={formListName}
+              disabled={disabled}
             />
           )}
         </Form.List>

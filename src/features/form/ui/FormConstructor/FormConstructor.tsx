@@ -80,7 +80,7 @@ export const FormConstructor = (props:FormConstructorProps) => {
 
     <Form
       onValuesChange={(values) => {
-        if (get(values, disabledCondition.name) !== undefined) {
+        if (disabledCondition && get(values, disabledCondition.name) !== undefined) {
           setDisabled(get(values, disabledCondition.name) === disabledCondition.value);
         }
       }}

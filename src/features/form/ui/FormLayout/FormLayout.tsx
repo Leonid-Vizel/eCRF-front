@@ -61,6 +61,9 @@ const FormRow = (props:any) => {
                             columnStyle,
                             mask,
                             inputNumberProps,
+                            uploadAction,
+                            uploadAccept,
+                            downloadAction,
                           } = field;
                           return (
                             <Col style={columnStyle} key={id} className={cls.colItem}>
@@ -78,6 +81,9 @@ const FormRow = (props:any) => {
                                 inputNumberProps={inputNumberProps}
                                 entities={entities}
                                 formListName={formListName}
+                                uploadAction={uploadAction}
+                                uploadAccept={uploadAccept}
+                                downloadAction={downloadAction}
                               />
                             </Col>
                           );

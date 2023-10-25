@@ -61,6 +61,10 @@ export const FormQuestionnaire: FC<FormQuestionaryProps> = (props) => {
                                     entities={entities}
                                     formListName={formListName}
                                     confirmTitle={testData[field.label]}
+                                    uploadAction={testData[field.value][key]?.uploadAction}
+                                    uploadAccept={testData[field.value][key]?.uploadAccept}
+                                    downloadAction={testData[field.value][key]?.downloadAction}
+                                    fileLoaded={testData[field.value][key]?.fileLoaded}
                                   />
                                 </div>
                               );

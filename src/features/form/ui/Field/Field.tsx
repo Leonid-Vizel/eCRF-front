@@ -4,7 +4,7 @@ import { DictionarySelect } from 'features/dictionary/ui/DictionarySelect/Dictio
 import { Checkbox } from 'shared/ui/Checkbox/Checkbox';
 import { Dictionary } from 'entities/dictionary';
 import {
-  CheckboxOptionType, Form, FormInstance, InputNumber,
+  CheckboxOptionType, Form, FormInstance, InputNumber, Upload,
 } from 'antd';
 import { DictionaryRadioGroup } from 'features/dictionary/ui/DictionaryRadioGroup/DictionaryRadioGroup';
 import { RadioGroupOptionType } from 'antd/es/radio';
@@ -19,6 +19,8 @@ import ReactInputMask from 'react-input-mask';
 import { DictionaryTreeSelect } from 'features/dictionary';
 import utc from 'dayjs/plugin/utc';
 import tz from 'dayjs/plugin/timezone';
+import { Button } from 'shared/ui/Button';
+import { DownloadForm } from 'shared/ui/DownloadForm/DownloadForm';
 import { FieldType, Hidden } from '../../types/types';
 import cls from './Field.module.scss';
 
@@ -47,6 +49,10 @@ interface FieldProps {
   }
   formListName: string
   confirmTitle?: string
+  uploadAction?: string
+  uploadAccept?: string
+  downloadAction?: string
+  fileLoaded?: boolean
 }
 
 export const Field = (props:FieldProps) => {
@@ -65,6 +71,10 @@ export const Field = (props:FieldProps) => {
     entities,
     formListName,
     confirmTitle,
+    uploadAction,
+    uploadAccept = '.pdf',
+    downloadAction,
+    fileLoaded,
   } = props;
   let field;
   const rules = [
@@ -268,6 +278,24 @@ export const Field = (props:FieldProps) => {
             formListName={formListName}
             name={name}
           />
+        </Form.Item>
+      );
+      break;
+    case FieldType.UploadDownload:
+      field = (
+        <Form.Item label={title} name={name} rules={rules} className={cls.formItem}>
+          <Upload
+            action={uploadAction}
+            accept={uploadAccept}
+          >
+            <Button>Загрузить</Button>
+          </Upload>
+          {fileLoaded && (
+          <DownloadForm
+            action={downloadAction}
+            title="Скачать"
+          />
+          )}
         </Form.Item>
       );
       break;

@@ -5,12 +5,30 @@ export const syphilisExaminationForm: FormConstructorModel = {
   rootEntityName: 'outpatientCards',
   entityName: 'outpatientCard',
   formEntityName: 'syphilisExaminationForm',
+  disabledCondition: {
+    name: ['card', 0, 'notSuitable'],
+    value: true,
+  },
   cards: [
+    {
+      id: 'card',
+      key: 'notSuitable',
+      title: '',
+      fields: [
+        {
+          id: 'notSuitable',
+          title: 'Не применимо',
+          type: FieldType.Checkbox,
+          name: 'notSuitable',
+        },
+      ],
+    },
     {
       id: 'card',
       key: 'patientComplaints',
       title: 'Жалобы больного',
       columnCount: 2,
+      isDisabledCondition: true,
       fields: [
         {
           id: 'decreasedVision',
@@ -43,6 +61,7 @@ export const syphilisExaminationForm: FormConstructorModel = {
       key: 'externalInspection',
       title: 'Наружный осмотр В/ч головы: наличие',
       columnCount: 2,
+      isDisabledCondition: true,
       fields: [
         {
           id: 'hairAllopecia',
@@ -75,6 +94,7 @@ export const syphilisExaminationForm: FormConstructorModel = {
       key: 'tongue',
       title: 'Слизистая полости рта, язык',
       columnCount: 2,
+      isDisabledCondition: true,
       fields: [
         {
           id: 'tongueSpots',
@@ -113,6 +133,7 @@ export const syphilisExaminationForm: FormConstructorModel = {
       key: 'lips',
       title: 'Cостояние губ',
       columnCount: 2,
+      isDisabledCondition: true,
       fields: [
         {
           id: 'lipsPapula',
@@ -145,6 +166,7 @@ export const syphilisExaminationForm: FormConstructorModel = {
       key: 'lymph',
       title: 'Пальпация лимфатических узлов',
       columnCount: 2,
+      isDisabledCondition: true,
       fields: [
         {
           id: 'cervicalLymph',
@@ -183,6 +205,7 @@ export const syphilisExaminationForm: FormConstructorModel = {
       key: 'bone',
       title: 'Наличие костных диструкций',
       columnCount: 2,
+      isDisabledCondition: true,
       fields: [
         {
           id: 'boneSaddleNose',
@@ -221,6 +244,7 @@ export const syphilisExaminationForm: FormConstructorModel = {
       key: 'bone',
       title: 'Осмотр гениталий и перианальной области (для врачей акушеров гинекологов, урологов, проктологов)',
       columnCount: 2,
+      isDisabledCondition: true,
       fields: [
         {
           id: 'genitaliaSpots',
@@ -252,6 +276,7 @@ export const syphilisExaminationForm: FormConstructorModel = {
       id: 'card',
       key: 'doctor',
       title: 'Врач',
+      isDisabledCondition: true,
       fields: [
         {
           id: 'doctor',

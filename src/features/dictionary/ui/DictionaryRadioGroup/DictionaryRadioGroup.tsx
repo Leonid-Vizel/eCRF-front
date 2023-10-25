@@ -23,12 +23,13 @@ interface DictionaryRadioGroupProps {
     formEntityName: string;
   }
   formListName: string
+  disabled?: boolean
 }
 
 export const DictionaryRadioGroup = (props:DictionaryRadioGroupProps) => {
   const {
     dictionaryName, onChange, optionType, className, name,
-    entities, formListName,
+    entities, formListName, disabled,
   } = props;
   const { formEntityName, entityName, rootEntityName } = entities;
   const dispatch = useAppDispatch();
@@ -53,6 +54,7 @@ export const DictionaryRadioGroup = (props:DictionaryRadioGroupProps) => {
         onChange={onChange}
         optionType={optionType}
         className={className}
+        disabled={disabled}
       />
     </Spinner>
   );

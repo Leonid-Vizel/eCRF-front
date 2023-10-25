@@ -22,12 +22,13 @@ interface DictionarySelectProps {
     formEntityName: string;
   }
   formListName: string
+  disabled?: boolean
 }
 
 export const DictionarySelect = (props:DictionarySelectProps) => {
   const {
     dictionaryName, onChange, placeholder = 'Выберите значение', name,
-    className, entities, formListName,
+    className, entities, formListName, disabled,
   } = props;
   const dispatch = useAppDispatch();
   const { formEntityName, entityName, rootEntityName } = entities;
@@ -54,6 +55,7 @@ export const DictionarySelect = (props:DictionarySelectProps) => {
         placeholder={placeholder}
         onChange={onChange}
         className={className}
+        disabled={disabled}
       />
     </Spinner>
   );

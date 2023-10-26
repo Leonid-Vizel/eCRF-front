@@ -10,14 +10,14 @@ export const dayForm: FormConstructorModel = {
   cards: [
     {
       id: 'bodyInfo',
-      key: 'notSuitable',
+      key: 'noSuitable',
       title: '',
       fields: [
         {
-          id: 'notSuitable',
+          id: 'noSuitable',
           title: 'Не применимо',
           type: FieldType.Checkbox,
-          name: 'notSuitable',
+          name: 'noSuitable',
         },
       ],
     },

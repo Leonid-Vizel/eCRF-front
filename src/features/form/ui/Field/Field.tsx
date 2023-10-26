@@ -54,6 +54,7 @@ interface FieldProps {
   downloadAction?: string
   fileLoaded?: boolean
   disabled?:boolean
+  maxFileCount?: number | null
 }
 
 export const Field = (props:FieldProps) => {
@@ -77,6 +78,7 @@ export const Field = (props:FieldProps) => {
     downloadAction,
     fileLoaded,
     disabled,
+    maxFileCount = 1,
   } = props;
   let field;
   const rules = disabled ? fieldRules : [
@@ -301,6 +303,7 @@ export const Field = (props:FieldProps) => {
             action={uploadAction}
             accept={uploadAccept}
             disabled={disabled}
+            maxCount={maxFileCount}
           >
             <Button>Загрузить</Button>
           </Upload>

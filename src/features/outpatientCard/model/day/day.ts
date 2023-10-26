@@ -4,13 +4,13 @@ export const dayForm: FormConstructorModel = {
   rootEntityName: 'outpatientCards',
   entityName: 'outpatientCard',
   disabledCondition: {
-    name: ['bodyInfo', 0, 'notSuitable'],
+    name: ['bodyInfo', 0, 'noSuitable'],
     value: true,
   },
   cards: [
     {
       id: 'bodyInfo',
-      key: 'noSuitable',
+      key: 'notSuitable',
       title: '',
       fields: [
         {

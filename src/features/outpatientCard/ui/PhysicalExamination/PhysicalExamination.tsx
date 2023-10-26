@@ -7,6 +7,7 @@ import { getPhysicalExamination } from 'features/outpatientCard/model/lib/getPhy
 import { physicalExaminationForm } from 'features/outpatientCard/model/physicalExamination/physicalExamination';
 import { getFormData } from 'features/outpatientCard/model/slice/outpatientCard.slice';
 import { modifyPhysicalExamination } from 'features/outpatientCard/model/lib/modifyPhysicalExaminationAction';
+import { Button } from 'shared/ui/Button';
 
 interface PhysicalExaminationProps {
   // className?: string;
@@ -33,6 +34,7 @@ export const PhysicalExamination: FC<PhysicalExaminationProps> = () => {
           );
           dispatch(modifyPhysicalExamination());
         }}
+        footer={<Button type="primary" size="large" htmlType="submit">Соxранить</Button>}
       />
     </div>
   );

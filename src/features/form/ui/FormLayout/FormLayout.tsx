@@ -65,6 +65,7 @@ const FormRow = (props:any) => {
                             uploadAction,
                             uploadAccept,
                             downloadAction,
+                            maxFileCount,
                           } = field;
                           return (
                             <Col style={columnStyle} key={id} className={cls.colItem}>
@@ -86,6 +87,7 @@ const FormRow = (props:any) => {
                                 uploadAccept={uploadAccept}
                                 downloadAction={downloadAction}
                                 disabled={disabled}
+                                maxFileCount={maxFileCount}
                               />
                             </Col>
                           );

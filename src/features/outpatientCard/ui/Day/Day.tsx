@@ -28,7 +28,7 @@ export const Day: FC<DayProps> = ({ day }) => {
         onFinish={(values) => {
           dispatch(
             getFormData({
-              formEntityName: `${dayForm.formEntityName}${day}`,
+              formEntityName: `dayForm${day}`,
               data: { cardId, ...values },
             }),
           );

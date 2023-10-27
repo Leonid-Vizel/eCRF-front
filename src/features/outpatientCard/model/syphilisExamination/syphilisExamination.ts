@@ -311,10 +311,22 @@ export const syphilisExaminationForm: FormConstructorModel = {
       isDisabledCondition: true,
       fields: [
         {
-          id: 'doctor',
-          title: 'ФИО полностью',
+          id: 'surnameAgreementOperator',
+          title: 'Фамилия полностью',
           type: FieldType.Input,
-          name: 'doctor',
+          name: 'surnameAgreementOperator',
+        },
+        {
+          id: 'nameAgreementOperator',
+          title: 'Имя полностью',
+          type: FieldType.Input,
+          name: 'nameAgreementOperator',
+        },
+        {
+          id: 'patronymicAgreementOperator',
+          title: 'Отчество полностью',
+          type: FieldType.Input,
+          name: 'patronymicAgreementOperator',
         },
       ],
     },

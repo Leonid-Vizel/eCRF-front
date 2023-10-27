@@ -1,3 +1,4 @@
+import { Dictionary } from 'entities/dictionary';
 import { FieldType, FormConstructorModel } from 'features/form/types/types';
 
 export const physicalExaminationForm: FormConstructorModel = {
@@ -68,7 +69,7 @@ export const physicalExaminationForm: FormConstructorModel = {
         },
         {
           id: 'temperature',
-          title: 'Температура тела',
+          title: 'Температура тела (°С)',
           type: FieldType.InputNumber,
           name: 'temperature',
           inputNumberProps: {
@@ -111,19 +112,22 @@ export const physicalExaminationForm: FormConstructorModel = {
         {
           id: 'isCompleted',
           title: 'Выполнено',
-          type: FieldType.Checkbox,
+          type: FieldType.DictionaryRadioGroup,
+          dictionaryName: Dictionary.YesNoNotSuitable,
           name: 'isCompleted',
         },
         {
           id: 'isNorm',
           title: 'Показатели в норме?',
-          type: FieldType.Checkbox,
+          type: FieldType.DictionaryRadioGroup,
+          dictionaryName: Dictionary.YesNoNotSuitable,
           name: 'isNorm',
         },
         {
           id: 'isDeviation',
           title: 'Отклонения',
-          type: FieldType.Checkbox,
+          type: FieldType.DictionaryRadioGroup,
+          dictionaryName: Dictionary.YesNoNotSuitable,
           name: 'isDeviation',
         },
         {
@@ -169,19 +173,22 @@ export const physicalExaminationForm: FormConstructorModel = {
         {
           id: 'isCompleted',
           title: 'Выполнено',
-          type: FieldType.Checkbox,
+          type: FieldType.DictionaryRadioGroup,
+          dictionaryName: Dictionary.YesNoNotSuitable,
           name: 'isCompleted',
         },
         {
           id: 'isNorm',
           title: 'Показатели в норме?',
-          type: FieldType.Checkbox,
+          type: FieldType.DictionaryRadioGroup,
+          dictionaryName: Dictionary.YesNoNotSuitable,
           name: 'isNorm',
         },
         {
           id: 'isDeviation',
           title: 'Отклонения',
-          type: FieldType.Checkbox,
+          type: FieldType.DictionaryRadioGroup,
+          dictionaryName: Dictionary.YesNoNotSuitable,
           name: 'isDeviation',
         },
         {

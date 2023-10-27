@@ -1,3 +1,4 @@
+import { Dictionary } from 'entities/dictionary';
 import { FieldType, FormConstructorModel } from 'features/form/types/types';
 
 export const stationaryCardFirstDayForm: FormConstructorModel = {
@@ -22,7 +23,7 @@ export const stationaryCardFirstDayForm: FormConstructorModel = {
         },
         {
           id: 'diastolicPressure',
-          title: 'Диастолическое давление',
+          title: 'Диастолическое давление (мм. рт. ст.)',
           type: FieldType.InputNumber,
           name: 'diastolicPressure',
           inputNumberProps: {
@@ -52,7 +53,7 @@ export const stationaryCardFirstDayForm: FormConstructorModel = {
         },
         {
           id: 'temperature',
-          title: 'Температура тела',
+          title: 'Температура тела (°С)',
           type: FieldType.InputNumber,
           name: 'temperature',
           inputNumberProps: {
@@ -84,19 +85,22 @@ export const stationaryCardFirstDayForm: FormConstructorModel = {
         {
           id: 'isCompleted',
           title: 'Выполнено',
-          type: FieldType.Checkbox,
+          type: FieldType.DictionaryRadioGroup,
+          dictionaryName: Dictionary.YesNoNotSuitable,
           name: 'isCompleted',
         },
         {
           id: 'isNorm',
           title: 'Показатели в норме?',
-          type: FieldType.Checkbox,
+          type: FieldType.DictionaryRadioGroup,
+          dictionaryName: Dictionary.YesNoNotSuitable,
           name: 'isNorm',
         },
         {
           id: 'isDeviation',
           title: 'Отклонения',
-          type: FieldType.Checkbox,
+          type: FieldType.DictionaryRadioGroup,
+          dictionaryName: Dictionary.YesNoNotSuitable,
           name: 'isDeviation',
         },
         {

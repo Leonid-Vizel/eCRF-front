@@ -3,9 +3,9 @@ import { LifeAnamnesisCard } from 'features/outpatientCard/types/lifeAnamnesisTy
 import { hideField } from 'features/form';
 import { FieldType, FormConstructorModel } from '../../../form/types/types';
 
-const alcoholHidden = hideField('card', 'alcohol', true);
+const alcoholHidden = hideField('card', 'alcohol', 0);
 
-const narcoticsHidden = hideField('card', 'narcotics', true);
+const narcoticsHidden = hideField('card', 'narcotics', 0);
 
 export const lifeAnamnesisForm: FormConstructorModel = {
   rootEntityName: 'outpatientCards',
@@ -53,7 +53,8 @@ export const lifeAnamnesisForm: FormConstructorModel = {
         {
           id: 'foodAllergies',
           title: 'Непереносимость продуктов питания',
-          type: FieldType.Checkbox,
+          type: FieldType.DictionaryRadioGroup,
+          dictionaryName: Dictionary.YesNoNotSuitable,
           name: 'foodAllergies',
         },
         {
@@ -61,12 +62,13 @@ export const lifeAnamnesisForm: FormConstructorModel = {
           title: 'Продукты питания',
           type: FieldType.Input,
           name: 'foodAllergiesString',
-          hidden: hideField('card', 'foodAllergies', true),
+          hidden: hideField('card', 'foodAllergies', 0),
         },
         {
           id: 'drugAllergies',
           title: 'Непереносимость лекарственных препаратов',
-          type: FieldType.Checkbox,
+          type: FieldType.DictionaryRadioGroup,
+          dictionaryName: Dictionary.YesNoNotSuitable,
           name: 'drugAllergies',
         },
         {
@@ -74,7 +76,7 @@ export const lifeAnamnesisForm: FormConstructorModel = {
           title: 'Лекарственные препараты',
           type: FieldType.Input,
           name: 'drugAllergiesDrugName',
-          hidden: hideField('card', 'drugAllergies', true),
+          hidden: hideField('card', 'drugAllergies', 0),
         },
         {
           id: 'allergyType',
@@ -138,7 +140,8 @@ export const lifeAnamnesisForm: FormConstructorModel = {
         {
           id: 'tobaccoSmoking',
           title: 'Табакокурение',
-          type: FieldType.Checkbox,
+          type: FieldType.DictionaryRadioGroup,
+          dictionaryName: Dictionary.YesNoNotSuitable,
           name: 'tobaccoSmoking',
         },
         {
@@ -146,12 +149,13 @@ export const lifeAnamnesisForm: FormConstructorModel = {
           title: 'Количество пачек в день',
           type: FieldType.InputNumber,
           name: 'tobaccoDailyPack',
-          hidden: hideField('card', 'tobaccoSmoking', true),
+          hidden: hideField('card', 'tobaccoSmoking', 0),
         },
         {
           id: 'electroTobaccoSmoking',
           title: 'Употребление электронного табака',
-          type: FieldType.Checkbox,
+          type: FieldType.DictionaryRadioGroup,
+          dictionaryName: Dictionary.YesNoNotSuitable,
           name: 'electroTobaccoSmoking',
         },
         {
@@ -159,7 +163,7 @@ export const lifeAnamnesisForm: FormConstructorModel = {
           title: 'Как часто?',
           type: FieldType.Input,
           name: 'electroTobaccoSmokingComment',
-          hidden: hideField('card', 'electroTobaccoSmoking', true),
+          hidden: hideField('card', 'electroTobaccoSmoking', 0),
         },
       ],
     },
@@ -172,7 +176,8 @@ export const lifeAnamnesisForm: FormConstructorModel = {
         {
           id: 'alcohol',
           title: 'Употребление алкоголя',
-          type: FieldType.Checkbox,
+          type: FieldType.DictionaryRadioGroup,
+          dictionaryName: Dictionary.YesNoNotSuitable,
           name: 'alcohol',
         },
         {
@@ -221,7 +226,8 @@ export const lifeAnamnesisForm: FormConstructorModel = {
         {
           id: 'narcotics',
           title: 'Употребление наркотиков',
-          type: FieldType.Checkbox,
+          type: FieldType.DictionaryRadioGroup,
+          dictionaryName: Dictionary.YesNoNotSuitable,
           name: 'narcotics',
         },
         {
@@ -257,7 +263,8 @@ export const lifeAnamnesisForm: FormConstructorModel = {
         {
           id: 'addictionAbuse',
           title: '',
-          type: FieldType.Checkbox,
+          type: FieldType.DictionaryRadioGroup,
+          dictionaryName: Dictionary.YesNoNotSuitable,
           name: 'addictionAbuse',
         },
       ],
@@ -271,7 +278,8 @@ export const lifeAnamnesisForm: FormConstructorModel = {
         {
           id: 'past90Days',
           title: '',
-          type: FieldType.Checkbox,
+          type: FieldType.DictionaryRadioGroup,
+          dictionaryName: Dictionary.YesNoNotSuitable,
           name: 'past90Days',
         },
       ],

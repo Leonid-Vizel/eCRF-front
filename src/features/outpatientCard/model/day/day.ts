@@ -101,7 +101,7 @@ export const dayForm: FormConstructorModel = {
         },
         {
           id: 'temperature',
-          title: 'Температура тела',
+          title: 'Температура тела (°С)',
           type: FieldType.InputNumber,
           name: 'temperature',
           inputNumberProps: {

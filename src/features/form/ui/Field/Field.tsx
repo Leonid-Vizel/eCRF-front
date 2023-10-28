@@ -21,6 +21,7 @@ import utc from 'dayjs/plugin/utc';
 import tz from 'dayjs/plugin/timezone';
 import { Button } from 'shared/ui/Button';
 import { DownloadForm } from 'shared/ui/DownloadForm/DownloadForm';
+import { UploadDownloadList } from 'shared/ui/Upload/UploadDownloadList';
 import { FieldType, Hidden } from '../../types/types';
 import cls from './Field.module.scss';
 
@@ -55,6 +56,8 @@ interface FieldProps {
   fileLoaded?: boolean
   disabled?:boolean
   maxFileCount?: number | null
+  listAction?: string
+  deleteAction?: string
 }
 
 export const Field = (props:FieldProps) => {
@@ -79,6 +82,8 @@ export const Field = (props:FieldProps) => {
     fileLoaded,
     disabled,
     maxFileCount = 1,
+    listAction,
+    deleteAction,
   } = props;
   let field;
   const rules = disabled ? fieldRules : [
@@ -313,6 +318,14 @@ export const Field = (props:FieldProps) => {
             title="Скачать"
           />
           )}
+        </Form.Item>
+      );
+      break;
+    case FieldType.UploadDownloadList:
+      field = (
+        <Form.Item label={title} name={name} rules={rules} className={cls.formItem}>
+          <UploadDownloadList listAction={listAction} uploadAction={uploadAction} deleteAction={deleteAction} />
+
         </Form.Item>
       );
       break;

@@ -73,6 +73,8 @@ export const FormQuestionnaire: FC<FormQuestionaryProps> = (props) => {
                                     disabled={disabled}
                                     maxFileCount={testData[field.value][key]?.maxFileCount}
                                     options={testData[field.value][key]?.options}
+                                    listAction={testData[field.value][key]?.listAction}
+                                    deleteAction={testData[field.value][key]?.deleteAction}
                                   />
                                 </div>
                               );

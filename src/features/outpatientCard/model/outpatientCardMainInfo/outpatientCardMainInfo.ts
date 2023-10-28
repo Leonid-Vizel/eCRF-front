@@ -122,6 +122,7 @@ export const outPatientCardMainInfoForm: FormConstructorModel = {
             type: FieldType.Input,
             name: 'phone',
             mask: Mask.Phone,
+            rules: [{ required: true, message: 'Пожалуйста, введите номер телефона' }],
           },
           {
             id: 'comment',

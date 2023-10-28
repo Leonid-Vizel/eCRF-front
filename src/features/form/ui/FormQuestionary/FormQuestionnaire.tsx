@@ -49,13 +49,17 @@ export const FormQuestionnaire: FC<FormQuestionaryProps> = (props) => {
                             <Paragraph className={cls.colLabel}>{testData[field.label]}</Paragraph>
                             {nestedFields.map((key: FieldType) => {
                               const isDictionary = key.includes('dictionary');
+                              const name = (isDictionary
+                                && [listField.key, field.value, key, 'dictionaryValue'])
+                                 || (key === 'select'
+                                  && [listField.key, field.value, key, 'value'])
+                                  || [listField.key, field.value, key];
+
                               return (
                                 <div className={cls.colItem}>
                                   <Field
                                     key={key}
-                                    name={isDictionary
-                                      ? [listField.key, field.value, key, 'dictionaryValue']
-                                      : [listField.key, field.value, key]}
+                                    name={name}
                                     dictionaryName={testData[field.value][key]?.dictionaryName}
                                     form={form}
                                     type={key}
@@ -68,6 +72,7 @@ export const FormQuestionnaire: FC<FormQuestionaryProps> = (props) => {
                                     fileLoaded={testData[field.value][key]?.fileLoaded}
                                     disabled={disabled}
                                     maxFileCount={testData[field.value][key]?.maxFileCount}
+                                    options={testData[field.value][key]?.options}
                                   />
                                 </div>
                               );

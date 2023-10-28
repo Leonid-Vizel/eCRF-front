@@ -325,7 +325,6 @@ export const Field = (props:FieldProps) => {
       field = (
         <Form.Item label={title} name={name} rules={rules} className={cls.formItem}>
           <UploadDownloadList listAction={listAction} uploadAction={uploadAction} deleteAction={deleteAction} />
-
         </Form.Item>
       );
       break;

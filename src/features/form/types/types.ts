@@ -67,6 +67,7 @@ export enum FieldType {
   Text = 'text',
   DictionaryTreeSelect = 'dictionaryTreeSelect',
   UploadDownload = 'uploadDownload',
+  UploadDownloadList = 'uploadDownloadList',
 }
 
 export interface FormConstructorModel {

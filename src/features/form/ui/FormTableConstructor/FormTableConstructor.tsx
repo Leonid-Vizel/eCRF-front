@@ -21,6 +21,7 @@ interface FormTableConstructorProps {
     entityName: string;
     formEntityName: string;
   }
+  disabled: boolean
 }
 
 export const FormTableConstructor: React.FC<FormTableConstructorProps> = ({
@@ -32,6 +33,7 @@ export const FormTableConstructor: React.FC<FormTableConstructorProps> = ({
   formListName,
   add,
   remove,
+  disabled,
 }) => {
   const addRow = () => {
     add();
@@ -77,6 +79,8 @@ export const FormTableConstructor: React.FC<FormTableConstructorProps> = ({
           inputNumberProps={inputNumberProps}
           entities={entities}
           formListName={formListName}
+          confirmTitle={title}
+          disabled={disabled}
         />
       ),
     });

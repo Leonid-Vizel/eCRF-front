@@ -7,6 +7,7 @@ import { TreeSelect } from 'shared/ui/TreeSelect/TreeSelect';
 
 import { RootState } from 'app/providers/StoreProvider';
 import { getDefaultDictionaryOption } from 'features/form/model/selectors/formSelectors';
+import get from 'lodash/get';
 import { getDictionary } from '../../model/getDictionary';
 
 interface DictionaryTreeSelectProps {
@@ -21,22 +22,23 @@ interface DictionaryTreeSelectProps {
     formEntityName: string;
   }
   formListName: string
+  disabled: boolean
 }
 
 export const DictionaryTreeSelect = (props:DictionaryTreeSelectProps) => {
   const {
-    dictionaryName, onChange, placeholder = 'Выберите значение', className, entities, formListName, name,
+    dictionaryName, onChange, placeholder = 'Выберите значение', className, entities, formListName, name, disabled,
   } = props;
   const dispatch = useAppDispatch();
   const { formEntityName, entityName, rootEntityName } = entities;
   const isLoading = useAppSelector(isLoadingSelector(dictionaryName));
   const data = useAppSelector(getDictionarySelector(dictionaryName));
-  const defaultOption = useAppSelector((state: RootState) => getDefaultDictionaryOption(state, {
+  const defaultOption = useAppSelector((state: RootState) => get(getDefaultDictionaryOption(state, {
     formEntityName, entityName, rootEntityName, formListName,
-  })?.[name[0]]?.[name[1]]);
+  }), name));
 
   useEffect(() => {
-    if (!data) {
+    if (dictionaryName && !data) {
       dispatch(getDictionary(dictionaryName));
     }
   }, [dictionaryName, dispatch, data]);
@@ -50,6 +52,7 @@ export const DictionaryTreeSelect = (props:DictionaryTreeSelectProps) => {
         treeData={data}
         onChange={onChange}
         className={className}
+        disabled={disabled}
       />
     </Spinner>
   );

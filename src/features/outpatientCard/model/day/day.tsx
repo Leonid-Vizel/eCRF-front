@@ -1,13 +1,33 @@
+/* eslint-disable react/jsx-one-expression-per-line */
+import { Dictionary } from 'entities/dictionary';
 import { FieldType, FormConstructorModel } from 'features/form/types/types';
 
 export const dayForm: FormConstructorModel = {
   rootEntityName: 'outpatientCards',
   entityName: 'outpatientCard',
+  disabledCondition: {
+    name: ['bodyInfo', 0, 'noSuitable'],
+    value: true,
+  },
   cards: [
+    {
+      id: 'bodyInfo',
+      key: 'notSuitable',
+      title: '',
+      fields: [
+        {
+          id: 'noSuitable',
+          title: 'Не применимо',
+          type: FieldType.Checkbox,
+          name: 'noSuitable',
+        },
+      ],
+    },
     {
       id: 'bodyInfo',
       key: 'bodyInfo',
       title: 'Дата визита',
+      isDisabledCondition: true,
       fields: [
         {
           id: 'date',
@@ -21,6 +41,7 @@ export const dayForm: FormConstructorModel = {
       id: 'bodyInfo',
       key: 'complaints',
       title: 'Жалобы добровольца',
+      isDisabledCondition: true,
       fields: [
         {
           id: 'complaints',
@@ -37,10 +58,11 @@ export const dayForm: FormConstructorModel = {
       id: 'bodyInfo',
       key: 'pressureTemperature',
       title: 'Давление и температура',
+      isDisabledCondition: true,
       fields: [
         {
           id: 'systolicPressure',
-          title: 'Систолическое давление',
+          title: 'Систолическое давление (мм. рт. ст.)',
           type: FieldType.InputNumber,
           name: 'systolicPressure',
           inputNumberProps: {
@@ -50,7 +72,7 @@ export const dayForm: FormConstructorModel = {
         },
         {
           id: 'diastolicPressure',
-          title: 'Диастолическое давление',
+          title: <>Диастолическое давление <br /> (мм. рт. ст.)</>,
           type: FieldType.InputNumber,
           name: 'diastolicPressure',
           inputNumberProps: {
@@ -60,7 +82,7 @@ export const dayForm: FormConstructorModel = {
         },
         {
           id: 'heartRate',
-          title: 'ЧСС',
+          title: <>Частота сердечных сокращений <br />(уд/мин)</>,
           type: FieldType.InputNumber,
           name: 'heartRate',
           inputNumberProps: {
@@ -70,7 +92,7 @@ export const dayForm: FormConstructorModel = {
         },
         {
           id: 'respiratoryRate',
-          title: 'ЧДД',
+          title: <>Частота дыхательных движений <br />(дв/мин)</>,
           type: FieldType.InputNumber,
           name: 'respiratoryRate',
           inputNumberProps: {
@@ -80,7 +102,7 @@ export const dayForm: FormConstructorModel = {
         },
         {
           id: 'temperature',
-          title: 'Температура тела',
+          title: 'Температура тела (°С)',
           type: FieldType.InputNumber,
           name: 'temperature',
           inputNumberProps: {
@@ -97,6 +119,7 @@ export const dayForm: FormConstructorModel = {
       fieldsLayout: 'table',
       addRemoveButtons: false,
       columnCount: 5,
+      isDisabledCondition: true,
       fields: [
         {
           id: 'system',
@@ -107,19 +130,22 @@ export const dayForm: FormConstructorModel = {
         {
           id: 'isCompleted',
           title: 'Выполнено',
-          type: FieldType.Checkbox,
+          type: FieldType.DictionaryRadioGroup,
+          dictionaryName: Dictionary.YesNoNotSuitable,
           name: 'isCompleted',
         },
         {
           id: 'isNorm',
           title: 'Показатели в норме?',
-          type: FieldType.Checkbox,
+          type: FieldType.DictionaryRadioGroup,
+          dictionaryName: Dictionary.YesNoNotSuitable,
           name: 'isNorm',
         },
         {
           id: 'isDeviation',
           title: 'Отклонения',
-          type: FieldType.Checkbox,
+          type: FieldType.DictionaryRadioGroup,
+          dictionaryName: Dictionary.YesNoNotSuitable,
           name: 'isDeviation',
         },
         {
@@ -135,6 +161,7 @@ export const dayForm: FormConstructorModel = {
       key: 'labInstrumentalInfo',
       title: 'Лабораторные и инструментальные исследования',
       fieldsLayout: 'questionnaire',
+      isDisabledCondition: true,
       nestedFields: [
         {
           label: 'label',
@@ -147,6 +174,7 @@ export const dayForm: FormConstructorModel = {
       key: 'criteriaInfo',
       title: 'Оценка критериев исключения',
       fieldsLayout: 'questionnaire',
+      isDisabledCondition: true,
       nestedFields: [
         {
           label: 'label',
@@ -159,6 +187,7 @@ export const dayForm: FormConstructorModel = {
       key: 'visitInfo',
       title: 'Информация о визите',
       fieldsLayout: 'questionnaire',
+      isDisabledCondition: true,
       nestedFields: [
         {
           label: 'label',

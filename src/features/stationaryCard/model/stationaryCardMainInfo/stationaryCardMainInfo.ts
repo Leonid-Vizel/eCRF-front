@@ -71,12 +71,6 @@ export const stationaryMainInfoForm: FormConstructorModel = {
             rules: [{ required: true }],
           },
           {
-            id: 'drugSideEffects',
-            title: 'Побочное действие лекарств (непереносимость)',
-            type: FieldType.TextArea,
-            name: 'drugSideEffects',
-          },
-          {
             id: 'workType',
             title: 'Занятость',
             type: FieldType.DictionarySelect,
@@ -244,7 +238,7 @@ export const stationaryMainInfoForm: FormConstructorModel = {
           },
           {
             id: 'doctor',
-            title: 'Врач',
+            title: 'Врач (Фамилия И.О.)',
             type: FieldType.Input,
             name: 'doctor',
           },
@@ -357,11 +351,30 @@ export const stationaryMainInfoForm: FormConstructorModel = {
             type: FieldType.Input,
             name: 'specialMarks',
           },
+        ],
+      },
+      {
+        id: 'resultInfo',
+        key: 'doctorInfo',
+        title: 'Главный врач (ФИО полностью)',
+        fields: [
           {
-            id: 'headDoctor',
-            title: 'Главный врач',
+            id: 'surnameDoctor',
+            title: 'Фамилия',
             type: FieldType.Input,
-            name: 'headDoctor',
+            name: 'surnameDoctor',
+          },
+          {
+            id: 'nameDoctor',
+            title: 'Имя',
+            type: FieldType.Input,
+            name: 'nameDoctor',
+          },
+          {
+            id: 'patronymycDoctor',
+            title: 'Отчество',
+            type: FieldType.Input,
+            name: 'patronymycDoctor',
           },
         ],
       },

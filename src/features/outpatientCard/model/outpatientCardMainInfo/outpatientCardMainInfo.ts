@@ -122,6 +122,7 @@ export const outPatientCardMainInfoForm: FormConstructorModel = {
             type: FieldType.Input,
             name: 'phone',
             mask: Mask.Phone,
+            rules: [{ required: true, message: 'Пожалуйста, введите номер телефона' }],
           },
           {
             id: 'comment',
@@ -396,7 +397,7 @@ export const outPatientCardMainInfoForm: FormConstructorModel = {
           },
           {
             id: 'doctor',
-            title: 'Врач',
+            title: 'Врач (Фамилия И.О.)',
             name: 'doctor',
             type: FieldType.Input,
           },
@@ -429,7 +430,7 @@ export const outPatientCardMainInfoForm: FormConstructorModel = {
           },
           {
             id: 'doctor',
-            title: 'Врач',
+            title: 'Врач (Фамилия И.О.)',
             type: FieldType.Input,
             name: 'doctor',
           },

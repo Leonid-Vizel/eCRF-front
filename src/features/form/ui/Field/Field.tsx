@@ -4,7 +4,7 @@ import { DictionarySelect } from 'features/dictionary/ui/DictionarySelect/Dictio
 import { Checkbox } from 'shared/ui/Checkbox/Checkbox';
 import { Dictionary } from 'entities/dictionary';
 import {
-  CheckboxOptionType, Form, FormInstance, InputNumber,
+  CheckboxOptionType, Form, FormInstance, InputNumber, Upload,
 } from 'antd';
 import { DictionaryRadioGroup } from 'features/dictionary/ui/DictionaryRadioGroup/DictionaryRadioGroup';
 import { RadioGroupOptionType } from 'antd/es/radio';
@@ -18,10 +18,15 @@ import dayjs from 'dayjs';
 import ReactInputMask from 'react-input-mask';
 import { DictionaryTreeSelect } from 'features/dictionary';
 import utc from 'dayjs/plugin/utc';
+import tz from 'dayjs/plugin/timezone';
+import { Button } from 'shared/ui/Button';
+import { DownloadForm } from 'shared/ui/DownloadForm/DownloadForm';
+import { UploadDownloadList } from 'shared/ui/Upload/UploadDownloadList';
 import { FieldType, Hidden } from '../../types/types';
 import cls from './Field.module.scss';
 
 dayjs.extend(utc);
+dayjs.extend(tz);
 
 interface FieldProps {
   type: FieldType
@@ -44,23 +49,64 @@ interface FieldProps {
     formEntityName: string;
   }
   formListName: string
+  confirmTitle?: string
+  uploadAction?: string
+  uploadAccept?: string
+  downloadAction?: string
+  fileLoaded?: boolean
+  disabled?:boolean
+  maxFileCount?: number | null
+  listAction?: string
+  deleteAction?: string
 }
 
 export const Field = (props:FieldProps) => {
   const {
-    type, form, name, title, dictionaryName, optionType, options, rules, hidden, mask, inputNumberProps, entities, formListName,
+    type,
+    form,
+    name,
+    title,
+    dictionaryName,
+    optionType = 'button',
+    options,
+    rules: fieldRules = [],
+    hidden,
+    mask,
+    inputNumberProps,
+    entities,
+    formListName,
+    confirmTitle,
+    uploadAction,
+    uploadAccept = '.pdf',
+    downloadAction,
+    fileLoaded,
+    disabled,
+    maxFileCount = 1,
+    listAction,
+    deleteAction,
   } = props;
   let field;
+  const rules = disabled ? fieldRules : [
+    ...fieldRules,
+    {
+      // eslint-disable-next-line consistent-return
+      validator: async (_, value) => {
+        if (value === null || value === undefined) {
+          return Promise.reject(new Error(title || confirmTitle));
+        }
+      },
+    },
+  ];
+
   switch (type) {
     case FieldType.Input:
       field = (
         <Form.Item label={title} name={name} rules={rules} className={cls.formItem}>
           {mask
             ? (
-              <ReactInputMask mask={mask} onChange={(event) => form.setFieldValue(name, event.target.value)}>
+              <ReactInputMask disabled={disabled} mask={mask} onChange={(event) => form.setFieldValue(name, event.target.value)}>
                 <Input
                   className={cls.inputType}
-
                 />
               </ReactInputMask>
             )
@@ -68,6 +114,7 @@ export const Field = (props:FieldProps) => {
               <Input
                 className={cls.inputType}
                 onChange={(event) => form.setFieldValue(name, event.target.value)}
+                disabled={disabled}
               />
             )}
         </Form.Item>
@@ -81,6 +128,7 @@ export const Field = (props:FieldProps) => {
             className={cls.inputType}
             options={options}
             onChange={(value) => form.setFieldValue(name, value)}
+            disabled={disabled}
           />
 
         </Form.Item>
@@ -96,6 +144,7 @@ export const Field = (props:FieldProps) => {
             entities={entities}
             formListName={formListName}
             name={name}
+            disabled={disabled}
           />
         </Form.Item>
       );
@@ -104,12 +153,14 @@ export const Field = (props:FieldProps) => {
       field = (
         <Form.Item
           name={name}
-          rules={rules}
+          rules={[...rules]}
           valuePropName="checked"
+          className={cls.formItem}
         >
           <Checkbox
             onChange={(event) => form.setFieldValue(name, event.target.checked)}
             className={cls.checkbox}
+            disabled={disabled}
           >
             {title}
           </Checkbox>
@@ -125,6 +176,7 @@ export const Field = (props:FieldProps) => {
             options={options}
             onChange={(event) => form.setFieldValue(name, event.target.value)}
             optionType={optionType}
+            disabled={disabled}
           />
 
         </Form.Item>
@@ -142,6 +194,7 @@ export const Field = (props:FieldProps) => {
             entities={entities}
             formListName={formListName}
             name={name}
+            disabled={disabled}
           />
 
         </Form.Item>
@@ -154,12 +207,13 @@ export const Field = (props:FieldProps) => {
           name={name}
           rules={rules}
           className={cls.formItem}
-          getValueProps={(i) => (i ? { value: dayjs(i) } : { value: i })}
+          getValueProps={(i) => (i ? { value: dayjs.utc(i).tz() } : { value: i })}
         >
           <DatePicker
             className={cls.inputType}
             onChange={(date) => form.setFieldValue(name, date)}
-            format="DD/MM/YYYY"
+            format="DD.MM.YYYY"
+            disabled={disabled}
           />
         </Form.Item>
       );
@@ -171,14 +225,15 @@ export const Field = (props:FieldProps) => {
           name={name}
           rules={rules}
           className={cls.formItem}
-          getValueProps={(i) => (i ? { value: dayjs.utc(i) } : { value: i })}
+          getValueProps={(i) => (i ? { value: dayjs.utc(i).tz() } : { value: i })}
         >
           <DatePicker
             className={cls.inputType}
             onChange={(date) => form.setFieldValue(name, date)}
-            format="DD/MM/YYYY HH:mm"
+            format="DD.MM.YYYY HH:mm"
             placeholder="Выберите дату и время"
             showTime
+            disabled={disabled}
           />
         </Form.Item>
       );
@@ -190,13 +245,14 @@ export const Field = (props:FieldProps) => {
           name={name}
           rules={rules}
           className={cls.formItem}
-          getValueProps={(i) => (i ? { value: dayjs.utc(i) } : { value: i })}
+          getValueProps={(i) => (i ? { value: dayjs.utc(i).tz() } : { value: i })}
         >
           <TimePicker
             className={cls.inputType}
             onChange={(date) => form.setFieldValue(name, date)}
             placeholder="Выберите время"
             format="HH:mm"
+            disabled={disabled}
           />
         </Form.Item>
       );
@@ -207,6 +263,7 @@ export const Field = (props:FieldProps) => {
           <TextArea
             className={cls.inputType}
             onChange={(event) => form.setFieldValue(name, event.target.value)}
+            disabled={disabled}
           />
         </Form.Item>
       );
@@ -219,6 +276,7 @@ export const Field = (props:FieldProps) => {
             max={inputNumberProps?.max}
             className={cls.inputType}
             onChange={(value) => form.setFieldValue(name, value)}
+            disabled={disabled}
           />
         </Form.Item>
       );
@@ -238,7 +296,35 @@ export const Field = (props:FieldProps) => {
             entities={entities}
             formListName={formListName}
             name={name}
+            disabled={disabled}
           />
+        </Form.Item>
+      );
+      break;
+    case FieldType.UploadDownload:
+      field = (
+        <Form.Item label={title} name={name} rules={rules} className={cls.formItem}>
+          <Upload
+            action={uploadAction}
+            accept={uploadAccept}
+            disabled={disabled}
+            maxCount={maxFileCount}
+          >
+            <Button>Загрузить</Button>
+          </Upload>
+          {fileLoaded && (
+          <DownloadForm
+            action={downloadAction}
+            title="Скачать"
+          />
+          )}
+        </Form.Item>
+      );
+      break;
+    case FieldType.UploadDownloadList:
+      field = (
+        <Form.Item label={title} name={name} rules={rules} className={cls.formItem}>
+          <UploadDownloadList listAction={listAction} uploadAction={uploadAction} deleteAction={deleteAction} />
         </Form.Item>
       );
       break;

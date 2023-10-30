@@ -22,11 +22,12 @@ interface FormLayoutProps {
     entityName: string;
     formEntityName: string;
   }
+  disabled: boolean
 }
 
 const FormRow = (props:any) => {
   const {
-    rows, formListName, columnCount, form, entities,
+    rows, formListName, columnCount, form, entities, disabled,
   } = props;
   return (
     <>
@@ -61,6 +62,10 @@ const FormRow = (props:any) => {
                             columnStyle,
                             mask,
                             inputNumberProps,
+                            uploadAction,
+                            uploadAccept,
+                            downloadAction,
+                            maxFileCount,
                           } = field;
                           return (
                             <Col style={columnStyle} key={id} className={cls.colItem}>
@@ -78,6 +83,11 @@ const FormRow = (props:any) => {
                                 inputNumberProps={inputNumberProps}
                                 entities={entities}
                                 formListName={formListName}
+                                uploadAction={uploadAction}
+                                uploadAccept={uploadAccept}
+                                downloadAction={downloadAction}
+                                disabled={disabled}
+                                maxFileCount={maxFileCount}
                               />
                             </Col>
                           );
@@ -96,12 +106,19 @@ const FormRow = (props:any) => {
 };
 
 export const FormLayout:FC<FormLayoutProps> = ({
-  form, rows, fieldsLayout, formListName, externalData, addRemoveButtons = true, columnCount, entities,
+  form, rows, fieldsLayout, formListName, externalData, addRemoveButtons = true, columnCount, entities, disabled,
 }) => {
   switch (fieldsLayout) {
     case 'questionnaire':
       return (
-        <FormQuestionnaire entities={entities} formListName={formListName} form={form} rows={rows} dataSource={externalData} />
+        <FormQuestionnaire
+          entities={entities}
+          formListName={formListName}
+          form={form}
+          rows={rows}
+          dataSource={externalData}
+          disabled={disabled}
+        />
       );
     case 'table': {
       return (
@@ -116,12 +133,22 @@ export const FormLayout:FC<FormLayoutProps> = ({
               addRemoveButtons={addRemoveButtons}
               entities={entities}
               formListName={formListName}
+              disabled={disabled}
             />
           )}
         </Form.List>
       );
     }
     default:
-      return <FormRow rows={rows} formListName={formListName} columnCount={columnCount} form={form} entities={entities} />;
+      return (
+        <FormRow
+          rows={rows}
+          formListName={formListName}
+          columnCount={columnCount}
+          form={form}
+          entities={entities}
+          disabled={disabled}
+        />
+      );
   }
 };

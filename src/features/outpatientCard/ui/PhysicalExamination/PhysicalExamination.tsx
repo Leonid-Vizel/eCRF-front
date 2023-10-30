@@ -1,13 +1,13 @@
 import { FC, useEffect } from 'react';
-import { FileCard, FormConstructor } from 'features/form';
-import { Button } from 'shared/ui/Button/Button';
+import { FormConstructor } from 'features/form';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from 'shared/hooks/useAppSelector/useAppSelector';
-import { getCardId, getOutpatientCardFormData } from 'features/outpatientCard/model/selectors/outpatientCardSelectors';
+import { getCardId } from 'features/outpatientCard/model/selectors/outpatientCardSelectors';
 import { getPhysicalExamination } from 'features/outpatientCard/model/lib/getPhysicalExaminationAction';
 import { physicalExaminationForm } from 'features/outpatientCard/model/physicalExamination/physicalExamination';
 import { getFormData } from 'features/outpatientCard/model/slice/outpatientCard.slice';
 import { modifyPhysicalExamination } from 'features/outpatientCard/model/lib/modifyPhysicalExaminationAction';
+import { Button } from 'shared/ui/Button';
 
 interface PhysicalExaminationProps {
   // className?: string;
@@ -16,7 +16,6 @@ interface PhysicalExaminationProps {
 export const PhysicalExamination: FC<PhysicalExaminationProps> = () => {
   const dispatch = useAppDispatch();
   const cardId = useAppSelector(getCardId);
-  const formData = useAppSelector(getOutpatientCardFormData(physicalExaminationForm.formEntityName));
 
   useEffect(() => {
     dispatch(getPhysicalExamination({ cardId }));
@@ -35,20 +34,7 @@ export const PhysicalExamination: FC<PhysicalExaminationProps> = () => {
           );
           dispatch(modifyPhysicalExamination());
         }}
-        footer={(
-          <>
-            <FileCard
-              cardTitle="Файл ЭКГ"
-              uploadAction={`/api/net/PhysicalExam/${cardId}/Files/ECG/Update`}
-              download={formData?.ecgFileLoaded}
-              downloadAction={`/api/net/PhysicalExam/${cardId}/Files/ECG/Download`}
-              accept=".pdf"
-            />
-            <Button type="primary" size="large" htmlType="submit">
-              Соxранить
-            </Button>
-          </>
-        )}
+        footer={<Button type="primary" size="large" htmlType="submit">Соxранить</Button>}
       />
     </div>
   );

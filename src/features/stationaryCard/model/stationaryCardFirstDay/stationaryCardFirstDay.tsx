@@ -1,63 +1,16 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 import { Dictionary } from 'entities/dictionary';
 import { FieldType, FormConstructorModel } from 'features/form/types/types';
 
-export const dayForm: FormConstructorModel = {
-  rootEntityName: 'outpatientCards',
-  entityName: 'outpatientCard',
-  disabledCondition: {
-    name: ['bodyInfo', 0, 'noSuitable'],
-    value: true,
-  },
+export const stationaryCardFirstDayForm: FormConstructorModel = {
+  rootEntityName: 'stationaryCards',
+  entityName: 'stationaryCard',
+  formEntityName: 'stationaryCardFirstDayForm',
   cards: [
     {
-      id: 'bodyInfo',
-      key: 'notSuitable',
-      title: '',
-      fields: [
-        {
-          id: 'noSuitable',
-          title: 'Не применимо',
-          type: FieldType.Checkbox,
-          name: 'noSuitable',
-        },
-      ],
-    },
-    {
-      id: 'bodyInfo',
-      key: 'bodyInfo',
-      title: 'Дата визита',
-      isDisabledCondition: true,
-      fields: [
-        {
-          id: 'date',
-          title: 'Дата визита',
-          type: FieldType.DatePicker,
-          name: 'date',
-        },
-      ],
-    },
-    {
-      id: 'bodyInfo',
-      key: 'complaints',
-      title: 'Жалобы добровольца',
-      isDisabledCondition: true,
-      fields: [
-        {
-          id: 'complaints',
-          title: '',
-          type: FieldType.TextArea,
-          name: 'complaints',
-          columnStyle: {
-            width: '100%',
-          },
-        },
-      ],
-    },
-    {
-      id: 'bodyInfo',
-      key: 'pressureTemperature',
-      title: 'Давление и температура',
-      isDisabledCondition: true,
+      id: 'physycalData',
+      key: 'physycalData',
+      title: 'Физикальный осмотр',
       fields: [
         {
           id: 'systolicPressure',
@@ -71,7 +24,7 @@ export const dayForm: FormConstructorModel = {
         },
         {
           id: 'diastolicPressure',
-          title: 'Диастолическое давление (мм. рт. ст.)',
+          title: <>Диастолическое давление <br /> (мм. рт. ст.)</>,
           type: FieldType.InputNumber,
           name: 'diastolicPressure',
           inputNumberProps: {
@@ -81,7 +34,7 @@ export const dayForm: FormConstructorModel = {
         },
         {
           id: 'heartRate',
-          title: 'Частота сердечных сокращений (уд/мин)',
+          title: <>Частота сердечных сокращений <br /> (уд/мин)</>,
           type: FieldType.InputNumber,
           name: 'heartRate',
           inputNumberProps: {
@@ -91,7 +44,7 @@ export const dayForm: FormConstructorModel = {
         },
         {
           id: 'respiratoryRate',
-          title: 'Частота дыхательных движений (дв/мин)',
+          title: <>Частота дыхательных движений <br /> (дв/мин)</>,
           type: FieldType.InputNumber,
           name: 'respiratoryRate',
           inputNumberProps: {
@@ -109,20 +62,24 @@ export const dayForm: FormConstructorModel = {
             max: 41,
           },
         },
-      ],
+        {
+          id: 'complaints',
+          title: 'Жалобы',
+          type: FieldType.TextArea,
+          name: 'complaints',
+        }],
     },
     {
       id: 'table',
       key: 'table',
       title: 'Физикальный осмотр',
       fieldsLayout: 'table',
-      addRemoveButtons: false,
       columnCount: 5,
-      isDisabledCondition: true,
+      addRemoveButtons: false,
       fields: [
         {
           id: 'system',
-          title: 'Система',
+          title: '',
           type: FieldType.Text,
           name: 'system',
         },
@@ -156,11 +113,22 @@ export const dayForm: FormConstructorModel = {
       ],
     },
     {
-      id: 'labInstrumentalInfo',
-      key: 'labInstrumentalInfo',
+      id: 'beginningInfo',
+      key: 'beginningInfo',
+      title: '',
+      fieldsLayout: 'questionnaire',
+      nestedFields: [
+        {
+          label: 'label',
+          value: 'value',
+        },
+      ],
+    },
+    {
+      id: 'labAndInstrumentalReseachInfo',
+      key: 'labAndInstrumentalReseachInfo',
       title: 'Лабораторные и инструментальные исследования',
       fieldsLayout: 'questionnaire',
-      isDisabledCondition: true,
       nestedFields: [
         {
           label: 'label',
@@ -169,11 +137,10 @@ export const dayForm: FormConstructorModel = {
       ],
     },
     {
-      id: 'criteriaInfo',
-      key: 'criteriaInfo',
-      title: 'Оценка критериев исключения',
+      id: 'factsOfInclusionsInfo',
+      key: 'factsOfInclusionsInfo',
+      title: 'Оценка критериев включения',
       fieldsLayout: 'questionnaire',
-      isDisabledCondition: true,
       nestedFields: [
         {
           label: 'label',
@@ -182,11 +149,22 @@ export const dayForm: FormConstructorModel = {
       ],
     },
     {
-      id: 'visitInfo',
-      key: 'visitInfo',
-      title: 'Информация о визите',
+      id: 'factsOfNonInclusionsInfo',
+      key: 'factsOfNonInclusionsInfo',
+      title: 'Оценка критериев невключения',
       fieldsLayout: 'questionnaire',
-      isDisabledCondition: true,
+      nestedFields: [
+        {
+          label: 'label',
+          value: 'value',
+        },
+      ],
+    },
+    {
+      id: 'analysisCriteriasInfo',
+      key: 'analysisCriteriasInfo',
+      title: '',
+      fieldsLayout: 'questionnaire',
       nestedFields: [
         {
           label: 'label',

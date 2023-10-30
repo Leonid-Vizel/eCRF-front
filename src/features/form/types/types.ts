@@ -28,7 +28,7 @@ export interface NestedFields {
 // todo: рабить на разные интерфейсы, для таблиц и для филдов
 export interface FormField {
   id: string
-  title: string
+  title: string | React.ReactNode
   name?: string
   type?: FieldType
   dictionaryName?: Dictionary

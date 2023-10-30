@@ -152,7 +152,7 @@ export const getDayRequest = (
 export const modifyDayRequest = (
   data:DayForm,
 ) => externalSystemCall<DayForm>({
-  endpoint: 'Dat/Modify',
+  endpoint: 'Day/Modify',
   method: 'POST',
   data,
 });

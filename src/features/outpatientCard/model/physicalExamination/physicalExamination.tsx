@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 import { Dictionary } from 'entities/dictionary';
 import { FieldType, FormConstructorModel } from 'features/form/types/types';
 
@@ -13,7 +14,7 @@ export const physicalExaminationForm: FormConstructorModel = {
       fields: [
         {
           id: 'weight',
-          title: 'Вес',
+          title: 'Вес (кг)',
           type: FieldType.InputNumber,
           name: 'weight',
           inputNumberProps: {
@@ -23,20 +24,13 @@ export const physicalExaminationForm: FormConstructorModel = {
         },
         {
           id: 'height',
-          title: 'Рост',
+          title: 'Рост (см)',
           type: FieldType.InputNumber,
           name: 'height',
         },
         {
-          id: 'weightMeasurement',
-          title: 'Мера измерения',
-          type: FieldType.DictionarySelect,
-          dictionaryName: Dictionary.WeightMeasurementType,
-          name: 'weightMeasurement',
-        },
-        {
           id: 'systolicPressure',
-          title: 'Систолическое давление',
+          title: 'Систолическое давление (мм. рт. ст.)',
           type: FieldType.InputNumber,
           name: 'systolicPressure',
           inputNumberProps: {
@@ -46,7 +40,7 @@ export const physicalExaminationForm: FormConstructorModel = {
         },
         {
           id: 'diastolicPressure',
-          title: 'Диастолическое давление',
+          title: <>Диастолическое давление <br /> (мм. рт. ст.)</>,
           type: FieldType.InputNumber,
           name: 'diastolicPressure',
           inputNumberProps: {
@@ -56,7 +50,7 @@ export const physicalExaminationForm: FormConstructorModel = {
         },
         {
           id: 'heartRate',
-          title: 'ЧСС',
+          title: <>Частота сердечных сокращений <br />(уд/мин)</>,
           type: FieldType.InputNumber,
           name: 'heartRate',
           inputNumberProps: {
@@ -66,7 +60,7 @@ export const physicalExaminationForm: FormConstructorModel = {
         },
         {
           id: 'respiratoryRate',
-          title: 'ЧДД',
+          title: <>Частота дыхательных движений <br />(дв/мин)</>,
           type: FieldType.InputNumber,
           name: 'respiratoryRate',
           inputNumberProps: {
@@ -76,7 +70,7 @@ export const physicalExaminationForm: FormConstructorModel = {
         },
         {
           id: 'temperature',
-          title: 'Температура тела',
+          title: 'Температура тела (°С)',
           type: FieldType.InputNumber,
           name: 'temperature',
           inputNumberProps: {
@@ -119,19 +113,22 @@ export const physicalExaminationForm: FormConstructorModel = {
         {
           id: 'isCompleted',
           title: 'Выполнено',
-          type: FieldType.Checkbox,
+          type: FieldType.DictionaryRadioGroup,
+          dictionaryName: Dictionary.YesNoNotSuitable,
           name: 'isCompleted',
         },
         {
           id: 'isNorm',
           title: 'Показатели в норме?',
-          type: FieldType.Checkbox,
+          type: FieldType.DictionaryRadioGroup,
+          dictionaryName: Dictionary.YesNoNotSuitable,
           name: 'isNorm',
         },
         {
           id: 'isDeviation',
           title: 'Отклонения',
-          type: FieldType.Checkbox,
+          type: FieldType.DictionaryRadioGroup,
+          dictionaryName: Dictionary.YesNoNotSuitable,
           name: 'isDeviation',
         },
         {
@@ -177,19 +174,22 @@ export const physicalExaminationForm: FormConstructorModel = {
         {
           id: 'isCompleted',
           title: 'Выполнено',
-          type: FieldType.Checkbox,
+          type: FieldType.DictionaryRadioGroup,
+          dictionaryName: Dictionary.YesNoNotSuitable,
           name: 'isCompleted',
         },
         {
           id: 'isNorm',
           title: 'Показатели в норме?',
-          type: FieldType.Checkbox,
+          type: FieldType.DictionaryRadioGroup,
+          dictionaryName: Dictionary.YesNoNotSuitable,
           name: 'isNorm',
         },
         {
           id: 'isDeviation',
           title: 'Отклонения',
-          type: FieldType.Checkbox,
+          type: FieldType.DictionaryRadioGroup,
+          dictionaryName: Dictionary.YesNoNotSuitable,
           name: 'isDeviation',
         },
         {

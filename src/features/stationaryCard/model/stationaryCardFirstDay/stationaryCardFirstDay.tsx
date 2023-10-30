@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-one-expression-per-line */
+import { Dictionary } from 'entities/dictionary';
 import { FieldType, FormConstructorModel } from 'features/form/types/types';
 
 export const stationaryCardFirstDayForm: FormConstructorModel = {
@@ -12,7 +14,7 @@ export const stationaryCardFirstDayForm: FormConstructorModel = {
       fields: [
         {
           id: 'systolicPressure',
-          title: 'Систолическое давление',
+          title: 'Систолическое давление (мм. рт. ст.)',
           type: FieldType.InputNumber,
           name: 'systolicPressure',
           inputNumberProps: {
@@ -22,7 +24,7 @@ export const stationaryCardFirstDayForm: FormConstructorModel = {
         },
         {
           id: 'diastolicPressure',
-          title: 'Диастолическое давление',
+          title: <>Диастолическое давление <br /> (мм. рт. ст.)</>,
           type: FieldType.InputNumber,
           name: 'diastolicPressure',
           inputNumberProps: {
@@ -32,7 +34,7 @@ export const stationaryCardFirstDayForm: FormConstructorModel = {
         },
         {
           id: 'heartRate',
-          title: 'ЧСС',
+          title: <>Частота сердечных сокращений <br /> (уд/мин)</>,
           type: FieldType.InputNumber,
           name: 'heartRate',
           inputNumberProps: {
@@ -42,7 +44,7 @@ export const stationaryCardFirstDayForm: FormConstructorModel = {
         },
         {
           id: 'respiratoryRate',
-          title: 'ЧДД',
+          title: <>Частота дыхательных движений <br /> (дв/мин)</>,
           type: FieldType.InputNumber,
           name: 'respiratoryRate',
           inputNumberProps: {
@@ -52,7 +54,7 @@ export const stationaryCardFirstDayForm: FormConstructorModel = {
         },
         {
           id: 'temperature',
-          title: 'Температура тела',
+          title: 'Температура тела (°С)',
           type: FieldType.InputNumber,
           name: 'temperature',
           inputNumberProps: {
@@ -84,19 +86,22 @@ export const stationaryCardFirstDayForm: FormConstructorModel = {
         {
           id: 'isCompleted',
           title: 'Выполнено',
-          type: FieldType.Checkbox,
+          type: FieldType.DictionaryRadioGroup,
+          dictionaryName: Dictionary.YesNoNotSuitable,
           name: 'isCompleted',
         },
         {
           id: 'isNorm',
           title: 'Показатели в норме?',
-          type: FieldType.Checkbox,
+          type: FieldType.DictionaryRadioGroup,
+          dictionaryName: Dictionary.YesNoNotSuitable,
           name: 'isNorm',
         },
         {
           id: 'isDeviation',
           title: 'Отклонения',
-          type: FieldType.Checkbox,
+          type: FieldType.DictionaryRadioGroup,
+          dictionaryName: Dictionary.YesNoNotSuitable,
           name: 'isDeviation',
         },
         {

@@ -7,3 +7,10 @@
     flex-direction: column;
     gap: var(--small);
 }
+
+.modal {
+    :global(.ant-modal-confirm-content) {
+        max-height: 500px;
+        overflow-y: auto;
+    }
+}

@@ -16,6 +16,7 @@ export interface FormCards {
   nestedFields?: NestedFields[]
   columnCount?: number
   addRemoveButtons?: boolean
+  isDisabledCondition?: boolean
 }
 
 export interface NestedFields {
@@ -27,7 +28,7 @@ export interface NestedFields {
 // todo: рабить на разные интерфейсы, для таблиц и для филдов
 export interface FormField {
   id: string
-  title: string
+  title: string | React.ReactNode
   name?: string
   type?: FieldType
   dictionaryName?: Dictionary
@@ -65,6 +66,8 @@ export enum FieldType {
   InputNumber = 'inputNumber',
   Text = 'text',
   DictionaryTreeSelect = 'dictionaryTreeSelect',
+  UploadDownload = 'uploadDownload',
+  UploadDownloadList = 'uploadDownloadList',
 }
 
 export interface FormConstructorModel {
@@ -72,6 +75,10 @@ export interface FormConstructorModel {
   entityName: string;
   formEntityName?: string
   cards: FormCards[]
+  disabledCondition?: {
+    name:(string | number)[]
+    value:number | string | boolean
+  }
 }
 
 export interface FormSchemaItem {

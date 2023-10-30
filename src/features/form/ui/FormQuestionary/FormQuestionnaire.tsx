@@ -47,38 +47,40 @@ export const FormQuestionnaire: FC<FormQuestionaryProps> = (props) => {
                             style={{ gridTemplateColumns: `70% repeat(${nestedFields?.length}, auto)` }}
                           >
                             <Paragraph className={cls.colLabel}>{testData[field.label]}</Paragraph>
-                            {nestedFields.map((key: FieldType) => {
-                              const isDictionary = key.includes('dictionary');
-                              const name = (isDictionary
+                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
+                              {nestedFields.map((key: FieldType) => {
+                                const isDictionary = key.includes('dictionary');
+                                const name = (isDictionary
                                 && [listField.key, field.value, key, 'dictionaryValue'])
                                  || (key === 'select'
                                   && [listField.key, field.value, key, 'value'])
                                   || [listField.key, field.value, key];
 
-                              return (
-                                <div className={cls.colItem}>
-                                  <Field
-                                    key={key}
-                                    name={name}
-                                    dictionaryName={testData[field.value][key]?.dictionaryName}
-                                    form={form}
-                                    type={key}
-                                    entities={entities}
-                                    formListName={formListName}
-                                    confirmTitle={testData[field.label]}
-                                    uploadAction={testData[field.value][key]?.uploadAction}
-                                    uploadAccept={testData[field.value][key]?.uploadAccept}
-                                    downloadAction={testData[field.value][key]?.downloadAction}
-                                    fileLoaded={testData[field.value][key]?.fileLoaded}
-                                    disabled={disabled}
-                                    maxFileCount={testData[field.value][key]?.maxFileCount}
-                                    options={testData[field.value][key]?.options}
-                                    listAction={testData[field.value][key]?.listAction}
-                                    deleteAction={testData[field.value][key]?.deleteAction}
-                                  />
-                                </div>
-                              );
-                            })}
+                                return (
+                                  <div className={cls.colItem}>
+                                    <Field
+                                      key={key}
+                                      name={name}
+                                      dictionaryName={testData[field.value][key]?.dictionaryName}
+                                      form={form}
+                                      type={key}
+                                      entities={entities}
+                                      formListName={formListName}
+                                      confirmTitle={testData[field.label]}
+                                      uploadAction={testData[field.value][key]?.uploadAction}
+                                      uploadAccept={testData[field.value][key]?.uploadAccept}
+                                      downloadAction={testData[field.value][key]?.downloadAction}
+                                      fileLoaded={testData[field.value][key]?.fileLoaded}
+                                      disabled={disabled}
+                                      maxFileCount={testData[field.value][key]?.maxFileCount}
+                                      options={testData[field.value][key]?.options}
+                                      listAction={testData[field.value][key]?.listAction}
+                                      deleteAction={testData[field.value][key]?.deleteAction}
+                                    />
+                                  </div>
+                                );
+                              })}
+                            </div>
                           </Col>
                         );
                       })}

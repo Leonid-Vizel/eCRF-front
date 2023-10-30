@@ -66,7 +66,7 @@ export const FormConstructor = (props:FormConstructorProps) => {
       openErrorNotification(message);
     } else {
       confirm({
-        title: 'Незаполнены следующие поля. Вы уверены, что хотите продолжить?',
+        title: 'Не заполнены следующие поля. Вы уверены, что хотите продолжить?',
         content: message,
         onOk() {
           onFinish(form.getFieldsValue());

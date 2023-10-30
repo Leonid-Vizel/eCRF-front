@@ -1,32 +1,65 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 import { Dictionary } from 'entities/dictionary';
 import { FieldType, FormConstructorModel } from 'features/form/types/types';
 
-export const physicalExaminationForm: FormConstructorModel = {
+export const dayForm: FormConstructorModel = {
   rootEntityName: 'outpatientCards',
   entityName: 'outpatientCard',
-  formEntityName: 'physicalExaminationForm',
+  disabledCondition: {
+    name: ['bodyInfo', 0, 'noSuitable'],
+    value: true,
+  },
   cards: [
     {
       id: 'bodyInfo',
-      key: 'bodyInfo',
-      title: 'Данные тела',
+      key: 'notSuitable',
+      title: '',
       fields: [
         {
-          id: 'weight',
-          title: 'Вес',
-          type: FieldType.InputNumber,
-          name: 'weight',
-          inputNumberProps: {
-            min: 10,
-            max: 300,
+          id: 'noSuitable',
+          title: 'Не применимо',
+          type: FieldType.Checkbox,
+          name: 'noSuitable',
+        },
+      ],
+    },
+    {
+      id: 'bodyInfo',
+      key: 'bodyInfo',
+      title: 'Дата визита',
+      isDisabledCondition: true,
+      fields: [
+        {
+          id: 'date',
+          title: 'Дата визита',
+          type: FieldType.DatePicker,
+          name: 'date',
+        },
+      ],
+    },
+    {
+      id: 'bodyInfo',
+      key: 'complaints',
+      title: 'Жалобы добровольца',
+      isDisabledCondition: true,
+      fields: [
+        {
+          id: 'complaints',
+          title: '',
+          type: FieldType.TextArea,
+          name: 'complaints',
+          columnStyle: {
+            width: '100%',
           },
         },
-        {
-          id: 'height',
-          title: 'Рост',
-          type: FieldType.InputNumber,
-          name: 'height',
-        },
+      ],
+    },
+    {
+      id: 'bodyInfo',
+      key: 'pressureTemperature',
+      title: 'Давление и температура',
+      isDisabledCondition: true,
+      fields: [
         {
           id: 'systolicPressure',
           title: 'Систолическое давление (мм. рт. ст.)',
@@ -39,7 +72,7 @@ export const physicalExaminationForm: FormConstructorModel = {
         },
         {
           id: 'diastolicPressure',
-          title: 'Диастолическое давление (мм. рт. ст.)',
+          title: <>Диастолическое давление <br /> (мм. рт. ст.)</>,
           type: FieldType.InputNumber,
           name: 'diastolicPressure',
           inputNumberProps: {
@@ -49,7 +82,7 @@ export const physicalExaminationForm: FormConstructorModel = {
         },
         {
           id: 'heartRate',
-          title: 'Частота сердечных сокращений (уд/мин)',
+          title: <>Частота сердечных сокращений <br />(уд/мин)</>,
           type: FieldType.InputNumber,
           name: 'heartRate',
           inputNumberProps: {
@@ -59,7 +92,7 @@ export const physicalExaminationForm: FormConstructorModel = {
         },
         {
           id: 'respiratoryRate',
-          title: 'Частота дыхательных движений (дв/мин)',
+          title: <>Частота дыхательных движений <br />(дв/мин)</>,
           type: FieldType.InputNumber,
           name: 'respiratoryRate',
           inputNumberProps: {
@@ -80,28 +113,13 @@ export const physicalExaminationForm: FormConstructorModel = {
       ],
     },
     {
-      id: 'bodyInfo',
-      key: 'complaints',
-      title: 'Жалобы добровольца',
-      fields: [
-        {
-          id: 'complaints',
-          title: '',
-          type: FieldType.TextArea,
-          name: 'complaints',
-          columnStyle: {
-            width: '100%',
-          },
-        },
-      ],
-    },
-    {
       id: 'table',
       key: 'table',
       title: 'Физикальный осмотр',
       fieldsLayout: 'table',
       addRemoveButtons: false,
       columnCount: 5,
+      isDisabledCondition: true,
       fields: [
         {
           id: 'system',
@@ -139,63 +157,41 @@ export const physicalExaminationForm: FormConstructorModel = {
       ],
     },
     {
-      id: 'instrumentalInfo',
-      key: 'instrumentalInfo',
+      id: 'labInstrumentalInfo',
+      key: 'labInstrumentalInfo',
       title: 'Лабораторные и инструментальные исследования',
       fieldsLayout: 'questionnaire',
-      nestedFields: [{
-        label: 'label',
-        value: 'value',
-      }],
+      isDisabledCondition: true,
+      nestedFields: [
+        {
+          label: 'label',
+          value: 'value',
+        },
+      ],
     },
     {
-      id: 'labInfo',
-      key: 'labInfo',
-      title: 'Лабораторные исследования',
+      id: 'criteriaInfo',
+      key: 'criteriaInfo',
+      title: 'Оценка критериев исключения',
       fieldsLayout: 'questionnaire',
-      nestedFields: [{
-        label: 'label',
-        value: 'value',
-      }],
+      isDisabledCondition: true,
+      nestedFields: [
+        {
+          label: 'label',
+          value: 'value',
+        },
+      ],
     },
     {
-      id: 'labTable',
-      key: 'labTable',
-      title: '',
-      fieldsLayout: 'table',
-      fields: [
+      id: 'visitInfo',
+      key: 'visitInfo',
+      title: 'Информация о визите',
+      fieldsLayout: 'questionnaire',
+      isDisabledCondition: true,
+      nestedFields: [
         {
-          id: 'system',
-          title: 'Анализ',
-          type: FieldType.Text,
-          name: 'system',
-        },
-        {
-          id: 'isCompleted',
-          title: 'Выполнено',
-          type: FieldType.DictionaryRadioGroup,
-          dictionaryName: Dictionary.YesNoNotSuitable,
-          name: 'isCompleted',
-        },
-        {
-          id: 'isNorm',
-          title: 'Показатели в норме?',
-          type: FieldType.DictionaryRadioGroup,
-          dictionaryName: Dictionary.YesNoNotSuitable,
-          name: 'isNorm',
-        },
-        {
-          id: 'isDeviation',
-          title: 'Отклонения',
-          type: FieldType.DictionaryRadioGroup,
-          dictionaryName: Dictionary.YesNoNotSuitable,
-          name: 'isDeviation',
-        },
-        {
-          id: 'comment',
-          title: 'Комментарий',
-          type: FieldType.TextArea,
-          name: 'comment',
+          label: 'label',
+          value: 'value',
         },
       ],
     },
